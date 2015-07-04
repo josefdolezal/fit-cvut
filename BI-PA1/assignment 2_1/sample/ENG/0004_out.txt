@@ -1,0 +1,4 @@
+Connection #1 interval:
+Connection #2 interval:
+Connection #2 left before:
+Invalid input.

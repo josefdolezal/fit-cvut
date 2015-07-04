@@ -1,0 +1,531 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     19279,        522]
+NotebookOptionsPosition[     17009,        449]
+NotebookOutlinePosition[     18038,        484]
+CellTagsIndexPosition[     17960,        479]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["", "SlideShowNavigationBar",
+ CellTags->"SlideShowHeader"],
+
+Cell[CellGroupData[{
+
+Cell["P\[RHacek]\[IAcute]klad DCV I", "Section",
+ CellChangeTimes->{{3.4940575683143196`*^9, 3.4940575741734695`*^9}, {
+  3.494226098581958*^9, 3.494226099288359*^9}, {3.557559434456712*^9, 
+  3.5575594401990404`*^9}}],
+
+Cell[TextData[{
+ ButtonBox["\[FilledLeftTriangle]\[ThickSpace]\[ThickSpace]\[ThickSpace]",
+  BaseStyle->"SlidePreviousNextLink",
+  Appearance->{Automatic, None},
+  ButtonFunction:>FrontEndExecute[{
+     FrontEndToken[
+      FrontEnd`ButtonNotebook[], "ScrollPagePrevious"]}],
+  ButtonNote->FEPrivate`FrontEndResource[
+   "FEStrings", "SlideshowPrevSlideText"]],
+ "\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]",
+ ButtonBox["\[ThickSpace]\[ThickSpace]\[ThickSpace]\[FilledRightTriangle]",
+  BaseStyle->"SlidePreviousNextLink",
+  Appearance->{Automatic, None},
+  ButtonFunction:>FrontEndExecute[{
+     FrontEndToken[
+      FrontEnd`ButtonNotebook[], "ScrollPageNext"]}],
+  ButtonNote->FEPrivate`FrontEndResource[
+   "FEStrings", "SlideshowNextSlideText"]]
+}], "PreviousNext"],
+
+Cell[TextData[{
+ "1) Zadefinujte funkci f takovou, \[ZHacek]e ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", 
+     RowBox[{"(", "x", ")"}]}], "=", 
+    RowBox[{"sin", "(", 
+     SuperscriptBox["x", "2"]}]}], TraditionalForm]]],
+ ")+1/(sin(x)+2) a vytiskn\[EHacek]te derivaci t\[EAcute]to funkce v \
+argumentu  x=",
+ Cell[BoxData[
+  FormBox[
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox["t", "2"], "+", "1"}]], TraditionalForm]]],
+ " pro 0\[LessEqual]t\[LessEqual]10, tedy y=f(",
+ Cell[BoxData[
+  FormBox[
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox["t", "2"], "+", "1"}]], TraditionalForm]]],
+ "), (libovoln\[EHacek]) popi\[SHacek]te osy a k\[RHacek]ivka nech\[THacek] \
+je siln\[AAcute] a \[CHacek]erven\[AAcute]. \n"
+}], "Text",
+ CellChangeTimes->{{3.4655755398414*^9, 3.465575568171*^9}, {
+   3.465576011203*^9, 3.4655762454838*^9}, {3.465576435601*^9, 
+   3.4655764712626*^9}, {3.466835780661888*^9, 3.466835785693138*^9}, {
+   3.466835842505638*^9, 3.466835897302513*^9}, {3.466835934802513*^9, 
+   3.466835935240013*^9}, {3.466836004552513*^9, 3.466836005208763*^9}, 
+   3.466836073271263*^9, {3.466836126880638*^9, 3.466836126911888*^9}, {
+   3.466836182193138*^9, 3.466836185630638*^9}, 3.466836268880638*^9, {
+   3.466838413693138*^9, 3.466838415661888*^9}, {3.466917900921875*^9, 
+   3.4669179014375*^9}, {3.46691811728125*^9, 3.46691811784375*^9}, {
+   3.46691905875*^9, 3.466919063421875*^9}, {3.494057488801748*^9, 
+   3.4940574978638997`*^9}}],
+
+Cell[TextData[{
+ "2) Vy\[RHacek]e\[SHacek]te rovnici, druh\[YAcute] z v\[YAcute]sledk\[URing] \
+dosa\[DHacek]te do v\[YAcute]razu \"",
+ StyleBox["vyraz", "Program",
+  FontWeight->"Bold"],
+ "\"."
+}], "Text",
+ CellChangeTimes->{{3.465577229017*^9, 3.4655773436302*^9}, {
+  3.466836488693138*^9, 3.466836492615013*^9}, {3.466836883990013*^9, 
+  3.466836906130638*^9}, {3.466838292411888*^9, 3.466838303943138*^9}, {
+  3.466838418161888*^9, 3.466838419818138*^9}, {3.466917957890625*^9, 
+  3.46691795928125*^9}, {3.4940575065979395`*^9, 3.4940575130039434`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"rce", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"3", "*", 
+     SuperscriptBox["x", "2"]}], "+", 
+    RowBox[{"4", "*", "x"}], "+", "6"}], "\[Equal]", 
+   "0"}]}], "\[IndentingNewLine]", 
+ RowBox[{"vyraz", "=", 
+  SqrtBox["x"]}]}], "Input",
+ CellChangeTimes->{{3.466836494333763*^9, 3.466836509708763*^9}, {
+  3.466836560646263*^9, 3.466836637896263*^9}, {3.466836707849388*^9, 
+  3.466836729615013*^9}}],
+
+Cell[TextData[{
+ "\n3) Vy\[RHacek]e\[SHacek]te soustavu difrovnic pro soustavu po\[CHacek]\
+\[AAcute]te\[CHacek]n\[IAcute]ch podm\[IAcute]nek, pro 0<t<100; Vytiskn\
+\[EHacek]te \[RHacek]e\[SHacek]en\[IAcute] x1(t), x2(t) do jednoho grafu. \
+Pomoc\[IAcute] ",
+ StyleBox["ParametricPlot", "Program",
+  FontWeight->"Bold"],
+ " vytiskn\[EHacek]te parametrick\[YAcute] graf x1(x2). Popi\[SHacek]te osy."
+}], "Text",
+ CellChangeTimes->{{3.4655776966426*^9, 3.4655777395114*^9}, {
+  3.4655778742005997`*^9, 3.4655778984742002`*^9}, {3.4655779457578*^9, 
+  3.4655779595326*^9}, {3.466837088255638*^9, 3.466837102302513*^9}, {
+  3.466838422115013*^9, 3.466838423536888*^9}, {3.466915700015625*^9, 
+  3.4669158270625*^9}, {3.466918020921875*^9, 3.466918021703125*^9}, {
+  3.466919038203125*^9, 3.466919039015625*^9}, {3.466919156171875*^9, 
+  3.466919169765625*^9}, {3.4940575026605906`*^9, 3.4940575108946495`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"soustavaRovnic", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"x1", "'"}], "[", "t", "]"}], "-", 
+       RowBox[{"x2", "[", "t", "]"}]}], "\[Equal]", 
+      RowBox[{
+       RowBox[{
+        FractionBox[
+         RowBox[{"-", "Pi"}], "30"], "*", 
+        RowBox[{"x1", "[", "t", "]"}]}], "+", "15"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x1", "[", "t", "]"}], "+", 
+       RowBox[{
+        RowBox[{"x2", "'"}], "[", "t", "]"}]}], "\[Equal]", 
+      RowBox[{"0.5", "*", 
+       RowBox[{"Sin", "[", "t", "]"}]}]}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"soustavaPodminek", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x1", "[", "0", "]"}], "\[Equal]", "5"}], ",", 
+     RowBox[{
+      RowBox[{"x2", "[", "0", "]"}], "\[Equal]", 
+      RowBox[{"-", "1"}]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nezndif", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x1", "[", "t", "]"}], ",", 
+     RowBox[{"x2", "[", "t", "]"}]}], "}"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.466837116115013*^9, 3.466837188786888*^9}, {
+   3.466837252490013*^9, 3.466837264396263*^9}, {3.466837366693138*^9, 
+   3.466837376974388*^9}, 3.4669153518125*^9, {3.466915382953125*^9, 
+   3.46691545759375*^9}, {3.466915494453125*^9, 3.46691553034375*^9}, {
+   3.46691557165625*^9, 3.4669156334375*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->"SlideShowHeader"],
+
+Cell[CellGroupData[{
+
+Cell["P\[RHacek]\[IAcute]klad DCV II", "Section",
+ CellChangeTimes->{{3.493989803359375*^9, 3.493989805234375*^9}, 
+   3.494057564158229*^9, {3.494226094853953*^9, 3.494226096181955*^9}, {
+   3.557559445189326*^9, 3.557559446416396*^9}}],
+
+Cell[TextData[{
+ ButtonBox["\[FilledLeftTriangle]\[ThickSpace]\[ThickSpace]\[ThickSpace]",
+  BaseStyle->"SlidePreviousNextLink",
+  Appearance->{Automatic, None},
+  ButtonFunction:>FrontEndExecute[{
+     FrontEndToken[
+      FrontEnd`ButtonNotebook[], "ScrollPagePrevious"]}],
+  ButtonNote->FEPrivate`FrontEndResource[
+   "FEStrings", "SlideshowPrevSlideText"]],
+ "\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]",
+ ButtonBox["\[ThickSpace]\[ThickSpace]\[ThickSpace]\[FilledRightTriangle]",
+  BaseStyle->"SlidePreviousNextLink",
+  Appearance->{Automatic, None},
+  ButtonFunction:>FrontEndExecute[{
+     FrontEndToken[
+      FrontEnd`ButtonNotebook[], "ScrollPageNext"]}],
+  ButtonNote->FEPrivate`FrontEndResource[
+   "FEStrings", "SlideshowNextSlideText"]]
+}], "PreviousNext"],
+
+Cell[TextData[{
+ "\n1) Zadefinujte funkci f takovou, \[ZHacek]e ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", 
+     RowBox[{"\[Omega]", ",", "\[Sigma]", ",", "t"}], ")"}], " ", "=", 
+    RowBox[{
+     RowBox[{"sin", "(", "\[Omega]t", ")"}], 
+     SuperscriptBox["e", 
+      RowBox[{"-", 
+       FractionBox[
+        SuperscriptBox["t", "2"], 
+        RowBox[{"2", 
+         SuperscriptBox["\[Sigma]", "2"]}]]}]]}]}], TraditionalForm]]],
+ " a vytiskn\[EHacek]te graf t\[EAcute]to funkce v argumentu  ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]]],
+ " pro -5\[LessEqual]x\[LessEqual]5, \[Omega]=2\[Pi]x a \[Sigma]=1.5, \
+(libovoln\[EHacek]) popi\[SHacek]te osy a k\[RHacek]ivka nech\[THacek] je \
+\[CHacek]erven\[AAcute]."
+}], "Text",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQAWIQfeBNVR//pZeOVytYJ4HoX3VpJ0G0V/X6ZyA6xbr4
+H4i2SH/BJACkeV69P2Z++aWjjOX8cyCaoeFAhD+IZngCpf/tR6EbEp2CwXQ/
+lF6QCaF3ZIPoPXWzVBddeenYM+GlFohWb/vmC6JvHDwQD6InXSxIAdFM1/nT
+QPTsKbNrQbSVcnYziFaw3doLol+dSJkEojXmuWwB0etVnbaDaA/jlXtA9Lmj
+rEdAdFWA8wmwPREBp0F0zNP+CyD6ydOjYJqh4X3GajCtmwmhL+x05HgFpEt2
+gejXlnGiG3+9cjSzaQTTADndrjU=
+  "]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.49398980971875*^9}],
+
+Cell["2) Vy\[RHacek]e\[SHacek]te soustavu rovnic, v\[YAcute]sledek dosa\
+\[DHacek]te do v\[YAcute]razu vyr.", "Text",
+ CellChangeTimes->{{3.465577229017*^9, 3.4655773436302*^9}, {
+  3.466238571890625*^9, 3.46623857659375*^9}, {3.46623880115625*^9, 
+  3.466238812484375*^9}, {3.493989814671875*^9, 3.4939898405*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"uloha", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SubscriptBox["x", "2"]}], "+", 
+       RowBox[{"3", " ", 
+        SubscriptBox["x", "1"]}]}], "\[Equal]", "3"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "6"}], " ", 
+        SubscriptBox["x", "1"]}], "+", 
+       RowBox[{"17", " ", 
+        SubscriptBox["x", "2"]}], "+", 
+       RowBox[{"2", " ", 
+        SubscriptBox["x", "3"]}]}], "\[Equal]", "14"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "21"}], " ", 
+        SubscriptBox["x", "1"]}], "+", 
+       RowBox[{"15", " ", 
+        SubscriptBox["x", "3"]}]}], "\[Equal]", "3"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"vyr", "=", 
+   RowBox[{
+    SubscriptBox["x", "1"], "+", 
+    SubscriptBox["x", "2"], "-", 
+    SubscriptBox["x", "3"]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.46563061184375*^9, 3.46563064665625*^9}, {
+  3.466182384793763*^9, 3.4661824238599377`*^9}, {3.466182479580059*^9, 
+  3.466182490235381*^9}, {3.466944313328125*^9, 3.466944315015625*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.493989819015625*^9}],
+
+Cell["\<\
+3) Vy\[RHacek]e\[SHacek]te soustavu difrovnic pro soustavu po\[CHacek]\
+\[AAcute]te\[CHacek]n\[IAcute]ch podm\[IAcute]nek, pro 0<t<9\[Pi]/2; vytiskn\
+\[EHacek]te graf x1[t] a x2[t] a popi\[SHacek]te osy.\
+\>", "Text",
+ CellChangeTimes->{{3.4655776966426*^9, 3.4655777395114*^9}, {
+   3.4655778742005997`*^9, 3.4655778984742002`*^9}, {3.4655779457578*^9, 
+   3.4655779595326*^9}, {3.4656304929375*^9, 3.46563055515625*^9}, {
+   3.46563072053125*^9, 3.465630721140625*^9}, {3.4661825152313232`*^9, 
+   3.46618251745452*^9}, {3.466238525734375*^9, 3.4662385276875*^9}, {
+   3.466238578578125*^9, 3.4662385786875*^9}, {3.4662388056875*^9, 
+   3.46623880871875*^9}, {3.466926370910071*^9, 3.466926378738446*^9}, {
+   3.4669272433265395`*^9, 3.4669272889839582`*^9}, {3.4669273429853406`*^9, 
+   3.466927358391985*^9}, {3.4669274242374206`*^9, 3.466927456378868*^9}, 
+   3.4939898419375*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"soustavaRovnic", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"x1", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"x2", "[", "t", "]"}]}], "-", 
+       RowBox[{"0.5", "*", 
+        RowBox[{"x1", "[", "t", "]"}]}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x2", "'"}], "[", "t", "]"}], "\[Equal]", 
+      RowBox[{"x1", "[", "t", "]"}]}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"soustavaPodminek", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"x1", "[", "0", "]"}], "\[Equal]", "1"}], ",", 
+    RowBox[{
+     RowBox[{"x2", "[", "0", "]"}], "==", "0"}]}], "}"}]}]}], "Input",
+ CellChangeTimes->{{3.465630745328125*^9, 3.4656307515625*^9}, {
+   3.466182575147478*^9, 3.4661825931233263`*^9}, {3.4669264783197575`*^9, 
+   3.4669264845543327`*^9}, 3.4669272356700935`*^9, {3.493989821640625*^9, 
+   3.493989826875*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.49398982425*^9, 3.493989824265625*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SlideShowNavigationBar",
+ CellTags->"SlideShowHeader"],
+
+Cell[CellGroupData[{
+
+Cell["P\[RHacek]\[IAcute]klad DCV III", "Section",
+ CellChangeTimes->{{3.494226081437132*^9, 3.494226091352747*^9}, {
+  3.5575594513766794`*^9, 3.5575594552108994`*^9}}],
+
+Cell[TextData[{
+ "1) Napi\[SHacek]te seznam pravidel, ktery umozni pouzivat jednotky (\
+\[CapitalOmega], H, L) a ruzne predpody(k, M, m, \[Mu], n) u soucastek: \
+rezistor, civka, kapacitor. Zadefinujte tyto soucastky a rovnice. Na rovnice \
+aplikujte Vami vytvorena pravidla.\nR1=10 k\[CapitalOmega]\nR2=20 M\
+\[CapitalOmega]\nC1=10 mH\nC2=100 \[Mu]H\nL1=5 mH\nL2=3 \[Mu]H\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     FractionBox["u12", "R1"], "+", 
+     FractionBox["u23", "R2"]}], "=", 
+    RowBox[{
+     RowBox[{"C1", "*", 
+      RowBox[{"u3", "'"}]}], "-", 
+     RowBox[{"C2", "*", "u4"}]}]}], TraditionalForm]]],
+ "'+i1+i2\nu1=L1*i1'\nu2=L2*i2'\n"
+}], "Text",
+ CellChangeTimes->{{3.4942261347264147`*^9, 3.4942261381948195`*^9}, {
+  3.4942316754694633`*^9, 3.4942320815816913`*^9}}],
+
+Cell["\<\
+2) Spo\[CHacek]itejte, od kolika m\[EHacek]s\[IAcute]c\[URing] je \
+v\[YAcute]hodn\[EHacek]j\[SHacek]\[IAcute] pen\[IAcute]ze ukl\[AAcute]dat na \
+sp\[RHacek]\[IAcute]c\[IAcute] \[UAcute]\[CHacek]et oproti \
+duchodov\[EAcute]mu spo\[RHacek]en\[IAcute]. Ka\[ZHacek]d\[YAcute] \
+m\[EHacek]s\[IAcute]c vlo\[ZHacek]\[IAcute]te 1500,-. U duchodov\[EAcute]ho \
+spo\[RHacek]en\[IAcute] vam d\[AAcute] stat ka\[ZHacek]d\[YAcute] m\[EHacek]s\
+\[IAcute]c 500,-. Ro\[CHacek]n\[IAcute] \[UAcute]rokov\[AAcute] sazba na spo\
+\[RHacek]\[IAcute]c\[IAcute]m \[UAcute]\[CHacek]tu je po celou dobu spo\
+\[RHacek]en\[IAcute] 3%. Do 1 grafu zobrazte pr\[URing]b\[EHacek]h \
+v\[YAcute]hodnosti spo\[RHacek]\[IAcute]c\[IAcute]ho \[UAcute]\[CHacek]tu i d\
+\[URing]chodov\[EAcute]ho spo\[RHacek]en\[IAcute]. Pou\[ZHacek]ijte \
+v\[AAcute]mi definovanou funkci, vestav\[EHacek]nou funkci NestList, Table a \
+ListPlot. Jako parametr grafu pou\[ZHacek]ijte pravidlo: Filling \[Rule] Axis.
+\
+\>", "Text",
+ CellChangeTimes->{{3.494232087805047*^9, 3.494232353661253*^9}, {
+   3.494232388416241*^9, 3.494232406767291*^9}, 3.4942324599732924`*^9, {
+   3.494233122187436*^9, 3.494233148245927*^9}}],
+
+Cell["\<\
+3) Nadefinujte funkci 2 prom\[EHacek]nn\[YAcute]ch jejich v\[YAcute]stupem \
+bude list dvou hodnot, kde jedna p\[RHacek]edstavuje sou\[CHacek]et vstupn\
+\[IAcute]ch prom\[EHacek]nn\[YAcute]ch a druh\[AAcute] rozd\[IAcute]l vstupn\
+\[IAcute]ch prom\[EHacek]nn\[YAcute]ch. Na tuto funkci aplikujte funkci \
+NestList. V\[YAcute]sledek zobrazte v jednom grafu, kde jeden pr\[URing]b\
+\[EHacek]h bude zobrazovat pr\[URing]beh prvn\[IAcute] polo\[ZHacek]ky listu \
+a druh\[YAcute] druh\[YAcute] pr\[URing]b\[EHacek]h polo\[ZHacek]ky listu. V\
+\[YAcute]po\[CHacek]et prove\[DHacek]te pro 50 vno\[RHacek]en\[IAcute]. Jako \
+parametr grafu pou\[ZHacek]ijte pravidla: Filling \[Rule] Axis, PlotRange \
+\[Rule] All.\
+\>", "Text",
+ CellChangeTimes->{{3.494232467377303*^9, 3.494232486195732*^9}, {
+  3.4942326684460115`*^9, 3.4942327914477987`*^9}, {3.4942328641915092`*^9, 
+  3.494232888008746*^9}, {3.4942330285481615`*^9, 3.494233096117945*^9}}],
+
+Cell[TextData[{
+ "4) Oba pr\[URing]b\[EHacek]hy z p\[RHacek]\[IAcute]kladu 3 prolo\[ZHacek]te \
+rovnic\[IAcute] ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "+", 
+    RowBox[{"b", "*", "x"}], "+", 
+    RowBox[{"c", "*", 
+     SuperscriptBox["x", "2"]}]}], TraditionalForm]]],
+ ". Najd\[EHacek]te pr\[URing]se\[CHacek]\[IAcute]k t\[EHacek]chto dvou funkc\
+\[IAcute]. Pou\[ZHacek]ijte funkci FIT. P\[RHacek]\[IAcute]klad najdete v \
+helpu."
+}], "Text",
+ CellChangeTimes->{{3.4942348778963203`*^9, 3.494234926384795*^9}, {
+  3.4942350009657097`*^9, 3.494235137996738*^9}}],
+
+Cell[TextData[{
+ ButtonBox["\[FilledLeftTriangle]\[ThickSpace]\[ThickSpace]\[ThickSpace]",
+  BaseStyle->"SlidePreviousNextLink",
+  Appearance->{Automatic, None},
+  ButtonFunction:>FrontEndExecute[{
+     FrontEndToken[
+      FrontEnd`ButtonNotebook[], "ScrollPagePrevious"]}],
+  ButtonNote->FEPrivate`FrontEndResource[
+   "FEStrings", "SlideshowPrevSlideText"]],
+ "\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]",
+ ButtonBox["\[ThickSpace]\[ThickSpace]\[ThickSpace]\[FilledRightTriangle]",
+  BaseStyle->"SlidePreviousNextLink",
+  Appearance->{Automatic, None},
+  ButtonFunction:>FrontEndExecute[{
+     FrontEndToken[
+      FrontEnd`ButtonNotebook[], "ScrollPageNext"]}],
+  ButtonNote->FEPrivate`FrontEndResource[
+   "FEStrings", "SlideshowNextSlideText"]]
+}], "PreviousNext"]
+}, Open  ]]
+}, Open  ]]
+},
+ScreenStyleEnvironment->"SlideShow",
+WindowSize->{Full, Full},
+WindowMargins->{{27, Automatic}, {Automatic, 1}},
+PrintingCopies->1,
+PrintingPageRange->{32000, 32000},
+PrintingOptions->{"Magnification"->1.,
+"PaperOrientation"->"Landscape",
+"PaperSize"->{841.92, 594.9599999999999}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+TooltipBoxOptions->{TooltipDelay->Automatic},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "SlideShowHeader"->{
+  Cell[567, 22, 64, 1, 1, "SlideShowNavigationBar",
+   CellTags->"SlideShowHeader"],
+  Cell[6530, 181, 64, 1, 1, "SlideShowNavigationBar",
+   CellTags->"SlideShowHeader"],
+  Cell[12435, 345, 64, 1, 1, "SlideShowNavigationBar",
+   CellTags->"SlideShowHeader"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"SlideShowHeader", 17676, 469}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 64, 1, 1, "SlideShowNavigationBar",
+ CellTags->"SlideShowHeader"],
+Cell[CellGroupData[{
+Cell[656, 27, 218, 3, 123, "Section"],
+Cell[877, 32, 781, 18, 41, "PreviousNext"],
+Cell[1661, 52, 1469, 35, 139, "Text"],
+Cell[3133, 89, 558, 11, 46, "Text"],
+Cell[3694, 102, 428, 12, 82, "Input"],
+Cell[4125, 116, 906, 15, 106, "Text"],
+Cell[5034, 133, 1447, 42, 126, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6530, 181, 64, 1, 1, "SlideShowNavigationBar",
+ CellTags->"SlideShowHeader"],
+Cell[CellGroupData[{
+Cell[6619, 186, 237, 3, 123, "Section"],
+Cell[6859, 191, 781, 18, 41, "PreviousNext"],
+Cell[7643, 211, 1131, 29, 132, "Text"],
+Cell[8777, 242, 86, 1, 70, "Input"],
+Cell[8866, 245, 315, 4, 45, "Text"],
+Cell[9184, 251, 1150, 36, 71, "Input"],
+Cell[10337, 289, 87, 1, 70, "Input"],
+Cell[10427, 292, 895, 14, 75, "Text"],
+Cell[11325, 308, 970, 28, 70, "Input"],
+Cell[12298, 338, 88, 1, 44, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12435, 345, 64, 1, 1, "SlideShowNavigationBar",
+ CellTags->"SlideShowHeader"],
+Cell[CellGroupData[{
+Cell[12524, 350, 169, 2, 123, "Section"],
+Cell[12696, 354, 802, 19, 388, "Text"],
+Cell[13501, 375, 1175, 18, 165, "Text"],
+Cell[14679, 395, 946, 14, 135, "Text"],
+Cell[15628, 411, 569, 14, 78, "Text"],
+Cell[16200, 427, 781, 18, 41, "PreviousNext"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

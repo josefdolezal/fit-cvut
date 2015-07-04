@@ -1,0 +1,18 @@
+ #element html
+  #attribute lang=en
+  #attribute xml:lang=en
+  #attribute xmlns=http://www.w3.org/1999/xhtml
+  #element head
+   #element title
+    #text FIT CVUT
+  #element body
+   #text Markup used in this document is compatible with 
+   #element b
+    #text XHTML
+    #entity-reference nbsp 
+    #text  1
+   #text . It should not contain some characters, e.g., 
+   #processing-instruction editor emph
+   #cdata-section <
+   #comment  this does not display 
+   #text .

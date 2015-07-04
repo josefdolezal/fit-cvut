@@ -1,0 +1,3 @@
+Attendance records:
+The longest shift: 7:00:00
+Employee of the day: 20

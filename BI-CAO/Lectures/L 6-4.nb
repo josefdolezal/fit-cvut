@@ -1,0 +1,106 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2706,         96]
+NotebookOptionsPosition[      2378,         79]
+NotebookOutlinePosition[      2737,         95]
+CellTagsIndexPosition[      2694,         92]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"U1", "=", "8"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"R1", "=", "150000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"R2", "=", "220000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k", "=", 
+   RowBox[{"2", "*", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "3"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Uth", "=", "2.5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"U2", "=", "12"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Rd", "=", "470"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Ugs", "=", 
+   RowBox[{"Ur2", "=", 
+    RowBox[{"U1", "*", 
+     RowBox[{"(", 
+      RowBox[{"R2", "/", 
+       RowBox[{"(", 
+        RowBox[{"R1", "+", "R2"}], ")"}]}], ")"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Id", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"k", "*", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"Ugs", "-", "Uth"}], ")"}], "2"]}], ")"}], "/", "2"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Urd", "=", 
+   RowBox[{"Rd", "*", "Id"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Uds", "=", 
+   RowBox[{"U2", "-", "Urd"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Prd", "=", 
+   RowBox[{"Id", "*", "Urd"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Pt", "=", 
+   RowBox[{"Uds", "*", "Id"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.623995274148479*^9, 3.6239953359589033`*^9}, {
+  3.623995424141292*^9, 3.6239955709167767`*^9}, {3.62399560640341*^9, 
+  3.623995644883514*^9}}],
+
+Cell[BoxData["0.048924481979202974`"], "Output",
+ CellChangeTimes->{3.6239953366007547`*^9, 3.623995645969048*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 800},
+WindowMargins->{{316, Automatic}, {Automatic, 50}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1665, 51, 290, "Input"],
+Cell[2248, 75, 114, 1, 62, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

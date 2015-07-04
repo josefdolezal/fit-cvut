@@ -1,0 +1,4 @@
+Zadejte rozmer mistnosti:
+Bod #1:
+Bod #2:
+Nespravny vstup.

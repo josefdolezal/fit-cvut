@@ -1,0 +1,4 @@
+Connection #1 interval:
+Connection #2 interval:
+Connection #2 left before:
+Connection #2 will depart 1 minute after the arrival of connection #1 in 3:12.

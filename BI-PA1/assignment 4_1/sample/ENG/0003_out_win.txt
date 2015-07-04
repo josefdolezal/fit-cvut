@@ -1,0 +1,2 @@
+Beam lengths:
+Triangles: 7

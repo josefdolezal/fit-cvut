@@ -1,0 +1,4 @@
+Interval spoje #1:
+Interval spoje #2:
+Cas od odjezdu spoje #2:
+Spoj #2 nikdy nebude odjizdet 1 minutu po prijezdu spoje #1.

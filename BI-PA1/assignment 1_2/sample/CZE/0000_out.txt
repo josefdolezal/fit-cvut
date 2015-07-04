@@ -1,0 +1,5 @@
+Bod #1:
+Bod #2:
+Bod #3:
+Bod #4:
+Body tvori obdelnik.

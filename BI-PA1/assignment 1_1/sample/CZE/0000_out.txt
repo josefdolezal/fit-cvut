@@ -1,0 +1,5 @@
+Zadejte rozmer mistnosti:
+Bod #1:
+Bod #2:
+Delka potrubi: 380
+Delka hadice: 310.483494

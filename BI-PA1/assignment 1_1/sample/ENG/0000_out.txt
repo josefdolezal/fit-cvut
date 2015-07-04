@@ -1,0 +1,5 @@
+Enter room dimension:
+Point #1:
+Point #2:
+Piping length: 380
+Hose length: 310.483494
