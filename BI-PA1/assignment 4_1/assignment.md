@@ -18,7 +18,7 @@ Váš program bude spouštěn v omezeném testovacím prostředí. Je omezen dob
 Hodnocení této úlohy má část povinnou a část bonusovou. V povinné části se testují malé objemy vstupů, pro řešení postačuje naivní algoritmus. Bonusová část je nepovinná, jejím zvládnutím lze získat body navíc. V bonusovém testu jsou na vstupu zadávané větší počty nosníků, pro výpočet v časovém limitu je potřeba použít efektivnější algoritmus.
 
 ## Ukázka práce programu
-Ukázková data jsou uložena ve složce _sample_.
+Ukázková data jsou uložena ve složce [_sample_](sample).
 
 ## Poznámky
 * V povinné části jsou zadávané hodnoty malé, pro implementaci postačuje datový typ `int`. Pokud chcete uspět i v bonusové části, datový typ `int` nestačí. Je potřeba použít datový typ `long long` případně `int64_t` z hlavičkového souboru `stdint.h`. Kompilátor při použití typu `long long` hlásí varování, toto varování je při testování vypnuté, tedy datový typ `long long` lze použít bez penalizací.

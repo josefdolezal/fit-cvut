@@ -41,4 +41,4 @@ Třída je testovaná v omezeném prostředí, kde je limitovaná dostupná pam�
 Hodnocení je rozděleno mezi povinné, nepovinné a bonusové testy. Pro zvládnutí povinných testů stačí implementace základní verze kopírování obsahu. Pro zvládnutí dalších testů je potřeba využít techniky copy-on-write, aby vznikající kopie zabíraly rozumný objem paměti.
 
 ## Ukázka použití
-Ukázkové použití je uvedeno v souboru _sample.cpp_.
+Ukázkové použití je uvedeno v souboru [_sample.cpp_](sample.cpp).

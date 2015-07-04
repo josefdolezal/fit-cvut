@@ -41,7 +41,7 @@ Program musí správně ošetřovat vstupy. Pokud jsou vstupy neplatné, program
 Program je spouštěn v omezeném prostředí. Je omezen dobou běhu i dostupnou pamětí. Pro úspěšné zvládnutí je potřeba realizovat řešení, které nebude zbytečně plýtvat pamětí a nebude zbytečně plýtvat časem.
 
 ## Ukázka práce programu
-Ukázková data jsou uložena ve složce _sample_.
+Ukázková data jsou uložena ve složce [_sample_](sample).
 
 ## Nápověda
 * Pro zpracování vstupu se hodí funkce `scanf` s formátem `"%c"` a `" %c"`. Zjistěte si, jaký je v nich rozdíl.

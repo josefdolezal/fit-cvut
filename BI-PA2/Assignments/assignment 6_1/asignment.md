@@ -47,4 +47,4 @@ Odevzdávejte zdrojový kód s implementací tříd `CTable`, `CText`, `CImage` 
 Při implementaci můžete využít STL a typ c++ `string`. Základem implementace je ale dobrý návrh tříd a využití polymorfismu. Vaše řešení nebude uznáno, pokud nebude využívat polymorfismus.
 
 ## Ukázka použití
-Ukázkové použití je uvedeno v souboru _sample.cpp_.
+Ukázkové použití je uvedeno v souboru [_sample.cpp_](sample.cpp).

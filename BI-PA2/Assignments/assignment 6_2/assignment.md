@@ -5,4 +5,4 @@
 Ostatní vlastnosti tříd zůstávají beze změn.
 
 ## Ukázkové použití
-Ukázkové použití je uvedeno v souboru _sample.cpp_.
+Ukázkové použití je uvedeno v souboru [_sample.cpp_](sample.cpp).

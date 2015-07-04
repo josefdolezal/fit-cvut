@@ -30,4 +30,4 @@ Odevzdávejte zdrojový kód s implementací třídy `CExam`. Za základ impleme
 Při implementaci můžete/musíte využít kolekce z STL. Není ale rozumné na všechny vnitřní struktury používat kolekci `vector`.
 
 ## Ukázkové použití
-Ukázkové použití je uvedeno v souboru _sample.cpp_.
+Ukázkové použití je uvedeno v souboru [_sample.cpp_](sample.cpp).

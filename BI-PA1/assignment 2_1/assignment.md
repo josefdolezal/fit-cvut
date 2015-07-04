@@ -56,7 +56,7 @@ int main ( int argc, char * argv [] )
 Hodnocení této úlohy má část povinnou a část bonusovou. V povinné části se testují rozumné hodnoty, vstupů, pro řešení postačuje naivní algoritmus. Bonusová část je nepovinná, jejím zvládnutím lze získat body navíc. V bonusovém testu jsou na vstupu zadávané velké intervaly, pro výpočet v časovém limitu je potřeba použít efektivnější algoritmus.
 
 ## Ukázka práce programu
-Ukázková data jsou uložena ve složce _sample_.
+Ukázková data jsou uložena ve složce [_sample_](sample).
 
 ## Poznámky
 * V povinné části jsou zadávané hodnoty malé, pro implementaci postačuje datový typ `int`. V bonusové části datový typ `int` nestačí, je potřeba použít datový typ `long long` případně `int64_t` z hlavičkového souboru stdint.h. Kompilátor při použití typu `long long` hlásí varování, toto varování je při testování vypnuté, tedy datový typ lze použít bez penalizací.

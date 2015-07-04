@@ -33,4 +33,4 @@ Pro ukládání záznamů v databázi alokujte prostor dynamicky případně pou
 Pokud budete používat STL, nemusíte se starat o problémy s alokací pole. Z STL máte v této úloze k dispozici povolený kontejner `vector` (úmyslně ne `list`, `set`, `map` a další).
 
 ## Ukázka použití
-Ukázkové použití je uvedeno v souboru _sample.cpp_.
+Ukázkové použití je uvedeno v souboru [_sample.cpp_](sample.cpp).

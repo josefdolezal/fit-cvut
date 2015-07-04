@@ -42,4 +42,4 @@ int main ( int argc, char * argv [] )
 ```
 
 ## Ukázka práce programu
-Ukázková data jsou uložena ve složce _sample_.
+Ukázková data jsou uložena ve složce [_sample_](sample).

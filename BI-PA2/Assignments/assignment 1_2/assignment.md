@@ -112,7 +112,7 @@ int main ( int argc, char * argv [] )
 ```
 
 ## Ukázka práce programu
-Ukázková data jsou uložena ve složce _sample_.
+Ukázková data jsou uložena ve složce [_sample_](sample).
 
 ## Poznámky
 * Pečlivě ošetřujte souborové operace. Testovací prostředí úmyslně testuje Vaši implementaci pro soubory neexistující, nečitelné nebo soubory s nesprávným datovým obsahem.

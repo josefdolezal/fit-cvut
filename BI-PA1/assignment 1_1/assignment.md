@@ -50,7 +50,7 @@ int main ( int argc, char * argv [] )
 } 
 ```
 ## Ukázka práce programu
-Ukázková data jsou uložena ve složce _sample_.
+Ukázková data jsou uložena ve složce [_sample_](sample).
 
 ## Poznámky
 * Řešení se liší podle toho, v jakých stěnách leží propojované body. Celkem může nastat 6*6=36 variant vzájemných poloh. Program, který by každou takovou variantu řešil samostatně, by byl nesmyslně dlouhý. Snažte se rozmyslet strukturu programu tak, abyste počet různých větví programu co nejvíce omezili. Využitím symetrie lze dojít k počtu 6 různých větví programu.

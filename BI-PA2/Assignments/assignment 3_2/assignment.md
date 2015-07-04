@@ -71,7 +71,7 @@ Je-li manipulátor date_format jednou zaslaný do `stream`u, platí tento formá
 Formát na výstupu může být libovolný (extrém je formát "hello kitty" v ukázce). Vstupní formát má omezení, aby šlo vstup jednoznačně zpracovat: den, měsíc a rok (%d, %m a %Y) musí být ve formátu uveden a to právě jednou. V ukázce je vidět, že vstupní formáty s chybějící či nadbytečnou konverzí vedou k chybě při následném načítání.
 
 ## Ukázka použití
-Ukázkové použití je uvedeno v souboru _sample.cpp_.
+Ukázkové použití je uvedeno v souboru [_sample.cpp_](sample.cpp).
 
 ## Nápověda
 * Podle zvolené implementace může hrát roli, že některé dny nemají 24 hodin.
