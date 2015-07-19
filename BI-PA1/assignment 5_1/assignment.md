@@ -1,3 +1,5 @@
+# Docházkový systém
+## Zadání
 Úkolem je realizovat program, který bude vyhodnocovat docházkový systém.
 
 Předpokládejme docházkový systém, který kontroluje příchody a odchody pracovníků ze zaměstnání. Každý pracovník je vybaven svoji kartou identifikovanou unikátním číslem. Karta po přiložení na snímač umožní vstup na pracoviště nebo odchod z pracoviště. Snímačů je u vchodu více, projít lze libovolným z nich. Každý snímač vytváří protokol (log) o kartách použitých pro příchod/odchod. V logu je uveden čas, číslo karty a směr (dovnitř/ven). Program dostane na vstup logy z těchto snímačů a vyhodnotí je.

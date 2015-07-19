@@ -1,3 +1,4 @@
+# Stavebnice Merkur
 ## Zadání
 Úkolem je realizovat program, který vypočte počet různých trojúhelníků, který lze sestavit ze stavebnice **Merkur**.
 
