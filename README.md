@@ -31,7 +31,7 @@ Tento repozitář jsem vytvořil s úmyslem sdílet vybrané zdrojové kódy, kt
   * [Sazba textu](BI-TED/assignment 3) (30b)
 
 ## Poznámka
-Uvedené zdrojové slouží pro **inspiraci**, ne jako možnost volného víkendu bez ProgTestu. **Důrazně nedoporučuji cizí zdrojové kódy odevzdávat/vydávat za vlastní.** Pokud budete přebírat část kódu (ať už *kopy-pasta* nebo pozměněné), uveďte řádně autora - předejdete tím možnému obvinění z plagiátorství ze strany školy.
+Uvedené zdrojové kódy slouží pro **inspiraci**, ne jako možnost volného víkendu bez ProgTestu. **Důrazně nedoporučuji cizí zdrojové kódy odevzdávat/vydávat za vlastní.** Pokud budete přebírat část kódu (ať už *kopy-pasta* nebo pozměněné), uveďte řádně autora - předejdete tím možnému obvinění z plagiátorství ze strany školy.
 
 Zveřejněné úlohy se mohou lišit od těch, které jsem ve škole odevzdal, nenesu tedy odpovědnost za jejich funkčnost.
 
