@@ -1,0 +1,417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B4716AEA1BE88F3A0060A96A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4716AE91BE88F3A0060A96A /* AppDelegate.swift */; };
+		B4716AEC1BE88F3A0060A96A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4716AEB1BE88F3A0060A96A /* ViewController.swift */; };
+		B4716AEF1BE88F3A0060A96A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4716AED1BE88F3A0060A96A /* Main.storyboard */; };
+		B4716AF11BE88F3A0060A96A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4716AF01BE88F3A0060A96A /* Assets.xcassets */; };
+		B4716AF41BE88F3A0060A96A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4716AF21BE88F3A0060A96A /* LaunchScreen.storyboard */; };
+		B4716AFF1BE88F3A0060A96A /* bi_ios_recognizersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4716AFE1BE88F3A0060A96A /* bi_ios_recognizersUITests.swift */; };
+		B4716B0A1BE890180060A96A /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4716B091BE890180060A96A /* GraphView.swift */; };
+		B4716B0C1BE895E60060A96A /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4716B0B1BE895E60060A96A /* PanelView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B4716AFB1BE88F3A0060A96A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4716ADE1BE88F3A0060A96A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4716AE51BE88F3A0060A96A;
+			remoteInfo = "bi-ios-recognizers";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B4716AE61BE88F3A0060A96A /* bi-ios-recognizers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bi-ios-recognizers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4716AE91BE88F3A0060A96A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B4716AEB1BE88F3A0060A96A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B4716AEE1BE88F3A0060A96A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B4716AF01BE88F3A0060A96A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4716AF31BE88F3A0060A96A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B4716AF51BE88F3A0060A96A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4716AFA1BE88F3A0060A96A /* bi-ios-recognizersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bi-ios-recognizersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4716AFE1BE88F3A0060A96A /* bi_ios_recognizersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bi_ios_recognizersUITests.swift; sourceTree = "<group>"; };
+		B4716B001BE88F3A0060A96A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4716B091BE890180060A96A /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		B4716B0B1BE895E60060A96A /* PanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4716AE31BE88F3A0060A96A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4716AF71BE88F3A0060A96A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B4716ADD1BE88F3A0060A96A = {
+			isa = PBXGroup;
+			children = (
+				B4716AE81BE88F3A0060A96A /* bi-ios-recognizers */,
+				B4716AFD1BE88F3A0060A96A /* bi-ios-recognizersUITests */,
+				B4716AE71BE88F3A0060A96A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B4716AE71BE88F3A0060A96A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4716AE61BE88F3A0060A96A /* bi-ios-recognizers.app */,
+				B4716AFA1BE88F3A0060A96A /* bi-ios-recognizersUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4716AE81BE88F3A0060A96A /* bi-ios-recognizers */ = {
+			isa = PBXGroup;
+			children = (
+				B4716AE91BE88F3A0060A96A /* AppDelegate.swift */,
+				B4716AEB1BE88F3A0060A96A /* ViewController.swift */,
+				B4716AED1BE88F3A0060A96A /* Main.storyboard */,
+				B4716AF01BE88F3A0060A96A /* Assets.xcassets */,
+				B4716AF21BE88F3A0060A96A /* LaunchScreen.storyboard */,
+				B4716AF51BE88F3A0060A96A /* Info.plist */,
+				B4716B091BE890180060A96A /* GraphView.swift */,
+				B4716B0B1BE895E60060A96A /* PanelView.swift */,
+			);
+			path = "bi-ios-recognizers";
+			sourceTree = "<group>";
+		};
+		B4716AFD1BE88F3A0060A96A /* bi-ios-recognizersUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B4716AFE1BE88F3A0060A96A /* bi_ios_recognizersUITests.swift */,
+				B4716B001BE88F3A0060A96A /* Info.plist */,
+			);
+			path = "bi-ios-recognizersUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4716AE51BE88F3A0060A96A /* bi-ios-recognizers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4716B031BE88F3A0060A96A /* Build configuration list for PBXNativeTarget "bi-ios-recognizers" */;
+			buildPhases = (
+				B4716AE21BE88F3A0060A96A /* Sources */,
+				B4716AE31BE88F3A0060A96A /* Frameworks */,
+				B4716AE41BE88F3A0060A96A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "bi-ios-recognizers";
+			productName = "bi-ios-recognizers";
+			productReference = B4716AE61BE88F3A0060A96A /* bi-ios-recognizers.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B4716AF91BE88F3A0060A96A /* bi-ios-recognizersUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4716B061BE88F3A0060A96A /* Build configuration list for PBXNativeTarget "bi-ios-recognizersUITests" */;
+			buildPhases = (
+				B4716AF61BE88F3A0060A96A /* Sources */,
+				B4716AF71BE88F3A0060A96A /* Frameworks */,
+				B4716AF81BE88F3A0060A96A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4716AFC1BE88F3A0060A96A /* PBXTargetDependency */,
+			);
+			name = "bi-ios-recognizersUITests";
+			productName = "bi-ios-recognizersUITests";
+			productReference = B4716AFA1BE88F3A0060A96A /* bi-ios-recognizersUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4716ADE1BE88F3A0060A96A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Ackee s.r.o.";
+				TargetAttributes = {
+					B4716AE51BE88F3A0060A96A = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 69T295ARCG;
+					};
+					B4716AF91BE88F3A0060A96A = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = B4716AE51BE88F3A0060A96A;
+					};
+				};
+			};
+			buildConfigurationList = B4716AE11BE88F3A0060A96A /* Build configuration list for PBXProject "bi-ios-recognizers" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B4716ADD1BE88F3A0060A96A;
+			productRefGroup = B4716AE71BE88F3A0060A96A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4716AE51BE88F3A0060A96A /* bi-ios-recognizers */,
+				B4716AF91BE88F3A0060A96A /* bi-ios-recognizersUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B4716AE41BE88F3A0060A96A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4716AF41BE88F3A0060A96A /* LaunchScreen.storyboard in Resources */,
+				B4716AF11BE88F3A0060A96A /* Assets.xcassets in Resources */,
+				B4716AEF1BE88F3A0060A96A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4716AF81BE88F3A0060A96A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4716AE21BE88F3A0060A96A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4716AEC1BE88F3A0060A96A /* ViewController.swift in Sources */,
+				B4716B0C1BE895E60060A96A /* PanelView.swift in Sources */,
+				B4716AEA1BE88F3A0060A96A /* AppDelegate.swift in Sources */,
+				B4716B0A1BE890180060A96A /* GraphView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4716AF61BE88F3A0060A96A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4716AFF1BE88F3A0060A96A /* bi_ios_recognizersUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B4716AFC1BE88F3A0060A96A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4716AE51BE88F3A0060A96A /* bi-ios-recognizers */;
+			targetProxy = B4716AFB1BE88F3A0060A96A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B4716AED1BE88F3A0060A96A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4716AEE1BE88F3A0060A96A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B4716AF21BE88F3A0060A96A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4716AF31BE88F3A0060A96A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B4716B011BE88F3A0060A96A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B4716B021BE88F3A0060A96A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B4716B041BE88F3A0060A96A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "bi-ios-recognizers/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.ackee.bi-ios-recognizers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		B4716B051BE88F3A0060A96A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "bi-ios-recognizers/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.ackee.bi-ios-recognizers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		B4716B071BE88F3A0060A96A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "bi-ios-recognizersUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.ackee.bi-ios-recognizersUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "bi-ios-recognizers";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		B4716B081BE88F3A0060A96A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "bi-ios-recognizersUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.ackee.bi-ios-recognizersUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "bi-ios-recognizers";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4716AE11BE88F3A0060A96A /* Build configuration list for PBXProject "bi-ios-recognizers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4716B011BE88F3A0060A96A /* Debug */,
+				B4716B021BE88F3A0060A96A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4716B031BE88F3A0060A96A /* Build configuration list for PBXNativeTarget "bi-ios-recognizers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4716B041BE88F3A0060A96A /* Debug */,
+				B4716B051BE88F3A0060A96A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4716B061BE88F3A0060A96A /* Build configuration list for PBXNativeTarget "bi-ios-recognizersUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4716B071BE88F3A0060A96A /* Debug */,
+				B4716B081BE88F3A0060A96A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B4716ADE1BE88F3A0060A96A /* Project object */;
+}

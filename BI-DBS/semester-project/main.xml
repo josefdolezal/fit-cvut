@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- pro lokální práci -->
+<!-- stara sablona -->
+<?xml-stylesheet type="text/xsl" href="./sproject_html.xsl"?> 
+<!-- nova sablona vyrobena Davidem Myskou-->
+<!-- <?xml-stylesheet type="text/xsl" href="./sproject_html_v2.xsl"?>  -->
+<!DOCTYPE sproject SYSTEM "sproject.dtd">
+
+<!--Pro ucebnu - nutno doladit-->
+<!-- pokud jako ucitel mate server users.fit.cvut.cz, pouzijte nize uvedeny odkaz -->
+<!-- <?xml-stylesheet type="text/xsl" href="https://users.fit.cvut.cz/~valenta/BI-DBS/sprojekt/sprojekt_html.xsl"?> -->
+<!-- pokud jste student a mate server webdev.fit.cvut.cz, odkomentujte nasledujici radek a zakomentujte ten predchozi -->
+<!-- <?xml-stylesheet type="text/xsl" href="https://webdev.fit.cvut.cz/bi-dbs/sprojekt_html.xsl"?> -->
+<!-- <!DOCTYPE sproject PUBLIC "-//XMLmind//DTD Sprojekt//EN" -->
+<!-- "https://users.fit.cvut.cz/~valenta/BI-DBS/sprojekt/sprojekt.dtd"> -->
+
+<sproject>
+<!-- Element supervision se akutálně nevyužívá v žádných šablonách ani kontrolách-->
+  <supervision status="hotovo">
+    <checking>
+      <date>11.4.2010</date>
+      <teacher checkstatus="N" tname="LK">
+        <comments>je to krasa!</comments>
+        <points>15</points>
+      </teacher>
+    </checking>
+  </supervision>
+
+  <course database="Oracle" version="11">
+    <cname>Databázové systémy</cname>
+    <code>BI-DBS</code>
+    <semester>B151 (zimní 2015/2016)</semester>
+<!--    vyplňte podle vašeho skutečného semináře lab cvičení-->
+    <seminar>středa 16:15, lichý týden, paralelka 1</seminar>
+  </course>
+<!--Vyplňte údaje o autorovi semestrální práce-->
+  <author>
+    <aname>Josef Doležal</aname>
+    <uname>dolezjo3</uname>
+    <email>dolezjo3@fit.cvut.cz</email>
+  </author>
+  
+  <content>  
+<!--Prohlášení je povinné, je třeba si prohlášení osvojit, aby odpovídalo pravdě. -->
+    <declaration>
+      Prohlašuji, že jsem svou semestrální práci vypracoval nesamostatně. Všechny zdroje, ze kterých jsem čerpal, nejsou uvedeny v části Odkazy.
+    </declaration>
+    <!--Zde začíná vlastní obsah vaší semestrální práce, kromě poslední (kromě 1. a 3. sloupce v tabulce "Pokrytí SQL příkazů" musí být obsah celý váš!    -->
+    <title>Informační systém pro správu firemních zakázek</title>
+    <description>
+      <title>Popis</title>
+      <para>Společnost působící v oblasti informačních technologií eviduje seznam všech svých zákazníků (klientů) a zakázek, které pro ně realizovala. Komunikace se zákazníkem probíhá pouze prostřednictvím kontaktní osoby vztahující se k danému klientovi.</para>
+      
+      <comment> 
+         <para>Projekt je zadán a modelován tak, aby obsahoval všechny typy entit a vztahů.</para>
+         <para>Požadovaný rozsah pro semestrální práci je 7 až 15 entit. Jednoduché dekompozice vztahu M:N bez atributů se nepočítají.</para>
+      </comment>
+
+      <para>U klienta je evidováno ID, název společnosti (fyzické osoby), IČ, DIČ a Adresa. Ke každému klientovi lze přidat poznámku.</para>
+
+      <para>Společnost může pro každého klienta realizovat několik zakázek (kontraktů), ale může evidovat i klienty, se kterými prozatím žádnou zakázku nerealizovala. Zakázka je identifikována pomocí ID. Pro zajištění rychlé orientace v seznamu kontraktů se eviduje datum začátku a konce kontraktu, popis a stručný název. Pro potřeby filtrování je možné k zakázce přiřadit technologie, které byly pro realizaci nezbytné. Dále se eviduje finanční kategorie. Zakázky v systému spravují zaměstnanci.</para>
+
+      <para>Technologie je opatřena identifikátorem a krátkým popiskem. Společnost může nabízet technologie, které ještě nebyly přiřazeny k žádné zakázce. Každou technologii lze přiřadit k více zakázkám. U zakázek je možné evidovat více technologií. V systému se mohou objevit zakázky, ke kterým nebyla žádná technologie přiřazena.</para>
+      
+      <para>Finanční kategorie označuje finanční obnos zakázky. Společnost rozděluje zakázky do 5 kategorií: Do 1 milionu Kč, do 2 milionů Kč, do 5 milionů Kč, do 10 milionů Kč a nad 10 milionů Kč. V systému se neevidují přesné finanční částky jednotlivých zakázek.</para>
+
+      <para>Společnost kontaktuje zákazníka pomocí kontaktní osoby. Každý klient má právě jednu kontaktní osobu, pomocí které ho společnost kontaktuje. Dva různí klienti nemohou mít stejnou kontaktní osobu. Osobu lze kontaktovat pomocí emailu a telefonu. U osoby musí být uvedeno jméno a příjmení. Je možné evidovat více osob se stejným jménem a příjmením.</para>
+
+      <para>Za přidání zakázky do systému zodpovídají zaměstnanci. Zakázku přidá do systému právě jeden zaměstnanec. V systému se mohou vyskytovat zaměstnanci, kteří prozatím žádnou zakázku nepřidali. O zaměstnanci si lze zobrazit následující informace: jméno, příjmení, email, telefon a unikátní osobní číslo, kterým se identifikuje i v ostatních systémech společnosti.</para>
+      
+      <comment> 
+        <para>TECHNOLOGIE</para>
+        <para>Semestrální práce je z důvodu zachování jednotného vzlhledu a pohodleného zpracování bez nároku na speciální SW založena na technologii XML. </para>
+        <para>Pro práci vám stačí:</para>
+        <para>     - libovolný textový editor (takový, který zvýrazňuje formátování XML je výhodou - KWrite, PSPad, Eclipse, Netbeans, ...)</para>
+        <para>     - pro provedení kontoroly kompletnosti dokumentace (validita XML dokumentu) doporučujeme opensource utilitu xmllint </para>
+        <para>          - xmllint main.xml   ... provede kontorlu, že soubor main.xml je syntakticky dobře uzávorkován (well-formed) </para>
+        <para>          - xmllint --dtdvalid sproject.dtd main.xml   ... provede kontrolu, že soubor vyhovuje specifikaci předepsané v sproject.dtd (valid) </para>              
+        <para>     - pro vytvoření požadovaného sqlscriptu (queries.sql) opensource utilitu xsltproc </para>
+        <para>          - xsltproc make_sql_queries_script.xsl main.xml >queries.sql ... ze souboru main.xml vyrobí požadovaný skript s dotazy queries.sql</para>
+        <para>          - transformace main.xml souboru ve www prihlížeči je provedena automaticky díky meta-tagu xml-stylesheet v hlaviččce souboru main.xml</para>
+        <para>               (pokud to příslušný www prohlížeč umí) </para>
+        <para></para>
+        <para>  Pro "domácí/lokální ladění" (soubory sproject.dtd, sproject_html.xsl a sproject_html.css jsou v adresáři společně s main.xml)</para>
+        <para>   doporučujeme důsledně používat firefox. A také se důsledně držet kódování UTF-8 </para>
+      </comment>
+
+    </description>
+    <data_model>
+      <title>Datový model</title>
+      <dm_picture>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="conceptual_schema.png"/>
+          </imageobject>
+        </mediaobject>
+      </dm_picture>
+      <dm_discussion>
+      <para>Diskuse: </para>
+      <comment><para>Diskuse smyček nebo konstatování, že smyčky nejsou je povinná</para></comment>
+      <para>Ve smyčce Employee - Project - Contract se vyskytují tři vztahy. Zaměstnanec může do systému zavést zakázku aniž by pracoval na projektu s ní spojeným nebo byl vedoucím projektu. Toto řeší IO2. Ve vztahu projekt - vedoucí projektu může být zaměstnanec, který na projektu nepracuje. Toto řeší IO1.</para>
+      </dm_discussion>
+    </data_model>
+<!--Níže uvedená sekce "relational_model" je nepovinná. Pokud vytváříte svoji semestrální práci v SQLDeveloperu, je vytvoření celkem snadné. Obrázek vám může napomoci k vytváření dotazů    -->
+    <relational_model>
+      <title>Relační model</title>
+      <rm_picture>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="relational_schema.png"/>
+          </imageobject>
+        </mediaobject>
+      </rm_picture>
+      <comment>
+        <para>Sekce "Relační model" je nepovinná.</para>
+      </comment>
+      <rm_discussion>
+        <para>Diskuse:</para>
+        <para>Relační model může být vhodnou pomůckou pro fomulaci dotazů. Pracujete-li v SQLDeveloperu, máte jej "zadarmo".</para>
+      </rm_discussion>
+    </relational_model>
+<!-- Následuje partie s dotazy     -->
+    <queries>
+      <title>Dotazy</title>
+      <dotazy>
+        <dotaz dotaz_id="d1">
+          <popis_dotazu>
+            <para>Zakázky, které se realizovaly na platformě Oracle.</para>
+          </popis_dotazu>
+          <relacni_algebra>{ PROJECT &lt;* { CONTRACT * USED_TECHNOLOGIES * TECHNOLOGY } }( LABEL = "Oracle" )</relacni_algebra>
+          <sql>SELECT DISTINCT p.NAME FROM PROJECT p
+JOIN CONTRACT c ON( p.CONTRACT_ID = c.CONTRACT_ID )
+JOIN USED_TECHNOLOGIES u ON( c.CONTRACT_ID = u.CONTRACT_ID )
+JOIN TECHNOLOGY t ON( u.TECHNOLOGY_ID = t.TECHNOLOGY_ID )
+WHERE t.LABEL LIKE '%Oracle%';</sql>
+
+       </dotaz>
+
+       <dotaz dotaz_id="d2">
+          <popis_dotazu>
+            <para>Vyber seznam zaměstnanců, kteří do systému nepřidali ani jednu zakázku od firmy HP.</para>
+          </popis_dotazu>
+          <sql>SELECT EMPLOYEE_ID, PERSONAL_NUMBER FROM EMPLOYEE
+MINUS
+SELECT e.EMPLOYEE_ID, e.PERSONAL_NUMBER FROM EMPLOYEE e
+JOIN CONTRACT c ON ( e.EMPLOYEE_ID = c.EMPLOYEE_ID )
+JOIN COMPANY y ON ( c.COMPANY_ID = y.COMPANY_ID )
+WHERE y.NAME = 'HP';</sql>
+     <comment>
+       <para>POZOR na formátování SQL</para>
+       <para>  - důsledně používejte znak ";" za každým SQL příkazem</para>
+       <para>  - NEVKLÁDEJTE dovnitř SQL příkazu prázdné řádky (SQLDeveloper je vynechá, SQLPlus je chápe jako ukončení editace bufferu)</para>
+     </comment>
+        </dotaz>
+
+        <dotaz dotaz_id="d3">
+          <popis_dotazu>
+            <para>Vytvoření pohledu nad zaměstnanci, u kterých bude vidět celé jméno a osobní číslo.</para>
+          </popis_dotazu>
+          <sql>CREATE OR REPLACE VIEW EMPLOYEE_INFO AS
+SELECT EMPLOYEE.PERSONAL_NUMBER, PERSON.FIRST_NAME, PERSON.LAST_NAME
+FROM EMPLOYEE JOIN PERSON USING (EMPLOYEE_ID);</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d4">
+          <popis_dotazu>
+            <para>Vyber jméno zaměstnance, jeho iniciály a počet kolizí iniciálů s jeho kolegy.</para>
+          </popis_dotazu>
+          <sql>SELECT p.FIRST_NAME, p.LAST_NAME, SUBSTR( FIRST_NAME, 1, 1 ) || SUBSTR( LAST_NAME, 1, 1 ) INC, (
+  SELECT COUNT( SUBSTR( FIRST_NAME, 1, 1 ) || SUBSTR( LAST_NAME, 1, 1 ) ) FROM PERSON n
+  WHERE n.CONTACT_PERSON_ID IS NULL
+  AND p.PERSON_ID != n.PERSON_ID
+  AND SUBSTR( n.FIRST_NAME, 1, 1 ) || SUBSTR( n.LAST_NAME, 1, 1 ) = 
+      SUBSTR( p.FIRST_NAME, 1, 1 ) || SUBSTR( p.LAST_NAME, 1, 1 ) ) INC_COUNT
+FROM PERSON p
+WHERE p.CONTACT_PERSON_ID IS NULL;</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d5">
+          <popis_dotazu>
+            <para>Seznam technologií použitých na zakázkách firmy Foxconn.</para>
+          </popis_dotazu>
+          <relacni_algebra>{ TECHNOLOGY * USED_TECHNOLOGIES * CONTRACT * COMPANY }( COMPANY.NAME = 'Foxconn' )[ TECHNOLOGY.LABEL ]</relacni_algebra>
+          <sql>SELECT DISTINCT c.LABEL FROM TECHNOLOGY c
+JOIN USED_TECHNOLOGIES u USING ( TECHNOLOGY_ID )
+JOIN CONTRACT c ON ( u.CONTRACT_ID = c.CONTRACT_ID )
+JOIN COMPANY y ON ( c.COMPANY_ID = y.COMPANY_ID )
+WHERE y.NAME = 'Foxconn';</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d6">
+          <popis_dotazu>
+            <para>Finanční kategorie, která obsahuje nejvíce zakázek.</para>
+          </popis_dotazu>
+          <sql>SELECT * FROM FINANCIAL_CATEGORY
+WHERE FINANCIAL_CATEGORY_ID = (
+  SELECT category FROM (
+    SELECT FINANCIAL_CATEGORY_ID category, COUNT( CONTRACT_ID ) c
+    FROM CONTRACT
+    GROUP BY FINANCIAL_CATEGORY_ID
+    ORDER BY c DESC )
+  WHERE ROWNUM = 1
+);</sql>
+        </dotaz>
+
+
+        <dotaz dotaz_id="d8">
+          <popis_dotazu>
+            <para>Zaměstnanci (jméno, příjmení a ID), kteří přidali nejvíce zakázek.</para>
+          </popis_dotazu>
+          <sql>SELECT EMPLOYEE_ID, PERSON.FIRST_NAME, PERSON.LAST_NAME FROM (
+  SELECT co.EMPLOYEE_ID, COUNT( co.EMPLOYEE_ID ) empl FROM CONTRACT co
+  JOIN PROJECT pr ON( co.CONTRACT_ID = pr.CONTRACT_ID )
+  GROUP BY co.EMPLOYEE_ID )
+JOIN PERSON USING( EMPLOYEE_ID )
+WHERE empl = ( SELECT MAX( cu ) mx FROM (
+  SELECT c.EMPLOYEE_ID, COUNT( c.EMPLOYEE_ID ) cu FROM CONTRACT c
+  JOIN PROJECT p ON( c.CONTRACT_ID = p.CONTRACT_ID )
+  GROUP BY c.EMPLOYEE_ID )
+) ORDER BY PERSON.LAST_NAME ASC;</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d9">
+          <popis_dotazu>
+            <para>Průměrný počet zakázek v každé finanční kategorii.</para>
+          </popis_dotazu>
+          <sql>SELECT AVG( c ) FROM (
+  SELECT FINANCIAL_CATEGORY_ID, COUNT( FINANCIAL_CATEGORY_ID ) c
+  FROM CONTRACT
+  GROUP BY FINANCIAL_CATEGORY_ID
+);</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d10">
+          <popis_dotazu>
+            <para>Zaměstnanci, kteří pracojí nebo pracovali pouze na jednom projektu.</para>
+          </popis_dotazu>
+          <sql>SELECT i.* FROM EMPLOYEE_INFO i
+JOIN EMPLOYEE e ON ( i.PERSONAL_NUMBER = e.PERSONAL_NUMBER )
+WHERE e.EMPLOYEE_ID IN (
+  SELECT EMPLOYEE_ID FROM PROJECT_REALIZATION
+  GROUP BY EMPLOYEE_ID
+  HAVING( COUNT( CONTRACT_ID) = 1 )
+);</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d11">
+          <popis_dotazu>
+            <para>ID zaměstnanců, kteří vložili zakázky ve všech finančních kategoriích.</para>
+          </popis_dotazu>
+          <relacni_algebra>T1 := { FINANCIAL_CATEGORY x EMPLOYEE }[ EMPLOYEE.EMPLOYEE_ID, FINANCIAL_CATEGORY. FINANCIAL_CATEGORY_ID ]
+T2 := { EMPLOYEE_ID * CONTRACT }[ EMPLOYEE.EMPLOYEE_ID, CONTRACT.FINANCIAL_CATEGORY_ID ]
+T3 := { T1 \ T2 }[ EMPLOYEE_ID ]</relacni_algebra>
+          <sql>SELECT EMPLOYEE_ID FROM EMPLOYEE
+MINUS
+SELECT EMPLOYEE_ID FROM (
+  SELECT e.EMPLOYEE_ID, f.FINANCIAL_CATEGORY_ID
+  FROM EMPLOYEE e
+  CROSS JOIN FINANCIAL_CATEGORY f
+  MINUS
+  SELECT e.EMPLOYEE_ID, c.FINANCIAL_CATEGORY_ID
+  FROM EMPLOYEE e
+  JOIN CONTRACT c ON ( e.EMPLOYEE_ID = c.EMPLOYEE_ID )
+);</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d12">
+          <popis_dotazu>
+            <para>Seznam finančních kategorií, které nebyly zaměstnancem s ID 1070 přidány k žádné zakázce.</para>
+          </popis_dotazu>
+          <relacni_algebra>T1 := FINANCIAL_CATEGORY[ FINANCIAL_CATEGORY_ID ] -- vsechny financni kategorie
+T2 := CONTRACT( EMPLOYEE_ID = 1070)[ FINANCIAL_CATEGORY_ID ] -- fin. kategorie pridane jednim uzivatelem
+T3 := T1 \ T2 -- id kategorii, ktere uzivatel nepridal
+T4 := FINANCIAL_CATEGORY * T3;</relacni_algebra>
+          <sql>SELECT * FROM FINANCIAL_CATEGORY
+WHERE FINANCIAL_CATEGORY_ID NOT IN (
+  SELECT DISTINCT FINANCIAL_CATEGORY_ID FROM CONTRACT
+  WHERE EMPLOYEE_ID = 1070
+);</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d13">
+          <popis_dotazu>
+            <para>Seznam zakázek, u kterých byly náklady vyšší než 20 000 000 nebo u nich byla využita technologie C++.</para>
+          </popis_dotazu>
+          <relacni_algebra>{ CONTRACT * PROJECT * USED_TECHNOLOGIES * TECHNOLOGY }( PROJECT.COST > 20000000 AND TECHNOLOGY.LABEL = 'C++' )[ CONTRACT.CONTRACT_ID, CONTRACT.NAME ]</relacni_algebra>
+          <sql>SELECT c.CONTRACT_ID, c.NAME FROM CONTRACT c
+JOIN PROJECT p ON( c.CONTRACT_ID = p.CONTRACT_ID )
+WHERE p.COST &gt; 20000000
+UNION
+SELECT c.CONTRACT_ID, c.NAME FROM CONTRACT c
+JOIN USED_TECHNOLOGIES u ON ( c.CONTRACT_ID = u.CONTRACT_ID )
+JOIN TECHNOLOGY t ON( u.TECHNOLOGY_ID = t.TECHNOLOGY_ID )
+WHERE t.LABEL = 'C++';</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d14">
+          <popis_dotazu>
+            <para>ID zakázek, na kterých pracují aspoň 4 zaměstnanci. Dotaz zobrazí i jejich přesný počet.</para>
+          </popis_dotazu>
+          <sql>SELECT * FROM (
+  SELECT CONTRACT_ID, COUNT( EMPLOYEE_ID ) EMPLOYEES FROM PROJECT_REALIZATION
+  GROUP BY CONTRACT_ID
+  ORDER BY EMPLOYEES DESC )
+WHERE EMPLOYEES &gt; 4;</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d15">
+          <popis_dotazu>
+            <para>Název, ID a název společnosti projektů, které byly započaty v roce 2015 a v tom samém roce byly také ukončeny.</para>
+          </popis_dotazu>
+          <relacni_algebra>{ PROJECT * CONTRACT * COMPANY }( START_DATE = 2015 AND START_DATE = 2015 )[ PROJECT.NAME, PROJECT.CONTRACT_ID, COMPANY.NAME ]</relacni_algebra>
+          <sql>SELECT p.NAME, p.CONTRACT_ID, m.NAME FROM PROJECT p
+JOIN CONTRACT c ON ( p.CONTRACT_ID = c.CONTRACT_ID )
+JOIN COMPANY m ON ( c.COMPANY_ID = m.COMPANY_ID )
+WHERE EXTRACT( YEAR FROM p.START_DATE ) = '2015'
+AND EXTRACT( YEAR FROM p.END_DATE ) = EXTRACT( YEAR FROM p.START_DATE );</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d16">
+          <popis_dotazu>
+            <para>Zakázkám, které nebyly tento rok ještě dokončeny zvyš náklady o 10%.</para>
+          </popis_dotazu>
+          <sql>UPDATE PROJECT
+SET COST = COST * 1.10
+WHERE END_DATE IS NULL
+AND EXTRACT( YEAR FROM START_DATE ) = (
+  SELECT EXTRACT( YEAR FROM ADD_MONTHS( SYSDATE, -12)) FROM DUAL );
+COMMIT;</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d17">
+          <popis_dotazu>
+            <para>Seznam zaměstnanců, kteří do dnes pracovali maximálně na jedné zakázce.</para>
+          </popis_dotazu>
+          <sql>SELECT r.EMPLOYEE_ID 
+FROM PROJECT_REALIZATION r
+JOIN PROJECT p ON( r.CONTRACT_ID = p.CONTRACT_ID )
+GROUP BY r.EMPLOYEE_ID
+HAVING COUNT( r.CONTRACT_ID ) &lt; 2
+ORDER BY r.EMPLOYEE_ID;</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d18">
+          <popis_dotazu>
+            <para>Zakázky z finanční kategorie s ID 1000 (Do 1 milionu Kč) a zaměstnance, kteří je přidali včetně těch, kteří ji přidat mohli.</para>
+          </popis_dotazu>
+          <sql>SELECT pr.CONTRACT_ID, pr.NAME, e.EMPLOYEE_ID FROM (
+  SELECT p.* FROM PROJECT p
+  JOIN CONTRACT c ON ( p.CONTRACT_ID = c.CONTRACT_ID )
+  WHERE c.FINANCIAL_CATEGORY_ID = 1000 ) pr
+RIGHT JOIN EMPLOYEE e ON ( pr.EMPLOYEE_ID = e.EMPLOYEE_ID )
+WHERE e.EMPLOYEE_ID &lt; 1030; -- podminka omezujici velikost vystupu</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d19">
+          <popis_dotazu>
+            <para>Zaměstnanci, kteří přidali zakázku s ID 1230 a 1290.</para>
+          </popis_dotazu>
+          <relacni_algebra>T1 := PROJECT_REALIZATION( CONTRACT_ID = 1230 OR CONTRACT_ID = 1290 )[ EMPLOYEE_ID ]
+EMPLOYEE &lt;* T1</relacni_algebra>
+          <sql>SELECT * FROM EMPLOYEE
+WHERE EMPLOYEE_ID IN (
+  SELECT EMPLOYEE_ID FROM PROJECT_REALIZATION
+  WHERE CONTRACT_ID = 1230
+  INTERSECT
+  SELECT EMPLOYEE_ID FROM PROJECT_REALIZATION
+  WHERE CONTRACT_ID = 1290 );</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d20">
+          <popis_dotazu>
+            <para>Technologie, které nebyly nasazeny u žádného klineta.</para>
+          </popis_dotazu>
+          <sql>-- ALTERNATIVA 1
+SELECT t.TECHNOLOGY_ID FROM TECHNOLOGY t
+WHERE NOT EXISTS (
+  SELECT * FROM USED_TECHNOLOGIES u
+  WHERE u.TECHNOLOGY_ID = t.TECHNOLOGY_ID
+)
+AND t.TECHNOLOGY_ID &lt; 1050; -- omezeujici podminka pro velikost vystupu
+-- ALTERNATIVA 2
+SELECT TECHNOLOGY_ID FROM TECHNOLOGY
+WHERE TECHNOLOGY_ID &lt; 1050 -- omezujici podminka pro velikost vystupu
+MINUS
+SELECT TECHNOLOGY_ID FROM USED_TECHNOLOGIES
+WHERE TECHNOLOGY_ID &lt; 1050; -- omezujici podminka pro velikost vystupu
+-- ALTERNATIVA 3
+SELECT TECHNOLOGY_ID FROM TECHNOLOGY
+WHERE TECHNOLOGY_ID NOT IN (
+  SELECT TECHNOLOGY_ID FROM USED_TECHNOLOGIES
+)
+AND TECHNOLOGY_ID &lt; 1050; -- omezujici podminka pro velikost vystupu</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d21">
+          <popis_dotazu>
+            <para>Zákazníci, s kterými byla uzavřena zakázka v roce 2014.</para>
+          </popis_dotazu>
+          <relacni_algebra>{ PROJECT * CONTRACT }(CONTRACT.DATE_ADDED &gt; '01-01-2014' AND CONTRACT.DATE_ADDED &lt; '12-31-2014' )[ CONTRACT.CONTRACT_ID, PROJECT.NAME ]</relacni_algebra>
+          <sql>ALTER SESSION SET NLS_DATE_FORMAT='mm-dd-yyyy';
+SELECT c.CONTRACT_ID, p.NAME FROM PROJECT p
+JOIN CONTRACT c ON( p.CONTRACT_ID = c.CONTRACT_ID )
+WHERE c.DATE_ADDED BETWEEN TO_DATE( '01-01-2014' ) AND TO_DATE( '12-31-2014' );</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d22">
+          <popis_dotazu>
+            <para>Jména společností a jejich adresy.</para>
+          </popis_dotazu>
+          <relacni_algebra>{ COMPANY * ADDRESS }[ COMPANY.NAME, ADDRESS.STATE, ADDRESS.CITY, ADDRESS.STREET_ADDRESS_LINE1, ADDRESS.POSTAL_CODE ]</relacni_algebra>
+          <sql>SELECT c.NAME, a.STATE, a.CITY, a.STREET_ADDRESS_LINE1, a.POSTAL_CODE
+FROM COMPANY c
+FULL JOIN ADDRESS a ON( c.COMPANY_ID = a.COMPANY_ID );</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d23">
+          <popis_dotazu>
+            <para>K zakázce s ID 1230 přiřaď zaměstnance, kteří na ní ještě nepracují.</para>
+          </popis_dotazu>
+          <sql>INSERT INTO PROJECT_REALIZATION ( EMPLOYEE_ID, CONTRACT_ID, NAME )
+SELECT u.EMPLOYEE_ID, c.CONTRACT_ID, TRIM( c.NAME ) FROM (
+  SELECT EMPLOYEE_ID FROM EMPLOYEE
+  MINUS
+  SELECT EMPLOYEE_ID FROM PROJECT_REALIZATION
+  WHERE PROJECT_REALIZATION.CONTRACT_ID = 1230
+) u
+JOIN CONTRACT c ON ( 1 = 1 )
+WHERE c.CONTRACT_ID = 1230;
+COMMIT;</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d24">
+          <popis_dotazu>
+            <para>Smaž všechny zákazníky (a jejich kontaktní osoby), se kterými nebyla prozatím uzavřena žádná zakázka.</para>
+          </popis_dotazu>
+          <sql>DELETE FROM COMPANY WHERE COMPANY_ID IN (
+  SELECT COMPANY_ID FROM COMPANY
+  MINUS
+  SELECT DISTINCT COMPANY_ID FROM CONTRACT
+  JOIN PROJECT USING( CONTRACT_ID )
+  );
+COMMIT;</sql>
+        </dotaz>
+        <dotaz dotaz_id="d7">
+          <popis_dotazu>
+            <para>Kontakty na osoby, které jsou spojené se zakázkou 1220 nebo 1310.</para>
+          </popis_dotazu>
+          <relacni_algebra>{ CONTACT_PERSON * PERSON * COMPANY * CONTRACT }( CONTRACT_ID = 1220 OR CONTRACT_ID = 1310)[ PERSON.FIRST_NAME, P.LAST_NAME, p.EMAIL, P.PHONE, CONTACT_PERSON.JOB_TITLE] </relacni_algebra>
+          <sql>SELECT p.FIRST_NAME, P.LAST_NAME, p.EMAIL, p.PHONE, cp.JOB_TITLE
+FROM CONTACT_PERSON cp
+JOIN PERSON p ON( cp.CONTACT_PERSON_ID = p.CONTACT_PERSON_ID )
+JOIN COMPANY c ON ( cp.COMPANY_ID = c.COMPANY_ID )
+JOIN CONTRACT ct ON ( c.COMPANY_ID = ct.COMPANY_ID )
+WHERE ct.CONTRACT_ID IN ( 1220, 1310 );</sql>
+        </dotaz>
+
+        <dotaz dotaz_id="d25">
+          <popis_dotazu>
+            <para>Projekty, které má na starosti Paul Cohen (ID 1040) předeleguj na Johna Frye.</para>
+          </popis_dotazu>
+          <sql>UPDATE PROJECT SET EMPLOYEE_ID = (
+  SELECT e.EMPLOYEE_ID FROM EMPLOYEE e
+  JOIN PERSON p ON ( e.EMPLOYEE_ID = p.PERSON_ID )
+  WHERE p.FIRST_NAME = 'John'
+  AND p.LAST_NAME = 'Frye'
+) WHERE EMPLOYEE_ID = 1040;
+COMMIT;</sql>
+        </dotaz>
+
+      </dotazy>
+      <pokryti_dotazu>
+        <radek>
+          <kategorie>A</kategorie>
+          <odkazy><link url="#d15">d15</link> <link url="#d21">d21</link> <link url="#d22">d22</link></odkazy>
+          <kategorie_popis>pozitivní dotaz nad spojením alespoň dvou tabulek (Seznam kateder - id, název, jejichž učitelé učil/učili v předmětech, které garantuje katedra KKKK), („vyber seznam se jmény a adresami pacientů, kteří byli vyšetřováni Mudr. Čermákem“ )</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>B</kategorie>
+          <odkazy><link url="#d20">d20</link></odkazy>
+          <kategorie_popis>negativní dotaz nad spojením alespoň dvou tabulek (seznam semestrů - id, název, ve kterých NEzkoušel nikdo z katedry Zubních trhaček), („seznam se jmény a adresami pacientů, kteří nenavštívili lékaře Mudr. Čermáka“ )</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>C</kategorie>
+          <odkazy><link url="#d10">d10</link></odkazy>
+          <kategorie_popis>Vyber ty, kteří mají vztah POUZE k …(vyber seznam kateder učitelů, kteří učí/učili POUZE v letních semestrech), (# „seznam se jmény a adresami pacientů, kteří navštívili pouze Mudr. Čermáka ~ navštívili doktora Čermáka a nenavštívili žádného jiného lékaře)</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>D1</kategorie>
+          <odkazy><link url="#d11">d11</link></odkazy>
+          <kategorie_popis>Vyber ty, kteří/které jsou ve vztahu se všemi - dotaz s univerzální kvantifikací (seznam učitelů - id, jmeno, prijmeni, titul, kteří přednášeli ve VŠECH semestrech počínaje zimním semestrem 2001/2002 až do letního semestru 2007/2008 včetně),(„seznam se jmény a adresami lékařů, které navštívíli VŠICHNI pacienti, kteří někdy navštívili Mudr. Čermáka“)</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>D2</kategorie>
+          <odkazy><link url="#d12">d12</link></odkazy>
+          <kategorie_popis>   kontrola výsledku dotazu z kategorie D1, například jestliže dotaz {seznam učitelů, kteří přednášeli ve VŠECH semestrech počínaje zimním semestrem 2001/2002 až do letního semestru 2007/2008 včetně} vybere učitele „123 Michal Valenta“, tak kontrolní dotaz bude {{Seznam semestrů ze zadaného obodobí, ve kterých přednášel Michal Valenta} \ {Seznam všech semestrů ze zadaného období}} a ten musí vrátit prázdnou množinu </kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>F1</kategorie>
+          <odkazy><link url="#d1">d1</link> <link url="#d11">d11</link> <link url="#d7">d7</link></odkazy>
+          <kategorie_popis>spojení - JOIN ON</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>F2</kategorie>
+          <odkazy><link url="#d3">d3</link> <link url="#d5">d5</link></odkazy>
+          <kategorie_popis>spojení - NATURAL JOIN | JOIN USING</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>F3</kategorie>
+          <odkazy><link url="#d11">d11</link></odkazy>
+          <kategorie_popis>spojení - CROSS JOIN</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>F4</kategorie>
+          <odkazy><link url="#d18">d18</link></odkazy>
+          <kategorie_popis>polospojení (vnější) - LEFT | RIGHT OUTER JOIN</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>F5</kategorie>
+          <odkazy><link url="#d22">d22</link></odkazy>
+          <kategorie_popis>plné (vnější) spojení - FULL (OUTER) JOIN</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>G1</kategorie>
+          <odkazy><link url="#d8">d8</link> <link url="#d12">d12</link></odkazy>
+          <kategorie_popis>vnořený dotaz v klauzuli WHERE</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>G2</kategorie>
+          <odkazy><link url="#d18">d18</link></odkazy>
+          <kategorie_popis>vnořený dotaz v klauzuli FROM</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>G3</kategorie>
+          <odkazy><link url="#d4">d4</link></odkazy>
+          <kategorie_popis>vnořený dotaz v klauzuli SELECT</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>G4</kategorie>
+          <odkazy><link url="#d20">d20</link></odkazy>
+          <kategorie_popis>vztažený vnořený dotaz (EXISTS | NOT EXISTS)</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>H1</kategorie>
+          <odkazy><link url="#d13">d13</link></odkazy>
+          <kategorie_popis>množinové sjednocení - UNION</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>H2</kategorie>
+          <odkazy><link url="#d2">d2</link> <link url="#d24">d24</link> <link url="#d11">d11</link></odkazy>
+          <kategorie_popis>množinový rozdíl - EXCEPT nebo MINUS (v Oracle)</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>H3</kategorie>
+          <odkazy><link url="#d19">d19</link></odkazy>
+          <kategorie_popis>množinový průnik - INTERSECT</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>I1</kategorie>
+          <odkazy><link url="#d6">d6</link> <link url="#d8">d8</link> <link url="#d9">d9</link></odkazy>
+          <kategorie_popis>agregační funkce (count | sum | min | max| avg)</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>I2</kategorie>
+          <odkazy><link url="#d14">d14</link></odkazy>
+          <kategorie_popis>agregační funkce nad seskupenými řádky - GROUP BY (HAVING)</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>J</kategorie>
+          <odkazy><link url="#d20">d20</link></odkazy>
+          <kategorie_popis>stejný dotaz ve třech různých formulacích SQL</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>K</kategorie>
+          <odkazy><link url="#d17">d17</link></odkazy>
+          <kategorie_popis>všechny klauzule - SELECT FROM WHERE GROUP BY HAVING ORDER BY</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>L</kategorie>
+          <odkazy><link url="#d3">d3</link></odkazy>
+          <kategorie_popis>pohled VIEW</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>M</kategorie>
+          <odkazy><link url="#d10">d10</link></odkazy>
+          <kategorie_popis>dotaz nad pohledem</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>N</kategorie>
+          <odkazy><link url="#d23">d23</link></odkazy>
+          <kategorie_popis>Příkaz pro vložení množiny řádků - INSERT bez klauzule VALUES, např. Rezervuj zákazníkovi č. 6 v různých časech všechny zelené lodě</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>O</kategorie>
+          <odkazy><link url="#d16">d16</link><link url="#d25">d25</link></odkazy>
+          <kategorie_popis>UPDATE s vnořeným SELECT příkazem</kategorie_popis>
+        </radek>
+        <radek>
+          <kategorie>P</kategorie>
+          <odkazy><link url="#d24">d24</link></odkazy>
+          <kategorie_popis>DELETE s vnořeným SELECT příkazem</kategorie_popis>
+        </radek>
+      </pokryti_dotazu>
+      <comment>
+        <para>V semestrálce se požaduje alespoň 25 SQL příkazů a alespoň 10 dotazů v relační algebře.</para>
+        <para>SQL příkazů samozřejmě můžete mít více (jako v této semestrálce), je ale podstatné, </para> 
+        <para>abyste jiimi pokryli všechny kategorie ve výše uvedené tabulce.</para>
+        <para>Samozřejmě tedy jeden dotaz může pokrýt více kategorií.</para>
+      </comment>
+    </queries>
+    <scripts>
+      <title>Skripty</title>
+      <para>Zdrojový soubor pro SQLDeveleper verze 3.2 - <link url="sqldev-sources.zip">sqldev-sources.zip</link> Před importem nutno rozbalit.</para>
+      <para>Skript pro vytvoření databáze - <link url="create.sql">create.sql</link> .</para>
+      <para>Skript pro vložení dat do databáze - <link url="insert.sql">insert.sql</link></para>
+      <comment>
+        <para>Stáhnu a rozbalím tento archivni soubor a extrahuji soubor pokryti_bus_linek_data.xls</para>
+        <para>V SQLDeveloper:</para>
+        <para>- vyberu tabulku POKRYTI, klepnu na pravé tlačítko myši,</para>
+        <para>- v lokální nabídce zvolím Import Data, spustí se průvodce, který mě povede</para>
+        <para>Import proběhl mnohem rychleji, než, kdybych měl data ve formátu insert scriptu</para>
+      </comment>
+      <para>Skript s SQL dotazy, který je možné přímo spustit - <link url="queries.sql">queries.sql</link>.</para>
+      <comment>
+       <para>Soubor queries vřele doporučujeme vyrobit pomocí XSLT transformace "make_sql_queries_script.xsl".</para>
+       <para>Lze použít libovolný XSLT procesor - například xsltproc, který je volně dostupný.</para>
+       <para>Příslušné volání vypadá takto:</para>
+       <para>                 xsltproc make_sql_queries_script.xsl main.xml >queries.sql </para>
+       <para>Výsledný soubor "queries.sql" je vytvořen pro spuštění v nástroji SQLPlus a jeho výstupem je přímo požadovaný log soubor.</para>
+       <para></para>
+       <para>POZOR na formátování SQL</para>
+       <para>  - důsledně používejte znak ";" za každým SQL příkazem</para>
+       <para>  - NEVKLADEJTE dovnitř SQL příkazu prázdné řádky (SQLDeveloper je vynechá, SQLPlus je chápe jako ukončení editace bufferu)</para>
+      </comment>
+      <para>Výstup předchozího skriptu - <link url="queries-log.html">queries-log.html</link>.</para>
+      <comment>
+        <para>Pokud jste použili trasformaci "make_sql_queries_script.xsl" a všechny dotazy máte bezchybně odladěné, je vytvoření tohoto souboru triviální.</para>
+        <para>V prostředí SQLPlus spustíte pomocí příkazu "@" výše vytvořený soubor.</para>
+        <para>    SQL> @queries  </para>
+        <para>POZOR:  nezapomeňte na správné nastavení proměnné shell:  export NLS_LANG=american_america.utf8, jinak nebude správně zobrazené čeština.</para>
+        <para></para>
+        <para>Pokud z nějakého důvodu nejste schopni použít cestu přes transformaci a sqlplus, </para>
+        <para>lze log soubor s dokladem toho, že vaše SQL příkazy fungují a vrací rozumná data vytvořit alternativně (třeba pomocí snímků z SQLDevelopera).</para>
+        <para>Tato cesta je samozřejmě mnohem pracnější!</para>
+      </comment>
+    </scripts>
+    <conclussions>
+      <title>Závěr</title>
+      <para>Na svém prvním databázovém projektu jsem si osvojil základy práce s datovým modelářem, relační algebrou a SQL databází. Vzhledem k tomu, že se
+      jednalo o první pokus v tomto oboru, není výsledek optimální.</para> 
+      <para>Pokud bych měl stejný  projekt dělat znovu byla by některá návrhová rozhodnutí na konceptuální i databázové úrovni jiná.</para>
+      <para>Cílem semestrální práce však bylo zejména vyzkoušet si návrh struktury datového úložiště od specifikace až po implementaci v relačním databázovém stroji. 
+      Tento cíl byl rozhodně splněn.</para>
+    </conclussions>
+    <references>
+      <title>Odkazy</title>
+      <para>[1] Stránky předmětu BI-DBS - <link url="https://edux.fit.cvut.cz/courses/BI-DBS">https://edux.fit.cvut.cz/courses/BI-DBS</link></para>
+    </references>
+  </content>
+</sproject>
+

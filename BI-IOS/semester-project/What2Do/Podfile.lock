@@ -1,0 +1,19 @@
+PODS:
+  - Alamofire (3.1.5)
+  - SVProgressHUD (1.1.3)
+  - SwiftyJSON (2.3.2)
+  - Timepiece (0.4.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - SVProgressHUD
+  - SwiftyJSON
+  - Timepiece
+
+SPEC CHECKSUMS:
+  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Timepiece: cf53bb908bf542acc0e3d5f69cabfed869df4ebd
+
+COCOAPODS: 0.39.0

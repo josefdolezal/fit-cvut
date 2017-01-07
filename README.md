@@ -29,11 +29,27 @@ Tento repozitář jsem vytvořil s úmyslem sdílet vybrané zdrojové kódy, kt
   * [Graf](BI-TED/assignment 1) (30b)
   * [Generování diagramu](BI-TED/assignment 2) (20b)
   * [Sazba textu](BI-TED/assignment 3) (30b)
+* [BI-3DT](BI-3DT)
+* [BI-BEZ](BI-BEZ)
+* [BI-DBS](BI-DBS)
+* [BI-EFA](BI-EFA)
+* [BI-GRA](BI-GRA)
+* [BI-IOS](BI-IOS)
+* [BI-OMO](BI-OMO)
+* [BI-OSY](BI-OSY)
+* [BI-PHP](BI-PHP)
+* [BI-PSI](BI-PSI)
+* [BI-SP1 - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-sp1)
+* [BI-AG1 - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-ag1)
+* [BI-PRR - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-prr)
+* [BI-BIG - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-big)
 
 ## Poznámka
-Uvedené zdrojové kódy slouží pro **inspiraci**, ne jako možnost volného víkendu bez ProgTestu. **Důrazně nedoporučuji cizí zdrojové kódy odevzdávat/vydávat za vlastní.** Pokud budete přebírat část kódu (ať už *kopy-pasta* nebo pozměněné), uveďte řádně autora - předejdete tím možnému obvinění z plagiátorství ze strany školy.
+Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
+Důrazně nedoporučuji cizí zdrojové kódy odevzdávat/vydávat za vlastní.
+Pokud budete přebírat část kódu, uveďte řádně autora - předejdete tím možnému obvinění z plagiátorství ze strany školy.
 
-Zveřejněné úlohy se mohou lišit od těch, které jsem ve škole odevzdal, nenesu tedy odpovědnost za jejich funkčnost.
+Zveřejněné kódy a úlohy se mohou lišit od těch, které jsem ve škole odevzdal, nenesu tedy odpovědnost za jejich funkčnost.
 
 ## Licence
-Soubory, **ve kterých jsem uveden jako autor** jsou šířené pod licencí [MIT](LICENSE).
+Repozitář je šířený pod licencí [MIT](LICENSE).

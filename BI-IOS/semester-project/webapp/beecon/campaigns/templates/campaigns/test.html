@@ -1,0 +1,10 @@
+<h1>{{ app }}</h1>
+<p>
+  Code: {{ app.code }} <br />
+  {% for location in app.location_set.all %}
+    - {{ location }} <br />
+      {% for service in location.service_set.all %}
+        -- {{ service }} <br />
+      {% endfor %}
+  {% endfor %}
+</p>

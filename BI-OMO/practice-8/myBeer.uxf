@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>210</x>
+      <y>80</y>
+      <w>240</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>bg=light_gray
+*Order*
+--
+quantity: Float = 0.0
+termOfDelivery: Date
+--
+totalPrice: Float
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>730</x>
+      <y>90</y>
+      <w>240</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>bg=light_gray
+*Beer*
+--
+name: String
+unitPrice: Float
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>420</x>
+      <y>80</y>
+      <w>330</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+m2=1
+ordering
+</panel_attributes>
+    <additional_attributes>30;50;310;50</additional_attributes>
+  </element>
+  <element>
+    <type>CustomElementImpl</type>
+    <coordinates>
+      <x>530</x>
+      <y>360</y>
+      <w>171</w>
+      <h>61</h>
+    </coordinates>
+    <panel_attributes>bg=light_gray
+*_allBears: Set_*
+
+</panel_attributes>
+    <additional_attributes/>
+    <custom_code>//Modify the code below to
+//define the element's behavior.
+//
+
+int y=20;
+
+for(String textline : textlines) {
+	y = y + textHeight();
+	printCenter(textline,y);
+}
+
+height = onGrid(y + 25);
+
+//drawRect(0,0,width,height);
+
+Polygon p = new Polygon();
+p.addPoint(0, 20);
+p.addPoint(width/2, 0);
+p.addPoint(width, 20);
+p.addPoint(width, height-20);
+p.addPoint(width/2, height);
+p.addPoint(0, height-20);
+drawPolygon(p);
+</custom_code>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>630</x>
+      <y>130</y>
+      <w>166</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+attribute_name</panel_attributes>
+    <additional_attributes>100;30;70;250</additional_attributes>
+  </element>
+</diagram>

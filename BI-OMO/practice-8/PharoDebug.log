@@ -1,0 +1,2197 @@
+THERE_BE_DRAGONS_HERE
+Abort: Please close this to abort file opening
+30 November 2015 10:23:26.851706 am
+
+VM: unix - i686 - linux-gnu - NBCoInterpreter NativeBoost-CogPlugin-GuillermoPolito.19 uuid: acc98e51-2fba-4841-a965-2975997bba66 May 15 2014
+NBCogit NativeBoost-CogPlugin-GuillermoPolito.19 uuid: acc98e51-2fba-4841-a965-2975997bba66 May 15 2014
+https://github.com/pharo-project/pharo-vm.git Commit: ed4a4f59208968a21d82fd2406f75c2c4de558b2 Date: 2014-05-15 18:23:04 +0200 By: Esteban Lorenzano <estebanlm@gmail.com> Jenkins build #14826
+
+Image: Pharo4.0 [Latest update: #40622]
+
+MultiByteFileStream class(StandardFileStream class)>>fileExistsUserHandling:
+	Receiver: MultiByteFileStream
+	Arguments and temporary variables: 
+		fullFileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/my...etc...
+		file: 	File @ /home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBe...etc...
+		localName: 	'myBeer.st'
+		choice: 	0
+		newName: 	nil
+		newFullFileName: 	nil
+	Receiver's instance variables: 
+		superclass: 	StandardFileStream
+		methodDict: 	a MethodDictionary(#accepts:->MultiByteFileStream>>#accepts: #ascii...etc...
+		format: 	152
+		layout: 	a FixedLayout
+		instanceVariables: 	#('converter' 'lineEndConvention' 'wantsLineEndConversion')
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#MultiByteFileStream
+		classPool: 	a Dictionary(#Cr->Character cr #CrLf->'
+
+' #Lf->Character lf #LineEn...etc...
+		sharedPools: 	nil
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+MorphicUIManager>>fileExistsDefaultAction:
+	Receiver: a MorphicUIManager
+	Arguments and temporary variables: 
+		anException: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/...etc...
+	Receiver's instance variables: 
+		interactiveParser: 	nil
+		activeTranscript: 	Transcript
+
+
+FileExistsException>>defaultAction
+	Receiver: FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+	Arguments and temporary variables: 
+
+	Receiver's instance variables: 
+		messageText: 	nil
+		tag: 	nil
+		signaler: 	MultiByteFileStream
+		signalContext: 	FileExistsException(Exception)>>signal
+		handlerContext: 	BlockClosure>>on:do:
+		outerContext: 	nil
+		fileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+		fileClass: 	MultiByteFileStream
+
+
+[ :error | 
+error isResumable
+	ifTrue: [ error resumeUnchecked: error defaultAction ]
+	ifFalse: [ error pass ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+<<error during printing>
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+BlockClosure>>cull:
+	Receiver: [ :error | 
+error isResumable
+	ifTrue: [ error resumeUnchecked: error defaultAction ]
+	ifF...etc...
+	Arguments and temporary variables: 
+		anArg: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO...etc...
+	Receiver's instance variables: 
+		outerContext: 	FileStream class>>writeSourceCodeFrom:baseName:isSt:
+		startpc: 	265
+		numArgs: 	1
+
+
+Context>>evaluateSignal:
+	Receiver: BlockClosure>>on:do:
+	Arguments and temporary variables: 
+		exception: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI...etc...
+		value: 	nil
+	Receiver's instance variables: 
+		sender: 	FileStream class>>writeSourceCodeFrom:baseName:isSt:
+		pc: 	15
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+co...etc...
+
+
+Context>>handleSignal:
+	Receiver: BlockClosure>>on:do:
+	Arguments and temporary variables: 
+		exception: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI...etc...
+	Receiver's instance variables: 
+		sender: 	FileStream class>>writeSourceCodeFrom:baseName:isSt:
+		pc: 	15
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+co...etc...
+
+
+Context>>handleSignal:
+	Receiver: BlockClosure>>on:do:
+	Arguments and temporary variables: 
+		exception: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI...etc...
+	Receiver's instance variables: 
+		sender: 	[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+conv...etc...
+		pc: 	15
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileNam...etc...
+
+
+FileExistsException(Exception)>>signal
+	Receiver: FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+	Arguments and temporary variables: 
+
+	Receiver's instance variables: 
+		messageText: 	nil
+		tag: 	nil
+		signaler: 	MultiByteFileStream
+		signalContext: 	FileExistsException(Exception)>>signal
+		handlerContext: 	BlockClosure>>on:do:
+		outerContext: 	nil
+		fileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+		fileClass: 	MultiByteFileStream
+
+
+MultiByteFileStream class(StandardFileStream class)>>newFileNamed:
+	Receiver: MultiByteFileStream
+	Arguments and temporary variables: 
+		fileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+		fullName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+	Receiver's instance variables: 
+		superclass: 	StandardFileStream
+		methodDict: 	a MethodDictionary(#accepts:->MultiByteFileStream>>#accepts: #ascii...etc...
+		format: 	152
+		layout: 	a FixedLayout
+		instanceVariables: 	#('converter' 'lineEndConvention' 'wantsLineEndConversion')
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#MultiByteFileStream
+		classPool: 	a Dictionary(#Cr->Character cr #CrLf->'
+
+' #Lf->Character lf #LineEn...etc...
+		sharedPools: 	nil
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+FileStream class>>newFileNamed:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		fileName: 	'myBeer.st'
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+[ self newFileNamed: fileName ] in FileStream class>>newFileNamed:do:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		fileName: 	'myBeer.st'
+		aBlock: 	[ :fileStream | 
+fileName := fileStream name.	"in case it is changed wh...etc...
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+FileStream class>>detectFile:do:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		aBlock: 	[ self newFileNamed: fileName ]
+		anotherBlock: 	[ :fileStream | 
+fileName := fileStream name.	"in case it is chan...etc...
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+FileStream class>>newFileNamed:do:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		fileName: 	'myBeer.st'
+		aBlock: 	[ :fileStream | 
+fileName := fileStream name.	"in case it is changed wh...etc...
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ] in [ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+converter := aStream contents isAsciiString
+	ifTrue: [ MacRomanTextConverter new ]
+	ifFalse: [ UTF8TextConverter new ].
+fileName := baseName , extension.
+fileName := FileSystem disk checkName: fileName fixErrors: true.
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ]
+	on: Abort
+	do: [ :e | ^ self ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		aStream: 	a WriteStream
+		baseName: 	#myBeer
+		stOrCsFlag: 	true
+		extension: 	'.st'
+		converter: 	a MacRomanTextConverter
+		fileName: 	'myBeer.st'
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+BlockClosure>>on:do:
+	Receiver: [ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name....etc...
+	Arguments and temporary variables: 
+		exception: 	Abort
+		handlerAction: 	[ :e | ^ self ]
+	Receiver's instance variables: 
+		outerContext: 	[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ]...etc...
+		startpc: 	200
+		numArgs: 	0
+
+
+[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+converter := aStream contents isAsciiString
+	ifTrue: [ MacRomanTextConverter new ]
+	ifFalse: [ UTF8TextConverter new ].
+fileName := baseName , extension.
+fileName := FileSystem disk checkName: fileName fixErrors: true.
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ]
+	on: Abort
+	do: [ :e | ^ self ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		aStream: 	a WriteStream
+		baseName: 	#myBeer
+		stOrCsFlag: 	true
+		extension: 	'.st'
+		converter: 	a MacRomanTextConverter
+		fileName: 	'myBeer.st'
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+BlockClosure>>on:do:
+	Receiver: [ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+converter := aStream co...etc...
+	Arguments and temporary variables: 
+		exception: 	Error
+		handlerAction: 	[ :error | 
+error isResumable
+	ifTrue: [ error resumeUnchecked: ...etc...
+	Receiver's instance variables: 
+		outerContext: 	FileStream class>>writeSourceCodeFrom:baseName:isSt:
+		startpc: 	156
+		numArgs: 	0
+
+
+FileStream class>>writeSourceCodeFrom:baseName:isSt:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		extension: 	'.st'
+		converter: 	a MacRomanTextConverter
+		fileName: 	'myBeer.st'
+		aStream: 	a WriteStream
+		baseName: 	#myBeer
+		stOrCsFlag: 	true
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+RPackage>>fileOut
+	Receiver: a RPackage(myBeer)
+	Arguments and temporary variables: 
+		internalStream: 	a WriteStream
+	Receiver's instance variables: 
+		classDefinedSelectors: 	a Dictionary(#Beer->a Set(#unitPrice: #initialize #order...etc...
+		metaclassDefinedSelectors: 	a Dictionary()
+		classExtensionSelectors: 	a Dictionary()
+		metaclassExtensionSelectors: 	a Dictionary()
+		classes: 	a Set(#Beer #Order)
+		name: 	#myBeer
+		classTags: 	a Set(a RPackageTag(myBeer))
+
+
+[ :package | package asNautilusSelection item fileOut ] in PackageTreeNautilusUI>>fileOutPackages:
+	Receiver: a PackageTreeNautilusUI
+	Arguments and temporary variables: 
+		aCollection: 	an Array(a RPackage(myBeer))
+		package: 	a RPackage(myBeer)
+	Receiver's instance variables: 
+		dependents: 	a DependentsArray(a CategoryWidget a MethodWidget a ClassWidget a P...etc...
+		model: 	a PackageTreeNautilus
+		window: 	a NautilusWindow(932184064)
+		hierarchyClass: 	nil
+		cachedHierarchy: 	nil
+		sourceTextArea: 	a PluggableTextMorphWithLimits(953679872)
+		sourceCodePanel: 	a PanelMorph(813957120)
+		commentTextArea: 	nil
+		currentDisplayChoice: 	nil
+		sourceTextAreaLimit: 	350
+		sourceCodeContainer: 	a PanelMorph(767557632)
+		shouldUpdateTitle: 	true
+		testSemaphore: 	a Semaphore()
+		sourceTextAreas: 	an OrderedCollection(a PluggableTextMorphWithLimits(953679872)...etc...
+		multipleMethodsEditor: 	a MultipleMethodsEditor(475004928)
+		contentSelection: 	nil
+		acceptor: 	a ClassDefinitionAcceptor
+		classifier: 	a MethodClassifier
+		categoryWidget: 	a CategoryWidget
+		methodWidget: 	a MethodWidget
+		classWidget: 	a ClassWidget
+		packageWidget: 	a PackageTreeWidget
+		packagePattern: 	nil
+		searchWidget: 	a SearchMorph(357302272)
+		packagePatternString: 	nil
+
+
+[ :element | 
+aBlock value: element.
+bar increment ] in [ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar increment ] ] in PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+	Receiver: a PackageTreeNautilusUI
+	Arguments and temporary variables: 
+		aBlock: 	[ :package | package asNautilusSelection item fileOut ]
+		aCollection: 	an Array(a RPackage(myBeer))
+		aString: 	'Filing out packages...'
+		job: 	a Job
+		bar: 	a Job
+		element: 	a RPackage(myBeer)
+	Receiver's instance variables: 
+		dependents: 	a DependentsArray(a CategoryWidget a MethodWidget a ClassWidget a P...etc...
+		model: 	a PackageTreeNautilus
+		window: 	a NautilusWindow(932184064)
+		hierarchyClass: 	nil
+		cachedHierarchy: 	nil
+		sourceTextArea: 	a PluggableTextMorphWithLimits(953679872)
+		sourceCodePanel: 	a PanelMorph(813957120)
+		commentTextArea: 	nil
+		currentDisplayChoice: 	nil
+		sourceTextAreaLimit: 	350
+		sourceCodeContainer: 	a PanelMorph(767557632)
+		shouldUpdateTitle: 	true
+		testSemaphore: 	a Semaphore()
+		sourceTextAreas: 	an OrderedCollection(a PluggableTextMorphWithLimits(953679872)...etc...
+		multipleMethodsEditor: 	a MultipleMethodsEditor(475004928)
+		contentSelection: 	nil
+		acceptor: 	a ClassDefinitionAcceptor
+		classifier: 	a MethodClassifier
+		categoryWidget: 	a CategoryWidget
+		methodWidget: 	a MethodWidget
+		classWidget: 	a ClassWidget
+		packageWidget: 	a PackageTreeWidget
+		packagePattern: 	nil
+		searchWidget: 	a SearchMorph(357302272)
+		packagePatternString: 	nil
+
+
+Array(SequenceableCollection)>>do:
+	Receiver: an Array(a RPackage(myBeer))
+	Arguments and temporary variables: 
+		aBlock: 	[ :element | 
+aBlock value: element.
+bar increment ]
+		index: 	1
+	Receiver's instance variables: 
+an Array(a RPackage(myBeer))
+
+[ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar increment ] ] in PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+	Receiver: a PackageTreeNautilusUI
+	Arguments and temporary variables: 
+		aBlock: 	[ :package | package asNautilusSelection item fileOut ]
+		aCollection: 	an Array(a RPackage(myBeer))
+		aString: 	'Filing out packages...'
+		job: 	a Job
+		bar: 	a Job
+	Receiver's instance variables: 
+		dependents: 	a DependentsArray(a CategoryWidget a MethodWidget a ClassWidget a P...etc...
+		model: 	a PackageTreeNautilus
+		window: 	a NautilusWindow(932184064)
+		hierarchyClass: 	nil
+		cachedHierarchy: 	nil
+		sourceTextArea: 	a PluggableTextMorphWithLimits(953679872)
+		sourceCodePanel: 	a PanelMorph(813957120)
+		commentTextArea: 	nil
+		currentDisplayChoice: 	nil
+		sourceTextAreaLimit: 	350
+		sourceCodeContainer: 	a PanelMorph(767557632)
+		shouldUpdateTitle: 	true
+		testSemaphore: 	a Semaphore()
+		sourceTextAreas: 	an OrderedCollection(a PluggableTextMorphWithLimits(953679872)...etc...
+		multipleMethodsEditor: 	a MultipleMethodsEditor(475004928)
+		contentSelection: 	nil
+		acceptor: 	a ClassDefinitionAcceptor
+		classifier: 	a MethodClassifier
+		categoryWidget: 	a CategoryWidget
+		methodWidget: 	a MethodWidget
+		classWidget: 	a ClassWidget
+		packageWidget: 	a PackageTreeWidget
+		packagePattern: 	nil
+		searchWidget: 	a SearchMorph(357302272)
+		packagePatternString: 	nil
+
+
+BlockClosure>>cull:
+	Receiver: [ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar increment ] ]
+	Arguments and temporary variables: 
+		anArg: 	a Job
+	Receiver's instance variables: 
+		outerContext: 	PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+		startpc: 	55
+		numArgs: 	1
+
+
+[ result := block cull: self ] in [ 
+self prepareForRunning.
+[ result := block cull: self ]
+	on: JobNotification
+	do: [ :notification | notification handle: self ] ] in Job>>run
+	Receiver: a Job
+	Arguments and temporary variables: 
+		result: 	nil
+	Receiver's instance variables: 
+		block: 	[ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar ...etc...
+		currentValue: 	0
+		min: 	0
+		max: 	1
+		title: 	'Filing out packages...'
+		children: 	an OrderedCollection()
+		isRunning: 	true
+		parent: 	nil
+		process: 	a Process in nil
+
+
+BlockClosure>>on:do:
+	Receiver: [ result := block cull: self ]
+	Arguments and temporary variables: 
+		exception: 	JobNotification
+		handlerAction: 	[ :notification | notification handle: self ]
+	Receiver's instance variables: 
+		outerContext: 	[ 
+self prepareForRunning.
+[ result := block cull: self ]
+	on: Jo...etc...
+		startpc: 	57
+		numArgs: 	0
+
+
+[ 
+self prepareForRunning.
+[ result := block cull: self ]
+	on: JobNotification
+	do: [ :notification | notification handle: self ] ] in Job>>run
+	Receiver: a Job
+	Arguments and temporary variables: 
+		result: 	nil
+	Receiver's instance variables: 
+		block: 	[ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar ...etc...
+		currentValue: 	0
+		min: 	0
+		max: 	1
+		title: 	'Filing out packages...'
+		children: 	an OrderedCollection()
+		isRunning: 	true
+		parent: 	nil
+		process: 	a Process in nil
+
+
+BlockClosure>>ensure:
+	Receiver: [ 
+self prepareForRunning.
+[ result := block cull: self ]
+	on: JobNotification
+	do: [ :not...etc...
+	Arguments and temporary variables: 
+		aBlock: 	[ self cleanupAfterRunning ]
+		complete: 	nil
+		returnValue: 	nil
+	Receiver's instance variables: 
+		outerContext: 	Job>>run
+		startpc: 	49
+		numArgs: 	0
+
+
+Job>>run
+	Receiver: a Job
+	Arguments and temporary variables: 
+		result: 	nil
+	Receiver's instance variables: 
+		block: 	[ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar ...etc...
+		currentValue: 	0
+		min: 	0
+		max: 	1
+		title: 	'Filing out packages...'
+		children: 	an OrderedCollection()
+		isRunning: 	true
+		parent: 	nil
+		process: 	a Process in nil
+
+
+PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+	Receiver: a PackageTreeNautilusUI
+	Arguments and temporary variables: 
+		aBlock: 	[ :package | package asNautilusSelection item fileOut ]
+		aCollection: 	an Array(a RPackage(myBeer))
+		aString: 	'Filing out packages...'
+		job: 	a Job
+	Receiver's instance variables: 
+		dependents: 	a DependentsArray(a CategoryWidget a MethodWidget a ClassWidget a P...etc...
+		model: 	a PackageTreeNautilus
+		window: 	a NautilusWindow(932184064)
+		hierarchyClass: 	nil
+		cachedHierarchy: 	nil
+		sourceTextArea: 	a PluggableTextMorphWithLimits(953679872)
+		sourceCodePanel: 	a PanelMorph(813957120)
+		commentTextArea: 	nil
+		currentDisplayChoice: 	nil
+		sourceTextAreaLimit: 	350
+		sourceCodeContainer: 	a PanelMorph(767557632)
+		shouldUpdateTitle: 	true
+		testSemaphore: 	a Semaphore()
+		sourceTextAreas: 	an OrderedCollection(a PluggableTextMorphWithLimits(953679872)...etc...
+		multipleMethodsEditor: 	a MultipleMethodsEditor(475004928)
+		contentSelection: 	nil
+		acceptor: 	a ClassDefinitionAcceptor
+		classifier: 	a MethodClassifier
+		categoryWidget: 	a CategoryWidget
+		methodWidget: 	a MethodWidget
+		classWidget: 	a ClassWidget
+		packageWidget: 	a PackageTreeWidget
+		packagePattern: 	nil
+		searchWidget: 	a SearchMorph(357302272)
+		packagePatternString: 	nil
+
+
+PackageTreeNautilusUI>>fileOutPackages:
+	Receiver: a PackageTreeNautilusUI
+	Arguments and temporary variables: 
+		aCollection: 	an Array(a RPackage(myBeer))
+	Receiver's instance variables: 
+		dependents: 	a DependentsArray(a CategoryWidget a MethodWidget a ClassWidget a P...etc...
+		model: 	a PackageTreeNautilus
+		window: 	a NautilusWindow(932184064)
+		hierarchyClass: 	nil
+		cachedHierarchy: 	nil
+		sourceTextArea: 	a PluggableTextMorphWithLimits(953679872)
+		sourceCodePanel: 	a PanelMorph(813957120)
+		commentTextArea: 	nil
+		currentDisplayChoice: 	nil
+		sourceTextAreaLimit: 	350
+		sourceCodeContainer: 	a PanelMorph(767557632)
+		shouldUpdateTitle: 	true
+		testSemaphore: 	a Semaphore()
+		sourceTextAreas: 	an OrderedCollection(a PluggableTextMorphWithLimits(953679872)...etc...
+		multipleMethodsEditor: 	a MultipleMethodsEditor(475004928)
+		contentSelection: 	nil
+		acceptor: 	a ClassDefinitionAcceptor
+		classifier: 	a MethodClassifier
+		categoryWidget: 	a CategoryWidget
+		methodWidget: 	a MethodWidget
+		classWidget: 	a ClassWidget
+		packageWidget: 	a PackageTreeWidget
+		packagePattern: 	nil
+		searchWidget: 	a SearchMorph(357302272)
+		packagePatternString: 	nil
+
+
+PackageTreeNautilusUI(AbstractNautilusUI)>>fileOutPackage
+	Receiver: a PackageTreeNautilusUI
+	Arguments and temporary variables: 
+
+	Receiver's instance variables: 
+		dependents: 	a DependentsArray(a CategoryWidget a MethodWidget a ClassWidget a P...etc...
+		model: 	a PackageTreeNautilus
+		window: 	a NautilusWindow(932184064)
+		hierarchyClass: 	nil
+		cachedHierarchy: 	nil
+		sourceTextArea: 	a PluggableTextMorphWithLimits(953679872)
+		sourceCodePanel: 	a PanelMorph(813957120)
+		commentTextArea: 	nil
+		currentDisplayChoice: 	nil
+		sourceTextAreaLimit: 	350
+		sourceCodeContainer: 	a PanelMorph(767557632)
+		shouldUpdateTitle: 	true
+		testSemaphore: 	a Semaphore()
+		sourceTextAreas: 	an OrderedCollection(a PluggableTextMorphWithLimits(953679872)...etc...
+		multipleMethodsEditor: 	a MultipleMethodsEditor(475004928)
+		contentSelection: 	nil
+		acceptor: 	a ClassDefinitionAcceptor
+		classifier: 	a MethodClassifier
+		categoryWidget: 	a CategoryWidget
+		methodWidget: 	a MethodWidget
+		classWidget: 	a ClassWidget
+		packageWidget: 	a PackageTreeWidget
+		packagePattern: 	nil
+		searchWidget: 	a SearchMorph(357302272)
+		packagePatternString: 	nil
+
+
+[ target fileOutPackage ] in AbstractNautilusUI class>>packagesMenu:
+	Receiver: AbstractNautilusUI
+	Arguments and temporary variables: 
+<<error during printing>
+	Receiver's instance variables: 
+		superclass: 	AbstractTool
+		methodDict: 	a MethodDictionary(size 381)
+		format: 	166
+		layout: 	a FixedLayout
+		instanceVariables: 	#(#model #window #hierarchyClass #cachedHierarchy #sourceTex...etc...
+		organization: 	a ClassOrganization
+		subclasses: 	{NautilusUI}
+		name: 	#AbstractNautilusUI
+		classPool: 	a Dictionary(#ClassesIconsCache->a WeakIdentityKeyDictionary(Beer->C...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#Nautilus
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+BlockClosure>>cull:
+	Receiver: [ target fileOutPackage ]
+	Arguments and temporary variables: 
+		anArg: 	a PackageTreeNautilusUI
+	Receiver's instance variables: 
+		outerContext: 	AbstractNautilusUI class>>packagesMenu:
+		startpc: 	672
+		numArgs: 	0
+
+
+[ 
+| selArgCount |
+"show cursor in case item opens a new MVC window"
+(selArgCount := selector numArgs) = 0
+	ifTrue: [ target perform: selector ]
+	ifFalse: [ 
+		selArgCount = arguments size
+			ifTrue: [ target perform: selector withArguments: arguments ]
+			ifFalse: [ target perform: selector withArguments: (arguments copyWith: evt) ] ].
+self changed ] in ToggleMenuItemMorph(MenuItemMorph)>>invokeWithEvent:
+	Receiver: a ToggleMenuItemMorph(111149056)'File Out'
+	Arguments and temporary variables: 
+		evt: 	[(432@753) mouseUp 81136 nil]
+		w: 	a WorldMorph(511705088) [world]
+		selArgCount: 	1
+	Receiver's instance variables: 
+		bounds: 	(375.0@742.0) corner: (694.0@759.0)
+		owner: 	a MenuMorph(124518400)
+		submorphs: 	#()
+		fullBounds: 	(375.0@742.0) corner: (694.0@759.0)
+		color: 	Color black
+		extension: 	a MorphExtension (133955584)
+		font: 	a LogicalFont
+ familyName: Source Sans Pro
+ emphasis: nil
+ pointSize: 10
+...etc...
+		emphasis: 	0
+		contents: 	'File Out'
+		hasFocus: 	false
+		isEnabled: 	true
+		subMenu: 	nil
+		isSelected: 	false
+		target: 	[ target fileOutPackage ]
+		selector: 	#cull:
+		arguments: 	an Array(a PackageTreeNautilusUI)
+		icon: 	Form(16x1x8)
+		getStateSelector: 	nil
+		enablementSelector: 	nil
+		keyText: 	nil
+
+
+BlockClosure>>ensure:
+	Receiver: [ 
+| selArgCount |
+"show cursor in case item opens a new MVC window"
+(selArgCount := selec...etc...
+	Arguments and temporary variables: 
+		aBlock: 	[ oldcursor show ]
+		complete: 	nil
+		returnValue: 	nil
+	Receiver's instance variables: 
+		outerContext: 	ToggleMenuItemMorph(MenuItemMorph)>>invokeWithEvent:
+		startpc: 	134
+		numArgs: 	0
+
+
+CursorWithMask(Cursor)>>showWhile:
+	Receiver: ((CursorWithMask
+	extent: (16@16)
+	depth: 1
+	fromArray: #(
+		2r0
+		2r100000000000000000000...etc...
+	Arguments and temporary variables: 
+		aBlock: 	[ 
+| selArgCount |
+"show cursor in case item opens a new MVC window"
+(s...etc...
+		oldcursor: 	((CursorWithMask
+	extent: (16@16)
+	depth: 1
+	fromArray: #(
+		2r0
+		2...etc...
+	Receiver's instance variables: 
+		bits: 	a Bitmap of length 16
+		width: 	16
+		height: 	16
+		depth: 	1
+		offset: 	(-1@ -1)
+		maskForm: 	Form(16x16x1)
+
+
+ToggleMenuItemMorph(MenuItemMorph)>>invokeWithEvent:
+	Receiver: a ToggleMenuItemMorph(111149056)'File Out'
+	Arguments and temporary variables: 
+		evt: 	[(432@753) mouseUp 81136 nil]
+		w: 	a WorldMorph(511705088) [world]
+	Receiver's instance variables: 
+		bounds: 	(375.0@742.0) corner: (694.0@759.0)
+		owner: 	a MenuMorph(124518400)
+		submorphs: 	#()
+		fullBounds: 	(375.0@742.0) corner: (694.0@759.0)
+		color: 	Color black
+		extension: 	a MorphExtension (133955584)
+		font: 	a LogicalFont
+ familyName: Source Sans Pro
+ emphasis: nil
+ pointSize: 10
+...etc...
+		emphasis: 	0
+		contents: 	'File Out'
+		hasFocus: 	false
+		isEnabled: 	true
+		subMenu: 	nil
+		isSelected: 	false
+		target: 	[ target fileOutPackage ]
+		selector: 	#cull:
+		arguments: 	an Array(a PackageTreeNautilusUI)
+		icon: 	Form(16x1x8)
+		getStateSelector: 	nil
+		enablementSelector: 	nil
+		keyText: 	nil
+
+
+
+--- The full stack ---
+MultiByteFileStream class(StandardFileStream class)>>fileExistsUserHandling:
+MorphicUIManager>>fileExistsDefaultAction:
+FileExistsException>>defaultAction
+[ :error | 
+error isResumable
+	ifTrue: [ error resumeUnchecked: error defaultAction ]
+	ifFalse: [ error pass ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+BlockClosure>>cull:
+Context>>evaluateSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+FileExistsException(Exception)>>signal
+MultiByteFileStream class(StandardFileStream class)>>newFileNamed:
+FileStream class>>newFileNamed:
+[ self newFileNamed: fileName ] in FileStream class>>newFileNamed:do:
+FileStream class>>detectFile:do:
+FileStream class>>newFileNamed:do:
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ] in [ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+converter := aStream contents isAsciiString
+	ifTrue: [ MacRomanTextConverter new ]
+	ifFalse: [ UTF8TextConverter new ].
+fileName := baseName , extension.
+fileName := FileSystem disk checkName: fileName fixErrors: true.
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ]
+	on: Abort
+	do: [ :e | ^ self ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+BlockClosure>>on:do:
+[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+converter := aStream contents isAsciiString
+	ifTrue: [ MacRomanTextConverter new ]
+	ifFalse: [ UTF8TextConverter new ].
+fileName := baseName , extension.
+fileName := FileSystem disk checkName: fileName fixErrors: true.
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ]
+	on: Abort
+	do: [ :e | ^ self ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+BlockClosure>>on:do:
+FileStream class>>writeSourceCodeFrom:baseName:isSt:
+RPackage>>fileOut
+[ :package | package asNautilusSelection item fileOut ] in PackageTreeNautilusUI>>fileOutPackages:
+[ :element | 
+aBlock value: element.
+bar increment ] in [ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar increment ] ] in PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+Array(SequenceableCollection)>>do:
+[ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar increment ] ] in PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+BlockClosure>>cull:
+[ result := block cull: self ] in [ 
+self prepareForRunning.
+[ result := block cull: self ]
+	on: JobNotification
+	do: [ :notification | notification handle: self ] ] in Job>>run
+BlockClosure>>on:do:
+[ 
+self prepareForRunning.
+[ result := block cull: self ]
+	on: JobNotification
+	do: [ :notification | notification handle: self ] ] in Job>>run
+BlockClosure>>ensure:
+Job>>run
+PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+PackageTreeNautilusUI>>fileOutPackages:
+PackageTreeNautilusUI(AbstractNautilusUI)>>fileOutPackage
+[ target fileOutPackage ] in AbstractNautilusUI class>>packagesMenu:
+BlockClosure>>cull:
+[ 
+| selArgCount |
+"show cursor in case item opens a new MVC window"
+(selArgCount := selector numArgs) = 0
+	ifTrue: [ target perform: selector ]
+	ifFalse: [ 
+		selArgCount = arguments size
+			ifTrue: [ target perform: selector withArguments: arguments ]
+			ifFalse: [ target perform: selector withArguments: (arguments copyWith: evt) ] ].
+self changed ] in ToggleMenuItemMorph(MenuItemMorph)>>invokeWithEvent:
+BlockClosure>>ensure:
+CursorWithMask(Cursor)>>showWhile:
+ToggleMenuItemMorph(MenuItemMorph)>>invokeWithEvent:
+ - - - - - - - - - - - - - - -  
+			- - - - - - - - - - - - - - - - - -
+ToggleMenuItemMorph(MenuItemMorph)>>mouseUp:
+ToggleMenuItemMorph(MenuItemMorph)>>handleMouseUp:
+MouseButtonEvent>>sentTo:
+ToggleMenuItemMorph(Morph)>>handleEvent:
+MorphicEventDispatcher>>dispatchDefault:with:
+MorphicEventDispatcher>>handleMouseUp:
+MouseButtonEvent>>sentTo:
+[ ^ anEvent sentTo: self ] in MorphicEventDispatcher>>dispatchEvent:with:
+BlockClosure>>ensure:
+MorphicEventDispatcher>>dispatchEvent:with:
+ToggleMenuItemMorph(Morph)>>processEvent:using:
+MorphicEventDispatcher>>dispatchDefault:with:
+MorphicEventDispatcher>>handleMouseUp:
+MouseButtonEvent>>sentTo:
+[ ^ anEvent sentTo: self ] in MorphicEventDispatcher>>dispatchEvent:with:
+BlockClosure>>ensure:
+MorphicEventDispatcher>>dispatchEvent:with:
+MenuMorph(Morph)>>processEvent:using:
+MenuMorph(Morph)>>processEvent:
+MenuMorph>>handleFocusEvent:
+[ 
+ActiveHand := self.
+ActiveEvent := anEvent.
+result := focusHolder handleFocusEvent: (anEvent transformedBy: (focusHolder transformedFrom: self)) ] in HandMorph>>sendFocusEvent:to:clear:
+BlockClosure>>on:do:
+WorldMorph(PasteUpMorph)>>becomeActiveDuring:
+HandMorph>>sendFocusEvent:to:clear:
+HandMorph>>sendEvent:focus:clear:
+HandMorph>>sendMouseEvent:
+HandMorph>>handleEvent:
+HandMorph>>processEvents
+[ :h | 
+ActiveHand := h.
+h processEvents.
+ActiveHand := nil ] in WorldState>>doOneCycleNowFor:
+Array(SequenceableCollection)>>do:
+WorldState>>handsDo:
+WorldState>>doOneCycleNowFor:
+WorldState>>doOneCycleFor:
+WorldMorph>>doOneCycle
+[ 
+[ 
+World doOneCycle.
+Processor yield.
+false ] whileFalse: [  ] ] in MorphicUIManager>>spawnNewProcess
+[ 
+self value.
+Processor terminateActive ] in BlockClosure>>newProcess
+-------------------------------------------------------------------------------
+
+THERE_BE_DRAGONS_HERE
+Abort: Please close this to abort file opening
+30 November 2015 10:23:58.157541 am
+
+VM: unix - i686 - linux-gnu - NBCoInterpreter NativeBoost-CogPlugin-GuillermoPolito.19 uuid: acc98e51-2fba-4841-a965-2975997bba66 May 15 2014
+NBCogit NativeBoost-CogPlugin-GuillermoPolito.19 uuid: acc98e51-2fba-4841-a965-2975997bba66 May 15 2014
+https://github.com/pharo-project/pharo-vm.git Commit: ed4a4f59208968a21d82fd2406f75c2c4de558b2 Date: 2014-05-15 18:23:04 +0200 By: Esteban Lorenzano <estebanlm@gmail.com> Jenkins build #14826
+
+Image: Pharo4.0 [Latest update: #40622]
+
+MultiByteFileStream class(StandardFileStream class)>>fileExistsUserHandling:
+	Receiver: MultiByteFileStream
+	Arguments and temporary variables: 
+		fullFileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/my...etc...
+		file: 	File @ /home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBe...etc...
+		localName: 	'myBeer.st'
+		choice: 	3
+		newName: 	nil
+		newFullFileName: 	nil
+	Receiver's instance variables: 
+		superclass: 	StandardFileStream
+		methodDict: 	a MethodDictionary(#accepts:->MultiByteFileStream>>#accepts: #ascii...etc...
+		format: 	152
+		layout: 	a FixedLayout
+		instanceVariables: 	#('converter' 'lineEndConvention' 'wantsLineEndConversion')
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#MultiByteFileStream
+		classPool: 	a Dictionary(#Cr->Character cr #CrLf->'
+
+' #Lf->Character lf #LineEn...etc...
+		sharedPools: 	nil
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+MorphicUIManager>>fileExistsDefaultAction:
+	Receiver: a MorphicUIManager
+	Arguments and temporary variables: 
+		anException: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/...etc...
+	Receiver's instance variables: 
+		interactiveParser: 	nil
+		activeTranscript: 	Transcript
+
+
+FileExistsException>>defaultAction
+	Receiver: FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+	Arguments and temporary variables: 
+
+	Receiver's instance variables: 
+		messageText: 	nil
+		tag: 	nil
+		signaler: 	MultiByteFileStream
+		signalContext: 	FileExistsException(Exception)>>signal
+		handlerContext: 	BlockClosure>>on:do:
+		outerContext: 	nil
+		fileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+		fileClass: 	MultiByteFileStream
+
+
+UndefinedObject>>handleSignal:
+	Receiver: nil
+	Arguments and temporary variables: 
+		exception: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI...etc...
+	Receiver's instance variables: 
+nil
+
+FileExistsException(Exception)>>pass
+	Receiver: FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+	Arguments and temporary variables: 
+
+	Receiver's instance variables: 
+		messageText: 	nil
+		tag: 	nil
+		signaler: 	MultiByteFileStream
+		signalContext: 	FileExistsException(Exception)>>signal
+		handlerContext: 	BlockClosure>>on:do:
+		outerContext: 	nil
+		fileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+		fileClass: 	MultiByteFileStream
+
+
+[ :ex | 
+ActiveWorld := priorWorld.
+ActiveEvent := priorEvent.
+ActiveHand := priorHand.
+ex pass ] in WorldMorph(PasteUpMorph)>>becomeActiveDuring:
+	Receiver: a WorldMorph(511705088) [world]
+	Arguments and temporary variables: 
+		aBlock: 	[ 
+ActiveHand := self.
+ActiveEvent := anEvent.
+result := focusHolder ha...etc...
+		priorWorld: 	a WorldMorph(511705088) [world]
+		priorHand: 	a HandMorph(760479744)
+		priorEvent: 	[(461@761) mouseOver red nil nil]
+		ex: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/pr...etc...
+	Receiver's instance variables: 
+		bounds: 	(0@0) corner: (1916@1021)
+		owner: 	nil
+		submorphs: 	an Array(a TaskbarMorph(984088576) a SystemProgressMorph(165412864) ...etc...
+		fullBounds: 	nil
+		color: 	(Color r: 0.937 g: 0.937 b: 0.937 alpha: 1.0)
+		extension: 	a MorphExtension (552861696) [other:  (dragEnabled -> true) (dropEna...etc...
+		borderWidth: 	0
+		borderColor: 	(Color r: 0.063 g: 0.063 b: 0.063 alpha: 1.0)
+		backgroundMorph: 	nil
+		worldState: 	a WorldState
+		griddingOn: 	nil
+		osWindow: 	nil
+		session: 	nil
+
+
+BlockClosure>>cull:
+	Receiver: [ :ex | 
+ActiveWorld := priorWorld.
+ActiveEvent := priorEvent.
+ActiveHand := priorHand.
+ex...etc...
+	Arguments and temporary variables: 
+		anArg: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO...etc...
+	Receiver's instance variables: 
+		outerContext: 	WorldMorph(PasteUpMorph)>>becomeActiveDuring:
+		startpc: 	71
+		numArgs: 	1
+
+
+Context>>evaluateSignal:
+	Receiver: BlockClosure>>on:do:
+	Arguments and temporary variables: 
+		exception: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI...etc...
+		value: 	nil
+	Receiver's instance variables: 
+		sender: 	WorldMorph(PasteUpMorph)>>becomeActiveDuring:
+		pc: 	15
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+ActiveHand := self.
+ActiveEvent := anEvent.
+result := focusHolder ...etc...
+
+
+Context>>handleSignal:
+	Receiver: BlockClosure>>on:do:
+	Arguments and temporary variables: 
+		exception: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI...etc...
+	Receiver's instance variables: 
+		sender: 	WorldMorph(PasteUpMorph)>>becomeActiveDuring:
+		pc: 	15
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+ActiveHand := self.
+ActiveEvent := anEvent.
+result := focusHolder ...etc...
+
+
+Context>>handleSignal:
+	Receiver: BlockClosure>>on:do:
+	Arguments and temporary variables: 
+		exception: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI...etc...
+	Receiver's instance variables: 
+		sender: 	[ 
+self prepareForRunning.
+[ result := block cull: self ]
+	on: JobNotif...etc...
+		pc: 	15
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ result := block cull: self ]
+
+
+FileExistsException(Exception)>>signal
+	Receiver: FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+	Arguments and temporary variables: 
+
+	Receiver's instance variables: 
+		messageText: 	nil
+		tag: 	nil
+		signaler: 	MultiByteFileStream
+		signalContext: 	FileExistsException(Exception)>>signal
+		handlerContext: 	BlockClosure>>on:do:
+		outerContext: 	nil
+		fileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+		fileClass: 	MultiByteFileStream
+
+
+MultiByteFileStream class(StandardFileStream class)>>newFileNamed:
+	Receiver: MultiByteFileStream
+	Arguments and temporary variables: 
+		fileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+		fullName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+	Receiver's instance variables: 
+		superclass: 	StandardFileStream
+		methodDict: 	a MethodDictionary(#accepts:->MultiByteFileStream>>#accepts: #ascii...etc...
+		format: 	152
+		layout: 	a FixedLayout
+		instanceVariables: 	#('converter' 'lineEndConvention' 'wantsLineEndConversion')
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#MultiByteFileStream
+		classPool: 	a Dictionary(#Cr->Character cr #CrLf->'
+
+' #Lf->Character lf #LineEn...etc...
+		sharedPools: 	nil
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+MultiByteFileStream class(StandardFileStream class)>>fileExistsUserHandling:
+	Receiver: MultiByteFileStream
+	Arguments and temporary variables: 
+		fullFileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/my...etc...
+		file: 	File @ /home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBe...etc...
+		localName: 	'myBeer.st'
+		choice: 	2
+		newName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer....etc...
+		newFullFileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8...etc...
+	Receiver's instance variables: 
+		superclass: 	StandardFileStream
+		methodDict: 	a MethodDictionary(#accepts:->MultiByteFileStream>>#accepts: #ascii...etc...
+		format: 	152
+		layout: 	a FixedLayout
+		instanceVariables: 	#('converter' 'lineEndConvention' 'wantsLineEndConversion')
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#MultiByteFileStream
+		classPool: 	a Dictionary(#Cr->Character cr #CrLf->'
+
+' #Lf->Character lf #LineEn...etc...
+		sharedPools: 	nil
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+MorphicUIManager>>fileExistsDefaultAction:
+	Receiver: a MorphicUIManager
+	Arguments and temporary variables: 
+		anException: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/...etc...
+	Receiver's instance variables: 
+		interactiveParser: 	nil
+		activeTranscript: 	Transcript
+
+
+FileExistsException>>defaultAction
+	Receiver: FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+	Arguments and temporary variables: 
+
+	Receiver's instance variables: 
+		messageText: 	nil
+		tag: 	nil
+		signaler: 	MultiByteFileStream
+		signalContext: 	FileExistsException(Exception)>>signal
+		handlerContext: 	BlockClosure>>on:do:
+		outerContext: 	nil
+		fileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+		fileClass: 	MultiByteFileStream
+
+
+[ :error | 
+error isResumable
+	ifTrue: [ error resumeUnchecked: error defaultAction ]
+	ifFalse: [ error pass ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+<<error during printing>
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+BlockClosure>>cull:
+	Receiver: [ :error | 
+error isResumable
+	ifTrue: [ error resumeUnchecked: error defaultAction ]
+	ifF...etc...
+	Arguments and temporary variables: 
+		anArg: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO...etc...
+	Receiver's instance variables: 
+		outerContext: 	FileStream class>>writeSourceCodeFrom:baseName:isSt:
+		startpc: 	265
+		numArgs: 	1
+
+
+Context>>evaluateSignal:
+	Receiver: BlockClosure>>on:do:
+	Arguments and temporary variables: 
+		exception: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI...etc...
+		value: 	nil
+	Receiver's instance variables: 
+		sender: 	FileStream class>>writeSourceCodeFrom:baseName:isSt:
+		pc: 	15
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+co...etc...
+
+
+Context>>handleSignal:
+	Receiver: BlockClosure>>on:do:
+	Arguments and temporary variables: 
+		exception: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI...etc...
+	Receiver's instance variables: 
+		sender: 	FileStream class>>writeSourceCodeFrom:baseName:isSt:
+		pc: 	15
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+co...etc...
+
+
+Context>>handleSignal:
+	Receiver: BlockClosure>>on:do:
+	Arguments and temporary variables: 
+		exception: 	FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI...etc...
+	Receiver's instance variables: 
+		sender: 	[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+conv...etc...
+		pc: 	15
+		stackp: 	2
+		method: 	BlockClosure>>#on:do:
+		closureOrNil: 	nil
+		receiver: 	[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileNam...etc...
+
+
+FileExistsException(Exception)>>signal
+	Receiver: FileExistsException: '/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+	Arguments and temporary variables: 
+
+	Receiver's instance variables: 
+		messageText: 	nil
+		tag: 	nil
+		signaler: 	MultiByteFileStream
+		signalContext: 	FileExistsException(Exception)>>signal
+		handlerContext: 	BlockClosure>>on:do:
+		outerContext: 	nil
+		fileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+		fileClass: 	MultiByteFileStream
+
+
+MultiByteFileStream class(StandardFileStream class)>>newFileNamed:
+	Receiver: MultiByteFileStream
+	Arguments and temporary variables: 
+		fileName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+		fullName: 	'/home/users/d/dolezjo3/FIT/fit-cvut-private/BI-OMO/practice-8/myBeer...etc...
+	Receiver's instance variables: 
+		superclass: 	StandardFileStream
+		methodDict: 	a MethodDictionary(#accepts:->MultiByteFileStream>>#accepts: #ascii...etc...
+		format: 	152
+		layout: 	a FixedLayout
+		instanceVariables: 	#('converter' 'lineEndConvention' 'wantsLineEndConversion')
+		organization: 	a ClassOrganization
+		subclasses: 	nil
+		name: 	#MultiByteFileStream
+		classPool: 	a Dictionary(#Cr->Character cr #CrLf->'
+
+' #Lf->Character lf #LineEn...etc...
+		sharedPools: 	nil
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+FileStream class>>newFileNamed:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		fileName: 	'myBeer.st'
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+[ self newFileNamed: fileName ] in FileStream class>>newFileNamed:do:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		fileName: 	'myBeer.st'
+		aBlock: 	[ :fileStream | 
+fileName := fileStream name.	"in case it is changed wh...etc...
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+FileStream class>>detectFile:do:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		aBlock: 	[ self newFileNamed: fileName ]
+		anotherBlock: 	[ :fileStream | 
+fileName := fileStream name.	"in case it is chan...etc...
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+FileStream class>>newFileNamed:do:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		fileName: 	'myBeer.st'
+		aBlock: 	[ :fileStream | 
+fileName := fileStream name.	"in case it is changed wh...etc...
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ] in [ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+converter := aStream contents isAsciiString
+	ifTrue: [ MacRomanTextConverter new ]
+	ifFalse: [ UTF8TextConverter new ].
+fileName := baseName , extension.
+fileName := FileSystem disk checkName: fileName fixErrors: true.
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ]
+	on: Abort
+	do: [ :e | ^ self ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		aStream: 	a WriteStream
+		baseName: 	#myBeer
+		stOrCsFlag: 	true
+		extension: 	'.st'
+		converter: 	a MacRomanTextConverter
+		fileName: 	'myBeer.st'
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+BlockClosure>>on:do:
+	Receiver: [ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name....etc...
+	Arguments and temporary variables: 
+		exception: 	Abort
+		handlerAction: 	[ :e | ^ self ]
+	Receiver's instance variables: 
+		outerContext: 	[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ]...etc...
+		startpc: 	200
+		numArgs: 	0
+
+
+[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+converter := aStream contents isAsciiString
+	ifTrue: [ MacRomanTextConverter new ]
+	ifFalse: [ UTF8TextConverter new ].
+fileName := baseName , extension.
+fileName := FileSystem disk checkName: fileName fixErrors: true.
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ]
+	on: Abort
+	do: [ :e | ^ self ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		aStream: 	a WriteStream
+		baseName: 	#myBeer
+		stOrCsFlag: 	true
+		extension: 	'.st'
+		converter: 	a MacRomanTextConverter
+		fileName: 	'myBeer.st'
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+BlockClosure>>on:do:
+	Receiver: [ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+converter := aStream co...etc...
+	Arguments and temporary variables: 
+		exception: 	Error
+		handlerAction: 	[ :error | 
+error isResumable
+	ifTrue: [ error resumeUnchecked: ...etc...
+	Receiver's instance variables: 
+		outerContext: 	FileStream class>>writeSourceCodeFrom:baseName:isSt:
+		startpc: 	156
+		numArgs: 	0
+
+
+FileStream class>>writeSourceCodeFrom:baseName:isSt:
+	Receiver: FileStream
+	Arguments and temporary variables: 
+		extension: 	'.st'
+		converter: 	a MacRomanTextConverter
+		fileName: 	'myBeer.st'
+		aStream: 	a WriteStream
+		baseName: 	#myBeer
+		stOrCsFlag: 	true
+	Receiver's instance variables: 
+		superclass: 	ReadWriteStream
+		methodDict: 	a MethodDictionary(#asBinaryOrTextStream->FileStream>>#asBinaryOrTe...etc...
+		format: 	140
+		layout: 	a FixedLayout
+		instanceVariables: 	#('rwmode')
+		organization: 	a ClassOrganization
+		subclasses: 	{StandardFileStream}
+		name: 	#FileStream
+		classPool: 	a Dictionary(#Stderr->MultiByteFileStream: #stderr #Stdin->nil #Stdi...etc...
+		sharedPools: 	an OrderedCollection()
+		environment: 	a SystemDictionary(lots of globals)
+		category: 	#'Files-Kernel'
+		traitComposition: 	{}
+		localSelectors: 	nil
+
+
+RPackage>>fileOut
+	Receiver: a RPackage(myBeer)
+	Arguments and temporary variables: 
+		internalStream: 	a WriteStream
+	Receiver's instance variables: 
+		classDefinedSelectors: 	a Dictionary(#Beer->a Set(#unitPrice: #initialize #order...etc...
+		metaclassDefinedSelectors: 	a Dictionary()
+		classExtensionSelectors: 	a Dictionary()
+		metaclassExtensionSelectors: 	a Dictionary()
+		classes: 	a Set(#Beer #Order)
+		name: 	#myBeer
+		classTags: 	a Set(a RPackageTag(myBeer))
+
+
+[ :package | package asNautilusSelection item fileOut ] in PackageTreeNautilusUI>>fileOutPackages:
+	Receiver: a PackageTreeNautilusUI
+	Arguments and temporary variables: 
+		aCollection: 	an Array(a RPackage(myBeer))
+		package: 	a RPackage(myBeer)
+	Receiver's instance variables: 
+		dependents: 	a DependentsArray(a CategoryWidget a MethodWidget a ClassWidget a P...etc...
+		model: 	a PackageTreeNautilus
+		window: 	a NautilusWindow(932184064)
+		hierarchyClass: 	nil
+		cachedHierarchy: 	nil
+		sourceTextArea: 	a PluggableTextMorphWithLimits(953679872)
+		sourceCodePanel: 	a PanelMorph(813957120)
+		commentTextArea: 	nil
+		currentDisplayChoice: 	nil
+		sourceTextAreaLimit: 	350
+		sourceCodeContainer: 	a PanelMorph(767557632)
+		shouldUpdateTitle: 	true
+		testSemaphore: 	a Semaphore()
+		sourceTextAreas: 	an OrderedCollection(a PluggableTextMorphWithLimits(953679872)...etc...
+		multipleMethodsEditor: 	a MultipleMethodsEditor(475004928)
+		contentSelection: 	nil
+		acceptor: 	a ClassDefinitionAcceptor
+		classifier: 	a MethodClassifier
+		categoryWidget: 	a CategoryWidget
+		methodWidget: 	a MethodWidget
+		classWidget: 	a ClassWidget
+		packageWidget: 	a PackageTreeWidget
+		packagePattern: 	nil
+		searchWidget: 	a SearchMorph(357302272)
+		packagePatternString: 	nil
+
+
+[ :element | 
+aBlock value: element.
+bar increment ] in [ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar increment ] ] in PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+	Receiver: a PackageTreeNautilusUI
+	Arguments and temporary variables: 
+		aBlock: 	[ :package | package asNautilusSelection item fileOut ]
+		aCollection: 	an Array(a RPackage(myBeer))
+		aString: 	'Filing out packages...'
+		job: 	a Job
+		bar: 	a Job
+		element: 	a RPackage(myBeer)
+	Receiver's instance variables: 
+		dependents: 	a DependentsArray(a CategoryWidget a MethodWidget a ClassWidget a P...etc...
+		model: 	a PackageTreeNautilus
+		window: 	a NautilusWindow(932184064)
+		hierarchyClass: 	nil
+		cachedHierarchy: 	nil
+		sourceTextArea: 	a PluggableTextMorphWithLimits(953679872)
+		sourceCodePanel: 	a PanelMorph(813957120)
+		commentTextArea: 	nil
+		currentDisplayChoice: 	nil
+		sourceTextAreaLimit: 	350
+		sourceCodeContainer: 	a PanelMorph(767557632)
+		shouldUpdateTitle: 	true
+		testSemaphore: 	a Semaphore()
+		sourceTextAreas: 	an OrderedCollection(a PluggableTextMorphWithLimits(953679872)...etc...
+		multipleMethodsEditor: 	a MultipleMethodsEditor(475004928)
+		contentSelection: 	nil
+		acceptor: 	a ClassDefinitionAcceptor
+		classifier: 	a MethodClassifier
+		categoryWidget: 	a CategoryWidget
+		methodWidget: 	a MethodWidget
+		classWidget: 	a ClassWidget
+		packageWidget: 	a PackageTreeWidget
+		packagePattern: 	nil
+		searchWidget: 	a SearchMorph(357302272)
+		packagePatternString: 	nil
+
+
+Array(SequenceableCollection)>>do:
+	Receiver: an Array(a RPackage(myBeer))
+	Arguments and temporary variables: 
+		aBlock: 	[ :element | 
+aBlock value: element.
+bar increment ]
+		index: 	1
+	Receiver's instance variables: 
+an Array(a RPackage(myBeer))
+
+[ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar increment ] ] in PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+	Receiver: a PackageTreeNautilusUI
+	Arguments and temporary variables: 
+		aBlock: 	[ :package | package asNautilusSelection item fileOut ]
+		aCollection: 	an Array(a RPackage(myBeer))
+		aString: 	'Filing out packages...'
+		job: 	a Job
+		bar: 	a Job
+	Receiver's instance variables: 
+		dependents: 	a DependentsArray(a CategoryWidget a MethodWidget a ClassWidget a P...etc...
+		model: 	a PackageTreeNautilus
+		window: 	a NautilusWindow(932184064)
+		hierarchyClass: 	nil
+		cachedHierarchy: 	nil
+		sourceTextArea: 	a PluggableTextMorphWithLimits(953679872)
+		sourceCodePanel: 	a PanelMorph(813957120)
+		commentTextArea: 	nil
+		currentDisplayChoice: 	nil
+		sourceTextAreaLimit: 	350
+		sourceCodeContainer: 	a PanelMorph(767557632)
+		shouldUpdateTitle: 	true
+		testSemaphore: 	a Semaphore()
+		sourceTextAreas: 	an OrderedCollection(a PluggableTextMorphWithLimits(953679872)...etc...
+		multipleMethodsEditor: 	a MultipleMethodsEditor(475004928)
+		contentSelection: 	nil
+		acceptor: 	a ClassDefinitionAcceptor
+		classifier: 	a MethodClassifier
+		categoryWidget: 	a CategoryWidget
+		methodWidget: 	a MethodWidget
+		classWidget: 	a ClassWidget
+		packageWidget: 	a PackageTreeWidget
+		packagePattern: 	nil
+		searchWidget: 	a SearchMorph(357302272)
+		packagePatternString: 	nil
+
+
+BlockClosure>>cull:
+	Receiver: [ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar increment ] ]
+	Arguments and temporary variables: 
+		anArg: 	a Job
+	Receiver's instance variables: 
+		outerContext: 	PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+		startpc: 	55
+		numArgs: 	1
+
+
+[ result := block cull: self ] in [ 
+self prepareForRunning.
+[ result := block cull: self ]
+	on: JobNotification
+	do: [ :notification | notification handle: self ] ] in Job>>run
+	Receiver: a Job
+	Arguments and temporary variables: 
+		result: 	nil
+	Receiver's instance variables: 
+		block: 	[ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar ...etc...
+		currentValue: 	0
+		min: 	0
+		max: 	1
+		title: 	'Filing out packages...'
+		children: 	an OrderedCollection()
+		isRunning: 	true
+		parent: 	nil
+		process: 	a Process in nil
+
+
+BlockClosure>>on:do:
+	Receiver: [ result := block cull: self ]
+	Arguments and temporary variables: 
+		exception: 	JobNotification
+		handlerAction: 	[ :notification | notification handle: self ]
+	Receiver's instance variables: 
+		outerContext: 	[ 
+self prepareForRunning.
+[ result := block cull: self ]
+	on: Jo...etc...
+		startpc: 	57
+		numArgs: 	0
+
+
+
+--- The full stack ---
+MultiByteFileStream class(StandardFileStream class)>>fileExistsUserHandling:
+MorphicUIManager>>fileExistsDefaultAction:
+FileExistsException>>defaultAction
+UndefinedObject>>handleSignal:
+FileExistsException(Exception)>>pass
+[ :ex | 
+ActiveWorld := priorWorld.
+ActiveEvent := priorEvent.
+ActiveHand := priorHand.
+ex pass ] in WorldMorph(PasteUpMorph)>>becomeActiveDuring:
+BlockClosure>>cull:
+Context>>evaluateSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+FileExistsException(Exception)>>signal
+MultiByteFileStream class(StandardFileStream class)>>newFileNamed:
+MultiByteFileStream class(StandardFileStream class)>>fileExistsUserHandling:
+MorphicUIManager>>fileExistsDefaultAction:
+FileExistsException>>defaultAction
+[ :error | 
+error isResumable
+	ifTrue: [ error resumeUnchecked: error defaultAction ]
+	ifFalse: [ error pass ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+BlockClosure>>cull:
+Context>>evaluateSignal:
+Context>>handleSignal:
+Context>>handleSignal:
+FileExistsException(Exception)>>signal
+MultiByteFileStream class(StandardFileStream class)>>newFileNamed:
+FileStream class>>newFileNamed:
+[ self newFileNamed: fileName ] in FileStream class>>newFileNamed:do:
+FileStream class>>detectFile:do:
+FileStream class>>newFileNamed:do:
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ] in [ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+converter := aStream contents isAsciiString
+	ifTrue: [ MacRomanTextConverter new ]
+	ifFalse: [ UTF8TextConverter new ].
+fileName := baseName , extension.
+fileName := FileSystem disk checkName: fileName fixErrors: true.
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ]
+	on: Abort
+	do: [ :e | ^ self ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+BlockClosure>>on:do:
+[ 
+extension := stOrCsFlag
+	ifTrue: [ '.st' ]
+	ifFalse: [ '.cs' ].
+converter := aStream contents isAsciiString
+	ifTrue: [ MacRomanTextConverter new ]
+	ifFalse: [ UTF8TextConverter new ].
+fileName := baseName , extension.
+fileName := FileSystem disk checkName: fileName fixErrors: true.
+[ 
+FileStream
+	newFileNamed: fileName
+	do: [ :fileStream | 
+		fileName := fileStream name.	"in case it is changed when handling FileExistsException"
+		(converter isMemberOf: UTF8TextConverter)
+			ifTrue: [ 
+				fileStream binary.
+				UTF8TextConverter writeBOMOn: fileStream ].
+		fileStream
+			text;
+			converter: converter;
+			nextPutAll: aStream contents;
+			close ] ]
+	on: Abort
+	do: [ :e | ^ self ] ] in FileStream class>>writeSourceCodeFrom:baseName:isSt:
+BlockClosure>>on:do:
+FileStream class>>writeSourceCodeFrom:baseName:isSt:
+RPackage>>fileOut
+[ :package | package asNautilusSelection item fileOut ] in PackageTreeNautilusUI>>fileOutPackages:
+[ :element | 
+aBlock value: element.
+bar increment ] in [ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar increment ] ] in PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+Array(SequenceableCollection)>>do:
+[ :bar | 
+aCollection
+	do: [ :element | 
+		aBlock value: element.
+		bar increment ] ] in PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+BlockClosure>>cull:
+[ result := block cull: self ] in [ 
+self prepareForRunning.
+[ result := block cull: self ]
+	on: JobNotification
+	do: [ :notification | notification handle: self ] ] in Job>>run
+BlockClosure>>on:do:
+ - - - - - - - - - - - - - - -  
+			- - - - - - - - - - - - - - - - - -
+[ 
+self prepareForRunning.
+[ result := block cull: self ]
+	on: JobNotification
+	do: [ :notification | notification handle: self ] ] in Job>>run
+BlockClosure>>ensure:
+Job>>run
+PackageTreeNautilusUI(AbstractTool)>>do:on:displaying:
+PackageTreeNautilusUI>>fileOutPackages:
+PackageTreeNautilusUI(AbstractNautilusUI)>>fileOutPackage
+[ target fileOutPackage ] in AbstractNautilusUI class>>packagesMenu:
+BlockClosure>>cull:
+[ 
+| selArgCount |
+"show cursor in case item opens a new MVC window"
+(selArgCount := selector numArgs) = 0
+	ifTrue: [ target perform: selector ]
+	ifFalse: [ 
+		selArgCount = arguments size
+			ifTrue: [ target perform: selector withArguments: arguments ]
+			ifFalse: [ target perform: selector withArguments: (arguments copyWith: evt) ] ].
+self changed ] in ToggleMenuItemMorph(MenuItemMorph)>>invokeWithEvent:
+BlockClosure>>ensure:
+CursorWithMask(Cursor)>>showWhile:
+ToggleMenuItemMorph(MenuItemMorph)>>invokeWithEvent:
+ToggleMenuItemMorph(MenuItemMorph)>>mouseUp:
+ToggleMenuItemMorph(MenuItemMorph)>>handleMouseUp:
+MouseButtonEvent>>sentTo:
+ToggleMenuItemMorph(Morph)>>handleEvent:
+MorphicEventDispatcher>>dispatchDefault:with:
+MorphicEventDispatcher>>handleMouseUp:
+MouseButtonEvent>>sentTo:
+[ ^ anEvent sentTo: self ] in MorphicEventDispatcher>>dispatchEvent:with:
+BlockClosure>>ensure:
+MorphicEventDispatcher>>dispatchEvent:with:
+ToggleMenuItemMorph(Morph)>>processEvent:using:
+MorphicEventDispatcher>>dispatchDefault:with:
+MorphicEventDispatcher>>handleMouseUp:
+MouseButtonEvent>>sentTo:
+[ ^ anEvent sentTo: self ] in MorphicEventDispatcher>>dispatchEvent:with:
+BlockClosure>>ensure:
+MorphicEventDispatcher>>dispatchEvent:with:
+MenuMorph(Morph)>>processEvent:using:
+MenuMorph(Morph)>>processEvent:
+MenuMorph>>handleFocusEvent:
+[ 
+ActiveHand := self.
+ActiveEvent := anEvent.
+result := focusHolder handleFocusEvent: (anEvent transformedBy: (focusHolder transformedFrom: self)) ] in HandMorph>>sendFocusEvent:to:clear:
+BlockClosure>>on:do:
+WorldMorph(PasteUpMorph)>>becomeActiveDuring:
+HandMorph>>sendFocusEvent:to:clear:
+HandMorph>>sendEvent:focus:clear:
+HandMorph>>sendMouseEvent:
+HandMorph>>handleEvent:
+HandMorph>>processEvents
+[ :h | 
+ActiveHand := h.
+h processEvents.
+ActiveHand := nil ] in WorldState>>doOneCycleNowFor:
+Array(SequenceableCollection)>>do:
+WorldState>>handsDo:
+WorldState>>doOneCycleNowFor:
+WorldState>>doOneCycleFor:
+WorldMorph>>doOneCycle
+[ 
+[ 
+World doOneCycle.
+Processor yield.
+false ] whileFalse: [  ] ] in MorphicUIManager>>spawnNewProcess
+[ 
+self value.
+Processor terminateActive ] in BlockClosure>>newProcess
+-------------------------------------------------------------------------------
+

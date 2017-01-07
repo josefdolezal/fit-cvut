@@ -1,0 +1,1625 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="SQL*Plus 11.2.0">
+<title>BI-DBS - Josef Doležal(dolezjo3) - Výstup SQL příkazů </title> <style type ='text/css'><!--body {background: #ffffc6} --></style>
+</head>
+<body <h2>BI-DBS - středa 16:15, lichý týden, paralelka 1 - Josef Doležal - Výstup SQL příkazů</h2>>
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d1
+<br>
+SQL&gt;  -- Zakázky, které se realizovaly na platformě Oracle.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT DISTINCT p.NAME FROM PROJECT p
+<br>
+  2  JOIN CONTRACT c ON( p.CONTRACT_ID = c.CONTRACT_ID )
+<br>
+  3  JOIN USED_TECHNOLOGIES u ON( c.CONTRACT_ID = u.CONTRACT_ID )
+<br>
+  4  JOIN TECHNOLOGY t ON( u.TECHNOLOGY_ID = t.TECHNOLOGY_ID )
+<br>
+  5  WHERE t.LABEL LIKE '%Oracle%';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+</tr>
+<tr>
+<td>
+Technická podpora SW produktů ORACLE
+</td>
+</tr>
+<tr>
+<td>
+NIS, DMS, ERP + PACS software
+</td>
+</tr>
+<tr>
+<td>
+Rozšíření diskové kapacity Technologického centra
+</td>
+</tr>
+<tr>
+<td>
+Zajištění zálohování, archivace a obnovy důležitých serverů a dat
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d2
+<br>
+SQL&gt;  -- Vyber seznam zaměstnanců, kteří do systému nepřidali ani jednu zakázku od firmy HP.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT EMPLOYEE_ID, PERSONAL_NUMBER FROM EMPLOYEE
+<br>
+  2  MINUS
+<br>
+  3  SELECT e.EMPLOYEE_ID, e.PERSONAL_NUMBER FROM EMPLOYEE e
+<br>
+  4  JOIN CONTRACT c ON ( e.EMPLOYEE_ID = c.EMPLOYEE_ID )
+<br>
+  5  JOIN COMPANY y ON ( c.COMPANY_ID = y.COMPANY_ID )
+<br>
+  6  WHERE y.NAME = 'HP';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+EMPLOYEE_ID
+</th>
+<th scope="col">
+PERSONAL_NUMBER
+</th>
+</tr>
+<tr>
+<td align="right">
+      1000
+</td>
+<td>
+EN201502EMa
+</td>
+</tr>
+<tr>
+<td align="right">
+      1020
+</td>
+<td>
+CZ201502RAn
+</td>
+</tr>
+<tr>
+<td align="right">
+      1030
+</td>
+<td>
+CZ201502EMa2
+</td>
+</tr>
+<tr>
+<td align="right">
+      1040
+</td>
+<td>
+DE201502PCo
+</td>
+</tr>
+<tr>
+<td align="right">
+      1050
+</td>
+<td>
+CZ201502NGr
+</td>
+</tr>
+<tr>
+<td align="right">
+      1060
+</td>
+<td>
+FR201502CWo
+</td>
+</tr>
+<tr>
+<td align="right">
+      1080
+</td>
+<td>
+US201502CHa
+</td>
+</tr>
+</table>
+<p>
+
+7 rows selected.<br>
+<br>
+
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d3
+<br>
+SQL&gt;  -- Vytvoření pohledu nad zaměstnanci, u kterých bude vidět celé jméno a osobní číslo.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; CREATE OR REPLACE VIEW EMPLOYEE_INFO AS
+<br>
+  2  SELECT EMPLOYEE.PERSONAL_NUMBER, PERSON.FIRST_NAME, PERSON.LAST_NAME
+<br>
+  3  FROM EMPLOYEE JOIN PERSON USING (EMPLOYEE_ID);
+<br>
+
+View created.<br>
+<br>
+
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d4
+<br>
+SQL&gt;  -- Vyber jméno zaměstnance, jeho iniciály a počet kolizí iniciálů s jeho kolegy.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT p.FIRST_NAME, p.LAST_NAME, SUBSTR( FIRST_NAME, 1, 1 ) || SUBSTR( LAST_NAME, 1, 1 ) INC, (
+<br>
+  2    SELECT COUNT( SUBSTR( FIRST_NAME, 1, 1 ) || SUBSTR( LAST_NAME, 1, 1 ) ) FROM PERSON n
+<br>
+  3    WHERE n.CONTACT_PERSON_ID IS NULL
+<br>
+  4    AND p.PERSON_ID != n.PERSON_ID
+<br>
+  5    AND SUBSTR( n.FIRST_NAME, 1, 1 ) || SUBSTR( n.LAST_NAME, 1, 1 ) =
+<br>
+  6  	   SUBSTR( p.FIRST_NAME, 1, 1 ) || SUBSTR( p.LAST_NAME, 1, 1 ) ) INC_COUNT
+<br>
+  7  FROM PERSON p
+<br>
+  8  WHERE p.CONTACT_PERSON_ID IS NULL;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+FIRST_NAME
+</th>
+<th scope="col">
+LAST_NAME
+</th>
+<th scope="col">
+INC
+</th>
+<th scope="col">
+INC_COUNT
+</th>
+</tr>
+<tr>
+<td>
+Eric
+</td>
+<td>
+Mathews
+</td>
+<td>
+EM
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td>
+John
+</td>
+<td>
+Frye
+</td>
+<td>
+JF
+</td>
+<td align="right">
+         0
+</td>
+</tr>
+<tr>
+<td>
+Robert
+</td>
+<td>
+Anderson
+</td>
+<td>
+RA
+</td>
+<td align="right">
+         0
+</td>
+</tr>
+<tr>
+<td>
+Ethan
+</td>
+<td>
+Malley
+</td>
+<td>
+EM
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td>
+Paul
+</td>
+<td>
+Cohen
+</td>
+<td>
+PC
+</td>
+<td align="right">
+         0
+</td>
+</tr>
+<tr>
+<td>
+Norma
+</td>
+<td>
+Green
+</td>
+<td>
+NG
+</td>
+<td align="right">
+         0
+</td>
+</tr>
+<tr>
+<td>
+Cynthia
+</td>
+<td>
+Wortman
+</td>
+<td>
+CW
+</td>
+<td align="right">
+         0
+</td>
+</tr>
+<tr>
+<td>
+Jerry
+</td>
+<td>
+Sanders
+</td>
+<td>
+JS
+</td>
+<td align="right">
+         0
+</td>
+</tr>
+<tr>
+<td>
+Carmen
+</td>
+<td>
+Hurley
+</td>
+<td>
+CH
+</td>
+<td align="right">
+         0
+</td>
+</tr>
+</table>
+<p>
+
+9 rows selected.<br>
+<br>
+
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d5
+<br>
+SQL&gt;  -- Seznam technologií použitých na zakázkách firmy Foxconn.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT DISTINCT c.LABEL FROM TECHNOLOGY c
+<br>
+  2  JOIN USED_TECHNOLOGIES u USING ( TECHNOLOGY_ID )
+<br>
+  3  JOIN CONTRACT c ON ( u.CONTRACT_ID = c.CONTRACT_ID )
+<br>
+  4  JOIN COMPANY y ON ( c.COMPANY_ID = y.COMPANY_ID )
+<br>
+  5  WHERE y.NAME = 'Foxconn';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+LABEL
+</th>
+</tr>
+<tr>
+<td>
+Support
+</td>
+</tr>
+<tr>
+<td>
+Hardware
+</td>
+</tr>
+<tr>
+<td>
+Oracle SQL
+</td>
+</tr>
+<tr>
+<td>
+C++
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d6
+<br>
+SQL&gt;  -- Finanční kategorie, která obsahuje nejvíce zakázek.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT * FROM FINANCIAL_CATEGORY
+<br>
+  2  WHERE FINANCIAL_CATEGORY_ID = (
+<br>
+  3    SELECT category FROM (
+<br>
+  4  	 SELECT FINANCIAL_CATEGORY_ID category, COUNT( CONTRACT_ID ) c
+<br>
+  5  	 FROM CONTRACT
+<br>
+  6  	 GROUP BY FINANCIAL_CATEGORY_ID
+<br>
+  7  	 ORDER BY c DESC )
+<br>
+  8    WHERE ROWNUM = 1
+<br>
+  9  );
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+FINANCIAL_CATEGORY_ID
+</th>
+<th scope="col">
+LABEL
+</th>
+</tr>
+<tr>
+<td align="right">
+      1000
+</td>
+<td>
+Do 1 milionu Kč
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d8
+<br>
+SQL&gt;  -- Zaměstnanci (jméno, příjmení a ID), kteří přidali nejvíce zakázek.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT EMPLOYEE_ID, PERSON.FIRST_NAME, PERSON.LAST_NAME FROM (
+<br>
+  2    SELECT co.EMPLOYEE_ID, COUNT( co.EMPLOYEE_ID ) empl FROM CONTRACT co
+<br>
+  3    JOIN PROJECT pr ON( co.CONTRACT_ID = pr.CONTRACT_ID )
+<br>
+  4    GROUP BY co.EMPLOYEE_ID )
+<br>
+  5  JOIN PERSON USING( EMPLOYEE_ID )
+<br>
+  6  WHERE empl = ( SELECT MAX( cu ) mx FROM (
+<br>
+  7    SELECT c.EMPLOYEE_ID, COUNT( c.EMPLOYEE_ID ) cu FROM CONTRACT c
+<br>
+  8    JOIN PROJECT p ON( c.CONTRACT_ID = p.CONTRACT_ID )
+<br>
+  9    GROUP BY c.EMPLOYEE_ID )
+<br>
+ 10  ) ORDER BY PERSON.LAST_NAME ASC;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+EMPLOYEE_ID
+</th>
+<th scope="col">
+FIRST_NAME
+</th>
+<th scope="col">
+LAST_NAME
+</th>
+</tr>
+<tr>
+<td align="right">
+      1080
+</td>
+<td>
+Carmen
+</td>
+<td>
+Hurley
+</td>
+</tr>
+<tr>
+<td align="right">
+      1000
+</td>
+<td>
+Eric
+</td>
+<td>
+Mathews
+</td>
+</tr>
+<tr>
+<td align="right">
+      1070
+</td>
+<td>
+Jerry
+</td>
+<td>
+Sanders
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d9
+<br>
+SQL&gt;  -- Průměrný počet zakázek v každé finanční kategorii.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT AVG( c ) FROM (
+<br>
+  2    SELECT FINANCIAL_CATEGORY_ID, COUNT( FINANCIAL_CATEGORY_ID ) c
+<br>
+  3    FROM CONTRACT
+<br>
+  4    GROUP BY FINANCIAL_CATEGORY_ID
+<br>
+  5  );
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+AVG(C)
+</th>
+</tr>
+<tr>
+<td align="right">
+5.33333333
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d10
+<br>
+SQL&gt;  -- Zaměstnanci, kteří pracojí nebo pracovali pouze na jednom projektu.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT i.* FROM EMPLOYEE_INFO i
+<br>
+  2  JOIN EMPLOYEE e ON ( i.PERSONAL_NUMBER = e.PERSONAL_NUMBER )
+<br>
+  3  WHERE e.EMPLOYEE_ID IN (
+<br>
+  4    SELECT EMPLOYEE_ID FROM PROJECT_REALIZATION
+<br>
+  5    GROUP BY EMPLOYEE_ID
+<br>
+  6    HAVING( COUNT( CONTRACT_ID) = 1 )
+<br>
+  7  );
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+PERSONAL_NUMBER
+</th>
+<th scope="col">
+FIRST_NAME
+</th>
+<th scope="col">
+LAST_NAME
+</th>
+</tr>
+<tr>
+<td>
+DE201502PCo
+</td>
+<td>
+Paul
+</td>
+<td>
+Cohen
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d11
+<br>
+SQL&gt;  -- ID zaměstnanců, kteří vložili zakázky ve všech finančních kategoriích.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT EMPLOYEE_ID FROM EMPLOYEE
+<br>
+  2  MINUS
+<br>
+  3  SELECT EMPLOYEE_ID FROM (
+<br>
+  4    SELECT e.EMPLOYEE_ID, f.FINANCIAL_CATEGORY_ID
+<br>
+  5    FROM EMPLOYEE e
+<br>
+  6    CROSS JOIN FINANCIAL_CATEGORY f
+<br>
+  7    MINUS
+<br>
+  8    SELECT e.EMPLOYEE_ID, c.FINANCIAL_CATEGORY_ID
+<br>
+  9    FROM EMPLOYEE e
+<br>
+ 10    JOIN CONTRACT c ON ( e.EMPLOYEE_ID = c.EMPLOYEE_ID )
+<br>
+ 11  );
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+EMPLOYEE_ID
+</th>
+</tr>
+<tr>
+<td align="right">
+      1070
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d12
+<br>
+SQL&gt;  -- Seznam finančních kategorií, které nebyly zaměstnancem s ID 1070 přidány k žádné zakázce.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT * FROM FINANCIAL_CATEGORY
+<br>
+  2  WHERE FINANCIAL_CATEGORY_ID NOT IN (
+<br>
+  3    SELECT DISTINCT FINANCIAL_CATEGORY_ID FROM CONTRACT
+<br>
+  4    WHERE EMPLOYEE_ID = 1070
+<br>
+  5  );
+<br>
+
+no rows selected
+
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d13
+<br>
+SQL&gt;  -- Seznam zakázek, u kterých byly náklady vyšší než 20 000 000 nebo u nich byla využita technologie C++.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT c.CONTRACT_ID, c.NAME FROM CONTRACT c
+<br>
+  2  JOIN PROJECT p ON( c.CONTRACT_ID = p.CONTRACT_ID )
+<br>
+  3  WHERE p.COST &gt; 20000000
+<br>
+  4  UNION
+<br>
+  5  SELECT c.CONTRACT_ID, c.NAME FROM CONTRACT c
+<br>
+  6  JOIN USED_TECHNOLOGIES u ON ( c.CONTRACT_ID = u.CONTRACT_ID )
+<br>
+  7  JOIN TECHNOLOGY t ON( u.TECHNOLOGY_ID = t.TECHNOLOGY_ID )
+<br>
+  8  WHERE t.LABEL = 'C++';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+CONTRACT_ID
+</th>
+<th scope="col">
+NAME
+</th>
+</tr>
+<tr>
+<td align="right">
+      1240
+</td>
+<td>
+Dodávka software pro digitální fotogrametrii                                    
+&nbsp;
+&nbsp;
+&nbsp;
+</td>
+</tr>
+<tr>
+<td align="right">
+      1270
+</td>
+<td>
+Obnova licenční smlouvy Microsoft Enterprise Agreement                          
+&nbsp;
+&nbsp;
+&nbsp;
+</td>
+</tr>
+<tr>
+<td align="right">
+      1280
+</td>
+<td>
+Rozšíření diskové kapacity Technologického centra                               
+&nbsp;
+&nbsp;
+&nbsp;
+</td>
+</tr>
+<tr>
+<td align="right">
+      1290
+</td>
+<td>
+Zajištění podpory provozu SW produktu OBIS                                      
+&nbsp;
+&nbsp;
+&nbsp;
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d14
+<br>
+SQL&gt;  -- ID zakázek, na kterých pracují aspoň 4 zaměstnanci. Dotaz zobrazí i jejich přesný počet.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT * FROM (
+<br>
+  2    SELECT CONTRACT_ID, COUNT( EMPLOYEE_ID ) EMPLOYEES FROM PROJECT_REALIZATION
+<br>
+  3    GROUP BY CONTRACT_ID
+<br>
+  4    ORDER BY EMPLOYEES DESC )
+<br>
+  5  WHERE EMPLOYEES &gt; 4;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+CONTRACT_ID
+</th>
+<th scope="col">
+EMPLOYEES
+</th>
+</tr>
+<tr>
+<td align="right">
+      1230
+</td>
+<td align="right">
+         7
+</td>
+</tr>
+<tr>
+<td align="right">
+      1280
+</td>
+<td align="right">
+         5
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d15
+<br>
+SQL&gt;  -- Název, ID a název společnosti projektů, které byly započaty v roce 2015 a v tom samém roce byly také ukončeny.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT p.NAME, p.CONTRACT_ID, m.NAME FROM PROJECT p
+<br>
+  2  JOIN CONTRACT c ON ( p.CONTRACT_ID = c.CONTRACT_ID )
+<br>
+  3  JOIN COMPANY m ON ( c.COMPANY_ID = m.COMPANY_ID )
+<br>
+  4  WHERE EXTRACT( YEAR FROM p.START_DATE ) = '2015'
+<br>
+  5  AND EXTRACT( YEAR FROM p.END_DATE ) = EXTRACT( YEAR FROM p.START_DATE );
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+CONTRACT_ID
+</th>
+<th scope="col">
+NAME
+</th>
+</tr>
+<tr>
+<td>
+Rozšíření diskové kapacity Technologického centra
+</td>
+<td align="right">
+      1280
+</td>
+<td>
+Foxconn                                           
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d16
+<br>
+SQL&gt;  -- Zakázkám, které nebyly tento rok ještě dokončeny zvyš náklady o 10%.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; UPDATE PROJECT
+<br>
+  2  SET COST = COST * 1.10
+<br>
+  3  WHERE END_DATE IS NULL
+<br>
+  4  AND EXTRACT( YEAR FROM START_DATE ) = (
+<br>
+  5    SELECT EXTRACT( YEAR FROM ADD_MONTHS( SYSDATE, -12)) FROM DUAL );
+<br>
+
+2 rows updated.<br>
+<br>
+
+
+SQL&gt; COMMIT;
+<br>
+
+Commit complete.<br>
+<br>
+
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d17
+<br>
+SQL&gt;  -- Seznam zaměstnanců, kteří do dnes pracovali maximálně na jedné zakázce.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT r.EMPLOYEE_ID
+<br>
+  2  FROM PROJECT_REALIZATION r
+<br>
+  3  JOIN PROJECT p ON( r.CONTRACT_ID = p.CONTRACT_ID )
+<br>
+  4  GROUP BY r.EMPLOYEE_ID
+<br>
+  5  HAVING COUNT( r.CONTRACT_ID ) &lt; 2
+<br>
+  6  ORDER BY r.EMPLOYEE_ID;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+EMPLOYEE_ID
+</th>
+</tr>
+<tr>
+<td align="right">
+      1040
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d18
+<br>
+SQL&gt;  -- Zakázky z finanční kategorie s ID 1000 (Do 1 milionu Kč) a zaměstnance, kteří je přidali včetně těch, kteří ji přidat mohli.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT pr.CONTRACT_ID, pr.NAME, e.EMPLOYEE_ID FROM (
+<br>
+  2    SELECT p.* FROM PROJECT p
+<br>
+  3    JOIN CONTRACT c ON ( p.CONTRACT_ID = c.CONTRACT_ID )
+<br>
+  4    WHERE c.FINANCIAL_CATEGORY_ID = 1000 ) pr
+<br>
+  5  RIGHT JOIN EMPLOYEE e ON ( pr.EMPLOYEE_ID = e.EMPLOYEE_ID )
+<br>
+  6  WHERE e.EMPLOYEE_ID &lt; 1030; -- podminka omezujici velikost vystupu
+<br>
+  7  
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d19
+<br>
+SQL&gt;  -- Zaměstnanci, kteří přidali zakázku s ID 1230 a 1290.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT * FROM EMPLOYEE
+<br>
+  2  WHERE EMPLOYEE_ID IN (
+<br>
+  3    SELECT EMPLOYEE_ID FROM PROJECT_REALIZATION
+<br>
+  4    WHERE CONTRACT_ID = 1230
+<br>
+  5    INTERSECT
+<br>
+  6    SELECT EMPLOYEE_ID FROM PROJECT_REALIZATION
+<br>
+  7    WHERE CONTRACT_ID = 1290 );
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+EMPLOYEE_ID
+</th>
+<th scope="col">
+PERSONAL_NUMBER
+</th>
+</tr>
+<tr>
+<td align="right">
+      1050
+</td>
+<td>
+CZ201502NGr
+</td>
+</tr>
+<tr>
+<td align="right">
+      1070
+</td>
+<td>
+CZ201502JSa
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d20
+<br>
+SQL&gt;  -- Technologie, které nebyly nasazeny u žádného klineta.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; -- ALTERNATIVA 1
+<br>
+SQL&gt; SELECT t.TECHNOLOGY_ID FROM TECHNOLOGY t
+<br>
+  2  WHERE NOT EXISTS (
+<br>
+  3    SELECT * FROM USED_TECHNOLOGIES u
+<br>
+  4    WHERE u.TECHNOLOGY_ID = t.TECHNOLOGY_ID
+<br>
+  5  )
+<br>
+  6  AND t.TECHNOLOGY_ID &lt; 1050; -- omezeujici podminka pro velikost vystupu
+<br>
+  7  -- ALTERNATIVA 2
+<br>
+  8  SELECT TECHNOLOGY_ID FROM TECHNOLOGY
+<br>
+  9  WHERE TECHNOLOGY_ID &lt; 1050 -- omezujici podminka pro velikost vystupu
+<br>
+ 10  MINUS
+<br>
+ 11  SELECT TECHNOLOGY_ID FROM USED_TECHNOLOGIES
+<br>
+ 12  WHERE TECHNOLOGY_ID &lt; 1050; -- omezujici podminka pro velikost vystupu
+<br>
+ 13  -- ALTERNATIVA 3
+<br>
+ 14  SELECT TECHNOLOGY_ID FROM TECHNOLOGY
+<br>
+ 15  WHERE TECHNOLOGY_ID NOT IN (
+<br>
+ 16    SELECT TECHNOLOGY_ID FROM USED_TECHNOLOGIES
+<br>
+ 17  )
+<br>
+ 18  AND TECHNOLOGY_ID &lt; 1050; -- omezujici podminka pro velikost vystupu
+<br>
+ 19  
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d21
+<br>
+SQL&gt;  -- Zákazníci, s kterými byla uzavřena zakázka v roce 2014.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; ALTER SESSION SET NLS_DATE_FORMAT='mm-dd-yyyy';
+<br>
+
+Session altered.<br>
+<br>
+
+
+SQL&gt; SELECT c.CONTRACT_ID, p.NAME FROM PROJECT p
+<br>
+  2  JOIN CONTRACT c ON( p.CONTRACT_ID = c.CONTRACT_ID )
+<br>
+  3  WHERE c.DATE_ADDED BETWEEN TO_DATE( '01-01-2014' ) AND TO_DATE( '12-31-2014' );
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+CONTRACT_ID
+</th>
+<th scope="col">
+NAME
+</th>
+</tr>
+<tr>
+<td align="right">
+      1220
+</td>
+<td>
+Kancelářské, serverové a databázové programy
+</td>
+</tr>
+<tr>
+<td align="right">
+      1230
+</td>
+<td>
+Zajištění zálohování, archivace a obnovy důležitých serverů a dat
+</td>
+</tr>
+<tr>
+<td align="right">
+      1240
+</td>
+<td>
+Dodávka software pro digitální fotogrametrii
+</td>
+</tr>
+<tr>
+<td align="right">
+      1250
+</td>
+<td>
+NIS, DMS, ERP + PACS software
+</td>
+</tr>
+<tr>
+<td align="right">
+      1260
+</td>
+<td>
+Nákup výukového softwaru
+</td>
+</tr>
+<tr>
+<td align="right">
+      1270
+</td>
+<td>
+Obnova licenční smlouvy Microsoft Enterprise Agreement
+</td>
+</tr>
+<tr>
+<td align="right">
+      1280
+</td>
+<td>
+Rozšíření diskové kapacity Technologického centra
+</td>
+</tr>
+</table>
+<p>
+
+7 rows selected.<br>
+<br>
+
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d22
+<br>
+SQL&gt;  -- Jména společností a jejich adresy.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT c.NAME, a.STATE, a.CITY, a.STREET_ADDRESS_LINE1, a.POSTAL_CODE
+<br>
+  2  FROM COMPANY c
+<br>
+  3  FULL JOIN ADDRESS a ON( c.COMPANY_ID = a.COMPANY_ID );
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+STATE
+</th>
+<th scope="col">
+CITY
+</th>
+<th scope="col">
+STREET_ADDRESS_LINE1
+</th>
+<th scope="col">
+POSTAL_CODE
+</th>
+</tr>
+<tr>
+<td>
+Apple Inc.                                        
+</td>
+<td>
+California
+</td>
+<td>
+Cupertino
+</td>
+<td>
+1 Infinite Loop
+</td>
+<td>
+95014
+</td>
+</tr>
+<tr>
+<td>
+Samsung Electronics                               
+</td>
+<td>
+Czech Republic
+</td>
+<td>
+Praha
+</td>
+<td>
+2323/14 V Parku
+</td>
+<td>
+14800
+</td>
+</tr>
+<tr>
+<td>
+Foxconn                                           
+</td>
+<td>
+Czech Republic
+</td>
+<td>
+Pardubice
+</td>
+<td>
+27 U Zámečku
+</td>
+<td>
+53201
+</td>
+</tr>
+<tr>
+<td>
+HP                                                
+</td>
+<td>
+Czech Republic
+</td>
+<td>
+Praha
+</td>
+<td>
+1559/5 Za Brumlovkou
+</td>
+<td>
+14021
+</td>
+</tr>
+<tr>
+<td>
+IBM                                               
+</td>
+<td>
+Czech Republic
+</td>
+<td>
+Praha
+</td>
+<td>
+2294/5 V Parku
+</td>
+<td>
+14800
+</td>
+</tr>
+<tr>
+<td>
+Amazon.com                                        
+</td>
+<td>
+Washington
+</td>
+<td>
+Seattle
+</td>
+<td>
+410 Terry Ave. North
+</td>
+<td>
+98109
+</td>
+</tr>
+<tr>
+<td>
+Microsoft                                         
+</td>
+<td>
+Czech Republic
+</td>
+<td>
+Praha
+</td>
+<td>
+1561/4a Vyskočilova
+</td>
+<td>
+14000
+</td>
+</tr>
+<tr>
+<td>
+Sony                                              
+</td>
+<td>
+Japan
+</td>
+<td>
+Tokyo
+</td>
+<td>
+1-7-1 Konan
+</td>
+<td>
+108-0075
+</td>
+</tr>
+<tr>
+<td>
+Google                                            
+</td>
+<td>
+Czech Republic
+</td>
+<td>
+Praha
+</td>
+<td>
+3191/17 Stroupežnického
+</td>
+<td>
+15000
+</td>
+</tr>
+<tr>
+<td>
+Panasonic                                         
+</td>
+<td>
+Czech Republic
+</td>
+<td>
+Praha
+</td>
+<td>
+289/11 Thámova
+</td>
+<td>
+18600
+</td>
+</tr>
+<tr>
+<td>
+Dell                                              
+</td>
+<td>
+Texas
+</td>
+<td>
+Plano
+</td>
+<td>
+2300 West Plano Parkway
+</td>
+<td>
+75075
+</td>
+</tr>
+<tr>
+<td>
+Intel                                             
+</td>
+<td>
+California
+</td>
+<td>
+Santa Clara
+</td>
+<td>
+2200 Mission College Blvd.
+</td>
+<td>
+95054
+</td>
+</tr>
+<tr>
+<td>
+LG Electronics                                    
+</td>
+<td>
+Czech Republic
+</td>
+<td>
+Praha
+</td>
+<td>
+23/344 Nádražní
+</td>
+<td>
+15134
+</td>
+</tr>
+<tr>
+<td>
+Toshiba                                           
+</td>
+<td>
+Japan
+</td>
+<td>
+Tokyo
+</td>
+<td>
+1-1 Shibaura
+</td>
+<td>
+105-8001
+</td>
+</tr>
+</table>
+<p>
+
+14 rows selected.<br>
+<br>
+
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d23
+<br>
+SQL&gt;  -- K zakázce s ID 1230 přiřaď zaměstnance, kteří na ní ještě nepracují.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; INSERT INTO PROJECT_REALIZATION ( EMPLOYEE_ID, CONTRACT_ID, NAME )
+<br>
+  2  SELECT u.EMPLOYEE_ID, c.CONTRACT_ID, TRIM( c.NAME ) FROM (
+<br>
+  3    SELECT EMPLOYEE_ID FROM EMPLOYEE
+<br>
+  4    MINUS
+<br>
+  5    SELECT EMPLOYEE_ID FROM PROJECT_REALIZATION
+<br>
+  6    WHERE PROJECT_REALIZATION.CONTRACT_ID = 1230
+<br>
+  7  ) u
+<br>
+  8  JOIN CONTRACT c ON ( 1 = 1 )
+<br>
+  9  WHERE c.CONTRACT_ID = 1230;
+<br>
+
+2 rows created.<br>
+<br>
+
+
+SQL&gt; COMMIT;
+<br>
+
+Commit complete.<br>
+<br>
+
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d24
+<br>
+SQL&gt;  -- Smaž všechny zákazníky (a jejich kontaktní osoby), se kterými nebyla prozatím uzavřena žádná zakázka.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; DELETE FROM COMPANY WHERE COMPANY_ID IN (
+<br>
+  2    SELECT COMPANY_ID FROM COMPANY
+<br>
+  3    MINUS
+<br>
+  4    SELECT DISTINCT COMPANY_ID FROM CONTRACT
+<br>
+  5    JOIN PROJECT USING( CONTRACT_ID )
+<br>
+  6    );
+<br>
+
+5 rows deleted.<br>
+<br>
+
+
+SQL&gt; COMMIT;
+<br>
+
+Commit complete.<br>
+<br>
+
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d7
+<br>
+SQL&gt;  -- Kontakty na osoby, které jsou spojené se zakázkou 1220 nebo 1310.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; SELECT p.FIRST_NAME, P.LAST_NAME, p.EMAIL, p.PHONE, cp.JOB_TITLE
+<br>
+  2  FROM CONTACT_PERSON cp
+<br>
+  3  JOIN PERSON p ON( cp.CONTACT_PERSON_ID = p.CONTACT_PERSON_ID )
+<br>
+  4  JOIN COMPANY c ON ( cp.COMPANY_ID = c.COMPANY_ID )
+<br>
+  5  JOIN CONTRACT ct ON ( c.COMPANY_ID = ct.COMPANY_ID )
+<br>
+  6  WHERE ct.CONTRACT_ID IN ( 1220, 1310 );
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+FIRST_NAME
+</th>
+<th scope="col">
+LAST_NAME
+</th>
+<th scope="col">
+EMAIL
+</th>
+<th scope="col">
+PHONE
+</th>
+<th scope="col">
+JOB_TITLE
+</th>
+</tr>
+<tr>
+<td>
+Mark
+</td>
+<td>
+Hua
+</td>
+<td>
+mhua@samsung.com
+</td>
+<td>
+717-891-1834
+</td>
+<td>
+System Administrator
+</td>
+</tr>
+<tr>
+<td>
+Robin
+</td>
+<td>
+Call
+</td>
+<td>
+rcall@sony.com
+</td>
+<td>
+802-884-4225
+</td>
+<td>
+Analyst
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; 	       --KOD DOTAZU: d25
+<br>
+SQL&gt;  -- Projekty, které má na starosti Paul Cohen (ID 1040) předeleguj na Johna Frye.
+<br>
+SQL&gt; 
+<br>
+SQL&gt; UPDATE PROJECT SET EMPLOYEE_ID = (
+<br>
+  2    SELECT e.EMPLOYEE_ID FROM EMPLOYEE e
+<br>
+  3    JOIN PERSON p ON ( e.EMPLOYEE_ID = p.PERSON_ID )
+<br>
+  4    WHERE p.FIRST_NAME = 'John'
+<br>
+  5    AND p.LAST_NAME = 'Frye'
+<br>
+  6  ) WHERE EMPLOYEE_ID = 1040;
+<br>
+
+2 rows updated.<br>
+<br>
+
+
+SQL&gt; COMMIT;
+<br>
+
+Commit complete.<br>
+<br>
+
+
+SQL&gt; 
+<br>
+SQL&gt; 
+<br>
+SQL&gt; set markup html off
+<br>
+SQL> spool off
+</body>
+</html>

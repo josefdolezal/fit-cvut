@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!ELEMENT sproject (supervision, course, author, content)>
+  
+<!ELEMENT course (cname, code, semester, seminar)>
+ 
+<!ATTLIST course database CDATA #REQUIRED>
+<!ATTLIST course version CDATA #REQUIRED>
+
+<!ELEMENT supervision (checking*)>
+<!ATTLIST supervision status (rozpracováno | hotovo) "rozpracováno">
+
+<!ELEMENT checking (date, teacher)>
+  
+<!ELEMENT date (#PCDATA)>
+  
+<!ELEMENT teacher (comments, points)>
+<!ATTLIST teacher tname CDATA #REQUIRED>
+<!ATTLIST teacher checkstatus (N | zkontrolováno) "N">
+<!ELEMENT comments (#PCDATA)>
+  
+<!ELEMENT points (#PCDATA)>
+  
+ 
+<!ELEMENT author (aname, uname, email)>
+  
+<!ELEMENT content (declaration, title, description,  data_model, relational_model?, queries, scripts, conclussions, references)>
+  
+<!ELEMENT cname (#PCDATA)>
+  
+<!ELEMENT code (#PCDATA)>
+  
+<!ELEMENT semester (#PCDATA)>
+  
+<!ELEMENT seminar (#PCDATA)>
+  
+<!ELEMENT aname (#PCDATA)>
+  
+<!ELEMENT uname (#PCDATA)>
+  
+<!ELEMENT email (#PCDATA)>
+  
+<!ELEMENT title (#PCDATA)>
+  
+<!ELEMENT declaration (#PCDATA)>
+  
+<!ELEMENT description (title, (para, comment?)+)>
+  
+<!ELEMENT data_model (title, dm_picture, comment?, dm_discussion)>
+
+<!ELEMENT relational_model (title, rm_picture, comment?, rm_discussion?)>
+  
+<!ELEMENT scripts (title, (para, comment?)+)>
+  
+<!ELEMENT queries (title, dotazy, comment?, pokryti_dotazu, comment?)>
+  
+<!ELEMENT conclussions (title, (para, comment?)+)>
+  
+<!ELEMENT references (title, (para, comment?)+)>
+
+
+<!-- paragraph -->
+<!ELEMENT para (#PCDATA | link)*>
+
+
+<!-- comment -->
+<!ELEMENT comment (para)*>
+
+
+<!-- dm_picture -->
+<!ELEMENT dm_picture (mediaobject)>
+
+<!-- rm_picture -->
+<!ELEMENT rm_picture (mediaobject)>
+
+<!-- dm_discussion -->
+<!ELEMENT dm_discussion (para, comment?)+>
+
+<!-- rm_discussion -->
+<!ELEMENT rm_discussion (para, comment?)+>
+
+
+<!-- table -->
+<!ELEMENT pokryti_dotazu (radek+)>
+<!-- radek -->
+<!ELEMENT radek (kategorie,odkazy,kategorie_popis)>
+
+<!-- kategorie -->
+<!ELEMENT kategorie (#PCDATA )>
+
+<!-- odkazy -->
+<!ELEMENT odkazy (link+)>
+
+
+<!-- kategorie_popis -->
+<!ELEMENT kategorie_popis (#PCDATA )>
+
+
+<!-- link -->
+<!ELEMENT link (#PCDATA)>
+
+<!ATTLIST link
+    url CDATA #REQUIRED 
+>
+
+
+<!-- dotazy -->
+<!ELEMENT dotazy (dotaz)+>
+
+
+<!-- dotaz -->
+<!ELEMENT dotaz (popis_dotazu, comment?, (relacni_algebra, comment?)?, (sql, comment?)+)>
+<!ATTLIST dotaz
+	dotaz_id	CDATA	#REQUIRED
+>
+
+<!-- popis dotazu -->
+<!ELEMENT popis_dotazu (para)+>
+<!-- relacni algebra -->
+<!ELEMENT relacni_algebra (#PCDATA)>
+
+
+<!-- sql -->
+<!ELEMENT sql (#PCDATA)>
+
+
+<!-- mediaobject -->
+<!ELEMENT mediaobject (imageobject)>
+
+<!-- imageobject -->
+
+<!ELEMENT imageobject (imagedata)>
+
+<!-- imagedata -->
+
+<!ELEMENT imagedata EMPTY>
+<!ATTLIST imagedata
+	fileref	CDATA	#REQUIRED
+>
