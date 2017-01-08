@@ -1,0 +1,42 @@
+\section{Architektura a design}
+  \begin{description}
+    \item[Software architecture] Realizace nefunkčních požadavků. Popisuje programovací paradigmata,
+    architektonické styly, principy a standardy.
+    \item[Software design] Realizace funkčních požadavků. Jedná se o návrhové vzory, programovací idiomy
+    a refaktoring.
+  \end{description}
+
+  \subsection{Frameworky}
+    \begin{itemize}
+      \item Znovupoužitelney návrh pro SW systém
+      \item Základ při vývoji jiných SW aplikací
+      \item Diktuje architekturu systému
+    \end{itemize}
+
+  \subsection{Integrace}
+    \begin{itemize}
+      \item Spojeno s tématikou enterprise architektury
+      \item Netechnologické (procesy, entity)
+      \item Používání buzzwords (EAI, SOA, MOM)
+    \end{itemize}
+
+  \subsection{Shared database}
+    \begin{itemize}
+      \item Více aplikací sdílí společnou databázi
+      \item Odpadají problémy se synchronizací
+      \item Je ale potřeba vytvořit unifikované schéma pro všechny aplikace
+      \item Úzké hrdlo výkonnosti
+    \end{itemize}
+
+  \subsection{Remote procedure call}
+    \begin{itemize}
+      \item Aplikace vlastní data a stará se o jejich integritu, ostatní aplikace volají funkce, které nabízí
+      \item Mnoho technologií (JAVA RMI, .NET, Webové služby, ...)
+    \end{itemize}
+
+  \subsection{Cloud}
+    \begin{itemize}
+      \item IaaS - Infrasctructure as service
+      \item PaaS - Platform as a service
+      \item SaaS - Software as a service
+    \end{itemize}
