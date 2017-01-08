@@ -1,0 +1,233 @@
+\section{Softwarový proces}
+  \begin{description}
+    \item[Softwarový proces] Aktivity, které je potřeba uskutečnit k tomu, aby software vznikl.
+    Jedná se o jejich souslednost a opakování, o vstupy a výstupy jednotlivých aktivit a jejich nároky.
+    \item[Model životního cyklu SW] Viz. Softwarový proces.
+    \item[Software process improvement] Ladění a vylepšování procesu softwaru.
+  \end{description}
+
+  \subsection{Nutné aktivity}
+  \begin{itemize}
+    \item Specifikace - co bude systém dělat.
+    \item Architektura a design - z jakých částí se systém bude skládat.
+    \item Implementace - vlastní provedení systému.
+    \item Validace - otestování systému.
+    \item Další rozvoj - úpravy systému na základě měnících se požadavků.
+  \end{itemize}
+
+  \subsection{Modely vývoje}
+
+    \subsubsection{Vývoj dle plánu}
+      \begin{itemize}
+        \item Aktivity jsou plánovány dopředu.
+        \item Pokrok je měřen porovnáním stavu a plánu.
+        \item Větší režie v případě změn.
+      \end{itemize}
+
+      \subsubsubsection{Waterfall}
+        \begin{itemize}
+          \item Oddělené fáze
+            \begin{itemize}
+              \item Analýza požadavků
+              \item Design
+              \item Implementace
+              \item Testování
+              \item Provoz a údržba
+            \end{itemize}
+          \item Výhody
+            \begin{itemize}
+              \item Jasně definovaný plán
+              \item Predikovatelnost (čas, rozsah, cena)
+              \item Snadná koordinace práce
+            \end{itemize}
+          \item Nevýhody
+            \begin{itemize}
+              \item Nutné pochopení požadavů už na začátku
+              \item Reakce na změny
+              \item Rychlost dodávky
+            \end{itemize}
+          \item Spolupráce se zákazníkem
+            \begin{itemize}
+              \item V přesně definovaných okamžicích
+              \item Lze dop
+            \end{itemize}
+        \end{itemize}
+
+    \subsubsection{Iterativní vývoj}
+      \begin{itemize}
+        \item Oproti vodopádu:
+          \begin{itemize}
+            \item Několik verzí systému
+            \item Jednotlivé verze se dělají vodopádem
+          \end{itemize}
+        \item Výhody
+          \begin{itemize}
+            \item Jasně definovaný plán
+            \item Predikovatelnost
+            \item Snadná koordinace
+            \item Zákazník má přístup k verzím/prototypům
+          \end{itemize}
+        \item Nevýhody
+          \begin{itemize}
+            \item Je nutné chápat co klient chce již na začátku
+          \end{itemize}
+      \end{itemize}
+
+    \subsubsection{Agilní vývoj}
+      \begin{itemize}
+        \item Plánování je jen po malých částech.
+        \item Snadné změny směru v případě změny požadavků.
+      \end{itemize}
+
+  \subsection{Různé pohledy na modely vývoje}
+
+    \subsubsection{Flexibilita}
+      \begin{description}
+        \item[Flexibilita] Reakce na změny. Určuje rychlost a finanční náklady na provedené změny.
+      \end{description}
+
+      \begin{itemize}
+        \item Vodopád
+          \begin{itemize}
+            \item Nepružný
+            \item Vysoké náklady
+          \end{itemize}
+        \item Iterativní
+          \begin{itemize}
+            \item Lze zakomponovat změny do další iterace
+            \item Náklady nižší než u vodopádu
+          \end{itemize}
+        \item Agilní
+          \begin{itemize}
+            \item Snadné změny, jsou očekávané
+            \item Náklady velmi nízké
+          \end{itemize}
+      \end{itemize}
+
+      \subsubsection{Predikovatelnost}
+        \begin{description}
+          \item[Predikovatelnost] Dopředu známá cena a datum dokončení.
+        \end{description}
+
+        \begin{itemize}
+          \item Vodopád
+            \begin{itemize}
+              \item Velmi dobře předvídatelný, vývoj podle plánu
+            \end{itemize}
+          \item Iterativní
+            \begin{itemize}
+              \item Době předvídatelný, vývoj podle plánu
+            \end{itemize}
+          \item Agilní
+            \begin{itemize}
+              \item Těžko předvídatelný, plán jen na krátké období
+            \end{itemize}
+        \end{itemize}
+
+        \subsubsection{Architektura a design}
+          \begin{description}
+            \item[Architektura a design] Správnost navržení systému, dodržování principů návrhu.
+          \end{description}
+
+          \begin{itemize}
+            \item Vodopád
+              \begin{itemize}
+                \item Velmi dobrá architektura
+              \end{itemize}
+            \item Iterativní
+              \begin{itemize}
+                \item Velmi dobrá architektura
+                \item Možnost zanesení chyb v dalších iteracích
+              \end{itemize}
+            \item Agilní
+              \begin{itemize}
+                \item Často špatná architektura
+                \item Riziko zanesení problému v každé iteraci
+              \end{itemize}
+          \end{itemize}
+
+          \subsubsection{Implementace}
+            \begin{description}
+              \item[Prostor pro dodání kvalitního díla. Požadavky na programátory.]
+              \item[Quality assurance] Zkráceně QA, týká se obecně všech procesů od návrhu po dokumentaci.
+              Cílem je ujistit se, že je produkt vytvářen s odpovídající kvalitou.
+            \end{description}
+
+            \begin{itemize}
+              \item Vodopád
+                \begin{itemize}
+                  \item Kvalitní, hodně prostoru pro QA
+                  \item Dodržují se coding standards, časté revize
+                \end{itemize}
+              \item Iterativní
+                \begin{itemize}
+                  \item Dostatek prostoru pro QA
+                  \item Revize, coding standards
+                  \item Riziko zanesení problému v dalších iteracích
+                \end{itemize}
+              \item Agilní
+                \begin{itemize}
+                  \item Nutný kvalitní tým
+                  \item Riziko nekvalitní práce, pokud není čas na revize
+                \end{itemize}
+            \end{itemize}
+
+            \subsubsection{Dokumentace}
+              \begin{description}
+                \item[Dokumentace] Dokument s informacemi o implementaci a nasazení systému.
+              \end{description}
+
+              \begin{itemize}
+                \item Vodopád
+                  \begin{itemize}
+                    \item Kvalitní dokumentace
+                  \end{itemize}
+                \item Iterativní
+                  \begin{itemize}
+                    \item Nutno dodržet napříč verzemi
+                  \end{itemize}
+                \item Agilní
+                  \begin{itemize}
+                    \item Často nekvalitní
+                    \item Obtížné udržet napříč sprinty
+                  \end{itemize}
+              \end{itemize}
+
+              \subsubsection{Spolupráce se zákazníkem}
+                \begin{description}
+                  \item[Součinnost zákazníka] Jak moc a často se musí zákazník podílet na projektu.
+                \end{description}
+
+                \begin{itemize}
+                  \item Vodopád a Iterativní vývoj
+                    \begin{itemize}
+                      \item V přesně definovaných okamžicích
+                      \item Lze dobře plánovat
+                    \end{itemize}
+                  \item Agilní
+                    \begin{itemize}
+                      \item Nutné v průběhu celého projektu
+                      \item Riziko selhání, pokud spolupráce není dobrá
+                    \end{itemize}
+                \end{itemize}
+
+                \subsubsection{Smlouva na dodávku}
+                  \begin{description}
+                    \item[Smliuva na dodávku] Určuje jestli bude dílo dodáno za fixní cenu ve stanovený čas.
+                  \end{description}
+
+                  \begin{itemize}
+                    \item Vodopád
+                      \begin{itemize}
+                        \item Ano
+                      \end{itemize}
+                    \item Iterativní
+                      \begin{itemize}
+                        \item Ano, ošetřuje se rozsah verzí
+                      \end{itemize}
+                    \item Agilní
+                      \begin{itemize}
+                        \item Ne, požadavky nejsou známy dopředu
+                        \item Aktuální modely nákupu tomu nejsou nakloněny
+                      \end{itemize}
+                  \end{itemize}
