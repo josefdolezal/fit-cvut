@@ -9,6 +9,32 @@
     \item Systém neobsahoval příliš mnoho chyb
   \end{itemize}
 
+  \subsection{Dokumentace}
+    Využívá se jako komunikační prostředek. Obsahuje záznamy o domluvách a dohodách.
+    Primárně slouží jako zdroj informací o implementaci systému.
+    Zajišťuje udržitelnost software, potencionálně dlouho po vytvoření. Je potřeba mít specifikaci k uhlídání rozsahu.
+    Znát architekturu aby bylo možné ji dodržet. Jednotlivé změny je také potřeba zdokumentovat.
+
+    \subsubsection{Typy dokumentace}
+    \begin{itemize}
+      \item Uživatelská
+        \begin{itemize}
+          \item Úvodní manuál
+          \item Popis funkcí
+          \item Systémový manuál
+          \item Instalační příručka
+          \item Administrační příručka
+        \end{itemize}
+      \item Systémová
+        \begin{itemize}
+          \item Požadavky na systém
+          \item Specifikace, architektura, design
+          \item Zdrojový kód s komentářit
+          \item Dokumenty údržby (známé chyby, závislost na infrastruktuře)
+        \end{itemize}
+    \end{itemize}
+
+
   \subsection{Typy údržby}
     Směrnice ISO/IEC 14764 definuje následující typy údržby:
 
@@ -25,10 +51,6 @@
 
   \subsection{Měření}
     Velmi snadno se získávají přesná čísla. Měření slouží jako podklad pro servisní smlouvu na další léta.
-
-  \subsection{Dokumentace}
-    Udržuje se software, potencionálně dlouho po vytvoření. Je potřeba mít specifikaci k uhlídání rozsahu.
-    Znát architekturu aby bylo možné ji dodržet. Jednotlivé změny je také potřeba zdokumentovat.
 
   \subsection{Vývojové prostředí}
     Využívá se prostředí podobné produkci, které se i podobně používá. Využívá se CI a smoked tests.

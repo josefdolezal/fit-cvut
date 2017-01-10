@@ -20,6 +20,45 @@
     \end{itemize}
 
   \subsection{Typy testů}
+    \subsubsection{Developer}
+      Testování samotným vývojářem před přidáním do Unit testů.
+
+    \subsubsection{Unit testy}
+      Testy základních celků (třídy a metody).
+
+    \subsubsection{Integrační testy}
+      \begin{itemize}
+        \item Komunikace mezi jednotlivými systémy.
+        \item Test integrace základních celků do systému.
+      \end{itemize}
+
+    \subsubsection{Smoke testy}
+      Spouštějí se v okamžiku, kdy je dokončen vývoj aplikace a lze ji spustit. Pouští se po integračních testech.
+
+      \begin{itemize}
+        \item Testuje implementaci, instalaci a spuštění jednotlivých částí systému.
+        \item Zaměřuje se na hlavní části systému.
+        \item Pokud jsou testy splněny, přechází se k systémovému testování.
+        \item U menších projektů kde nejsou ostatní testy se provádí většinou pouze \emph{smoke testy}.
+      \end{itemize}
+
+    \subsubsection{Systémové}
+      Testování aplikace jako celku. Testují se všechny části spolu s dodávaným HW. Obsahuje test nároků na HW.
+
+    \subsubsection{Kvalifikační}
+      Kontrola splnění požadavů na SW. Odehrávají se u dodavatele před dodávkou. Pokud SW projde
+      je dodán zákazníkovi.
+
+    \subsubsection{Akceptační}
+      Obdoba \emph{kvalifikačních testů}, které se odehrávají u zákazníka. Provádí se podle připravených scénářů vytvořených
+      ve spolupráci s dodavatelem.
+
+    \subsubsection{Regresní testy}
+      Testují, zda změny SW (např. nové funkce) nenarušily funkcionalitu stávajících částí, na které by změny
+      neměly mít vliv.
+
+  \subsection{Testovací techniky}
+
     \subsubsection{Black box testy}
       \begin{itemize}
         \item Testuje se oproti rozhraní
@@ -34,10 +73,10 @@
         \item Změna implementaci často testy rozbije
       \end{itemize}
 
-    \subsubsection{Požadavky na testy}
-      \begin{itemize}
-        \item Najít chyby aby byly odstraněny
-        \item Rozhodnout se jestli aplikaci nasadit
-        \item Minimalizovat náklady na podporu
-        \item Měření kvality
-      \end{itemize}
+  \subsection{Požadavky na testy}
+    \begin{itemize}
+      \item Najít chyby aby byly odstraněny
+      \item Rozhodnout se jestli aplikaci nasadit
+      \item Minimalizovat náklady na podporu
+      \item Měření kvality
+    \end{itemize}

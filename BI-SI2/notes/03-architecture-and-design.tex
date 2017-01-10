@@ -1,9 +1,55 @@
 \section{Architektura a design}
   \begin{description}
-    \item[Software architecture] Realizace nefunkčních požadavků. Popisuje programovací paradigmata,
-    architektonické styly, principy a standardy.
+    \item[Software architecture] Popisuje programovací paradigmata,
+    architektonické styly, principy a standardy. Definuje komponenty a vztahy mezi nimi.
     \item[Software design] Realizace funkčních požadavků. Jedná se o návrhové vzory, programovací idiomy
-    a refaktoring.
+    a refaktoring. Společně s architekturou udává postup implementace.
+    \item[Business process architecture] Zaměřuje se na obchodní strategie,
+    řídící procesy a organizační struktury.
+    \item[Information technology architecture] Zkoumá HW a SW infrastrukturu
+    organizace nutnou pro chod systému. Umožňuje identifikovat HW a SW požadavky.
+    \item[Information architecture] Zkoumá uložiště a databáze zpracovávaných
+    dat, jakým způsobem jsou ukládána, používána a zpracovávána.
+  \end{description}
+
+  \subsection{Design}
+    S designem jsou spjaté koncepty:
+    \begin{itemize}
+      \item dekompozice,
+      \item abstrakce,
+      \item zapouzdření,
+      \item koheze,
+      \item vazby.
+    \end{itemize}
+
+    Pojmy spojené s designem:
+    \begin{itemize}
+      \item abstraktní datový typ,
+      \item typ,
+      \item třída,
+      \item objekt,
+      \item instance,
+      \item modul.
+    \end{itemize}
+
+  \subsection{Architektonické styly}
+    Popisují způsobym jak navrhovat moduly a komunikaci mezi nimi. Mezi tyto styly patří:
+
+    \begin{itemize}
+      \item MVC - Model-View-Controller,
+      \item MVP - Model-View-Presenter,
+      \item Event driven architecture,
+      \item Layered architecture,
+      \item Repositories.
+    \end{itemize}
+
+  \subsection{Pohled na architekturu}
+  \begin{description}
+    \item[Logický] Poskytuje abstraktní pohled na problém. Obsahuje diagramy tříd, ale neobsahuje implementaci.
+    \item[Modulární (Development)] Člení problém do modulů a subsytémů. Definuje jak postupovat při implementaci
+    (jazyk, architekturu,..).
+    \item[Koordinační (Process)] Zohledňuje spolupráci a synchronizaci procesů. Definuje výkon, dostupnost, toleranci výpadku a integritu.
+    \item[Fyzický] Definuje škálovatelnost, výkon a dostupnost. Obsahuje popis mapování SW na HW. Snaha o nízký dopad na zdrojové kódy.
   \end{description}
 
   \subsection{Frameworky}

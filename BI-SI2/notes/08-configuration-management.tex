@@ -1,7 +1,37 @@
 \section{Configuration management}
-\begin{description}
-  \item[Softwarový produkt] Úplný soubor počítačových programů, postupů, související dokumentace, určený pro dodání uživateli.
-  \item[Softwarová položka] Jakákoliv identifikovaná část softwarového produktu v průběžném nebo konečném stadiu vývoje.
-  \item[Konfigurační řízení] Zajištění plného řízení konfigurace SW produktu a související dokumentace v průběhu životního cyklu.
-  \item[Změnové řízení] Součást konfiguračního řízení. Je to řízení rozsahu nad rámec původně domluveného rozsahu.
-\end{description}
+  \begin{description}
+    \item[Softwarový produkt] Úplný soubor počítačových programů, postupů, související dokumentace, určený pro dodání uživateli.
+    \item[Softwarová položka] Jakákoliv identifikovaná část softwarového produktu v průběžném nebo konečném stadiu vývoje.
+    \item[Konfigurační řízení] Zajištění plného řízení konfigurace SW produktu a související dokumentace v průběhu životního cyklu.
+    \item[Změnové řízení] Součást konfiguračního řízení. Je to řízení rozsahu nad rámec původně domluveného rozsahu.
+  \end{description}
+
+  \subsection{Řízení verzí}
+  \begin{description}
+    \item[SCM/VCM] Verzovací systém (např. \emph{git}, \emph{svn}, ...)
+    \item[Konfigurační jednotka] Jeden soubor s konfigurací systému.
+  \end{description}
+
+    \begin{itemize}
+      \item Identifikace elementů a verzí.
+      \item Evidence změn během stádia vývoje.
+      \item Umožňuje paralelní práci.
+      \item Ozačování verzí pomocí \emph{tagů} a \emph{verzí}.
+    \end{itemize}
+
+  \subsection{Změnové řízení}
+    \begin{itemize}
+      \item Využívá se \emph{issue tracker}, např. Bugzilla.
+      \item Měří se čas, který změny zabraly z důvodu nacenění.
+    \end{itemize}
+
+  \subsection{Release management}
+    \begin{description}
+      \item[Integrační platforma] \emph{Cruise control} Každodenní kontrola zdrojových kódů. Umožňuje
+      rychlou zpětnou vazbu v případě problémů.
+    \end{description}
+    Vytváří se každodenní build, deploy a test.
+
+  \subsection{Průběžná integrace / CI}
+    Umožňuje rychlé nasazení, spuštění automatických testů, automatizuje kompilaci, automatizuje code review.
+    Vyžaduje, aby tým pracoval s nejaktuálnější možnou verzí projektu.
