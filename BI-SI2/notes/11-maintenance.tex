@@ -1,0 +1,113 @@
+\section{Údržba}
+  \begin{description}
+    \item[Údržba software] Systematický rozvoj produktu s aplikací drobných změn. Během údržby se také odstraňují chyby a problémy.
+  \end{description}
+
+  \begin{itemize}
+    \item Systém byl dodán v rozsahu dle nabídky
+    \item Systém byl akceptován a rutinně provozován
+    \item Systém neobsahoval příliš mnoho chyb
+  \end{itemize}
+
+  \subsection{Typy údržby}
+    Směrnice ISO/IEC 14764 definuje následující typy údržby:
+
+    \begin{description}
+      \item[Corrective] Za účelem opravy nalezených chyb a problémů.
+      \item[Adaptive] Za účelem udržení použitelnosti SW v měnícím se prostředí.
+      \item[Perfective] Za účelem zlepšení výkonnosti nebo udržovatelnosti.
+      \item[Preventive] Za účelem detekce a opravy latentních chyb než se stanou skutečné.
+    \end{description}
+
+  \subsection{SW development life cycle}
+    Používá se \emph{Miniwaterfall}. O systému má dodávající velkou znalost a změny jsou typicky malého rozsahu.
+    Velmi efektivní způsob.
+
+  \subsection{Měření}
+    Velmi snadno se získávají přesná čísla. Měření slouží jako podklad pro servisní smlouvu na další léta.
+
+  \subsection{Dokumentace}
+    Udržuje se software, potencionálně dlouho po vytvoření. Je potřeba mít specifikaci k uhlídání rozsahu.
+    Znát architekturu aby bylo možné ji dodržet. Jednotlivé změny je také potřeba zdokumentovat.
+
+  \subsection{Vývojové prostředí}
+    Využívá se prostředí podobné produkci, které se i podobně používá. Využívá se CI a smoked tests.
+
+  \subsection{Architektura}
+    Architektura musí být navržena tak, aby byla schopna absorbovat nové požadavky.
+
+  \subsection{CM}
+    Evidují se všechny požadavky zákazníka. Je striktně proces změnového řízení.
+
+  \subsection{Testy}
+    Komplexní systémy se většinou po každé změně netestují celé, buď se netestují vůbec nebo:
+    \begin{itemize}
+      \item existují regresní automatické testy,
+      \item průběžně se kontroluje každá chyba,
+      \item testy jsou naplánované a zorganizované,
+      \item existuje záznam o testování,
+      \item existují akceptační testy a jejich záznamy.
+    \end{itemize}
+
+    \subsection{Tým}
+      Tým údržby je založen na lidech, kteří ho prvotně vyvíjeli. Z důvodu únavy se lidé obměňují až se vytvoří úplně nový tým.
+      Nové členy je tedy potřeba řádně zaučit.
+
+    \subsection{Ekonomika}
+      Cílem je, aby údržba byla výdělečná. Je potřeba mít efektivní proces a velmi přesné odhady.
+
+    \subsection{Odhady}
+      Je potřeba udělat mnoho odhadů. Při odhadech je nutné být konzistentní, ideálně používat stále stejnou metodiku odhadů.
+      Odchylky je potřeba umět zdůvodnit.
+
+    \subsection{Technická podpora}
+      \begin{description}
+        \item[Technická podpora] Služba zajišťující pomoc uživatelům při řešení chyb.
+      \end{description}
+
+      Rozlišuje se na 3 úrovně: L1, L2 a L3.
+
+      \begin{description}
+        \item[L1] \emph{First-line-support}. Styčný bod mezi uživateli a techniky. Náplní práce je radit uživatelům s obsluhou systému a přijímání chybových hlášení.
+        \item[L2] Administrátorská podpora. Technici řeší incidenty systému - zpravidla ještě před náhlášením díky monitoringu.
+        \item[L3] Expertní podpora. Technici mají expertní znalost systému - často přímo vývojáři.
+      \end{description}
+
+      \subsubsection{Placená podpora}
+        Z pohledu zákazníka:
+        \begin{itemize}
+          \item Zajištění opravy chyb i po skončení záruky
+          \item Minimalizace nedostupnosti služeb
+        \end{itemize}
+
+        Z pohledu dodavatele:
+        \begin{itemize}
+          \item Zajištění příjmu
+          \item Pokud firma vyvíjí kvalitní SW, lze zpravidla efektivně poskytovat
+          \item Možnost snáze reagovat na změnové požadavky (technici mají detailní znalost systému)
+        \end{itemize}
+
+      \subsubsection{SLA - Service level agreement}
+        V rámci provozu systému a jeho podpory jsou garantovány určité parametry.
+        Za nesplnění nebo vybočení z domluvených mezí jsou udělovány sankce.
+
+        Typické parametry jsou:
+        \begin{itemize}
+          \item dostupnost,
+          \item doba reakce,
+          \item doba za kterou musí být chyba vyřešena.
+        \end{itemize}
+
+      \subsubsection{Rozdělení}
+        Podle času:
+        \begin{itemize}
+          \item 24/7 - nepřetržitá,
+          \item 8x5 - pouze v pracovní době,
+          \item 10x5 - rozšířená pracovní doba.
+        \end{itemize}
+
+        Podle intenzity:
+        \begin{itemize}
+          \item On-site - dostupná přímo u zákazníka. Typicky L1.
+          \item On-call - podpora po telefonu (levnější varianta).
+        \end{itemize}
