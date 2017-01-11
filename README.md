@@ -2,6 +2,12 @@
 ## Motivace
 Tento repozitář jsem vytvořil s úmyslem sdílet vybrané zdrojové kódy, které jsem vytvořil během studia na [@FIT_CTU](https://twitter.com/FIT_CTU). Repozitář by měl sloužit jako inspirace k řešení zadaných problémů v domácích úkolech nebo na cvičeních. Každé vypracované zadání obsahuje jednu z možných variant řešení a je tedy možné, že problém lze vyřešit jinak/lépe.
 
+## Studijní materiály
+K těmto předmětům jsem vytvořil výpisky z prezentací, případně dalších zdrojů:
+
+* [BI-AG1 - Algoritmy a grafy](https://github.com/josefdolezal/fit-bi-ag1/tree/master/notes) - ZS 2016/17
+* [BI-SI2 - Softwarové inženýrství 2](BI-SI2/notes)
+
 ## Obsah
 
 ### Semestr 1 (ZS 2014/15)
@@ -57,16 +63,13 @@ Tento repozitář jsem vytvořil s úmyslem sdílet vybrané zdrojové kódy, kt
 
 ### Semestr 5 (ZS 2016/17)
 * [BI-SI2](BI-SI2)
+  * Výpisky z prezentací
 * [BI-AG1 - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-ag1)
   * Výpisky z prezentací, domácí úlohy
 * [BI-PRR - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-prr)
+  * Fragmenty semestrální práce
 * [BI-BIG - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-big)
-
-## Studijní materiály
-K těmto předmětům jsem vytvořil výpisky z prezentací, případně dalších zdrojů:
-
-* [BI-AG1 - Algoritmy a grafy](https://github.com/josefdolezal/fit-bi-ag1/tree/master/notes) - ZS 2016/17
-* [BI-SI2 - Softwarové inženýrství 2](BI-SI2/notes)
+  * Semestrální práce
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
