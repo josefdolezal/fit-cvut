@@ -6,7 +6,7 @@ Tento repozitář jsem vytvořil s úmyslem sdílet vybrané zdrojové kódy, kt
 K těmto předmětům jsem vytvořil výpisky z prezentací, případně dalších zdrojů:
 
 * [BI-AG1 - Algoritmy a grafy](https://github.com/josefdolezal/fit-bi-ag1/tree/master/notes) - ZS 2016/17
-* [BI-SI2 - Softwarové inženýrství 2](BI-SI2/notes)
+* [BI-SI2 - Softwarové inženýrství 2](BI-SI2/notes) - ZS 2016/17
 
 ## Obsah
 
@@ -44,21 +44,21 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
 * [BI-DBS](BI-DBS) - Semestrální práce
 * [BI-EFA](BI-EFA)
 * [BI-IOS](BI-IOS)
-  * [Domácí úloha](assignments)
-  * [Semestrální práce](semester-project)
+  * [Domácí úloha](BI-IOS/assignments)
+  * [Semestrální práce](BI-IOS/semester-project)
 * [BI-OMO](BI-OMO)
 * [BI-PHP](BI-PHP) - Zápisky ze cvičení
 * [BI-3DT](BI-3DT.1)
-  * [Domácí úloha](assignment-1) - Stojánek
-  * [Semestrální práce](semester-project) - Krystal
+  * [Domácí úloha](BI-3DT.1/assignment-1) - Stojánek
+  * [Semestrální práce](BI-3DT.1/semester-project) - Krystal
 
 ### Semestr 4 (LS 2015/16)
 * [BI-BEZ](BI-BEZ)
 * [BI-GRA](BI-GRA)
 * [BI-OSY](BI-OSY)
-  * [Domácí úloha](assignment-01) - Producent/Konzument
+  * [Domácí úloha](BI-OSY/assignment-01) - Producent/Konzument
 * [BI-PSI](BI-PSI)
-  * [Semestrální úloha](assignment-01)
+  * [Semestrální úloha](BI-PSI/assignment-01)
 * [BI-SP1 - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-sp1)
 
 ### Semestr 5 (ZS 2016/17)
