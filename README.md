@@ -6,6 +6,7 @@ Tento repozitář jsem vytvořil s úmyslem sdílet vybrané zdrojové kódy, kt
 K těmto předmětům jsem vytvořil výpisky z prezentací, případně dalších zdrojů:
 
 * [BI-AG1 - Algoritmy a grafy](https://github.com/josefdolezal/fit-bi-ag1/tree/master/notes) - ZS 2016/17
+  * [Vypracované veta otázky](https://github.com/josefdolezal/fit-bi-ag1/tree/master/veta-questions)
 * [BI-SI2 - Softwarové inženýrství 2](BI-SI2/notes) - ZS 2016/17
 
 ## Obsah
@@ -66,6 +67,7 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
   * Výpisky z prezentací
 * [BI-AG1 - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-ag1)
   * Výpisky z prezentací, domácí úlohy
+  * Vypracované veta otázky
 * [BI-PRR - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-prr)
   * Fragmenty semestrální práce
 * [BI-BIG - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-big)
