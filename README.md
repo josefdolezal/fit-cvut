@@ -72,6 +72,9 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
   * Fragmenty semestrální práce
 * [BI-BIG - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-big)
   * Semestrální práce
+* [BI-PPR - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-ppr)
+  * Texty k úlohám na cvičeních
+  * [Poziční zpráva](https://github.com/josefdolezal/fit-bi-ppr) (semestrální práce)
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
