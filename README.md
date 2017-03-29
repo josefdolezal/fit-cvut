@@ -15,37 +15,37 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
 * [BI-CAO](BI-CAO/)
   * Obsahuje vypracované domácí úkoly (`HW *`) a poznámky ze cvičení (`L *`). K jednotlivým úlohám bohužel chybí zadání.
 * [BI-PA1](BI-PA1/)
-  * [Instalatéři](BI-PA1/assignment 1_1/) (5b) / [Obdélníky](BI-PA1/assignment 1_2/) (3b)
-  * [MHD](BI-PA1/assignment 2_1/) (5b)
-  * [Nařízení EK 244/2009](BI-PA1/assignment 3_1/) (5b)
-  * [Stavebnice Merkur](BI-PA1/assignment 4_1/) (5b)
-  * [Docházkový systém](BI-PA1/assignment 5_1/) (5b)
+  * [Instalatéři](BI-PA1/assignment%201_1/) (5b) / [Obdélníky](BI-PA1/assignment%201_2/) (3b)
+  * [MHD](BI-PA1/assignment%202_1/) (5b)
+  * [Nařízení EK 244/2009](BI-PA1/assignment%203_1/) (5b)
+  * [Stavebnice Merkur](BI-PA1/assignment%204_1/) (5b)
+  * [Docházkový systém](BI-PA1/assignment%205_1/) (5b)
 
 ### Semestr 2 (LS 2014/15)
 * [BI-PA2](BI-PA2/)
   * Úkoly
-    * [Fibonacciho kód](BI-PA2/Assignments/assignment 1_2/) (4b)
-    * [Registr automobilů I](BI-PA2/Assignments/assignment 2_1/) (5b)
-    * [Registr automobilů II](BI-PA2/Assignments/assignment 2_2/) (3b)
-    * [Datum](BI-PA2/Assignments/assignment 3_2/) (5b)
-    * [Registr automobilů III](BI-PA2/Assignments/assignment 4_1/) (10b)
-    * [Anonymní zkoušky](BI-PA2/Assignments/assignment 5_2/) (4b)
-    * [HTML tabulky I](BI-PA2/Assignments/assignment 6_1/) (5b)
-    * [HTML tabulky II](BI-PA2/Assignments/assignment 6_2/) (3b)
+    * [Fibonacciho kód](BI-PA2/Assignments/assignment%201_2/) (4b)
+    * [Registr automobilů I](BI-PA2/Assignments/assignment%202_1/) (5b)
+    * [Registr automobilů II](BI-PA2/Assignments/assignment%202_2/) (3b)
+    * [Datum](BI-PA2/Assignments/assignment%203_2/) (5b)
+    * [Registr automobilů III](BI-PA2/Assignments/assignment%204_1/) (10b)
+    * [Anonymní zkoušky](BI-PA2/Assignments/assignment%205_2/) (4b)
+    * [HTML tabulky I](BI-PA2/Assignments/assignment%206_1/) (5b)
+    * [HTML tabulky II](BI-PA2/Assignments/assignment%206_2/) (3b)
   * Knihovny
-    * [ViCTOR](BI-PA2/Libs/Victor - Vector Improved) - Vlastní implementace vektoru
-    * [Rope](BI-PA2/Libs/Rope - String Extended) - Vlastní implementace stringu
-  * [Semestrální práce](BI-PA2/Semestr Project/) - Kalkulačka s neomezenou přesností
+    * [ViCTOR](BI-PA2/Libs/Victor%20-%20Vector%20Improved) - Vlastní implementace vektoru
+    * [Rope](BI-PA2/Libs/Rope%20-%20String%20Extended) - Vlastní implementace stringu
+  * [Semestrální práce](BI-PA2/Semester%20Project/) - Kalkulačka s neomezenou přesností
 * [BI-TED](BI-TED/)
-  * [Graf](BI-TED/assignment 1) (30b)
-  * [Generování diagramu](BI-TED/assignment 2) (20b)
-  * [Sazba textu](BI-TED/assignment 3) (30b)
+  * [Graf](BI-TED/assignment%201) (30b)
+  * [Generování diagramu](BI-TED/assignment%202) (20b)
+  * [Sazba textu](BI-TED/assignment%203) (30b)
 
 ### Semestr 3 (ZS 2015/16)
 * [BI-DBS](BI-DBS) - Semestrální práce
 * [BI-EFA](BI-EFA)
 * [BI-IOS](BI-IOS)
-  * [Domácí úloha](BI-IOS/assignments)
+  * [Domácí úloha](BI-IOS/assignments/assignment-1)
   * [Semestrální práce](BI-IOS/semester-project)
 * [BI-OMO](BI-OMO)
 * [BI-PHP](BI-PHP) - Zápisky ze cvičení
@@ -72,9 +72,6 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
   * Fragmenty semestrální práce
 * [BI-BIG - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-big)
   * Semestrální práce
-* [BI-PPR - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-ppr)
-  * Texty k úlohám na cvičeních
-  * [Poziční zpráva](https://github.com/josefdolezal/fit-bi-ppr) (semestrální práce)
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
@@ -85,3 +82,4 @@ Zveřejněné kódy a úlohy se mohou lišit od těch, které jsem ve škole ode
 
 ## Licence
 Repozitář je šířený pod licencí [MIT](LICENSE).
+
