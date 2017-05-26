@@ -1,4 +1,4 @@
-# Repozitář zdrojových kódů z FIT ČVUT
+# Repozitář zdrojových kódů z FIT ČVUT [![Build Status](https://travis-ci.org/josefdolezal/fit-cvut.svg?branch=master)](https://travis-ci.org/josefdolezal/fit-cvut)
 ## Motivace
 Tento repozitář jsem vytvořil s úmyslem sdílet vybrané zdrojové kódy, které jsem vytvořil během studia na [@FIT_CTU](https://twitter.com/FIT_CTU). Repozitář by měl sloužit jako inspirace k řešení zadaných problémů v domácích úkolech nebo na cvičeních. Každé vypracované zadání obsahuje jednu z možných variant řešení a je tedy možné, že problém lze vyřešit jinak/lépe.
 
