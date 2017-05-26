@@ -1,0 +1,20 @@
+language: python
+dist: trusty
+before_install:
+- sudo apt-get -qq update
+- sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra
+  texlive-fonts-extra dvipng texlive-latex-recommended texlive-lang-czechslovak texlive-generic-extra
+  lmodern latexmk latex-xcolor
+install:
+- pip install pygments
+script: make build
+deploy:
+  provider: releases
+  api_key:
+    secure: JlvFoCjWfVI36uovS3e5vs9QrHXSMfwWp9bqa2DYxGrFDqlGuDeNGOQO7AdV5o4YgXEAtT8rlRudorOSaQS580a0UfM41cCiVAufhqaXRFA6/dSffic5sD6vMj5UFOzMMYYazzsU5/Xh+fT0xizQ8MdVT/NQ/qGmHyc32GeahUywimx1iTZ/1cVnVKlrQ26Nkb+7Qu8uLiaanUn4wsezpzWWHBULKAhtccsACvNUd2aJDAh82QxRAymvNOlXXfzwuv+TR/TbDb6AtYfRe9axQWHjK7RHhen5uSH9ln7eHJ1snRZmyrMNP+GniDvo1KiJkxcTMX42XmBW3nEkwVEaSrrrdTBWhnh33Rb1ieDYRiGmY18xl2oBLyPps+5ymGMi0gRskp9rU/x2Ctwz8c9VrhWd0WGl745vz/QcoWPJE7zmgrVCw1VEcz+RppvR4vKHOqTEb/tRjl4QgE88K36pjNE1nxFPeuY4ukfleHE6NxRJubSlRh0cm5NTuWK2zNZfE7lSmK84ifsbCNOagJSWly7pQZCTAZ610wJFmvzsPe9i5/jn6RaLP9MlrLJzJiajCyUFX/aDr9r9HMYUGDO9NrzK/NM9EEc/Cuophg9VrK3NYcdKIAPerNepqBkARjlJ07OJSFUkkX2VSRnuggAjWyyCFHq8nzKF2unQJjGB30Y=
+  file:
+    - bi-si2.pdf
+  skip_cleanup: true
+  on:
+    repo: josefdolezal/fit-cvut
+    tags: true
