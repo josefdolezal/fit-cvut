@@ -9,6 +9,8 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
   * [Vypracované veta otázky](https://github.com/josefdolezal/fit-bi-ag1/tree/master/veta-questions)
 * [BI-SI2 - Softwarové inženýrství 2](BI-SI2/notes) - ZS 2016/17
 
+Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.com/josefdolezal/fit-cvut/releases).
+
 ## Obsah
 
 ### Semestr 1 (ZS 2014/15)
