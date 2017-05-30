@@ -75,6 +75,10 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 * [BI-BIG - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-big)
   * Semestrální práce
 
+### Semestr 6 (LS 2016/17)
+* [BI-TEX](BI-TEX)
+  * [Semestrální práce](BI-TEX/bi-tex.tex) - Kompilace LaTeX dokumentů pomocí Travis CI
+
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
 Důrazně nedoporučuji cizí zdrojové kódy odevzdávat/vydávat za vlastní.
