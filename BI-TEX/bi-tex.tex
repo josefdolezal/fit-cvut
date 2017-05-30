@@ -1,0 +1,201 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[IL2]{fontenc}
+\usepackage{a4wide}
+\usepackage{minted}
+\usepackage[czech]{babel}
+
+\renewcommand\listingscaption{Ukázka kódu}
+\definecolor{bgcode}{rgb}{0.95,0.95,0.95}
+
+\begin{document}
+
+\section*{Automatizované kompilování \LaTeX{} dokumentů}
+Autor: Josef Doležal, květen 2017
+
+\bigskip
+
+\noindent{}V této práci bych rád uvedl návod na automatizované kompilování \LaTeX{} dokumentů uložených v repozitáři na platformě GitHub.\footnote{https://github.com}
+Kompilace probíhá pomocí virtuálních strojů na serveru Travis CI.\footnote{https://travis-ci.com}
+Pro správné fungování je nutné založit si uživatelský účet na obou platformách.
+
+\subsection*{Propojení účtů}
+
+Po založení účtu na stránce GitHub se lze stejným účtem přihlásit i na Travis CI.
+V rozhraní Travis CI se po přihlášení zobrazí seznam dostupných repozitářů.
+Z nich vybereme ten, pro který chceme automatickou kompilaci zařídit.
+Kompilace se běžně skládá z následujících kroků:
+
+\begin{description}
+    \item[before\_install] První fáze před kompilací.
+    V této fázi se typicky aktualizují balíčkovací systémy.
+    \item[install] V této fázi se stahují veškeré potřebné závislosti nutné ke korektní kompilaci našeho repozitáře.
+    \item[script] Fáze samotné kompilace.
+    \item[deploy] Poslední fáze spuštěná po úspěšné kompilaci.
+    V této fázi se nahrají zkompilované soubory zpět do repozitáře na GitHub.
+    Tato fáze se spouští pouze tehdy, je-li vydána nová verze zdrojových kódů v repozitáři.
+\end{description}
+
+Nastavením jednotlivých kroků se věnuji následně v části \textit{Konfigurace}.
+
+\subsection*{Konfigurace}
+
+Pro úspěšnou integraci s Travis CI je potřeba nejdříve vytvořit konfigurační soubor \texttt{.travis.yml} v kořenové složce repozitáře.
+V tomto souboru se nachází informace o tom, jaký operační systém vyžadujeme, jak repozitář zkompilovat a jaké nástroje k tomu budeme potřebovat.
+V kořenovém adresáři repozitáře tedy nyní soubor vytvoříme a otevřeme v libovolném textovém editoru.
+
+\subsubsection*{Výběr operačního systému}
+
+Jako operační systém jsou nabízené Ubuntu 12.04, Ubuntu 14.04 (experimentálně) a macOS.
+Strojů s operačním systémem macOS je nabízené velmi omezené množství, proto kompilace na nich zpravidla začne mnohem později než na strojích s Linux OS.
+Pro kompilaci \TeX{} dokumentů je navíc tento systém zbytečný.
+Z tohoto důvodu budeme uvažovat pouze linuxové distribuce.
+
+Při výběru z dostupných distribucí je potřeba vědět, jaké balíčky a jejich verze v dokumentu vyžadujeme.
+Pro Ubuntu 12.04 je dostupná verze \TeX{} Live 2009, ve které je mnoho balíčků zastaralých.
+V novějším Ubuntu 14.04 je dostupná verze \TeX{} Live 2013.
+I tato verze má některé balíčky (např. \texttt{minted}) zastaralé, novější ale pomocí balíčkovacího systému získat nelze.
+V dokumentu dále jako zvolený systém uvažuji Ubuntu 14.04.
+
+Volbu systému provedeme přidáním řádky podle ukázky \ref{yml-os} do konfiguračního souboru.
+
+\begin{listing}[htbp]
+\caption{\label{yml-os} Volba OS v konfiguračním souboru}
+\begin{minted}[linenos,bgcolor=bgcode]{yaml}
+dist: trusty
+\end{minted}
+\end{listing}
+
+\subsubsection*{Instalace závislostí}
+
+Systém poskytovaný pro kompilaci je primárně určen pro jazyk \texttt{python}.
+Pro kompilaci \TeX{} či \LaTeX{} souborů je nutné doinstalovat \TeX{} Live balíček.
+
+Pro instalaci lze využít standarní balíčkovací systém Ubuntu nazvaný \texttt{apt}.
+Instalace probíhá ve dvou fázích.
+Nejdříve ve fázi \texttt{before\_install} zaktualizujeme balíčkovací systém.
+V následující fázi \texttt{install} nainstalujeme veškeré závislosti potřebné ke kompilaci dokumentu.
+Ukázka \ref{yml-install} uvádí obsah souboru \texttt{.travis.yml} po přidání konfigurace pro stažení závislostí.
+
+\begin{listing}[htbp]
+\caption{\label{yml-install} Instalace závislostí}
+\begin{minted}[linenos,bgcolor=bgcode]{yaml}
+dist: trusty
+before_install:
+- sudo apt-get -qq update
+install:
+- >
+  sudo apt-get install -y --no-install-recommends texlive-fonts-recommended
+  texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended
+  texlive-lang-czechslovak texlive-generic-extra
+  lmodern latexmk latex-xcolor
+- pip install pygments
+\end{minted}
+\end{listing}
+
+V této fázi jsou připraveny veškeré závislosti.
+Nyní je možné přejít k samotné kompilaci.
+
+\subsubsection*{Kompilace dokumentu}
+
+Po nainstalování závislostí lze dokument zkompilovat obdobným způsobem jako lokálně.
+Pro správné vygenerování (nejen) dopředných referencí je dobré využít některého automatizačního nástroje.
+Jedním takovým nástrojem je \texttt{latexmk}, který je předinstalovaný z ukázky \ref{yml-install}.
+Jakým způsobem budeme dokument kompilovat nakonfigurujeme parametrem \texttt{script}.
+V tomto parametru předáme skript, který bude na kompilovacím serveru spuštěn programem \texttt{bash}.
+Pro spuštění \texttt{latexmk} vložíme na konec konfiguračního souboru kód z ukázky \ref{yml-script}.
+
+\begin{listing}[htbp]
+\caption{\label{yml-script} Spuštění kompilace}
+\begin{minted}[linenos,bgcolor=bgcode]{yaml}
+script: latexmk -pdf dokument
+\end{minted}
+\end{listing}
+
+V ukázke \ref{yml-script} je potřeba klíčové slovo \texttt{dokument} nahradit skutečným názvem dokumentu určenému ke kompilaci.
+
+\subsubsection*{Vydání verze dokumentu}
+
+Platforma Travis CI umožňuje nejen průběžnou kompilaci dokumentů, která ověří, že formát není poškozený, ale také jeho vydání.
+Vydání dokumentu je přímo navázáno na vlastnost značkování (z anglického \textit{tag}) verzovacího systému \texttt{git}.
+Kdykoliv je verzi (\texttt{commit}) zdrojového kódu přidána značka, můžeme nechat Travis CI po úspěšné kompilaci nahrát zkompilovaný dokument k této zpět na GitHub.
+
+Pro zprovoznění této funkce je potřeba nainstalovat program \texttt{travis}.
+K instalaci lze využí kód z ukázky \ref{bash-install-travis}.
+
+\begin{listing}[htbp]
+\caption{\label{bash-install-travis} Instalace programu travis}
+\begin{minted}[linenos,bgcolor=bgcode]{bash}
+gem install travis
+\end{minted}
+\end{listing}
+
+Nyní je nutné repozitář nakonfigurovat pro vydávání verzí.
+Ukázka \ref{travis-setup-releases} znázorňuje kód, který konfiguraci zajistí.
+
+\begin{listing}[htbp]
+\caption{\label{travis-setup-releases} Instalace programu travis}
+\begin{minted}[linenos,bgcolor=bgcode]{bash}
+travis setup releases
+\end{minted}
+\end{listing}
+
+Při prvním spuštění program zahlásí, že se uživatel musí přihlásit ke svému GitHub účtu.
+Pokyny k přihlášení se zobrazí v terminálu.
+Po úspěšném přihlášení je potřeba kód z ukázky \ref{travis-setup-releases} spustit znovu.
+Program konfigurací uživatele provede.
+Konfigurace se automaticky zapíše do konfiguračního souboru, ten je ale potřeba dále doupravit.
+
+Sekce s konfigurací vydávání verzí by po úpravě měla mít stejnou strukturu jako kód z ukázky \ref{yml-deploy}.
+První dva řádky určují, že budeme pracovat s platformou GitHub a vydávat verze pomocí ní.
+Zbylá nastavení jsou podrobněji rozebrána níže.
+
+\begin{listing}[htbp]
+\caption{\label{yml-deploy} Nastavení kompilace pro vydání verze}
+\begin{minted}[linenos,bgcolor=bgcode]{yaml}
+deploy:
+  api_key:
+    secure: "*****"
+  provider: releases
+  file: dokument.pdf
+  skip_cleanup: true
+  on:
+    repo: texuser/texrepo
+    tags: true
+\end{minted}
+\end{listing}
+
+Pro správné fungování s libovolným repozitářem je nutné některé údaje podle potřeby nahradit.
+Následující část rozebírá tyto nastavení:
+
+\begin{description}
+    \item[api\_key] Tato položka obsahuje zašifrovaný autorizační token.
+    Ten je využit pro nahrání souborů zpět na GitHub.
+    Token je generován programem \texttt{travis}.
+
+    \item[file] Toto nastavení udává, jaký dokument bude do služby GitHub po kompilaci nahrán.
+    Soubor je určen relativní cestou ke kořenu repozitáře.
+
+    \item[skip\_cleanup] Travis CI je standardně nastaven, aby po dokončení kompilace soubory smazal.
+    To by ale zabránilo jeho následnému odeslání na GitHub.
+    Pro správné fungování tedy tato volba musí být nastavena na \texttt{true}.
+
+    \item[on] Toto nastavení udává, za jakých podmínek bude verze dokumentu odeslána na GitHub.
+    Skládá se ze dvou podmínek, mezi kterými platí relace \uv{a zároveň}.
+
+    \begin{itemize}
+        \item Nastavení \texttt{repo} udává, že verze bude odeslána, jen pokud má repozitář specifický název.
+        Název je předán jako hodnota tohoto nastavení a je uveden ve formátu \texttt{uživateské jméno / název repozitáře}.
+        \item Druhé nastavení \texttt{tags} přikazuje vydat verzi jen v případě, že kompilace je vyvolána přidáním značky ke zdrojovému kódu.
+        Pro správné fungování je potřeba zadata hodnotu \texttt{true}.
+    \end{itemize}
+\end{description}
+
+V tuto chvíli je repozitář kompletně nakonfigurovaný.
+Pomocí verzovacího \texttt{git} nyní můžeme vytvořit \texttt{commit} a ten odeslat na GitHub.
+Ve webovém rozhraní v záložce \texttt{Releases} můžeme vydat novou verzi.
+Tím se nahraný \texttt{commit} označkuje a spustí se kompilace na Travis CI.
+Pokud vše proběhne v pořádku, během několika minut bude u verze dostupný i zkompilovaný dokument.
+
+\end{document}
