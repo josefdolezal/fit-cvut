@@ -8,6 +8,9 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
 * [BI-AG1 - Algoritmy a grafy](https://github.com/josefdolezal/fit-bi-ag1/tree/master/notes) - ZS 2016/17
   * [Vypracované veta otázky](https://github.com/josefdolezal/fit-bi-ag1/tree/master/veta-questions)
 * [BI-SI2 - Softwarové inženýrství 2](BI-SI2/notes) - ZS 2016/17
+* [BI-BIG -  Databázové technologie pro Big Data](https://github.com/josefdolezal/fit-bi-big) - ZS 2016/17
+* [BI-AG2 - Algoritmy a grafy](https://github.com/josefdolezal/fit-bi-ag2/tree/master/notes) - LS 2016/17
+  * [Kartičky s pojmy](https://github.com/josefdolezal/fit-bi-ag2/tree/master/cards)
 
 Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.com/josefdolezal/fit-cvut/releases).
 
@@ -74,10 +77,18 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
   * Fragmenty semestrální práce
 * [BI-BIG - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-big)
   * Semestrální práce
+  * Výpisky z prezentací
 
 ### Semestr 6 (LS 2016/17)
+* [BI-BAP - samostatný repozitář](https://github.com/josefdolezal/fit-bi-bap) - iOS aplikace k ovládání 3D tiskáren
+  * Rešeršní část práce
+  * [Implementační část práce](https://github.com/3DprintFIT/octoprint-ios-client)
 * [BI-TEX](BI-TEX)
   * [Semestrální práce](BI-TEX/bi-tex.tex) - Kompilace LaTeX dokumentů pomocí Travis CI
+* [BI-AG2 - Samostatný repozitář](https://github.com/josefdolezal/fit-bi-ag2)
+  * Domácí úlohy
+  * Kartičky s pojmy
+  * Výpisky z přednášek
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
