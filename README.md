@@ -89,6 +89,9 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
   * Domácí úlohy
   * Kartičky s pojmy
   * Výpisky z přednášek
+* [BI-EMP](BI-EMP)
+  * Semestrální práce
+  * Prezentace semestrální práce
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
