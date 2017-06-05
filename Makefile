@@ -1,4 +1,4 @@
-build: clean bisi2 bitex biemp
+build: clean bisi2 bitex biemp fiksa
 
 bisi2:
 	latexmk -pdf BI-SI2/notes/bi-si2
@@ -8,6 +8,9 @@ bitex:
 
 biemp:
 	latexmk -pdf BI-EMP/project-plan/bi-emp
+
+fiksa:
+	latexmk -pdf FI-KSA/fi-ksa
 
 clean:
 	latexmk -c

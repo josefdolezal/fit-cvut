@@ -16,6 +16,7 @@ deploy:
     - bi-si2.pdf
     - bi-tex.pdf
     - bi-emp.pdf
+    - fi-ksa.pdf
   skip_cleanup: true
   on:
     repo: josefdolezal/fit-cvut
