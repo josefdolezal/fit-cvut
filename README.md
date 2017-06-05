@@ -92,6 +92,8 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 * [BI-EMP](BI-EMP)
   * Semestrální práce
   * Prezentace semestrální práce
+* [FI-KSA](FI-KSA)
+  * Reflexe na přednášku - Etika
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
