@@ -25,7 +25,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 * [Semestr 6](#bsp-semestr-6-ls-201617) - BI-BAP, BI-TEX, BI-AG2, BI-EMP, FI-KSA
 
 ### Magisterské studium (2017-)
-* [Semestr 1](#msp-semestr-1-zs-201718)
+* [Semestr 1](#msp-semestr-1-zs-201718) - MI-ADP
 
 ### BSP Semestr 1 (ZS 2014/15)
 * [BI-CAO](BI-CAO/)
@@ -107,6 +107,8 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
   * Reflexe na přednášku - Etika
 
 ### MSP Semestr 1 (ZS 2017/18)
+* MI-ADP - Samostaný repozitář
+  * [Semestrální práce](https://github.com/josefdolezal/fit-mi-adp) - MVC hra pro iOS ve SpriteKit frameworku
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
