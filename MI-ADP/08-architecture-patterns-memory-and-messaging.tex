@@ -1,0 +1,50 @@
+\section{Přednáška 8 -- Architektonické vzory, sdílení paměti a zasílání zpráv}
+
+\subsection{Sdílení paměti v rámci aplikace}
+
+\subsubsection{Database centric}
+
+Architektura, v níž databáze hrají zásadní roli.
+Typ klient-server architektury, kde server obsluhuje veškeré CRUD operace.
+Logiku aplikace je možné následně implementovat jako:
+
+\begin{description}
+    \item[table-driven] Chování aplikace závisí na obsahu databáze
+    \item[stored-procedures] Aplikace volají procedury, které jsou na databázovém serveru (např. Oracle PL SQL)
+    \item[communicating] Paralelní procesy využívají databázi pro komunikaci mezi sebou.
+\end{description}
+
+\subsubsection{Rule based}
+
+\textit{Interpretuje pravidla ve formě \texttt{IF condition THEN action}, kde podmínka testuje pracovní paměť (např. na existenci symbolů, dat, \dots).}
+
+\subsubsection{Blackboard}
+
+Návrh systému, který integruje rozsáhlé moduly a komplexní nedeterministickou strategii ovládání.
+
+\subsection{Messaging}
+
+\subsubsection{Event-driven}
+
+Architektura propagující změny stavu pomocí eventů.
+
+\begin{description}
+    \item[Event] Význačná změna stavu
+    \item[Event notification] Propagování informací o změně
+\end{description}
+
+Pomocí mediatoru je navštíven každý objekt, který se zaregistruje o informace o změně stavu.
+
+\subsubsection{Publish-subscribe}
+
+Architektura, kde \texttt{Publisher} zasílá zprávy specifické kategorie na server, kde se o zprávy těchto kategorií mohou zaregistrovat \texttt{Subscriber} objekty.
+
+\begin{description}
+    \item[Topic-based] \texttt{Publisher} zasílá zprávy do pojmenovaných kanálů, o jejichž existenci se musí postarat. Každý \texttt{Subscriber} dostane stejnou zprávu.
+    \item[Content-based] \texttt{Subscriber} si definuje omezení na zprávy, které chce přijímat.
+\end{description}
+
+\subsubsection{Asynchronní zprávy}
+
+Vrstva, která umožňuje heterogenním komponentám asynchronně i přes jejich (implementační) odlišnosti.
+Implementováno pomocí front (např. JMS).

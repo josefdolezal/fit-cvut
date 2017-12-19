@@ -1,0 +1,41 @@
+\section{Přednáška 2 -- Principy OO návrhu}
+
+K vyhnutí se špatnému návrhu aplikace je doporučené řídit se známými principy.
+Sadu těchto principů popsali GoF a jsou zmíněné níže.
+
+\subsection{DRY -- Do not repeat yorself}
+
+Každá část aplikace musí mít jedinečnou, nezaměnitelnou a spolehlivou reprezentaci v rámci systému.
+
+\subsection{KISS -- Keep it simple, stupid}
+
+Při implementaci je důležité dbát na jednoduchost.
+Složité systémy pracují méně spolehlivě a obsahují zbytečné prvky.
+
+\subsection{SoC -- Separation of Concerns}
+
+Rozdělení programu na patřičné části tak, aby každá měla zodpovědnost pouze za oddělenou funkcionalitu.
+Takto vytvořené programy jsou více modulární.
+
+\subsection{YAGNI -- You are not going to need it}
+
+Do programu by neměla být přidávána funkcionalita, která není nezbytně nutná (netýká se vlastností, které umožňují další rozšířitelnost).
+
+\subsection{Demeterův zákon}
+
+Každá komponenta by měla mít znalost pouze nejbližší vlastností jiných komponent -- \texttt{a.b.c()} vs. \texttt{a.c()}.
+
+\subsection{ZOI -- Zero, One, Infinity}
+
+Objekty by měli mít své \texttt{property} pouze v počtech žádný, jeden nebo kolekce.
+Jiné počty jsou nepřípustné.
+
+\subsection{SOLID principy}
+
+\begin{description}
+    \item[SRP -- Single responsibility principle] Každý objekt by měl být zodpovědný pouze za jednu věc.
+    \item[OCP -- Open-Closed principle] Entity jsou otevřené rozšíření ale uzavřené úpravě -- přidání funkcionality je možné bez úpravy stávajících.
+    \item[LSP -- Liskov Substitution principle] Podtypy musí být nahraditelné nadtypem strukturálně i funkcionálně -- podtypy nekladou větší omezení na své funkce.
+    \item[ISP -- Interface Segregation principle] Klienti by neměli být nuceni záviset na funkcích, které nevyužívají (interface by měl být rozdělen).
+    \item[DIP -- Dependency Inversion principle] Moduly by neměli záviset na konkrétní implementaci ale pouze na rozhraní.
+\end{description}

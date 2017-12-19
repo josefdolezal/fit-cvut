@@ -1,0 +1,23 @@
+\section{Přednáška 5 -- Structural Návrhové vzory}
+
+\subsubsection{Facade}
+
+Poskytuje jednoduché rozhranní ke skupině objektů s komplexních objektů.
+Umožňuje nízké spjetí s konkrétní implementací externích knihoven.
+
+\subsubsection{Adapter}
+
+Převádí rozhraní třídy na jiné rozhraní, které klient očekává.
+Obsahuje \texttt{Target} (rozhraní očekávané klientem), \texttt{Adaptee} (rozhraní nutné k adaptaci), \texttt{Adapter} (adaptuje adaptee pro využité klientem jako target).
+
+\subsubsection{Bridge}
+
+Odděluje abstrakci od implementace tak, aby je bylo možné nezávisle zaměňovat (např. hierarchie oken, obrázků).
+
+\subsubsection{Flyweight}
+
+Využívá sdílení objetků k efektivní práci s velkým množstvím objektů.
+
+\subsubsection{Composite}
+
+Stromová struktura reprezentující vztah celek-část (adresářová struktura, rozpis matematických operací, \dots).

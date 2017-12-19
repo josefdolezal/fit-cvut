@@ -1,0 +1,90 @@
+\section{Přednáška 3 -- Klasifikace OO vzorů}
+
+\subsection{Architektura vs. Vzor}
+
+Architektury řeší problémy distribuované funkcionality, modularity, rozhraní, škálovatelnostim,\dots
+Architektura komponenty je definování jejího chování v rámci celého systému.
+
+Návrhové vzory jsou jazykově nezávislé abstrakce s využitím OOP modelované pomocí UML.
+
+\subsection{Klasifikace OO vzorů}
+
+Vzory se dělí podle toho co dělají (\textit{Purpose}) a kde se aplikují (\textit{Scope}).
+
+\subsubsection{Purpose}
+
+\begin{description}
+    \item[Creational] Starají se o vytváření nových objektů
+    \item[Structural] Starají se o kompozici tříd a objektů
+    \item[Behavioral] Starají se o interakce mezi objekty a třídami
+\end{description}
+
+\subsubsection{Scope}
+
+\begin{description}
+    \item[Class patterns] Zaměřují se na vztahy tříd a podtříd (dědičnost)
+    \item[Object patterns] Zaměřují se na vztahy mezi objekty (kompozice)
+\end{description}
+
+\begin{tabular}{ | l || p{3.5cm} | p{3.5cm} | p{4.2cm} | }
+    \hline
+    Scope / Purpose & Creational & Structural & Behavioral \\ \hline \hline
+    Class & Factory & Adapter & Interpreter, Template \\ \hline
+    Object & Abstract factory, Builder, prototype & Adapter, Bridge, Favade, Proxy & Command, Iterator, Mediator, Memento, State, Strategy \\ \hline
+\end{tabular}
+
+
+\subsection{Architektura MVC}
+
+Architektura rozdělující aplikaci do tří vrstev: \texttt{Model}, \texttt{View} a \texttt{Controller}.
+
+\subsection{Architektura MVP}
+
+Obdobné jako MVC, využívá se u desktopových/mobilních aplikací.
+Více \uv{flat} diagram oproti MVC.
+
+\subsection{Architektur MVVM}
+
+Odstraňuje kompletně logiku z vrstvy \texttt{View}, částečně řeší testovatelnost GUI aplikací.
+
+\subsection{Návrhové vzory}
+
+\subsubsection{Observer}
+
+Notifikuje závislé objekty na změnu stavu.
+Obsahuje \texttt{Subject} a \texttt{Observer}.
+
+\subsubsection{Factory}
+
+Vytváření objetků porušuje DIP, zavádí se proto factory třídy, které mají vytváření objetků na starosti.
+Typicky vytváří objekty, které implementují společné rozhranní -- klientovi nezáleží na implementaci.
+
+\subsubsection{Strategy}
+
+Definuje rodinu algoritmů, které mohou být navzájem zaměnitelné.
+Obsahuje \texttt{Context}, interface \texttt{Strategy} a následně konkétní implementace.
+
+\subsubsection{State}
+
+Umožňuje objektu zaměnit své chování na základě vnitřńiho stavu.
+Obsahuje \texttt{Context}, interface \texttt{State} a konkrétní implementace.
+
+\subsubsection{Visitor}
+
+Umožňuje přidat nové operace do hierarchie tříd bez jejich změny.
+Obsahuje \texttt{Visitor} (obsahující metodu \texttt{visit(\_:)}) a \texttt{Element} (obsahující metodu \texttt{accept(\_:)}).
+
+\subsubsection{Proxy}
+
+Poskytuje náhradu za jiný objekt, k němuž kontroluje přístup -- typicky implementuje stejné rozhranní.
+Lze využít např. při logování.
+
+\subsubsection{Command}
+
+Zapouzdřuje zprávu objektu do samostatného objektu.
+Obsahuje \texttt{Invoker} (volá \texttt{execute(\_:)}), \texttt{Receiver} (na kom je příkaz vykonán) a samotný \texttt{Command} interface.
+
+\subsubsection{Memento}
+
+Snapshot interního stavu objektu, který může být později obnoven.
+Obsahuje \texttt{Originator} (vytváří memento se svým stavem), \texttt{Caretaker} (stará se o uchování mementa), \texttt{Memento} (samotný vnitřní stav).

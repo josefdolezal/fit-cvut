@@ -1,0 +1,28 @@
+\section{Přednáška 6 -- Behavioral Návrhové vzory}
+
+\subsubsection{Chain of Responsibility}
+
+Metoda předávání požadavků zřetězenými objekty.
+Při vyřizování požadavku je zavolána obslužná funkce, která po svém dokončení volá další obslužnou funkci.
+
+\subsubsection{Template method}
+
+Nadtřída definuje kostru algoritmu pomocí několika kroků.
+Podtřídy reimplementací některých kroků mohou měnit chování algoritmu.
+Například použito v \texttt{UIKit} o životního cyklu \texttt{Controlleru}.
+
+\subsubsection{Mediator}
+
+Zapouzdřuje interakci množiny objektů.
+Např. pro dialog výběru fontu mohu mít \texttt{FontDialogDirector}, který obsahuje seznam fontů a textové pole.
+Při změně výběru v seznamu je notifikován \texttt{Mediator}, který na základě výběru aktualizuje textové pole.
+
+\subsubsection{Iterator}
+
+Umožňuje sekvenční přístup ke kontejneru bez nutnosti odhalení vnitřní reprezentace.
+Obsahuje \texttt{Aggregate} (objekt vytvářející iterátor -- kolekce) a \texttt{Iterator} (objekt iterující nad kolekcí -- typicky obsahuje metody jako \texttt{first()}, \texttt{next()}, \dots).
+
+\subsubsection{Mock}
+
+Napodobuje chování reálných objektů.
+Pomocí nich je možné např. během testování simulovat situace a stavy, do nichž se objekty dostanou v reálném světě ale typicky ne během testování.

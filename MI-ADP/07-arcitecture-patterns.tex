@@ -1,0 +1,28 @@
+\section{Přednáška 7 -- Architektonické vzory}
+
+\subsection{Monolitické aplikace}
+
+Aplikace, ve kterých se různé funkcionality (vstupy, výstupy, zpracování chyb, UI, \dots) úzce prolínají místo toho, aby byly oddělené do komponent.
+Nabízejí rychlý vývoj a nasazení, mohou nastat problémy při škálování a údržbě.
+
+\subsection{Component-based}
+
+Rozdělování aplikace do více komponent, které by měly být jednoduše nahraditelné.
+Splňuje SoC.
+Dosáhnout této architektury je možné více způsoby:
+
+\begin{itemize}
+    \item V rámci jedné binárky -- knihovny, moduly, balíčky, třídy, objekty
+    \item V rámci služeb -- Webové služby, microservice
+\end{itemize}
+
+\subsubsection{Dependency injection}
+
+Umožňuje vložit závislosti klientskému objektu tak, že klient nemusí vědět jak konkrétně objekt vyrobit.
+To umožňuje měnit implementaci závislostí bez nutnosti úpravy klienta, je např. možné měnit konfiguraci.
+
+\subsection{Layered}
+
+Návrh s několika úrovněmi abstrakce, které oddělují jednotlivé zodpovědnosti do vrstev.
+Každá vrstva reprezentuje různý model stejné informace s lišící se znalostí detailu (např. ISO/OSI).
+V běžných aplikacích se odděluje např. prezentační, logická (business) a datová vrstva.
