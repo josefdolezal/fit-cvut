@@ -12,5 +12,8 @@ biemp:
 fiksa:
 	latexmk -pdf FI-KSA/fi-ksa
 
+miadp:
+	latexmk -pdf MI-ADP/mi-adp
+
 clean:
 	latexmk -c

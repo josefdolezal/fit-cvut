@@ -11,6 +11,7 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
 * [BI-BIG -  Databázové technologie pro Big Data](https://github.com/josefdolezal/fit-bi-big) - ZS 2016/17
 * [BI-AG2 - Algoritmy a grafy](https://github.com/josefdolezal/fit-bi-ag2/tree/master/notes) - LS 2016/17
   * [Kartičky s pojmy](https://github.com/josefdolezal/fit-bi-ag2/tree/master/cards)
+* [MI-ADP - Architektonické a návrhové vzory](MI-ADP) - ZS 2017/18
 
 Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.com/josefdolezal/fit-cvut/releases).
 
@@ -109,6 +110,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 ### MSP Semestr 1 (ZS 2017/18)
 * MI-ADP - Samostaný repozitář
   * [Semestrální práce](https://github.com/josefdolezal/fit-mi-adp) - MVC hra pro iOS ve SpriteKit frameworku
+  * [Výpisky z prezentací](MI-ADP)
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
