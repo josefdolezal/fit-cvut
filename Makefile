@@ -1,4 +1,4 @@
-build: clean bisi2 bitex biemp fiksa
+build: clean bisi2 bitex biemp fiksa miadp
 
 bisi2:
 	latexmk -pdf BI-SI2/notes/bi-si2
