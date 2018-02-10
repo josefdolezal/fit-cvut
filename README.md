@@ -13,6 +13,7 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
   * [Kartičky s pojmy](https://github.com/josefdolezal/fit-bi-ag2/tree/master/cards)
 * [MI-ADP - Architektonické a návrhové vzory](MI-ADP) - ZS 2017/18
 * [FI-FIL - Filosofie](FI-FIL) - ZS 2017/2018
+* [MI-PAA - Problémy a algoritmy](https://github.com/josefdolezal/fit-mi-paa/tree/master/notes) - ZS 2017/2018
 
 Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.com/josefdolezal/fit-cvut/releases).
 
@@ -27,7 +28,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 * [Semestr 6](#bsp-semestr-6-ls-201617) - BI-BAP, BI-TEX, BI-AG2, BI-EMP, FI-KSA
 
 ### Magisterské studium (2017-)
-* [Semestr 1](#msp-semestr-1-zs-201718) - MI-ADP, MI-MDW, FI-FIL
+* [Semestr 1](#msp-semestr-1-zs-201718) - MI-ADP, MI-MDW, FI-FIL, MI-PAA
 
 ### BSP Semestr 1 (ZS 2014/15)
 * [BI-CAO](BI-CAO/)
@@ -116,6 +117,10 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
   * Domácí úlohy
 * [FI-FIL](FI-FIL)
   * Výpisky z prezentací / knihy Filozofie mezi mýtem a vědou
+* [MI-PAA - Samostatný repozitář](https://github.com/josefdolezal/fit-mi-paa)
+  * Domácí úlohy
+  * Výpisky z přednášek
+
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
