@@ -29,6 +29,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 
 ### Magisterské studium (2017-)
 * [Semestr 1](#msp-semestr-1-zs-201718) - MI-ADP, MI-MDW, FI-FIL, MI-PAA
+* [Semestr 2](#msp-semestr-2-ls-201718) - MI-AFP
 
 ### BSP Semestr 1 (ZS 2014/15)
 * [BI-CAO](BI-CAO/)
@@ -120,6 +121,11 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 * [MI-PAA - Samostatný repozitář](https://github.com/josefdolezal/fit-mi-paa)
   * Domácí úlohy
   * Výpisky z přednášek
+
+### MSP Semestr 2 (LS 2017/18)
+* MI-AFP
+  * Vypracované domácí úlohy
+    * [Práce s funkcemi/datovými typy](https://github.com/josefdolezal/fit-mi-afp-assignment-01) - Samostatný repozitář
 
 
 ## Poznámka
