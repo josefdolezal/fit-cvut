@@ -128,6 +128,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
     * [Práce s funkcemi/datovými typy](https://github.com/josefdolezal/fit-mi-afp-assignment-01) - Samostatný repozitář
     * [Binární vyhledávací strom](https://github.com/josefdolezal/fit-mi-afp-assignment-02) - Samostatný repozitář
     * [Branching/Řídící konstrukty](https://github.com/josefdolezal/fit-mi-afp-assignment-03) - Samostatný repozitář
+    * [Seznamy, Zásobníkový automat](https://github.com/josefdolezal/fit-mi-afp-assignment-04) - Samostatný repozitář
 
 
 ## Poznámka
