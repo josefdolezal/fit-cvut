@@ -129,6 +129,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
     * [Binární vyhledávací strom](https://github.com/josefdolezal/fit-mi-afp-assignment-02) - Samostatný repozitář
     * [Branching/Řídící konstrukty](https://github.com/josefdolezal/fit-mi-afp-assignment-03) - Samostatný repozitář
     * [Seznamy, Zásobníkový automat](https://github.com/josefdolezal/fit-mi-afp-assignment-04) - Samostatný repozitář
+    * [Přetěžování operátorů, Type Classes](https://github.com/josefdolezal/fit-mi-afp-assignment-05) - Samostatný repozitář
 
 
 ## Poznámka
@@ -140,4 +141,3 @@ Zveřejněné kódy a úlohy se mohou lišit od těch, které jsem ve škole ode
 
 ## Licence
 Repozitář je šířený pod licencí [MIT](LICENSE).
-
