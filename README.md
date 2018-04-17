@@ -130,6 +130,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
     * [Branching/Řídící konstrukty](https://github.com/josefdolezal/fit-mi-afp-assignment-03) - Samostatný repozitář
     * [Seznamy, Zásobníkový automat](https://github.com/josefdolezal/fit-mi-afp-assignment-04) - Samostatný repozitář
     * [Přetěžování operátorů, Type Classes](https://github.com/josefdolezal/fit-mi-afp-assignment-05) - Samostatný repozitář
+    * [CLI, IO Monad, dokumentace a testování](https://github.com/josefdolezal/fit-mi-afp-assignment-06) - Samostatný repozitář (částečné řešení)
 
 
 ## Poznámka
