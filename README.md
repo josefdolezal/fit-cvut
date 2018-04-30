@@ -132,6 +132,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
     * [Přetěžování operátorů, Type Classes](https://github.com/josefdolezal/fit-mi-afp-assignment-05) - Samostatný repozitář
     * [CLI, IO Monad, dokumentace a testování](https://github.com/josefdolezal/fit-mi-afp-assignment-06) - Samostatný repozitář (částečné řešení)
     * [Monad, Functor, Applicative a Parsec](https://github.com/josefdolezal/fit-mi-afp-assignment-07) - Samostatný repozitář
+    * [Type Classy, monadické operace](https://github.com/josefdolezal/fit-mi-afp-assignment-08) - Samostatný repozitář (částečné řešení)
 
 
 ## Poznámka
