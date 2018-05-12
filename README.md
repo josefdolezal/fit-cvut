@@ -136,7 +136,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
     * [Webová aplikace - Yesod](https://github.com/josefdolezal/fit-mi-afp-assignment-09) - Samostatný repozitář
 * [MI-PDP - Samostatný repozitář](https://github.com/josefdolezal/fit-mi-pdp)
   * Vypracované domácí úlohy (tah královnou po šachovnici)
-  * Závěrečná zpráve
+  * Závěrečná zpráva
 
 
 ## Poznámka
