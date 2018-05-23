@@ -14,6 +14,7 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
 * [MI-ADP - Architektonické a návrhové vzory](MI-ADP) - ZS 2017/18
 * [FI-FIL - Filosofie](FI-FIL) - ZS 2017/2018
 * [MI-PAA - Problémy a algoritmy](https://github.com/josefdolezal/fit-mi-paa/tree/master/notes) - ZS 2017/2018
+* [MI-SPI - Statistika pro informatiku](MI-SPI) - LS 2017/2018
 
 Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.com/josefdolezal/fit-cvut/releases).
 
@@ -29,7 +30,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 
 ### Magisterské studium (2017-)
 * [Semestr 1](#msp-semestr-1-zs-201718) - MI-ADP, MI-MDW, FI-FIL, MI-PAA
-* [Semestr 2](#msp-semestr-2-ls-201718) - MI-AFP, MI-PDP
+* [Semestr 2](#msp-semestr-2-ls-201718) - MI-AFP, MI-PDP, MI-SPI
 
 ### BSP Semestr 1 (ZS 2014/15)
 * [BI-CAO](BI-CAO/)
@@ -138,6 +139,8 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 * [MI-PDP - Samostatný repozitář](https://github.com/josefdolezal/fit-mi-pdp)
   * Vypracované domácí úlohy (tah královnou po šachovnici)
   * Závěrečná zpráva
+* [MI-SPI](MI-SPI)
+  * Vẏpisky z prezentací
 
 
 ## Poznámka
