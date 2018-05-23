@@ -1,0 +1,31 @@
+\section{Přednáška 10 -- Testování hypotéz}
+
+\begin{description}
+    \item[Hypotéza:] Vektor $X=(X_1, \dots)$, který má neznámé rozdělení -- tvrzení o rozdělení (jehož platnost neznáme) nazýváme hypotézou,
+    \item[Testování hypotéz:] Mechanismus, jak na základě pozorovaných hodnot $X$ ověřit platnost hypotézy,
+    \item[Nulová hypotéza:] $H_0$ označuje tvrzení, o kterém chceme rozhodnout,
+    \item[ALternativní hypotéza:] $H_A$ opačné tvrzení proti $H_0$
+\end{description}
+
+Rozhodovacím procesem buď zamítneme nebo nezamítneme $H_0$.
+
+\subsection{Chyby při zamítání hypotéz}
+
+\subsubsection*{Chyba prvního druhu}
+
+Zamítneme $H_0$, ačkoliv platí.
+
+\subsubsection*{Chyba druhého druhu}
+
+Nezamítneme $H_0$, ačkoli neplatí a platí $H_A$.
+
+Nelze kontrolovat pravděpodobnosti obou těchto chyb, proto se $H_0$ volí tak, aby chyba \textit{prvního druhu} byla \textit{závažnější} než chyba druhého druhu.
+Volíme $\alpha$ (hladina významnosti, běžně $1\%$ nebo $5\%$) a chceme, aby chyba prvního druhu byla nejvýše tato $alpha$.
+Snažíme se konstruovat takové testy, aby chyba druhého druhu byla co nejmenší.
+
+Zamítnutí $H_0$ je \textit{silný} výsledek.
+
+\subsection{p-hodnota}
+
+Minimální hladina významnosti, na které lze hypotézu $H_0$ zamítnout.
+Je-li $p$-hodnota menší než požadovaná $\alpha$, zamítneme $H_0$

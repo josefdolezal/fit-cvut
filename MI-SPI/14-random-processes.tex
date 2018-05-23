@@ -1,0 +1,104 @@
+\section{Náhodné procesy}
+
+Nechť \pspace je pravděpodobnostní prostor a $T\subseteq \mathbb{R}$ indexová množina.
+Systém náhodných veličin
+
+$$
+    X = \{X_t | t \in T\}, X_t: \Omega \rightarrow \mathbb{R}
+$$
+
+se nazývám \textit{reálný náhodný proces}.
+
+\begin{itemize}
+    \item Množninu $T$ lze chápat jako čas, je-li nejvýše spočetná pak se jedná o diskrétní čas ${X_n | n\in \mathbb{N}_0}$,
+    \item je-li nespočetná, pak se jedná o spojitý čas (např. ${X_t | t \geq 0}$),
+    \item množina hnodnot $S \subseteq \mathbb{R}$, kterých nabývají veličiny $X_t$ je množina stavů (diskrétní nebo spojitá). 
+\end{itemize}
+
+\subsection{Trajektorie náhodného procesu}
+
+Proces $X$ lze chápat jako zobrazení z $\Omega$ do prostoru funkcí
+
+$$
+    X: \Omega \rightarrow \{f: T \rightarrow S\}
+$$
+
+Hustotu procesu $X_t(\omega)$ lze chápat jako hodnotu funkce $X(t;\omega)$ (tedy jevu $\omega$ v čase $t$).
+
+Trajektorie (realizace) procesu $X=\{X_t | t\in T\}$ kde $\omega \in \Omega$ je elementární jev, je funkce $f: T \rightarrow \mathbb{R}$
+
+$$
+    f(t) := X_t(\omega), \forall{t \in T}
+$$
+
+\subsection{Rozdělení náhodného procesu}
+
+Systém všech rozdělení konečně rozměrných vektorů $(X_{t_1}, X_{t_2}, \dots, X_{t_n})$, tedy systém konečně rozměrných distribučních funkcí.
+
+$$
+    F_{X_{t_1},\dots}(x_1, \dots, x_k) = P(X_{t_1} \leq x_1, \dots, X_{t_k} \leq x_k)
+$$
+
+Pro spojité lze proces charakterizovat systémem sdružených hustot: $f_{X_{t_1}, \dots}(x_1, \dots)$
+
+Pro diskrétní lze proces charakterizovat systémem sdružených pravděpodobností $P(X_{t_1} = x_1, \dots)$.
+
+\subsection{Střední hodnota procesu}
+
+Funkce $\mu_X: T \rightarrow \mathbb{R}$ definovanou v bodě $t \in T$ jako
+
+$$
+    \mu_X(t):= EX_t
+$$
+
+Je-li $\mu_X(t) \equiv 0$, je proces centrovaný.
+
+\subsection{Rozptyl procesu}
+
+Funkce $\sigma_{X}^2: T \rightarrow [0, + \infty)$ v $t \in T$:
+
+$$
+    \sigma_{X}^2 := \textrm{var} X_t = E(X_t - EX_t)^2 = EX_{t}^2 - \mu_{X}^{2}(t)
+$$
+
+\subsection{Kovariace procesu}
+
+Autokovariační funkce $c_X(t,s): T \times T \rightarrow \mathbb{R}$:
+
+$$
+    c_X(t, s) := \textrm{cov}(X_t, X_s) = E(X_t - EX_t)(X_s-EX_s) = EX_tX_s - \mu_X(t)\mu_X(s)
+$$
+
+Autokorelační funkce je $r_X: T \times T \rightarrow [-1, 1]$:
+
+$$
+    r_X(t,s) = \varphi(X_t, X_s) = \frac{c_X(t,s)}{\sigma_X(t)\sigma_X(s)}
+$$
+
+\subsection{Stacionarita procesu}
+
+Zkoumání změny vlastností v čase -- některé se mohou měnit.
+Zkoumá se rozdělení, rozdělení při posunu v čase, střední hodnota a konvariace (závislost na $t$ a $s$ nebo jen na odstupu $t-s$).
+
+\subsubsection*{Striktně stacionární}
+
+Pokud jsou všechna konečně rozměrná rozdělení invariantní vůči posunu v čase -- $\forall{k \in \mathbb{N}}, \forall{t_1, \dots, t_k \in T}, \forall{h \in \mathbb{R}}: t_1+h,\dots, t_k+h \in T$ a $\forall{x_1, \dots, x_n \in \mathbb{R}}$.
+
+$$
+    F_{X_{t_1}, \dots, X_{t_k}}(x_1, \dots, x_k) = F_{X_{t_1 + h}, \dots, X_{t_k+h}}(x_1, \dots, x_k)
+$$
+
+Proces je \textit{stacionární řádu $N$}, pokud podmínka pro stacionaritu platí pro všechny $k$-tice takové, že $k \leq N$.
+
+\subsubsection*{Slabá stacionarita}
+
+\begin{description}
+    \item[Stacionární ve stř. hodnotě:] $\mu_X(t) = \mu, \forall t \in T$,
+    \item[Stacionární v autokovarianci:] pokud $c_X(t,s)$ je funkcí pouze $t-s$, pak
+        $$
+            c_X(t) := c_X(t, 0), \quad r_X(t) := r_X(t,0) = \frac{c_X(t)}{c_X(0)}
+        $$ 
+    \item[Slabě stacionární:] stacionání ve střední hodnotě i autokovarianci
+\end{description}
+
+Je-li proces striktně stacionární, pak je i slabě stacionární.

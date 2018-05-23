@@ -1,4 +1,4 @@
-build: clean bisi2 bitex biemp fiksa miadp fifil
+build: clean bisi2 bitex biemp fiksa miadp mispi fifil
 
 bisi2:
 	latexmk -pdf BI-SI2/notes/bi-si2
@@ -14,6 +14,9 @@ fiksa:
 
 miadp:
 	latexmk -pdf MI-ADP/mi-adp
+
+mispi:
+	latexmk -pdf MI-SPI/mi-spi
 
 fifil:
 	latexmk -pdf FI-FIL/fi-fil

@@ -1,0 +1,50 @@
+\section{Limitní věty}
+
+Cílem je studování náhodného experimentu na základě jeho opakování.
+
+\subsubsection*{Výběrový průměr}
+
+\begin{align*}
+    \overline{X}_n     &= \frac{1}{n}\sum_{i=1}^{n}{X_i} \\
+    E\overline{X}_n    &= \mu \\
+    var \overline{X}_n &= \frac{\sigma^2}{n}
+\end{align*}
+
+\subsubsection*{Součet}
+
+\begin{align*}
+    S_n     &= \sum_{i=1}^{n}{X_i} \\
+    ES_n    &= n\mu \\
+    var S_n &= n\sigma^2
+\end{align*}
+
+\subsection{Silný zákon velkých čísel}
+
+Nechť jsou $X_1, \dots, X_n$ i.i.d. náhodné veličiny se střední hodnotou $EX_i = \mu$, potom s rostoucím $n$ $\overline{X}_n$ konverguje k $\mu$.
+
+\subsubsection*{Slabý zákon velkých čísel}
+
+Narozdíl od SZVK požaduje konečný rozpty, ale místo nezávislosti veličin stačí jejich nekorelovanost.
+
+\subsection{Centrální limitní věta}
+
+\subsubsection*{Konvergence v distribuci}
+
+Posloupnost $X_1, \dots$ náhodných veličin s distribučními funkcemi $F_{X_1}, \dots$ a $X$ je náhodná veličina s distribuční funkcí $F_X$.
+$X_i$ konvergují k $X$ v distribuci ($X_n \rightarrow^{\mathcal{D}} X$), jestliže
+
+$$
+    \lim_{n\rightarrow\infty}{F_{X_n}(x)} = F_X(x)
+$$
+
+
+\subsubsection*{Centrální limitní věta}
+
+$X_1, \dots$ jsou i.i.d. náhodných veličin s konečnou střední hodnotou $EX_i=\mu$ a konečným rozptylem $\textrm{var}X_i = \sigma^2 > 0$.
+Nechť
+
+$$
+    Z_n = \frac{S_n - n\mu}{\sigma\sqrt{n}}
+$$
+
+Potom $Z_n$ \textit{konverguje v distribuci} k $N(0,1)$: $Z_n \rightarrow^{D} N(0,1)$ pro $n$ jdoucí do nekonečna.

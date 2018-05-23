@@ -1,0 +1,55 @@
+\documentclass[czech]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[IL2]{fontenc}
+\usepackage[czech]{babel}
+\usepackage[a4paper,textheight=674pt]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{float}
+
+\newcommand{\lecture}[1]{
+    \newpage
+    \input{#1}
+}
+
+\newcommand{\pspace}{
+    $(\Omega, \mathcal{F}, P)$
+}
+
+\newcommand{\img}[2]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{assets/#1}
+        \caption{#2}
+    \end{figure}
+}
+
+\author{Josef Doležal}
+\date{\today}
+\title{MI-SPI\\Statistika pro informatiku}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\lecture{01-common-terms}
+\lecture{02-random-variable}
+\lecture{03-random-vectors}
+\lecture{05-entropy}
+\lecture{06-code-theory}
+\lecture{07-differencial-entropy}
+\lecture{08-limits}
+\lecture{09-statistics}
+\lecture{10-hypothesis}
+\lecture{11-hypothesis-2}
+\lecture{13-histograms}
+\lecture{14-random-processes}
+\lecture{15-random-processes-construction}
+
+\end{document}

@@ -1,0 +1,81 @@
+\section{Přednáška 6 -- Teorie kódování}
+
+Zabývá se problémem jak zakódovat zdrojovou zprávu (informaci) do posloupnosti symbolů tak, aby byl přenos co nejefektivnější (největší komprese, nejmenší náchylnost k chybám).
+
+K dispozici je abecda $\mathcal{D}$ obsahující $D$ symbolů -- $D$-ární abeceda.
+Dále je zpráva $x_1, \dots, x_n$ konečné délky znaků z množiny $X$.
+
+\subsection{Kód náhodné veličiny}
+
+\begin{description}
+    \item[Kód:] Zobrazení $C: \mathcal{X} -> \mathcal{D}^*$ do množiny konečných řetězců symbolů abecedy
+    \item[Kódové slovo:] Obraz $C(x)$ prvku $x \in X$
+    \item[Délka kódového slova]: $l(x)$
+\end{description}
+
+\subsection{Střední délka kódu}
+
+$$
+    L(C) = \sum_{x\in X}{l(x)p(x)}
+$$
+
+\subsection{Typy kódů}
+
+\subsubsection*{Nesingulární}
+
+Pokud je $C$ prosté (tedy: $x\neq x' \Rightarrow C(x) \neq C(x')$).
+Tato vlastnost je dostatečná pro dékodování (dekonstrukci) slov.
+
+\subsubsection*{Jednoznačně dekódovatelný}
+
+Rozšíření $C^*$ kódu $C$ je zobrazení množiny $X^*$ do množiny $C^*$ definované jako
+
+$$
+    C^*(x_1x_2\cdots x_n) = C(x_1)C(x_2)\cdots C(x_n)
+$$
+
+kde $C(x_1)C(x_2)\dots$ znamená zápis jednotlivných kódových slov za sebe.
+
+Kód $C$ je jednoznačně dekódovatelný, pokud je $C^*$ nesingulární.
+Je tedy možné jednoznačně dekódovat každou zprávu.
+
+\subsubsection*{Instantní (prefixový) kód}
+
+Kód, kde žádné kódové slovo není prefixem jiného kódového slova.
+
+\subsubsection*{Hierarchie kódů}
+
+\img{06-code-hierarchy.png}{Hierarchie kódů}
+
+\subsection{Kraftova nerovnost}
+
+Pro libovolný instantní kód nad $D$-ární abecedou délky kódových slov $l_1,\dots$, splnit nerovnost
+
+$$
+    \sum_{i}{D^{-l_i} \leq 1}
+$$
+
+Podle věty McMillana platí to samé i pro jednoznačně dekódovatelný kód (tedy nenabízí žádné další možnosti délek oproti instantnímu).
+
+\subsection{Dolní mez délky instatního kódu}
+
+Střední délka $L(C)$ je $L(C) \geq H_D(X)$.
+Rovnost nastane právě když $D^{-l_i} = p_i$.
+
+\subsection{Optimální kód}
+
+Pro optimální instatní kód platí
+
+$$
+    H_D(X) \leq L(C^*) < H_D(X) + 1
+$$
+
+\subsection{Huffmanovo kódování}
+
+Seřazení slov podle pravděpodobnosti (dolu ty s nižší).
+Spojí se dvě s nejnižší a sečte se jejich pravděpodobost.
+Takto se spojují všechny dokud nezůstane 1.
+O tohotu uzlu se rozmisťují na větve 0 a 1.
+Kód se čte od nově vzniklého uzlu.
+
+Huffmanův kód je optimální.

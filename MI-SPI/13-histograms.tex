@@ -1,0 +1,52 @@
+\section{Přednáška 13 -- Odhady druhu rozdělení}
+
+\subsection{Histogram}
+
+Nejběžnější odhad hustoty $f$ spojitého rozdělení.
+
+Pro náhodný výběr $X_1, \dots$ z rozdělení $f$, $x_0 \in \mathbb{R}$ mějme dělení $\mathbb{R}$ na disjunktní intervaly (biny) o délce $h$:
+
+$$
+    I_i = (x_0 + ih, x_0 + (i+1)h)]
+$$
+
+Četnost naměřených hodnot v intevalu $I_i$ se značí $N_i$.
+Histogram je pak definován jako:
+
+$$
+    \hat{f}(x) = \frac{N_i}{nh}
+$$
+
+pro $x \in I_i$.
+
+\img{13-histograms.png}{Ukázka histogramu pro $n=10, h=1$}
+
+Výsledkem je po částech konstantní odhad -- kvůli šířce binů -- který není schopen reflektovat spojitost hustoty.
+Lepším odhadem je \textit{Jádrový odhad}.
+
+\subsection{Jádrový odhad}
+
+$$
+    \hat{f}_h(x) = \frac{1}{nh} \sum_{i=1}^{n}{K(\frac{x-X_i}{h})}
+$$
+
+kde $K$ je jádrová funkce (nezáporná funkce), pro kterou:
+
+$$
+    \int_{\infty}^{\infty}{K(u)\textrm{d}u = 1}
+$$
+
+a $h$ je šířka pásma.
+
+\subsection{Gaussovské směsi}
+
+Spojitý odhad lze získat pomocí směsí normálních rozdělení.
+Má tvar:
+
+$$
+    \hat{f}(x) = p_1\varphi_1(x)+\dots+p_k\varphi_k(x)
+$$
+
+kde $\sum_{i}{p_i} = 1$ je hustota normálního rozdělení $N(\mu_i, \sigma_{i}^{2})$ pro nějaké $\mu_i, \sigma_{i}^{2}$
+
+

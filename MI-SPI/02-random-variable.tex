@@ -1,0 +1,117 @@
+\section{Přednáška 2}
+
+Protože výsledkem náhodného experimentu nebývá číslo a nelze je tedy matematicky zpracovat, zavádí se pojem náhodné veličiny.
+
+\subsection{Náhodná veličina}
+
+Náhodná veličina $X$ na pravděpodobnostním prostoru $(\Omega, \mathcal{F}, P)$ je zobrazení $X: \Omega \rightarrow \mathbb{R}$.
+Tedy se jedná o funkci, která výsledku náhodného experimentu ($\omega \in \Omega$) přiřadí hodnotu $X(\omega)$.
+
+\subsubsection*{Distribuční funkce}
+
+Funkce $F: \mathbb{R} -> [0,1] $ náhodné veličiny $X$, definována vztahem $\forall{x \in \mathbb{R}}: F_X(x) = P(X \leq x)$.
+
+\subsection{Typy náhodných veličin}
+
+
+Náhodné veličiny se dělí na diskrétní a spojité.
+
+\subsubsection*{Diskrétní náhodné veličiny}
+
+Veličiny takové, že existuje nejvýše spočetná množina $X = {x_1, x_2, \dots}$ taková, že
+
+$$
+    \sum_{x \in X}{P(X=x)} = 1
+$$
+
+Tato podmínka se nazývá normalizační.
+Distribuční funce má tvar:
+
+$$
+    F_X(x) = P(X \leq x) = \sum_{u \in X, u \leq x}{P(X = u)}
+$$
+
+\subsubsection*{Spojitá náhodná veličina}
+
+Některé náhodné veličiny nabývají nespočetně mnoha hodnot (čas, vzdálenost, hmotnost, \dots).
+Nelze přiřadit každé hodnotě pravděpodobnost $P(X = x)$, protože by součet divergoval.
+Každá hodnota mám proto \textit{nulovou} pravděpodobnost.
+Místo konkrétních hodnot se zkoumají intervaly pravděpodobnosti.
+
+Náhodnou veličinou $X$ se nazývá spojitám jestliže existuje nezáporná funce $f_X$ taková, že pro každé $x \in \mathbb{R}$ můžeme hodnotu distribuční funkce v bodě $x$ vyjádřit jako
+
+$$
+    F_X(x) = \int_{-\infty}^{x}{f_X(u) \textrm{d}u}
+$$
+
+Tato funkce se nazývá \textit{hustotou pravděpodobnosti} náhodné veličiny $X$.
+Jedná se tedy o podobný pojem jako distribuční funkce u diskrétních veličin (ale nemá některé vlastnosti -- např. není roustoucí).
+V obou případech se jedná o vážený průměr všech možných hodnot -- odpovídá těžišti.
+
+\subsection{Střední hodnota}
+
+Pro náhodné veličiny můžeme zkoumat, jakou hodnotu očekáváme při další realizaci.
+Tato hodnota se nazývá střední hodnota, zn. $EX$ (z angl. \textit{expectation}).
+Pro spojitou i diskrétní veličinu platí, že suma resp. intergrál musí konvergovat (jinak stř. hodnota neexistuje nebo je $\pm \infty$).
+
+\subsubsection*{Střední hodnota spojité náh. veličiny}
+
+Pro veličinu $X$ nabývající hodnot $X={x_1, x_2, \dots}$ se jedná o hodnotu definovanou jako:
+
+$$
+    EX = \sum_{x \in X}{x P(X = x)}
+$$
+
+\subsubsection*{Střední hodnota spojité náh. veličiny}
+
+Pro veličinu $X$ s hustotou $f_X$ je dána vztahem
+
+$$
+    EX = \int_{-\infty}^{\infty}{x f_X(x) \textrm{d}x}
+$$
+
+\subsubsection*{Vlastnosti střední hodnoty}
+
+\begin{itemize}
+    \item Je-li $X \geq 0$, pak $E(X) = \geq 0$,
+    \item Je-li $a,b \in \mathbb{R}$, pak $E(aX + b) = aE(X) + b$,
+    \item Konstatní veličina mám jako stř. hodnotu konstantu.
+\end{itemize}
+
+\subsection{Rozptyl}
+
+Rozpty (variace) veličiny $X$ je definován vztahem
+
+$$
+    var X = EX^2 - (EX)^2 = \sigma^2
+$$
+
+Směrodatná odchyla je definována jako
+
+$$
+    \textrm{sd} X = \sqrt{var X} = \sigma
+$$
+
+\subsection{Další charakteristiky náh. veličiny}
+
+\begin{description}
+    \item[$k$-tý moment] $\mu_k = EX^k$
+    \item[$k$-tý centrovaný moment] $\sigma_k = E(X - EX)^k$
+\end{description}
+
+\subsection{Diskrétní rozdělení}
+
+\begin{description}
+    \item[Bernouliho $X \sim Alt(p)$:] $P(X = 1) = p$, $P(X = 0) = 1 - p$, $EX = p$, $var X = p(1-p)$
+    \item[Binomické $X \sim Binom(n,p)$:] $P(X = k) = \binom{n}{k}p^k(1-p)^{n-k}$, $EX = np$, $var x = np(1-p)$
+    \item[Geometrické $X \sim Geom(p)$:] $P(X=k)=(1-p)^{k-1}p$, $EX = \frac{1}{p}$, $var X = \frac{1}{p}(\frac{1}{p} - 1)$
+    \item[Poissonovo $X \sim Poisson(\lambda)$:] $P(X = k) = \frac{\lambda^k}{k!}e^{-\lambda}$, $EX = var X = \lambda$
+\end{description}
+
+\subsection{Spojité rozdělení}
+
+\begin{description}
+    \item[Rovnoměrné $X \sim Unif(a,b)$:] pro $x\in[a,b]: f_X(x) = \frac{1}{b-a}$, $EX = \frac{a+b}{2}$, $var X = \frac{(b-a)^2}{12}$
+    \item[Exponencionální $X \sim Exp(\lambda)$:] pro $x\in[0,\infty]: \lambda e^{-\lambda x}$, $EX = \frac{1}{x}$, $var X = \frac{1}{\lambda^2}$
+    \item[Normální $X \sim N(\mu, \sigma^2)$:] $f_X(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$, $EX = \mu$, $var X = \sigma^2$
+\end{description}

@@ -1,0 +1,74 @@
+\section{Přednáška 1 - Základní pojmy}
+
+\begin{description}
+    \item[Pravděpodobnost] matematická kvantifikace náhody
+    \item[Statistika] odhad pravděpodobnosti pomocí experimentálních dat (na základě pokusů se ověřují modely) 
+\end{description}
+
+\subsection{Pravděpodobností prostor}
+
+Pravděpodobností prostor (experiment) je základním pojmem teorie pravděpodobnosti.
+Jedná se o trojici $\mathcal{E} = (\Omega, \mathcal{F}, P)$, kde
+
+\begin{itemize}
+    \item $\Omega$ je prostor elementárních jevů (zhrnuje všechny výsledky experimentu),
+    \item $\mathcal{F}$ náhodné jevy -- kolekce tvořená podmnožinami $\Omega$,
+    \item $P$ je pravděpodobnost přiřazovaná náhodným jevům.
+\end{itemize}
+
+Elementárním jevem nazýváme možné výsledky experimentu (jsou navzájem exkluzivní a vyčerpávající).
+Množinu všech těchto jevů nazýváme prostor elementárních jevů nebo také výběrový prostor (z angl. \textit{sample space}).
+
+Náhodný jev $A$ je množina elementárních jevů ($A \subset \Omega $), kterým můžeme přiřadit pravděpodobnost.
+Ne všechny podmnožiny $\Omega$ jsou náhodné jevy (nelze jim přiřadit pravděpodobnost).
+
+Kolekce $\mathcal{F}$ podmnožin prostoru $\Omega$ se nazývá $\sigma$-algebrou, pokud:
+
+\begin{itemize}
+    \item $\emptyset \subset \mathcal{F}$,
+    \item obsahuje opačný jev každému jevu $(A \in \mathcal{F} \Rightarrow A^c \in \mathcal{F})$
+    \item obsahuje spočetné sjednocení jevů ($A_1, A_2, \dots \in \mathcal{F} \Rightarrow \bigcap_{i=1}^{\infty}{A_i} \in \mathcal{F}$).
+\end{itemize}
+
+\subsection{Pravděpodobnostní míra}
+
+Zobrazení $P$ na měřitelném prostoru $(\Omega, \mathcal{F})$, $P: \mathcal{F} \rightarrow \mathbb{R}$ splňující:
+
+\begin{itemize}
+    \item nezápornost: $\forall{A} \in \mathcal{F}: P(A) \geq 0$,
+    \item normalizace: $P(\Omega) = 1$
+    \item $\sigma$-aditivita: jsou-li jevy disjunktní, pak pravděpodobnost sjednocení rovna součtu pravděpodobností ($P(\bigcup_{i=1}^{\infty}{A_i}) = \sum_{i=1}{P(A_i)}$).
+\end{itemize}
+
+\subsection{Podmíněná pravděpodobnost}
+
+$A$ a $B$ jsou náhodné jevy, kde $P(B) \geq 0$. Podmíněná pravděpodobnost $A$ za podmínky jebu $B$ je definována jako:
+
+$$
+    P(A|B) = \frac{P(A \cap B)}{P(B)}
+$$  
+
+\subsubsection*{Věta o úplném rozkladu}
+$B_1, B_2, \dots, B_n$ je rozklad $\Omega$ takový, že $\forall{i}: P(B_i) \geq 0$ a $A$ je náhodný jev kde $P(A) > 0$. Potom:
+
+$$
+    P(B_j|A) = \frac{P(A|B_j)P(B_j)}{\sum_{i=1}^{n}{P(A|B_i)P(B_i)}}
+$$
+
+\subsubsection*{Nezávislot náhodných jevů}
+
+Jevy $A$ a $B$ jsou nezávislé, pokud platí:
+
+$$
+    P(A \cap B) = P(A) \cdot P(B)
+$$
+
+Obecně platí pro $n$ jevů, že \uv{pravděpodobnost průniku je rovna pravděpodobnosti součinu}.
+
+Jsou-li $A$ a $B$ nezávislé, pak platí:
+
+$$
+    P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(A)P(B)}{P(B)} = P(A)
+$$
+
+Tedy jsou-li jevy nezávislé, nedodá mi výsledek jednoho jevu žádnou informaci o tom, jak dopadne druhý.

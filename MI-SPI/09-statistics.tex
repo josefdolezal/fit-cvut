@@ -1,0 +1,53 @@
+\section{Přednáška 9 -- Statistika}
+
+Narozdíl od pravděpodobnosti postupuje naopak -- na základě skutečných výsledků vybírá správný model, odhaduje parametry, \dots.
+
+\begin{description}
+    \item[Náhodný výběr rozdělení $F$:] $n$-tice i.i.d. veličin $X_1, \dots$ s distribuční funkcí $F$,
+    \item[Realizace náhodného výběru:] $n$-tice konkrétních pozorování
+    \item[Statistika]: funkce náhodného výběru
+\end{description}
+
+\subsection{Bodové odhady}
+
+Z naměřených hodnot můžeme odhadnout aproximaci parametru tvaru rozdělení -- \textit{bodový odhad}.
+
+\subsubsection*{Druhy bodových odhadů}
+
+\begin{itemize}
+    \item Výběrový průměr (pro stř. hodnotu) $\overline{X}_n = \frac{1}{n}\sum_{i=1}^{n}{X_i}$,
+    \item Výběrový rozpty (odhad rozptylu) $s_{n}^2 = s_{X}^2 = \frac{1}{n-1}{\sum_{i=1}^{n}{(X_i - \overline{X}_n)^2}}$,
+    \item Výběrová směrodatná odchylka (odhad odchylky) $s_n = \sqrt{s_{n}^2}$,
+    \item Výběrová kovariace $s_{X,Y} = \frac{1}{n-1}\sum_{i=1}^{n}{(X_i - \overline{X}_n)(Y_i - \overline{Y}_n)}$,
+    \item Výběrový korelační koeficient $r_{X,Y} = r = \frac{s_{X,Y}}{s_X s_Y}$ ($s_X$ je odmocnina z výběrového rozptylu)
+\end{itemize}
+
+\subsection{Vlastnosti bodových odhadů}
+
+\subsubsection*{Nestranný}
+
+Odhad $\hat{\theta}_n$ parametru $\theta$ je nestranný, jestliže pro každé $\theta \in \Theta$ platí $E\hat{\theta}_n = \theta$.
+
+Nestrannost znamená, že odhad není zatížen systematickou chybou (hodnotu systematicky nezvětšuje ani nezmenšuje).
+
+Pro binomické, Poissonovo a exponencionální e výběrový průměr nejlepším nestranným odhadem střední hodnoty.
+Pro normální je výběrový rozpty nejlepším odhadem střední hodnoty.
+
+\subsubsection*{Konzistentní}
+
+Odhad $\hat{\theta}_n$ parametru $\theta$ je konzistentní, jestliže pro každé $\theta \in \Theta$ platí $\hat{\theta}_n \rightarrow^{P}\theta$ pro $n$ jdoucí do nekonečna.
+
+Konzistence znamená, že volbou $n$ lze učinit chybu dostatečně malou.
+
+\subsection{Konstrukce}
+
+\subsubsection*{Metoda momentů}
+
+Parametry se vyjádří z odhadů momentů -- ty se odhadují odhadnout výběrovými momenty.
+
+\subsubsection*{Metoda maximální věrohodnosti}
+
+Odhad je argumentem maxima věrohodnostní funkce.
+Často se maximalizuje lofaritmus věrohodnostní funkce.
+
+\subsection{Intervaly spolehlivosti}

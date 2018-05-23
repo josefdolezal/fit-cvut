@@ -18,6 +18,7 @@ deploy:
     - bi-emp.pdf
     - fi-ksa.pdf
     - mi-adp.pdf
+    - mi-spi.pdf
     - fi-fil.pdf
   skip_cleanup: true
   on:

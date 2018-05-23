@@ -1,0 +1,98 @@
+\section{Přednáška 3 -- Náhodné vektory}
+
+Na jednom výsledku experimentu lze měřit několik náhodných veličin najednou.
+Uspořádanou n-tici nazveme \textit{náhodným vektorem}.
+Obdobně dva rozměry $m$ a $n$ nazýváme vzniklou matici \textit{náhodnout maticí}.
+
+\subsection{Náhodný vektor}
+
+Pro $n \in \mathbb{N}$ uvažujeme náhodné veličiny $X_1, X_2, \dots, X_n$ na steném pravděpodobnostním oprostoru \pspace.
+Vektor $X = (X_1, X_2, \dots, X_n)^T$ nazýváme náhodným vektorem.
+
+Obdobnve lze zadefinovat náhodnout matici -- definována je pro $m,n \in \mathbb{Z}$ jako $\mathbf{Z} = (Z_{i,j})$.
+
+\subsection{Náhodné vektory -- sdružené rozdělení}
+
+Jednotlivé veličiny náhodného vektoru mohou mít různé rozdělení a hodnoty na sobě mohou nějakým záviset.
+
+\subsubsection*{Sdružené rozdělení}
+
+Pro náhodné veličiny z náhodného vektoru je tedy vhodné zkoumat jejich rozdělení společně jak \textit{sdružené rozdělení}.
+
+Rozdělení se popisuje pomocí \textit{sdružené distribuční funkce} $F_X: \mathbb{R}^n \rightarrow \mathbb{R}$ danou vztahem:
+
+$$
+    F_X(x) \equiv F_X(x_1, \dots, x_n) = P(X_1 \leq x_1, \dots, X_n \leq x_n)
+$$
+
+pro každé $x \in \mathbb{R}^n$.
+
+\subsubsection*{Sdružené diskrétní rozdělení}
+
+Definiváno analogicky jako u náhodných veličin:
+
+$$
+    \sum_{x\in X}{(P_X = x)} \equiv \sum_{x \in X}{P(X_1 = x_1, \dots, X_n = x_n)} = 1
+$$
+
+Vizualizovat lze pomocí tabulky:
+
+\begin{center}
+\begin{tabular}{c|c c c}
+    $P(X = x, Y = y)$ & $0.5$ & $1$ & $2$ \\ \hline
+    2 & $0.3$ & $0.06$ & $0.04$ \\
+    1 & $0.4$ & $0.15$ & $0.05$
+\end{tabular}
+\end{center}
+
+\subsubsection*{Sdružené spojité rozdělení}
+
+Pokud existuje nezáporná funkce $f_x: \mathbb{R}^n \rightarrow \mathbb{R}$:
+
+$$
+    F_X(x) = \int_{-\infty}^{x_1}{\dots} \int_{-\infty}^{x_n}{f_X(u)\textrm{d}u_1\dots\textrm{d}u_n}.
+$$
+
+kde $f_X$ je sdružená hustota pravděpodobnosti náhodného vektoru $X$.
+
+\subsection{Marginální rozdělení}
+
+Umožňuje ze známého sdruženého rozdělení vektoru $X = (X_1, \dots, X_n)$ zjistit rozdělení pouze části veličin $X$.
+
+Rozdělení existuje pro každé $k \leq n$
+
+\subsection{Nezávislost náhodných veličin}
+
+Diskrétní veličiny$ X_1, \dots, X_n$ jsou nezávislé, pokud pro všechna $x \in \mathbb{R}^n$ platí:
+$$
+    P(X=x) = \prod_{i=1}^{n}{P(X_i = x_i)}
+$$
+
+Speciálně pro $X$ a $Y$ platí:
+
+$$
+    P(X = x, Y = y) = P(X=x)P(Y=y)
+$$
+
+\subsection{Střední hodnota funkce}
+
+Střední hodnota funkce $h$ náhodného vektory $X$:
+$$
+    Eh(X) = \sum_{x\in X}{h(x)P(X=x)}
+$$
+
+Pro spojité:
+$$
+    Eh(x) = \int_{-\infty}^{\infty}{\dots}\int_{-\infty}^{\infty}{h(x)f_X(x)\textrm{d}x_1 \dots \textrm{d}x_n}
+$$
+
+\subsection{Kovariace}
+
+Míra vzájemné lineární závislosti náhodných veličin $X$ a $Y$ lze zjistit pomocí korelačního koeficientu:
+
+\begin{description}
+    \item[Kovariace:] $\textrm{cov}(X,Y) = EXY - EXEY$
+    \item[Korelační koeficient:] $\rho(X,Y) = \frac{cov(X,Y)}{\sqrt{var X}\sqrt{var Y}}$
+\end{description}
+
+Veličiny jsou nekorelované, pokud $cov(X,Y) = 0$ nebo také $EXY = EXEY$.

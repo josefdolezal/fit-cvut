@@ -1,0 +1,36 @@
+\section{Přednáška 7 -- Diferenciální entropie}
+
+Analogie entropie v případě spojitých veličin.
+Diferenciální entropie $h(X)$ spojité náh. veličiny s hustotou $f(x)$ je definována
+
+$$
+    h(X) = - \int_{-\infty}^{\infty}{f(x)\log{f(x)}\textrm{d}x}
+$$
+
+\subsection{Sdružená diferenciální entropie}
+
+$$
+    h(X,Y) = -\int_{-\infty}^{\infty}{}\int_{-\infty}^{\infty}{f(x,y)\log{f(x,y)}\textrm{d}x \textrm{d}y}
+$$
+
+\subsection{Podmíněná diferenciální entropie}
+
+$$
+    h(X|Y) = -\int_{-\infty}^{\infty}{}\int_{-\infty}^{\infty}{f(x,y)\log{f(x|y)} \textrm{d}x\textrm{d}y}
+$$
+
+$$
+    h(X|Y) = h(X,Y) - h(Y)
+$$
+
+\subsection{Relativní entropie}
+
+$$
+    D(f || g) = \int_{-\infty}^{\infty}{f(x)\log{\frac{f(x)}{g(y)}}\textrm{d}x}
+$$
+
+\subsection{Vzájemná informace}
+
+$$
+    I(X; Y) = \int_{-\infty}^{\infty}{f(x,y)\log{\frac{f(x,y)}{f(x)f(y)}}\textrm{d}x\textrm{d}y}
+$$
