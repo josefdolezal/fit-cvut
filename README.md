@@ -136,6 +136,8 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
     * [Type Classy, monadické operace](https://github.com/josefdolezal/fit-mi-afp-assignment-08) - Samostatný repozitář (částečné řešení)
     * [Webová aplikace - Yesod](https://github.com/josefdolezal/fit-mi-afp-assignment-09) - Samostatný repozitář
     * [Frontend webové aplikace - Elm](https://github.com/josefdolezal/fit-mi-afp-assignment-10) - Samostatný repozitář
+  * Semestrální práce
+    * [Generování modelových objektů na základě DSL](https://github.com/josefdolezal/mahele) - Samostatný repozitář
 * [MI-PDP - Samostatný repozitář](https://github.com/josefdolezal/fit-mi-pdp)
   * Vypracované domácí úlohy (tah královnou po šachovnici)
   * Závěrečná zpráva
