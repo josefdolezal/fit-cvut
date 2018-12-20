@@ -1,0 +1,66 @@
+\section*{Přednáška 11 -- Multiplayer}
+
+Možnost více hráčů působit ve stejné hře ve stejném čase.
+
+\subsection*{Typy multiplayerů}
+
+\begin{description}
+    \item[Single screen] Hráči spolu hrají v rámci jedné obrazovky.
+    \item[Split screen] Uživatelé spolu hrají v rámci jedné obrazovky, ale každý se může nacházet v jiné části.
+    \item[Networked] Multiplayer po síti.
+    \item[MMOG] \textit{Massive multiplayer online games} Např. WoW
+\end{description}
+
+\subsubsection{Topologie}
+
+Vyskytují se problémy jako synchronizace.
+Všichni klienti musí dosáhnout alespoň nějaké úrovně synchronizace.
+Typicky se přenáší minimální množství stavu potřebného k sestavení celkové informace.
+
+\subsubsection*{Peer-to-peer}
+
+Všechna zařízení si vyměňují data navzájem (úplný graf).
+Více možností jak hru uspořádat (např. jeden hráč master, ostatní slave nebo pomocí zodpovědností -- každý za něco).
+
+\subsubsection*{Client-server}
+
+Pro \(n\) zařízení je potřeba \(n-1\) spojení.
+Server se stává bottle-neck celé architektury.
+
+\subsubsection*{Zasílání zpráv}
+
+\begin{description}
+    \item[Update] Typicky nepotřebují povtrzení, jako relevantní se bere poslední zpráva.
+    \item[Command] Zprávy, které mají vliv na stav hry a musí být potvrzeny.
+    \item[Action] Zprávy s vysokou prioritou (vstup uživatele, \dots).
+    \item[Procedure call] Volání vzdálených funkcí pomocí jména a předaných atributů (např. přehrání zvuku).
+\end{description}
+
+\subsection*{Pojmy}
+
+\begin{description}
+    \item[Latence] Množství času mezi vyvoláním akce a jejím provedením. 
+\end{description}
+
+\subsection*{Synchronizace}
+
+\subsubsection*{Extrapolace}
+
+Klient funguje 60FPS, server 10-30FPS.
+Jakmile klient dosáhne nového stavu, plynule do něj v průběhu času přejde.
+
+\subsubsection*{Predikce}
+
+Klient předpovídá budoucí hodnoty.
+
+\subsubsection*{Server-side rewind}
+
+Používaní na zásahy na dlouhou vzdálenost.
+Server převede stav přesně do toho, jak vypadal v momentě kdy uživatel vykonal akci.
+
+\subsection*{Bezpečnost}
+
+\begin{description}
+    \item[Map hacking] Odstraňování vlastnosti mapy pro účel nalezení skrytých vlastností.
+    \item[Bot cheat] Bot, který buď hraje za uživatele nebo mu pomáhá. 
+\end{description}

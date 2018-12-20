@@ -1,0 +1,96 @@
+\section*{Přednáška 9 -- AI ve hrách}
+
+\subsection*{Hledání cest}
+
+Potřebné v každé hře (využívající mapu) k výpočtům pohybů a analýze prostředí.
+
+\subsubsection*{Navigační graf}
+
+Abstrakce všech lokací ve hře, které může agent navštívit.
+Umožňuje agentům jednoduše vypočítat cesty, které se vyhýbají vodě, preferují cesty po silnici, \dots
+Rozlišujeme více druhů grafu:
+
+\begin{description}
+    \item[Waypoint-based] Level designer umisťuje do mapy body, které jsou později spojeny.
+    \item[Mesh-based] Vytvořen z polygoniální reprezentace země prostředí a popisuje přístupné oblasti.
+    \item[Grid-based] Tvořen mřížkou nad herním prostředím. Dlaždice mřížky mají flag přístupnosti. Mřížka nemusí být pouze čtvercová, exisutují i hexagonální nebo \uv{osmisměrkové}. 
+\end{description}
+
+\subsection*{Algoritmy vyhledávání}
+
+Cesty mohou být v grafu vyhledávány různými algoritmy.
+Lze použít např. \texttt{DFS} (nezaručuje nejkratší cestu), \texttt{BFS} (zaručuje nejkraší) nebo pokročilé algoritmy beroucí v potaz i cenu průchodu.
+
+\textit{Cost-based} algorimy berou v úvahu i cenu průchodu.
+Dijkstrův algoritmus dokáže z jednoho uzlu najít nejkratší cestu do všech ostatních uzlů, provede při tom ale spoustu nepotřebných návštěv.
+
+Vylepšením Dijkstrova algoritmu o přidání heuristické hodnoty k hodnotící funkci dostaneme algoritmu \texttt{A*}.
+Heuristická hodnota je určena jako odhad ceny z každého uzlu do počátečního.
+Jako heuristickou funkci lze použít Euklidovskou vzdálenost, Manhattanskou, adaptivní (penalizace a změnu směru), \dots
+
+BFS ignoruje cenu, Dijkstra naopak počáteční pozici.
+A* bere v úvahu oboje.
+
+\subsection*{Základní techniky AI}
+
+\subsubsection*{Skriptování}
+
+Natvrdo zadrátované chování umělé inteligence.
+Jednoduché a snadno debugovatelné, ale aby bylo kvalitní musí pokrýt velké množství možností.
+
+\subsubsection*{Finite state machine (FSM}
+
+Nejstarší a nejběžnější formalizace AI.
+Jedná se o čtveřici \((Q, \sigma, \delta, q_0)\) kde \(Q\) je neprázdná konečná množina stavů, \(\sigma\) je neprázdná množina vstupů, \(\delta\) je přechodová funkce a \(q_0\) je počáteční stav.
+
+Každá entita je vždy v právě jednom stavu.
+
+Existuje i hierarchická verze, kde každý stav může mít i svůj nadstav a podstav.
+Stavy lze seskupovat, sdílejí pak přechody do jiných skupin.
+
+\subsubsection*{Rozhodovací stromy}
+
+Strom hierarchických uzlů řídících rozhodovací proces.
+Vnitřní uzly vedou k patřičným listům vhodným v dané situaci.
+
+Rozlišujeme více druhů těchto stromů.
+
+\begin{description}
+    \item[Selector] Zkouší vyhodnocovat své potomky zleva doprava dokud nedostane pozitivní odpověď.
+    \item[Sequence] Zkouší potomky spouště metodou \uv{if all succeed}.
+    \item[Decorator] Umožňuje dynamické přidávání chování bez modifikace kódu. Každý uzel má je jednoho následníka.
+    \item[Parallel] Paralelně vyhodnocuje následníky.
+    \item[Action] Uzel je využit k interakci s herním prostředím, může být reprezentován skriptem, atomickou akcí nebo dalším BT.
+    \item[Condition] Uzel sleduje herní prostředí a odpovídá buď úspěchem nebo selháním. Buď okamžité nebo průběžné. 
+\end{description}
+
+\subsection*{Pokročilé AI}
+
+\begin{description}
+    \item[Bot] Hráč ovládaní pomocí AI simulující skutečného hráče.
+    \item[Planning] Formalizovaný proces hledání posloupnosti akcí k naplnění cíle.
+    \item[Supervised learning] Jako standardní učení. Pro určité vstupy existuje správný výstup, který se algoritmus musí naučit.
+    \item[Unsupervised learning] U výstupu nelze rozhodnout jestli je správný nebo, alrgoritmus se místo toho učí vzory.
+    \item[Reinforcement learning] Agent se učí nejlepší nejlepší možný výsledek pomocí metody pokus-omyl. Na každou akci dostává zpětnou vazbu.
+\end{description}
+
+\subsubsection*{Plánování akcí}
+
+\begin{description}
+    \item[GOAL] Zaměřuje se na myšlenku popisu cílů pomocí dosažitelných stavů okolního stavu. Např. co musím udělat, pokud chci útočit (vzít zbraň, najít úkryt, nabýt, zaútočit). Každý ze stavů se zobrazuje v rozhodovacím stromu.
+\end{description}
+
+\subsubsection*{Realm-time strategy AI}
+
+AI strategií rozdělujeme do tří vrstev (z hlediska architektury):
+
+\begin{description}
+    \item[Micromanagement] Kooperace, optimalize a reakce.
+    \item[Tactics] Časování, postup cílení.
+    \item[Strategy] Technologie, jednoty (armádní), ekonomika.
+\end{description}
+
+\subsubsection*{Case-based uvažování}
+
+Při rozhodování zohledňujeme rozhodnutí z minulosti.
+Pokud nějaká situace dříve nenastala, vybere podobnou událost a její výstup pvrizpůsobí aby odpovídal aktuální situaci.

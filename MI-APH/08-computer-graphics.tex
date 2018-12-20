@@ -1,0 +1,87 @@
+\section{Přednáška 8 -- Počítačová grafika}
+
+\subsection*{Prostory}
+
+\subsubsection*{Model space}
+
+Prostor umístěný typicky na středový bod (střed hmoty).
+Osy jsou zarovnány v přirozeném směru modelu.
+
+\subsubsection*{World space}
+
+Fixní souřadnicový prostor, vůči kterému jsou pozice, rotace a škálování ostatních objektů vyjádřeny.
+
+\subsubsection*{View/Camera space}
+
+Souřadnicový systém vzhledem ke kameře.
+Počátek systému je umístěn vzhledem k ohnisku kamery (?).
+
+\subsubsection*{Clip space}
+
+Čtvercový hranol se souřadnicemi v intervalu \([-1, 1]\).
+
+\subsubsection*{View/Screen space}
+
+Oblast obrazovky využitá k zobrazení části výsedného obrazu (?).
+
+\img{spaces.png}{Vizualizace prostorů}{spaces}{0.7}
+
+\subsubsection*{View volume}
+
+Region prostoru, který je zabíraný kamerou.
+
+\subsubsection*{Interpolace}
+
+Metoda výpočtu/nalezení bodu(ů) v daném intervalu.
+Využívá se ke změně velikosti obrázků, animacím (přechod mezi transformacemi) nebo ke zpracování zvuku (interpolace vzorků).
+
+\subsubsection*{Lineární interpolace}
+
+\[
+    y = y_1 + (y_2 - y_1) \cdot \frac{x-x_1}{x_2-x_1}
+\]
+
+\img{linear-interpolation.png}{Lineární interpolace}{linear-interpolation}{0.3}
+
+\subsection*{Vykreslování}
+
+\medskip
+
+\subsubsection*{Pojmy}
+
+\begin{description}
+    \item[Vertex] (\textit{Vrchol}) Primárně bod ve 3D prostoru se souřadnicemi. Má atributy jako: pozicionální vekor, normála, barva, \dots
+    \item[Fragment] Vzorkovaný segment rastrovaného primitiva (?). Velikost závisí na metodě vzorkování.
+    \item[Texture] Kus bitmapy aplikovaný na model.
+\end{description}
+
+\subsubsection*{Shaders}
+
+Programy, které běží na grafické kartě aby využívali množství speciálních funkcí (osvětlení, effeky, post-processing, fyzika, \dots).
+
+\begin{description}
+    \item[Vertex shader] Vstupem je vrchol, výstupem je transformovaný vrchol.
+    \item[Geometry shader] Vstupem je n-vrcholové těleso, výstupem je žádné nebo více primitiv.
+    \item[Tessellation shader] Vstupem je primitivum, výstupem je rozdělené primitivum.
+    \item[Pixel/fragment shader] Vstupem je fragent, výstupem je brava, hloubka a šablona.
+    \item[Compute shader] Shader běžící mimo renderovací smyčku, využívané pro masivní paralelní výpočty.
+\end{description}
+
+\subsection*{Vlastnosti vykreslování}
+
+\medskip
+
+\subsubsection*{Textury}
+
+Kus bitmapy, který je aplikován na objekt.
+Skládá se z \textbf{texelů} (individuální element textury).
+
+\subsection*{Sprites}
+
+Sprite je jeden grafický obrázek začleněný do scény.
+Může být renderován jako \textit{squad} (skupina obrázků) sestavěná z dvou trojúhelníků nebo hajo jeden bod pomocí \textit{geometry shaderu}.
+Může tak být vyjresleno tisíce spritů během jednoho volání vykreslovací funkce.
+
+Sprity jsou seskopovány do \textbf{spritesheetů}, které shlukují skupinu souvisejících spritů (např. různé stavy objektu).
+
+\textbf{Sprite atlas} je jedna textura obsahující jeden nebo více spritesheetů.

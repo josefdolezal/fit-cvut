@@ -20,6 +20,7 @@ deploy:
     - mi-adp.pdf
     - mi-spi.pdf
     - fi-fil.pdf
+    - mi-aph.pdf
   skip_cleanup: true
   on:
     repo: josefdolezal/fit-cvut

@@ -1,0 +1,105 @@
+\section{Přednáška 4 -- Komponentová architektura pt. 1}
+
+\subsubsection*{Game Model}
+
+Nejmenší podmnožina hry, která určuje veškerý její stav.
+Může být rozdělený na více částí (core, view, síť, \dots).
+S každým updatem je aktuální stav game modelu vykreslen na obrazovku.
+
+\subsubsection*{View Model}
+
+Prezentovaný na obrazovce po zpracování všech ostatních modelů.
+
+\subsubsection*{Networking Model}
+
+Stará se o stav, který musí být synchronizovaný na jiná zařízení.
+
+\subsubsection*{Core Model}
+
+Klíčové entity a mechanika hry (pro složité hry těžké určit).
+Měl by být navržen tak, aby mohl být jednoduše oddělen od ostatních částí a testovatelný nezávisle.
+
+\subsubsection*{Data Model}
+
+Popisuje stav v každém okamžiku hry.
+Blízce spjatý se síťovým modelem (pokud existuje).
+
+\subsubsection*{Physics Model}
+
+Entity, které jsou jakkoliv ovlivňovány fyzikální interakcí.
+
+\subsubsection*{AI Model}
+
+Všechna data zpracovávaná AI (navigační mapy, behaviorální stromy, \dots).
+
+\subsection*{Objektový přístup}
+
+\subsubsection*{All-in-one object pattern}
+
+Vzor používaný v 90. letech.
+Jedna třída obsahuje chování všech herních objektů.
+Vnáší do hry spoustu kontrolních mechanizmů (if, switch).
+
+Objektový návrh nám díky dědičnosti umožňuje jednoduše určovat hierarchii.
+Pro komplexní hry ale přináší spoustu závislostí, herní vztahy objektů navíc nemusí být acyklický graf.
+
+Tato architektura je jednoduchá a rychlá na vývoj, ale neškáluje a je těžko udržitelná.
+
+\subsection*{Komponentový přístup}
+
+Objektový návrh (především dědičnost) nedokážou vždy vystihnout podstatu závislostí herních objektů.
+Komponentová architektura je založená na kompozici.
+
+\subsubsection*{Komponenta}
+
+Jednotka kompozice se specifikovanými rozhraními a explictními závislostmi.
+Jsou to v zásadě \textit{plug-and-play} pro herní objekty.
+
+Může být jednoduše integrována do \textit{screne graph}.
+
+\subsection*{Architektury}
+
+\begin{description}
+    \item[Monolithic] Tradiční OOP přístup. Má problémy s hlubokými a širokými hierarchiemi.
+    \item[Object-centric] Každý objek je reprezentovaný v runtimu jako instance třídy.
+    \item[Property-centric] Objekty jsou reprezentovány jen pomocí unikátního ID (sring, int). Komponenty jsou uloženy v paměti za sebou (např. v poli).
+\end{description}
+
+\subsubsection*{ECS(A) Pattern}
+
+Herní objekt je jen kontejner na data a logiku.
+\textbf{E}ntity-\textbf{C}omponent-\textbf{S}ystem (\textbf{A}ttribute)
+Veškeré chování konkrétního objektu je zcela určeno shromážděním jeho komponent (a atributů).
+
+\img{ecsa.png}{ECS(A) Pattern}{ecsa}{0.4}
+
+Každý engine založený na ECS(A) má vlastní implementaci, neexisute žádná striktní specifikace.
+
+\img{ecsa-example.png}{ECS(A) ukázka}{ecsa-example}{0.75}
+
+\subsubsection*{Game Model}
+
+Pro implementaci herního modelu máme více možností jak herní model implementovat.
+
+\begin{enumerate}
+    \item Celý \textit{scene graf} uložit jako herní model. Lepší pro komplexní hry. Celý model je zadrátován do scény natvrdo.
+    \item Model jako atribut herního \textit{root} elementu. Lepší pro malé (bez fyzikální enginu). Horší performance, protože je potřeba model synchronizovat se \textit{scene graph}.
+    \item Kombinace předchozích. Potřeba synchronizace.
+\end{enumerate}
+
+\subsubsection*{Pojmy}
+
+\begin{description}
+    \item[Entity] (\textit{GameObject}) Reprezentuje jednu konkrétní entitu, typicky uzel \textit{scene grafu}.
+    \item[Attribute] Náhrada za členskou proměnnou, obsahuje \textbf{data}
+    \item[Component] Entita obsahující \textit{kód} funkcionality. 
+    \item[Behavior] Použitelná komponenta, která můvze být připojena k objektu.
+    \item[(Sub)system] Globální komponenta sdílená různými objekty (Renderer, Audio).
+    \item[Message] Náhrada za volání metod, slouží ke \textbf{komunikaci} mezi komponentami.
+    \item[Event] Typ zprávy -- zastupuje událost, která již nastala (\textit{broadcast} události).
+    \item[Command] Typ zprávy -- zastupuje akci, která má nastat (\textit{unicast}).
+    \item[Process (Job)] Práce, která zabere více než jeden frame k vykonání.
+\end{description}
+
+Komponentová architektura je škálovatelná, datově orientovaná s jednoduchým recyklováním komponent/chování.
+Je ale dynamicky typovaná, heirarchie komponent není sama o sobě znovu použitelná. závislosti musí být natvrdo pospojované a systém zpráv se těžko předělává jakmile je jednou hotový.

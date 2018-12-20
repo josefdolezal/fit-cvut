@@ -1,0 +1,159 @@
+\section*{Přednáška 7 -- Herní matematika a fyzika}
+
+\subsection*{Dynamika}
+
+\medskip
+
+\subsubsection*{Body a vektory}
+
+\medskip
+
+\begin{description}
+    \item[Vektor] Veličina, která má velikost i směr.
+    \item[Velikost] (\textit{Magnitude}) Skalár reprezentující délku vektoru (\(|a| = \sqrt{a_x^2 + a_y^2 + a_z^2}\)).
+    \item[Normálový vektor] Vektor kolmý k povrchu.
+    \item[Skalární součin] \(a \cdot b = a_xb_x + a_yb_y + a_zb_z\) případně \(a \cdot b = |a| \cdot |b| \cdot \cos{\theta}\).
+\end{description}
+
+\subsubsection*{Verletova integrace}
+
+Numerická metoda výpočtu používaná k integrování rovnic pohybu.
+Používá se např. při výpočtu balistické křivky (konkrétně Velocity Verlet, který má oproti Eulerovské metodě výhodu při výpočtech s více objekty).
+
+\subsection*{Steering behaviors}
+
+Množina algoritmů a principů pro pohyb autonomních agentů realistickým způsobem.
+Agentem nazýváme systém umístěný v prostředí.
+
+Rozlišujeme více typů těchto chování.
+
+\begin{description}
+    \item[Seek] Síla směrující agenta k cílové pozici.
+    \item[Flee] Protiklad \textit{seek}.
+    \item[Arrive] Pohybuje agentem tak, že ho zpomaluje při přiblížení k cíli. Přidává se parametr \texttt{slowingRadius}.
+    \item[Pursuit] Agent sleduje cíl a predikuje kde se v budoucnu bude nacházet.
+    \item[Evade] Agent uniká od předpokládané budoucí pozice cíle.
+    \item[Wander] Vytváří sílu, která budí dojem \textit{náhodné procházky}.
+    \item[Path follow] Agent sleduje množinu předem danných bodů (konečný pomocí \textit{arrive}, ostatní pomocí \textit{seek}).
+    \item[Obstacle avoidance] Vede agenta tak, aby se vyhýbal překážkám.
+    \item[Offset pursuit] Drží agenta v určité pozici oproti \textit{leaderovi}. Vhodné např. pro bitevní pozice. 
+\end{description}
+
+\subsection*{Fyzikální enginy}
+
+Systém, který simuluje fyzikální chování.
+Simulace probíhá v reálném čase.
+
+\img{physics-engine-loop.png}{Smyčka fyzikálního enginu}{physics-engine-loop}{0.2}
+
+\subsubsection*{Pojmy}
+
+\medskip
+
+\begin{description}
+    \item[Rigid body] Idealizované, nedeformovatelné objekty. Dělí se do tří kategorií:
+        \begin{itemize}
+            \item Physics driven -- řízený pouze simulací,
+            \item Game driven -- pohybující se nepřirozeným stylem (např. animace),
+            \item Fixed -- objekty určené pouze k detekci kolizí.
+        \end{itemize}
+    \item[Constraint] Spojuje \textit{bodies} tak, aby simuloval interakce mezi nimi (řetězy, provazy, kola, \dots).
+\end{description}
+
+\subsubsection*{Constraints}
+
+Rozlišujeme mnoho typů \textit{constraints}, např.:
+
+\begin{description}
+    \item[Revolute] Bod, kde se \textit{bodies} otáčí (kola, řetězy, otočné dveře, \dots).
+    \item[Prismatic] Objekt se pohybuje jen pod určitým úhlem (výtah, posuvné dveře, \dots).
+    \item[Cone-twist] Přidává cones \& twist limits (?).
+\end{description}
+
+\img{constraints.png}{Příklady constraints}{constraints}{0.6}
+
+\subsubsection*{Primitiva}
+
+Rozlišujeme základní primitiva, ze kterých se skládají složitější objekty:
+
+\begin{description}
+    \item[Sphere] Kruh, koule -- definováno 4 bodami (\(x, y, z + \textrm{radius}\))
+    \item[Capsule] Kružnice se čtvercem, případně kvádr s koulí -- definováno dvěma body a průměrem.
+    \item[AABB] \textit{Axis-aligned bouding box}. Kvádr, jehož hrany jsou rovnoběžné s osami. Efektivní na hledáí průniků.
+    \item[OBB] \textit{Oriented bounding box}.
+\end{description}
+
+\img{primitives-example.png}{Ukázka primitiv}{primitives-example}{0.8}
+
+\subsubsection*{Detekce kolizí}
+
+\medskip
+
+\subsubsection*{Separating axis theorem (SAT)}
+
+Detekce kolize dvou rovnoběžníků se dělá na základě projekcí na osy.
+Pro oba objekty vezmeme jejich osy s nimi rovnoběžné.
+Pokud existuje alespoň jedna osa, kde se projekce neprotínají, pak se ani objekty neprotínají.
+
+\subsubsection*{Collision query}
+
+Operace používané k zodpovězení otázek jako \uv{\textit{Který objekt kulka trefí jako první?}}, \uv{\textit{Jaké objekty se vyskytují v daném poloměru?}}
+
+\subsubsection*{Reakce na kolize}
+
+\begin{description}
+    \item[Explosion] Přidání energie systému \textit{rigidních těles}.
+    \item[Friction] (\textit{Tření}) Odebírání energie systému \textit{rigidních těles}.
+    \item[Restitution] Velikost odrazu po střetu s něčím (?).
+    \item[Friction] (\textit{znovu?}) Síla vznikající mezi dvěma tělesy, které jsou v kontaktu delší dobu.
+    \begin{itemize}
+        \item \textit{Static} -- Oproti povrchu.
+        \item \textit{Dynamic} -- Objekty se pohybují relativně k sobě.
+        \item \textit{Rolling} -- Bod dotyku mezi povrchem a kolem.
+    \end{itemize}
+\end{description}
+
+\subsubsection*{Částicové systémy}
+
+Kolekce bodů hmoty, které odpovídají nějakému konkrétnímu fyzikálnímu zákonu.
+Hojně využívá \textit{FlyWeight pattern}.
+Mají monho atributů (zrychlení, orientace, pozice, hmota, velikost, \dots).
+Např. oheň, voda, déšť, kouř, mlha, \dots
+
+\subsection*{Prostor}
+
+\medskip
+
+\subsubsection*{Dělení prostoru}
+
+Struktury udržující objekty podle jejich pozice.
+Používají se k hledání sousedů, analyzování tvarů atd.
+
+Implementováno např. pomocí \textit{Grid}, \textit{Quad-tree} (2D), \textit{Octree} (3D), binárního vyhledávacího stromu, \dots
+
+\begin{description}
+    \item[Grid] Každá buňka má seznam prvků uvnitř, ideální pro velké množství objektů stejné velikosti.
+    \item[Quad-tree] Hierarchická struktura, kde každý uzel má právě 4 následníky. Objekty jsou umístěny v listech. Dobré pro malé množství objektů různé velikosti. 
+\end{description}
+
+\subsubsection*{Rotace}
+
+\begin{description}
+    \item[Eulerovy úhly] Jednoduchá reprezentace (3 čísla -- 3 osy), ale trpí na \textit{gimbal lock} -- ztrátu možnosti otáčení se po jedné ose pře natočení o \(90^\circ\).
+    \item[Matice] Netrpí na \textit{gimbal lock}, ale jsou neintuitivní, zaberou více místa a nelze je jednoduše interpolovat.
+    \item[Axis + angle] Pomocí osy a úhlu (\([a_x, a_y, a_z, \theta]\)). Intuitivní a kompaktní, ale nelze použít přímo na body a vektory.
+    \item[Quaternions] (\textit{Čtveřice}) Podobné jako \textit{axis + angle}, ale osa rotace je škálovaná hodnotou \texttt{sin} hodnoty poloviny úhlu rotace. Jednoduché na interpolaci, lze použít přímo.
+\end{description}
+
+\subsubsection*{Quaternions}
+
+Umožňují nahradit veškeré násobení matic a lze je po výpočtu na matice opět převést.
+
+\[
+    Q = (\cos{\frac{\varphi}{2}}, x \cdot \sin{\frac{\varphi}{2}}, y \cdot \sin{\frac{\varphi}{2}}, z \cdot \sin{\frac{\varphi}{2}})
+\]
+
+
+
+
+% Quaternions: 𝑄 = (cos 𝜑 , 𝑥 ⋅ sin 𝜑 , 𝑦 ⋅ sin 𝜑 , 𝑧 ⋅ sin 𝜑) 2222

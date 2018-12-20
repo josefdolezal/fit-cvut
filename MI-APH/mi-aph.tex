@@ -1,0 +1,44 @@
+\documentclass[czech]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[IL2]{fontenc}
+\usepackage[czech]{babel}
+\usepackage[a4paper,textheight=674pt]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{float}
+
+\newcommand{\img}[4]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#4\textwidth]{MI-APH/assets/#1}
+        \caption{#2}
+        \label{fig:#3}
+    \end{figure}
+}
+
+\author{Josef Doležal}
+\date{\today}
+\title{MI-APH -- Výpisky z přednášek}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\input{MI-APH/01-introduction}
+\input{MI-APH/02-game-engine-architecture}
+\input{MI-APH/03-sound}
+\input{MI-APH/04-component-architecture}
+\input{MI-APH/05-component-architecture-pt2}
+\input{MI-APH/06-component-architecture-pt3}
+\input{MI-APH/07-math-and-physics}
+\input{MI-APH/08-computer-graphics}
+\input{MI-APH/09-games-ai}
+\input{MI-APH/10-scripts}
+\input{MI-APH/11-multiplayer}
+
+\end{document}

@@ -1,0 +1,137 @@
+\section{Přednáška 2 -- Architektura herních enginů}
+
+Rozlišujeme tři základní úrovně počítačovúch her.
+Herní aplikaci, herní smyčku a herní systém.
+
+\subsection*{Herní aplikace}
+
+Stará se o vše spojené se spuštění, aplikace, načítá nastavení pro herní okno a spouští herní smyčku.
+Na konci životní cyklu hru ukončuje.
+
+\subsection*{Herní smyčka}
+
+Optimálně by neměla zabrat více než 16.6ms (při 60 FPS).
+Některé systémy (např. fyzika, AI) mohou vyžadovat i častějíší volání smyčky.
+
+\img{game-loop.png}{Standardní herní smyčka}{game-loop}{0.25}
+
+\begin{enumerate}
+    \item Inicializace,
+    \item Zpracování vstupů,
+    \item (Update) Zpracování herní logiky,
+    \item Smazání a vykreslení herích objektů na obrazovce,
+    \item Krok 2 nebo krok 6,
+    \item Ukončení hry.
+\end{enumerate}
+
+\subsubsection*{Update metoda}
+
+\begin{description}
+    \item[Fixní časový skok] Každý update posune herní čas o fixní hodnotu.
+    \item[Variabilní časový skok] Každý update posune herní čas o takovou hodnotu, kolik času reálně uběhlo od posledního updatu. Je to ale nedeterministické a také nevhodné pro některé moduly (např. fyzika).
+    \item[Adaptivní časový skok] Přepíná mezi fixním a variabulním skokem.
+\end{description}
+
+Během updatu mohou být některé objekty v nekonzistentním stavu.
+Před a po by ale měly vždy být v konzistentním.
+
+Některé objekty se mohou vyskytnout ve stavu, že jsou o jeden snímek pozadu oproti ostatním.
+Lze vyřešit např. pomocí dávkových aktualizací nebo \textit{script execution order} v Unity.
+
+\subsubsection*{Vícevláknová herní syčka}
+
+\img{multi-thread-game-loop.png}{Vícevláknová herní syčka}{multi-thread-game-loop}{0.4}
+
+\subsection*{Herní systém}
+
+Součástí každé hry, aktualizován během herní smyčky.
+
+\subsection*{Komponenty enginů}
+
+\medskip
+
+\subsubsection*{Hlavní komponenty}
+
+\medskip
+
+\begin{description}
+    \item[Herní smyčka],
+    \item[Scene Manager] Spravuje herní objekty,
+    \item[Resource Manager] Spravuje herní aktiva,
+    \item[Input Manager] Řidí externí vstupy (myš, klávesnice, \dots),
+    \item[Memory Manager],
+    \item[Rigidbody Engine] Detekce kolizí na základě událostí,
+    \item[Physics Rngine] Řídí chování objektů na základě kolizí,
+    \item[Render Engine] Vykresluje objekty pomocí GPU, je kontrolován \textit{Scene grafem},
+    \item[Animation Engine] Řídí animace,
+    \item[Scripting Engine] Využívá interpretované jazyky,
+    \item[Multimedia Engine] Přehrává hudbu, videa, \dots  
+\end{description}
+
+\subsubsection*{Další komponenty}
+
+\medskip
+
+\begin{description}
+    \item[GUI Components] Tlačítka, checkboxy, textová pole,
+    \item[Level Editor] Umožňuje vytvářet prostředí pomocí aktiv,
+    \item[Shading Engine] Vypočítává speciální efekty (stíny, \dots),
+    \item[Networking Engine] Řídí meziuzlovou komunikaci,
+    \item[AI Engine] Řídí interakci objektů 
+\end{description}
+
+\subsection*{Scene Graph}
+
+Jedná se o základní strukturu každé interaktivní aplikace, udržuje data v hierarchii.
+Jedná se o \textit{N-tree} strukturu, kde rodičovské uzly ovlivňují své potomky (rotace, měřítko, \dots).
+Listy stromu reprezentují grafická primitiva (tvary, meshe, \dots).
+
+\subsubsection*{Scene Manager}
+
+Spravuje objekty ve scéně.
+Pracuje s nimi pomocí posílání zpráv, může je vyhledávat pomocí tagů, názvů, lokace, \dots
+
+\subsection*{Resource Manager}
+
+Poskytuje přístup ke všem aktivám.
+Tedy k materiálů, shaderům, animacím, texturám, levelům.
+Ty jsou enginem převáděny do jiných formátů (např. XML).
+
+Manager se stará o životní cyklus assetů -- načítá je do paměti když jsou potřeba a odstraňuje je pokud už nadále potřeba nejsou.
+Pro rychlejší přístup je možné použít cache.
+
+\subsubsection*{Audio Engine}
+
+Stará se o úpravu zvukových stop (např. akustika, úprava vzdálenosti, ozvěny, \dots).
+
+\subsection*{Input Manager}
+
+Detekuje vstupy z různých zařízení.
+Obvykle podporuje primitivní události jako stisk kláves, stisk myši nebo pohyb myší.
+
+Existují i doplňující události jako např. gesta prsty (pinch, double-tap, swipe).
+Ty ale nemusí být vždy podporována.
+
+Engine může podporovat i game-specific události (cheaty, komba, \dots) nebo přemapování vstupů.
+Hry mohou závislosti sledovat kontextově (ovládní chůze vs. ovládání auta).
+
+\subsection*{Memory manager}
+
+Defaultní manažer paměti (v C runtimu) není pro mnohé enginy dostačující/vhodný a tak si vytvářejí vlastní.
+Ve standardním manažeru dochází k fragmentaci, což se snaží manažery řešit.
+
+\subsubsection*{Poll-based allocator}
+
+Alokuje paměť po blocích, každý o stejné velikosti -- netrpí fragmentací, ale entity musejí být všechny stejné velikosti.
+
+\img{poll-based-allocator.png}{Poll-based allocator}{poll-based-allocator}{0.7}
+
+\subsection*{Načítání prostředí světa}
+
+Existuje více přístupů k načítání herního světa.
+
+\begin{description}
+    \item[Level loading] Načítání hry po kusech -- vyžaduje loading screen.
+    \item[Air locks] Načítání větších bloků (se scénou) a menších s \textit{air lockem}. Jakmile se uživatel octne v části odkud se nemůže vrátit, je starý blok zahozen a načten nový. Např. ve hře Portal.
+    \item[Worldstreams] Používá se v open-world hrách. Svět je rozdělen na regiony -- jakmile vejdu do regionu (B) a jsem dostatečně daleko na to abych neviděl předchozí (A), můžu ho uvolnit a načíst následující (C). Např. GTA, RDR2 <3.
+\end{description}

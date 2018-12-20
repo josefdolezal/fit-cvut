@@ -12,9 +12,10 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
 * [BI-AG2 - Algoritmy a grafy](https://github.com/josefdolezal/fit-bi-ag2/tree/master/notes) - LS 2016/17
   * [Kartičky s pojmy](https://github.com/josefdolezal/fit-bi-ag2/tree/master/cards)
 * [MI-ADP - Architektonické a návrhové vzory](MI-ADP) - ZS 2017/18
-* [FI-FIL - Filosofie](FI-FIL) - ZS 2017/2018
-* [MI-PAA - Problémy a algoritmy](https://github.com/josefdolezal/fit-mi-paa/tree/master/notes) - ZS 2017/2018
-* [MI-SPI - Statistika pro informatiku](MI-SPI) - LS 2017/2018
+* [FI-FIL - Filosofie](FI-FIL) - ZS 2017/18
+* [MI-PAA - Problémy a algoritmy](https://github.com/josefdolezal/fit-mi-paa/tree/master/notes) - ZS 2017/18
+* [MI-SPI - Statistika pro informatiku](MI-SPI) - LS 2017/18
+* [MI-APH - Architektura počítačových her](MI-APH) - ZS 2018/19
 
 Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.com/josefdolezal/fit-cvut/releases).
 
@@ -31,6 +32,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 ### Magisterské studium (2017-)
 * [Semestr 1](#msp-semestr-1-zs-201718) - MI-ADP, MI-MDW, FI-FIL, MI-PAA
 * [Semestr 2](#msp-semestr-2-ls-201718) - MI-AFP, MI-PDP, MI-SPI, MI-PSL
+* [Semestr 3](#msp-semestr-3-zs-201819) - MI-APH
 
 ### BSP Semestr 1 (ZS 2014/15)
 * [BI-CAO](BI-CAO/)
@@ -145,6 +147,11 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
   * Vẏpisky z prezentací
 * [MI-PSL - Samostatný repozitář](https://github.com/josefdolezal/hostcasts/tree/scala-implementation)
   * Semestrální práce - Webová služba ve frameworu Play/Slick
+
+### MSP Semestr 3 (ZS 2018/19)
+* MI-APH
+  * [Výpisky z prezentací](MI-APH)
+  * Semestrální práce - Samostatný repozitář
 
 
 ## Poznámka

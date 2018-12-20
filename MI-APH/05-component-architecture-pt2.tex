@@ -1,0 +1,41 @@
+\section{Přednáška 5 -- Komponentová architektura}
+
+\subsection*{Komunikace}
+
+Rozlišujeme více druhů komunikace mezi objekty ve hrách.
+
+\subsubsection*{Modifikace stavu kontejneru}
+
+Nepříma komunikace objektů, která je ale hůře debugovatelná.
+Implementována např. sdílenou \textit{state machine}.
+
+\subsubsection*{Přímá volání}
+
+Standardní způsob komunikace objektů v OOP.
+Je rychlý, ale zavádí úzké propojení objektů.
+Např. skupina skupina objektů, které jsou propojeny vzájemně.
+
+\subsubsection*{Zasílání zpráv}
+
+Zprávy jsou zasílány jsou \textbf{eventy} a \textbf{commandy}.
+Každá komponent definuje, o jaké zprávy má zájem.
+Není tak rychlý jako přímá volání, ale cena/zpomalení je zanedbatelné všude kromě nejkritičtějíších částí kódu.
+Lze využít např. pro broadcast informace o konci hry.
+
+Je několik možností implementace.
+Např. pomocí polymorfismu, anonymních funkcí, ukazatelů na funkce, \dots
+
+Komponenty by měly být upozorněny na každou změnu stavu, která je pro ně významná.
+Je možné použít také \textit{blind event forwarding}, kdy objekt přepošle event jinému objektu.
+
+Aby bylo možné doručovat zprávy se zpožděním, zavádí se také fronta \textit{event queue}.
+
+\subsubsection*{Typy zpráv}
+
+\medskip
+
+\begin{description}
+    \item[Unicast] Jedna komponenta odesílá zprávu druhé napřímo. Většinou implementováno pomocí přímých volání.
+    \item[Multicast] Rozesílání informace specifickým odběratelům nebo všem komponentám splňující nějakou podmínku.
+    \item[Broadcast] Typicky pro komunikaci typu systém-entity (např. dokončení úrovně, \dots).
+\end{description}

@@ -1,0 +1,34 @@
+\section{Přednáška 6 -- Komponentová architektura, Návrhové vzory}
+
+\subsection*{Dvoufázová inicializace}
+
+Vyhýbá se inicializaci objektů jen pomocí konstruktoru.
+Objekty na sobě mají např. metody \texttt{LoadFromJSON(:)} nebo \texttt{LoadFromXML(:)} na inicializaci.
+Konstruktor zpravidla jen vytváří objekt, ten je inicializován pomocí inicializačních metod.
+
+\subsection*{Flyweight pattern}
+
+Používá se pro podporu typů, které požadují velké množství instancí.
+Jeden objekt drží sdílený data všech objektů, které zastupuje a nabízí veřejné rozhraní, přes které je možné přistupovat ke konkrétním objektům.
+
+\subsection*{Flag}
+
+Pole bitů držící binární vlastnosti herního objektu.
+Může být využito \textit{Scene Manager} k rychlému vyhledávání objektů s nějakou vlastností (všechny mrtvé, \dots).
+
+Implementace je pomocí bitového pole, kde předem víme jaký index znamená jakou vlastnost (\textit{visible}, \textit{dead}, \dots).
+
+\subsection*{Dirty flag}
+
+Označuje objekt, který byl změněn -- musí být vždy nastaven.
+
+\subsection*{Replay}
+
+Umožňuje reprodukovat libovolný stav hry v libovolném čase.
+Je náročnějíší než standardní ukládání hry, protože každá entita musí být reprodukovatelná.
+
+Lze implementovat pomocí ukládání celého stavu \textbf{všech} herních objektů (po framu nebo s určitou frekvencí), reprodukce pak proběhne nastavením stavu všem objektům.
+
+Druhá možnost je ukládat herní \textit{eventy} tak jak byly odesílány.
+Při přehrávání se zablokuje možnost posílání zpráv a posílají se ty předešlé.
+Funguje lépe pokud zprávy jsou posílány pomocí nějakého systému (žádné přímé zprávy).
