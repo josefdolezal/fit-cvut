@@ -155,20 +155,20 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
   * [Výpisky z prezentací](MI-APH)
   * Semestrální práce - Samostatný repozitář
 * MI-IBE
-  * [Semestrální práce - Behaviorální analýza síťového provozu](MI-IBE)
+  * [Semestrální práce](MI-IBE) - Behaviorální analýza síťového provozu
 * MI-PCM
-  * [Domácí úloha 1 - Efektivita SSO](MI-MPC/assignment-01)
-  * [Domácí úloha 2 - Pointer to implementation (PIMPL)](MI-MPC/assignment-02)
-  * [Domácí úloha 3 - Variadické šablony](MI-MPC/assignment-03)
-  * [Domácí úloha 4 - std::map v C++17](MI-MPC/assignment-04)
-  * [Semestrální prezentace - Futures v C++20](MI-MPC/presentation)
+  * [Domácí úloha 1](MI-MPC/assignment-01) - Efektivita SSO
+  * [Domácí úloha 2](MI-MPC/assignment-02) - Pointer to implementation (PIMPL)
+  * [Domácí úloha 3](MI-MPC/assignment-03) - Variadické šablony
+  * [Domácí úloha 4](MI-MPC/assignment-04) - `std::map` v C++17
+  * [Semestrální prezentace](MI-MPC/presentation) - Futures v C++20
 * MI-PDB
   * [Výpisky z prezentací](MI-PDB)
 * MI-REV
-  * [Domácí úloha 1 - Konfigurace programu](MI-REV/assignment-01)
-  * [Domácí úloha 2 - Dynamické nahrazení paměťových funkcí](MI-REV/assignment-02)
-  * [Domácí úloha 3 - Hierarchie tříd](MI-REV/assignment-03)
-  * [Semestrální práce 2 - Hesla](semester-project-02)
+  * [Domácí úloha 1](MI-REV/assignment-01) - Konfigurace programu
+  * [Domácí úloha 2](MI-REV/assignment-02) - Dynamické nahrazení paměťových funkcí
+  * [Domácí úloha 3](MI-REV/assignment-03) - Hierarchie tříd
+  * [Semestrální práce 2](semester-project-02) - Hesla
   * [Výpisky z prezentací](MI-REV/notes)
 
 ## Poznámka
