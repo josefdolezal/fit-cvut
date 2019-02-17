@@ -153,7 +153,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 ### MSP Semestr 3 (ZS 2018/19)
 * MI-APH
   * [Výpisky z prezentací](MI-APH)
-  * Semestrální práce - Samostatný repozitář
+  * [Semestrální práce - Klon hry Space Impact](https://github.com/josefdolezal/fit-mi-aph) - Samostatný repozitář
 * MI-IBE
   * [Semestrální práce](MI-IBE) - Behaviorální analýza síťového provozu
 * MI-PCM
