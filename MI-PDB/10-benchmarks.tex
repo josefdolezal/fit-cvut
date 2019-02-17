@@ -1,0 +1,30 @@
+\section{Přednáška 10 -- Benchmarks}
+
+Existuje více druhů benchmarků podle TPC:
+
+\begin{itemize}
+    \item TPC-C
+    \item TPC-E
+    \item TPC-H
+\end{itemize}
+
+\subsection*{TCP-C}
+
+Jedná se o OLTP benchmark.
+Simuluje se reálný provoz na internetovém obchodě (zadávání objednávek, plateb, \dots).
+Metrikou je počet nových objednávek za sekundu.
+Dodržuje ACID, obsahuje 5 typů transakcí.
+Požaduje aby 90\% transakcí proběhlo pod 5 vteřin, stav skladu do 20\%.
+
+\subsection*{TCP-E}
+
+Jedná se o OLTP benechmark.
+Simuluje provoz makléřské společnosti.
+Navrženo na širokou škálu OLTP systémů, benchmark je počet transakcí.
+
+\subsection*{TCP-H}
+
+Jedná se o OLAP benchmark.
+Práce s velkými daty a komplexními dotazy, předpokládá provoz 24/7.
+Metrikou je \textit{Composite Query-per-hour}.
+Dotazy jsou byznusově orientované.

@@ -1,0 +1,112 @@
+\section{Přednáška 4 -- Pokročilé databázové systémy}
+
+\subsection*{Škálovatelnost}
+
+Schopnost systému zpracovat rostoucí množství dat a/nebo dotazů bez ztráty výkonu.
+
+\subsubsection*{Vertikální}
+
+Škálování v rámci jednoho uzlu systému.
+Jedná se o přidávání zdrojů (CPU, paměť, \dots).
+Často volená varianta (jednoduchá na implementaci, bez problémů s distribucí).
+
+Je ale dražší a má horní limit.
+Může nastat vendor-lock (existuje jen pár výrobců).
+Při nasazení je navíc nevyhnutelný výpadek systému.
+
+\subsubsection*{Horizontální}
+
+Přidávání nových uzlů do systému.
+Častá volba při implementaci NoSQL.
+
+Je levnější a flexibilnější, navíc bez \uv{úzkého hrdla}.
+
+Oproti standardnímu řešení je ale složitější a navíc představuje nové problémy (distribuce, nekonzistence, synchronizace).
+Při implementaci navíc často používáme falešné předpoklady (stabilní síť bez zpoždění, neomezený přenos, bezpečnost, neúdržbovost, \dots).
+
+\subsection*{Modely distribuce}
+
+Rozlišujeme dva typy distribuce - \textit{sharding} a \textit{replikace}.
+Ty jsou navzájem nezávislé -- lze je použít zvlášť nebo nakombinovat.
+
+\subsubsection*{Sharding}
+
+Různá data na různých uzlech -- zvyšuje možnost pojmout více dat a zvyšuje výkon.
+Data, která jsou často načítána společně by měla být uložena společně.
+
+Snaha dosáhnout rovnoměrné distribuce dat a rozložení zátěže.
+Tyto požadavky ale můžou často jít proti sobě nebo se časem měnit.
+
+Rozlišujeme více strategií jak data rozmístit na uzly:
+
+\begin{description}
+    \item[Mapping structures] Data rozmístěna náhodně pomocí nějakého algoritmu.
+    Informace o mapování musí být někde centrálně udržována.
+    \item[General rules] Každý uzel má nějaká specifická data (hashování, rozdělování podle rozsahu).
+\end{description}
+
+Sharding je složitý, protože musíme rozhodovat jaký uzel použít nejen při ukládání, ale i čtení.
+Ne každý uzel ale má znalost celého clusteru, navíc mohou uzly nebo jejich komunikace selhávat.
+
+\subsubsection*{Replikace}
+
+Stejná data na různých uzlech - zvyšuje výkon a snižuje možnost výskytu chyb.
+Počet kopií je určený pomocí \textit{replikačního faktoru}.
+
+Máme dva druhy architektur: \textit{master-slave} a \textit{peer-to-peer}.
+
+Při použití \textbf{master-slave} máme jeden určený node, který je master a ten se stará o veškerou správu všech ostatních.
+Čtení pak mohou zvládnout i slave uzly.
+
+Pro zápis se používá pouze master, který změny propaguje.
+Nastává ale problém s konzistencí -- propagace trvá nějaký čas.
+
+Při použití \textbf{peer-to-peer} mají všechny uzly stejnou roli a zodpovědnosti.
+Čtení i zápis může provést kdokoliv, čímž může vzniknout nekonzistence -- uzly se musí synchronizovat.
+
+Architektury můžeme kombinovat, při použití sharding a master-slave, využijeme více masterů (každý pro jiná data) a jejich role se mohou překrývat se slave pro jiná data.
+
+Při použití peer-to-peer se sharing jsou pak zjednodušeně všechna data všude.
+
+\subsection*{CAP teorém}
+
+\textit{Consistency}, \textit{Availability} a \textit{Partition tolerance} -- nelze mít všechny vlastnosti u distribuovaného systému, je nutné zvolit maximálně dvě.
+
+\begin{description}
+    \item[Consistency] Čtení i zápis prováděný atomicky (po zápisu všichni vidí stejná data).
+    \item[Availability] Každý požadavek na čtení nebo zápis musí vyústit v odpověď.
+    \item[Partition tolerance] Systém musí fungovat i při rozdělení na více izolovaných skupin (ztráta komunikace). 
+\end{description}
+
+Při výběru vlastností máme možnosti:
+
+\begin{description}
+    \item[CA] Jednoduché dosáhnout ACID, platí pro každý jednouzlový systém, případně clustery.
+    \item[CP] S použitím distribuovaných zámků.
+    \item[AP] Využívá se BASE místo ACID (cassandra, CouchDB). 
+\end{description}
+
+\subsection*{ACID}
+
+Volí konzistenci před dostupností, typický pro relační databáze.
+
+Vlastnosti ACID:
+
+\begin{description}
+    \item[Atomicity] Částečné zpracování transakce není povoleno (vše nebo nic).
+    \item[Consistency] Transakce převádí databázi z jednoho konzistentního stavu do jiného.
+    \item[Isolation] Paralelní transakce nevidí necommitnuté změny.
+    \item[Durability] Commitnuté změny musí být trvalé. 
+\end{description}
+
+\subsection*{BASE}
+
+Volí dostupnost před konzistencí, typický pro NoSQL, je lépe škálovatelný než ACID.
+
+Vlastnosti BASE:
+
+\begin{description}
+    \item[Basically Available] Systém funguje převážně bez chyb (nastalé chyby nejsou fatální).
+    \item[Soft state] Stav je nedeterministický (mění se v čase).
+    \item[Eventual Consistency] Dříve nebo později se systém dostane do konzistentního systému.  
+\end{description}

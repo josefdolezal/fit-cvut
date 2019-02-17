@@ -1,0 +1,91 @@
+\section{Přednáška 3 -- Big Data}
+
+\begin{description}
+    \item[Big Data] \textit{(neformálně)} Objemná, rychle roustoucí data s (možnou) velkou rozmanitostí, vyžadující nové efektivní způsoby zpracování umožňující pokročilé rozhodování a nahlížení na ně.
+    Pocházejí ze sociálních sítí, vědeckých výzkumů, senzorů, telefonů, \dots.
+\end{description}
+
+\subsection*{Charakteristiky (4V)}
+
+\begin{description}
+    \item[Volume] Velké množství dat rostoucí exponenciálně,
+    \item[Variety] různé formy dat (xml, json, videa, příspěvky, senzory, \dots),
+    \item[Velocity] zpracování a analýza velkého množství dat v reálném čase,
+    \item[Veracity] data jsou neúplná, nekonzistentní a nejednoznačná.
+\end{description}
+
+\subsection*{Zpracování}
+
+\begin{description}
+    \item[OLTP] Online Transaction Processing. Typicky mnoho krátkých transakcí, které mají být rychlé. Efektivitu měříme podle počtu transakcí za vteřinu.
+    \item[OLAP] Online Analytical Processing. Zejména select dotazy (agregace), nemusí být nutně rychlé
+    \item[RTAP] \textbf{Real-Time Analytical Processing}.
+\end{description}
+
+\subsection*{Předpoklady dat}
+
+\begin{itemize}
+    \item Formát dat je neznámý a nekonzistentní,
+    \item čtení dat převyšuje zápis,
+    \item aktualizace dat není běžná (data se nahrazují).
+\end{itemize}
+
+Pro zpracování jsou potřeba nové techniky a technologie.
+Využívají se distribuované systémy, \textit{MapReduce} a jiná programovací paradigmata, \textit{NoSQL} databáze, datové sklady a strojové učení.
+
+Snaha napodobit povahu dat z reálného světa.
+
+\subsection*{NoSQL}
+
+Databáze nové generace cílící na použití, pro která relační databáze nejsou vhodné.
+Klíčové vlastnosti jsou: nerelační, distrubuované, a horizonálně škálovatelné.
+Často jsou charakterizované jako: schema-free, eventualy consistent.
+
+\subsection*{Typy NoSQL}
+
+\subsubsection*{Key-value}
+
+Uložiště typu klíč-hodnota (redis, memcached).
+Hodnota je \textit{blackbox} pro databázový stroj.
+Vhodné pro jednoduchá data vyhledávána pouze klíčem,
+    
+\subsubsection*{Wide column}
+
+Sloupcově orientovaná uložiště, kde řádky mají podobnou (ne nutně stejnou) strukturu.
+Podobné relačním databázím, s proměnlivým počtem sloupců.
+Využívá se \textit{column family} (tabulka), \textit{row} a \textit{column} (cassandra, HBase, Google Bigtable).
+Vhodné pro logy, CMS a blogy (obecně cokoliv se strukturovanými daty).
+
+\subsubsection*{Document stores}
+
+Dokumentová uložiště hierarchických struktur (json, xml, \dots) identifikovaných klíčem.
+Možné sestavovat složité dotazy.
+Vhodné pro CMS, analytiky, logy, eshopy, dots (MongoDB, Couchbase).
+
+\subsubsection*{Graph databases}
+
+Orientované nebo neorientované grafy s uzly (node -- entity) a hranami (relationships).
+Hrany i uzly můžou mít dodatečné vlastnosti.
+Dotazy lze dělat pomocí grafových algoritmů, na podgrafy i nadgrafy.
+Např. Neo4j.
+Vhodné pro chemické sloučeniny, hledání cest, sociální sítě.
+
+
+\subsection*{Výhody}
+
+\begin{itemize}
+    \item Škálování -- horizontální distribuce.
+    \item Objemnost -- pojme i data nemožná zpracovat relační db.
+    \item Administrování -- automatická údržba.
+    \item Ekonomické -- možné využít levný HW.
+    \item Flexibilní -- jednodušší změny díky absenci schematu.
+\end{itemize}
+
+\subsection*{Výzvy / nevýhody}
+
+\begin{itemize}
+    \item Maturity -- často v pre-produkční fázi (bez key-features).
+    \item Podpora -- chybí z důvodu údržby jako OS.
+    \item Analytiky -- chybějící byzsnys logika pro okamžité dotazování.
+    \item Expertise -- chybějící odborníci.
+\end{itemize}

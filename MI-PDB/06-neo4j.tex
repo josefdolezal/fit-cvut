@@ -1,0 +1,28 @@
+\section{Přednáška 6 -- Neo4j}
+
+Open source grafová databáze s ACID transakcemi.
+Dotazování funguje pomocí jazyka \texttt{Cypher}.
+
+\subsection*{Model}
+
+Jedná se orientovaný multigraf.
+Uzly mají unikátní id, množinu \textit{labels} a množinu \textit{properties}.
+Relace mají unikátní id, směr a mohou mít \textit{properties}.
+
+\texttt{Property} uzlu a relace je \textit{key-value}, kde \textit{key} je \texttt{String} a \textit{value} je primitivní typ (nebo kolekce primitivních typů).
+
+\subsection*{Traversal framework}
+
+Umožňuje spustit dotazy na průchod grafem.
+Průchody se přesně drží ceste, které odpovídají dotazu.
+
+\subsection*{Cypher}
+
+Deklarativní dotazovací jazyk, můžeme specifikovat vlastnosti uzlů a hran, případně délku cesty.
+Jazyk je ASCII grafický (uzly v závorkách, hrany šipkami).
+
+Dotazujeme se klíčovým slovem \texttt{MATCH}, dále následuje ASCII reprezentace grafu.
+
+\subsubsection*{DML}
+
+Používáme klíčová slova \texttt{CREATE}, \texttt{DELETE}, \texttt{SET}, dots.

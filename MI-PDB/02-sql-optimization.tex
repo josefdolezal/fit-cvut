@@ -1,0 +1,32 @@
+\section{Přednáška 2 -- SQL optimalizace}
+
+Složitějíší SQL příkazy se skládají ze základních relačních operací (selekce, projekce, spojení, řazení, \dots).
+Vyhodnocení dotazu je možné popsat pomocí stromu.
+Tento strom se nazývá \textbf{exekuční plán} a pro jeden dotaz jich může existovat více.
+Optimalizací SQL se rozumí nalezení stromu s nejmenší cenou.
+
+\subsection*{Optimalizace}
+
+\begin{description}
+    \item[Cena] Počet I/O bloků, které je potřeba načíst do paměti.
+\end{description}
+
+\subsection*{(Heap) tabulky}
+
+\subsubsection*{Statistiky}
+
+\begin{description}
+    \item[nR] Počet n-tic (řádků) v relaci R.
+    \item[\(V(A, R)\)] Počet různých hodnot A v relaci R.
+    \item[pR] Počet stránek potřebných k uložení relace R.
+\end{description}
+
+\subsection*{B-stromy}
+
+\subsubsection*{Statistiky}
+
+\begin{description}
+    \item[\(f(A, R)\)] Průměrný počet následníků uzlu.
+    \item[\(I(A, R)\)] Hloubka indexového stromu.
+    \item[\(p(A, R)\)] Počet listů indexového stromu.
+\end{description}

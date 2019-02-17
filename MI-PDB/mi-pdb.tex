@@ -1,0 +1,43 @@
+\documentclass[czech]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[IL2]{fontenc}
+\usepackage[czech]{babel}
+\usepackage[a4paper,textheight=674pt]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{float}
+
+\newcommand{\img}[4]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#4\textwidth]{assets/#1}
+        \caption{#2}
+        \label{fig:#3}
+    \end{figure}
+}
+
+\author{Josef Doležal}
+\date{\today}
+\title{MI-PDB -- Výpisky z přednášek}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\input{MI-PDB/01-introduction}
+\input{MI-PDB/02-sql-optimization}
+\input{MI-PDB/03-big-data}
+\input{MI-PDB/04-advanced-dbs}
+\input{MI-PDB/05-mongodb}
+\input{MI-PDB/06-neo4j}
+\input{MI-PDB/07-xmldatabases}
+\input{MI-PDB/08-distributed-db}
+\input{MI-PDB/09-riak-widecolumn}
+\input{MI-PDB/10-benchmarks}
+
+\end{document}

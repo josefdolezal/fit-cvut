@@ -1,0 +1,43 @@
+\section{Přednáška 5 -- MongoDB}
+
+JSON dokumentová databáze.
+JSON objekty (doumenty) podobné struktury jsou ukládány do kolekcí.
+Každý dokument má unikátní id (interně \texttt{\_id}).
+Toto id je unikátní, neměnné a libovolného primitivního typu.
+Defaultně je použito ObjectId (speciální BSON typ).
+
+Interně jsou JSON dokumenty uloženy jako binární reprezentace JSON objektu (BSON).
+Dokumenty nemají žádné explicitní schéma.
+
+Na vnořené struktury je možné vytvořit tzv. \textit{subdocument}, což je vnořený dokuemnt.
+Díky tomu je možné data dostat rychleji (není potřeba explicitně řešit reference).
+Ideální pro relace typu \textit{one-to-one} nebo \textit{one-to-many}.
+
+\subsection*{Reference}
+
+Obdnobně jako u relačních databází to jsou související data v \textit{samostatném} dokumentu.
+Nemá žádný speciální konstrukt, jsou to id cílových dokumentů.
+
+\subsection*{Dotazování}
+
+Dostupné jsou klasické CRUD operace pomocí \texttt{.insert()}, \texttt{.update()}, \texttt{.remove()}, \texttt{.find()}.
+
+\subsubsection*{Insert}
+
+Vkládat lze jeden nebo kolekce dokumentů s explictním id (musí být unikátní) nebo automaticky generovaným.
+
+\subsubsection*{Update}
+
+Pro aktualizaci je nutné zadat dotaz a aktualizovaná data, případně konfiguraci.
+Aktualizovaný je vždy nejvíše jeden objekt, to lze změnit konfigurací \texttt{\{multi: true\}}.
+Pokud aktualizace používá \textbf{jen} aktualizační operátory (\texttt{\$set}, \texttt{\$unset}, \dots) je dokument aktualizován, jinak je celý nahrazen.
+
+Chceme-li aktualizovat existující dokument nebo vytvořit nový pokud ještě neexistoval, můžeme použít \textit{upsert} pomocí konfigurace \texttt{\{upsert: true\}}.
+
+\subsubsection*{Remove}
+
+Odstraňuje všechny záznamy odpovídající dotazu pokud není zadána konfigurace \texttt{\{justOne: true\}}.
+
+\subsubsection*{Find}
+
+Vrací dokumenty odpovídající zadané query, projekci je možné zadat jako druhý parametr.

@@ -1,0 +1,43 @@
+\section{Přednáška 8 -- MapReduce, Apache Hadoop}
+
+\subsection*{MapReduce}
+
+Programovací model a implementace (od Google) umožňující paralelní a distribuované výpočty s vysokým výkonem.
+
+Funguje pomocí distrubuce dat mezi více uzlů, ty je následně zpracovávají paralelě.
+Funkce \texttt{Map} rozdělí vstupní data problému na podproblémy a vytvoří \textit{key-value} páry.
+Páry se stejným klíčem jsou následně řešeny společně v jednom volání funkce \texttt{Reduce}.
+
+Funkce \texttt{Reduce} přijmá podřešení úlohy a vyřeší celkový celkový problém.
+
+\subsubsection*{Architektura}
+
+Nad clusterem je \texttt{MapReduce} řešen architekturou \textit{master-slave}.
+Master přijme problém a rozdělí ho mezi uzly aby provedly funkci \textit{Map}.
+
+Uzly provedou funkci map a notifikují \textit{mastera}.
+Ten určí další uzly, které budou provádět funkci \textit{reduce}.
+Nové uzly si využádají páry \textit{key-value} a provedou \textit{reduce}.
+Po provedení notifikují \textit{mastera}, který následně úlohu ukončí.
+
+Slouží k úlohám jako řazení, seskupování, počítání, sčítání, agregace dat.
+
+\subsection*{Apache Hadoop}
+
+Distribuované uložiště a zpracování velkého množství dat na clusteru.
+Implementuje distribuovaný \textit{file system} a model \textit{MapReduce}.
+
+\subsubsection*{Hadoop File System}
+
+Distribuovaný \textit{file system} zaměřený na škálovatelnost a odolnost proti chybám.
+Cluster se může skládat z tísíců uzlů a být tak náchylný na chyby.
+HDFS umí chyby detekovat a automaticky se z nich zotavit.
+
+Postavený je na architektuře \textit{master-slave}. Master (\texttt{NameNode}) spravuje \textit{namespace} a souborové bloky (jejich mapování na fyzické bloky) a je vstupním bodem pro všechny operace.
+Slave (\texttt{NameNode}) fyzicky ukládá bloky souborů a zpracovává IO požadavky.
+
+Pro zajištění dostupnosti se využívá replikování dat.
+To je typicky nastaveno na 3 repliky.
+
+DataNode uchovává každý blok (repliku) v samostatném souboru.
+Upozorňuje NameNode pomocí HeartBeat.
