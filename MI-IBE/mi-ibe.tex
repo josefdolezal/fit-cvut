@@ -1,0 +1,55 @@
+\documentclass[czech]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[IL2]{fontenc}
+\usepackage[czech]{babel}
+\usepackage[a4paper,textheight=674pt]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{float}
+
+\renewcommand{\baselinestretch}{1.35}
+
+\newcommand{\img}[3]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{MI-IBE/assets/#1}
+        \caption{#2}
+        \label{fig:#3}
+    \end{figure}
+}
+
+\author{Josef Doležal}
+\date{\today}
+\title{Behaviorální analýza síťového provozu}
+
+\begin{document}
+
+% Title page
+
+\makeatletter
+\begin{titlepage}
+
+    \input{MI-IBE/title-page}
+
+\end{titlepage}
+
+% Content
+
+\input{MI-IBE/00-meta}
+\input{MI-IBE/01-introduction}
+\input{MI-IBE/02-network-monitoring}
+\input{MI-IBE/03-network-behavior-analysis.tex}
+\input{MI-IBE/04-conclusion.tex}
+
+\newpage
+
+% References
+
+\nocite{*}
+\bibliographystyle{MI-IBE/csn690}
+\bibliography{MI-IBE/references}
+
+\end{document}

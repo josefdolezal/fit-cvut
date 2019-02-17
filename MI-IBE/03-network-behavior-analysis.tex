@@ -1,0 +1,112 @@
+\section{Behaviorální analýza síťového provozu}
+
+V dnešní době je poměrně běžné nasazení technik proti standardním hrozbám v síti -- firewall, web filtr nebo vzdálený přístup.
+Spolu s těmito technikami jsou v síti chráněny i samostatná koncová zařízení pomocí antivirů, personálních firewallů nebo antimalweru.
+
+Taková ochrana již ale není dostačující.
+Objevují se pokročilé hrozby (\textit{Advanced Persistent Threats}, zkr. \texttt{APT}) nebo \textit{zero-day útoky}, které narozdíl od standardních hrozeb nejsou jednoduše detekovatelné.
+
+\subsection{Advanced Persisten Threats}
+
+Útoky tohoto typu se od standardních útoků vyznačují tím, že necílí na širokou skupinu uživatelů.
+Jsou tedy vysoce sofistikované a typicky jsou prováděné skupinou odborníků.
+
+Tyto útoky jsou rozdělené do několika fází.
+V první fázi útočník sleduje aktivity uživatele (případně skupiny uživatelů).
+Pomocí sociálního inženýrství se snaží z uživatele vylákat informace o přístupu k síti a na tu následně zútočit.
+
+Po průniku do sítě se snaží útočník rozšířit škodlivý kód a získat přístupová oprávnění do většího množství koncových stanic či datových uložišť a serverů.
+Šíření kódu probíhá pomalu a opatrně za využití málo známých bezpečnostních chyb.
+Po rozšíření sbírá škodlivý software citlivá data z vnitřku sítě, která opatrně vynáší.
+Aby útok nebyl snadno rozpoznatelný při vynášení dat (např. pomocí datových toků nebo paketové analýzy), jsou tato data šifrována a ukryta v gigabitech běžného provozu.
+
+Takové útoky jsou vysoce sofistikované a přizpůsobené pro konkrétní případy.
+Z tohoto důvodu je pro bezpečnostní programy (antivir, antimalware) složité takový typ útoku odhalit.
+Antiviry totiž pro vyhledávání škodlivého kódu využívají tzv. \texttt{signatury}
+\footnote{
+    Při analyzování škodlivého kódu antivirové společnosti extrahují tzv. signaturu viru, která ho jednoznačně identifikuje.
+    Tato signatura je následně uložena do databáze signatur, kterou antivirus používá při hledání hrozeb na koncové stanici.
+    Tato metoda ale není dokonalá, protože často není schopna odhalit tzv. polymorfní viry -- tedy viry, které za běhu mění části svého kódu a tím i svou signaturu.
+}.
+Pro sofistikované útoky ale typicky signatury nejsou v čase provádění útoku dostupné a tak je standardní bezpečnostní řešení nemohou rozpoznat.
+
+\subsection{Zero day útok}
+
+Mezi další těžko rozpoznatelné útoky patří kromě \texttt{APT} také tzv. \textit{Zero Day útoky}.
+Tyto útoky a hrozby se snaží využívat zranitelností v software (případně hardware, viz Meltdown a Spectre), které nejsou obecně známé nebo pro ně neexistuje obrana (např. aktualizace).
+
+Název vychází z podstaty zranitelnosti -- tedy že uživatel je výchozím zranitelném stavu (\textit{nultém dni}) až do doby, kdy je vydána oprava.
+V tomto stavu mohou být uživatelé dny, měsíce ale i roky v závislosti na rychlosti distribuce opravy.
+
+Stejně jako u APT ani k těmto útokům neexistuje do doby odhalení žádná signatura a jsou tedy pro bezpečnostní programy obvykle neviditelné.
+
+\subsection{Analýza chování sítě}
+
+Analýza chování sítě (\textit{Network Behavior Analysis}, zkr. \texttt{NBA}) navazuje na ostatní bezpečnostní řešení tam, kde jejich možnosti rozpoznání hrozeb končí.
+Dnešní podnikové sítě typicky obsahují ochrany jako je vynucování bezpečnostních politik pomocí \textit{firewallu} nebo systémy \texttt{IDS}\footnote{\texttt{IDS} -- Systém pro odhalení průniku do sítě. Na základě monitorování provozu detekuje aktivity vedoucí k průniku do sítě a zasahuje proti nim.} a \texttt{IPS}\footnote{\texttt{IPS} -- Systém prevence průniku. Jedná se o rozšíření systému \texttt{IDS}, oproti kterému je bezpečnostní zařízení instalováno in-line (v síťové cestě) díky čemuž může nebezpečí. aktivně předcházet.} automaticky blokující nežádoucí provoz.
+Ani kombinace těchto metod ale nedokáže blokovat veškeré možné nebezpečí.
+
+Těmto případům se \texttt{NBA} snaží předcházet detekováním anomálií v síťovém provozu.
+
+\subsubsection*{Princip NBA}
+
+Protože \texttt{NBA} hledá anomálie oproti standardnímu chování, je nejprve nutné toto chování definovat.
+Standardní chování určíme vychozím provozem v síti.
+Jinak řečeno, v první fázi zaznamenáváme chování uživatelů a zařízení v síti za běžných podmínek a vytváříme tzv. \textit{profil chování}.
+Během vytváření výchozího profilu si musíme být jisti, že provoz sítě opravdu odpovídá reálnému provozu, a že nejsou prováděny potencionálně nebezpečné operace (v opačném případě hrozí, že již existující hrozby nebudou nikdy odhaleny).
+Nástroje \texttt{NBA} následně detekují anomálie v chování, které by u běžných bezpečnostních opatření mohly zůstat bez povšimnutí.
+Útoko na síť mohou probíhat hodiny až dny, tato metoda navíc umožňuje určit, jaké všechny systémy byly napadeny (toto firewall ani systémy \texttt{IDS} ani \texttt{IPS} sami nezvládnou).
+
+Kromě samotné detekce tyto nástroje navíc anomálie seskupují a zmenšují tak množství informací, které bezpečnostní analytici musí zkoumat.
+U velkých společností \texttt{NBA} běžně detekuje mezi dvěma až třemi tisíci anomálií denně.
+Ty jsou ale seskupeny podle vzájemného propojení nebo vzoru chování.
+Analytici tak nemusí zkoumat nepřeberné množství incidentů a mohou se na útoky soutředit jako na celek.
+
+\subsubsection*{Nasazení NBA}
+
+Jak již bylo zmíněno, \texttt{NBA} je nadstavou nad analýzou síťových toků.
+Nasazení je tedy úzce spojeno s nasazením měření síťových toků.
+Jednou z možností je využití otevřeného protokolu NetFlow společnosti Cisco, který se stal standardem pro tuto problematiku.
+
+Architektura NetFlow se skládá z několika exporterů\footnote{NetFlow exportér -- zařízení zapojené na lince analyzující procházející pakety. Na základě IP toků generuje NetFlow statistiky, jejichž obsah je vidět na obrázku \ref{fig:flow-monitoring}.} a jednoho kolektoru\footnote{NetFlow kolektor -- zařízení s velkokapacitním uložištěm, které sbírá statistiky z exporterů a dlouhodobě je uchovává. Nad těmito daty následně probíhá analýza chování.}.
+Při nasazování rozlišujeme dva typy architektur: tradiční a moderní.
+
+\subsubsection*{Tradiční architektura}
+
+Tato architektura podle společnosti Cisco předpokládá na pozici exportérů směrovače.
+Ty tedy kromě svého standardního určení navíc počítají NetFlow statistiky.
+Tato architektura má však hned několik nevýhod.
+
+První nevýhodou je vysoká pořizovací cena.
+Standardní směrovače nepodporují funkce exportéru a je tedy nutné využít speciálních směrovačů, které jsou ale oproti standardním výrazně dražší.
+
+Další nevýhodou je snížení výkonu směrovače, který navíc musí počítat statistiky a odesílat je do kolektoru.
+To lze vyřešit snížením počtu analyzovaných paketů (např. pomocí vzorkování každého $n$-tého paketu).
+Vzrokováním ale snižujeme účinnost analytických nástrojů a tim i pravděpodobnost odhalení hrozby.
+Návrh této architektury je vidět na obrázku \ref{fig:netflow-standard-arch}.
+
+\img{netflow-standard-arch}{NetFlow -- Tradiční architektura}{netflow-standard-arch}
+
+\subsubsection*{Moderní architektura}
+
+Nedostatky tradiční architektury řeší moderní přidáním pasivní NetFlow sondy.
+NetFlow sonda je zařízení, specializující se na monitorování provozu a vytváření statistik.
+Procházející pakety jsou pouze monitorovány a sondou nejsou nijak upraveny.
+Oproti řešení tradiční architektury jsou sondy levné a narozdíl do směrovačů mohou být zapojeny do libovolného bodu v síti.
+
+Sonda přenáší exportované statistiky do kolekturu po samostatné lince, což je pro monitorovanou linku činí neviditelnými.
+
+Návrh moderní architektury je na obrázku \ref{fig:netflow-modern-arch}.
+
+\img{netflow-modern-arch}{NetFlow -- Moderní architektura}{netflow-modern-arch}
+
+\subsubsection*{Přínosy NBA}
+
+Tato sekce shrnuje přínosy behaviorální analýzy síťového provozu oproti standardním bezpečnostním opatřením.
+
+Díky analýze chování sítě lze na základě detekce anomálií odhalovat vnitřní i vnější útoky na síť.
+Dalším přínosem je objevování známého i neznámého malware v síti i přes neexistenci signatur pro takové hrozby.
+Z hlediska vnitřní firemní bezpečnosti je možné odhalovat i potencionálně nechtěné úniky citlivých dat ze společnosti.
+Taková data by mohli uživatelé vynést například na cloudová uložiště nebo jiná uložiště nespadající do infrastruktury společnosti.
+
+V neposlední řadě lze díky analýze paketů dohledávat a prokazovat provozní a bezpečnostní incidenty uvnitř společnosti.

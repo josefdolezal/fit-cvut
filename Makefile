@@ -24,5 +24,8 @@ fifil:
 miaph:
 	latexmk -pdf MI-APH/mi-aph
 
+miibe:
+	latexmk -pdf MI-IBE/mi-ibe
+
 clean:
 	latexmk -c

@@ -32,7 +32,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 ### Magisterské studium (2017-)
 * [Semestr 1](#msp-semestr-1-zs-201718) - MI-ADP, MI-MDW, FI-FIL, MI-PAA
 * [Semestr 2](#msp-semestr-2-ls-201718) - MI-AFP, MI-PDP, MI-SPI, MI-PSL
-* [Semestr 3](#msp-semestr-3-zs-201819) - MI-APH
+* [Semestr 3](#msp-semestr-3-zs-201819) - MI-APH, MI-IBE
 
 ### BSP Semestr 1 (ZS 2014/15)
 * [BI-CAO](BI-CAO/)
@@ -152,6 +152,8 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 * MI-APH
   * [Výpisky z prezentací](MI-APH)
   * Semestrální práce - Samostatný repozitář
+* MI-IBE
+  * [Semestrální práce - Behaviorální analýza síťového provozu](MI-IBE)
 
 
 ## Poznámka

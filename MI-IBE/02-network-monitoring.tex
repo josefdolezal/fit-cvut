@@ -1,0 +1,70 @@
+\section{Monitorování sítě}
+
+Jak již bylo zmíněno, behaviorální analýza je nadstavbou nad monitorováním datových toků.
+Monitorování datových toků meziúrovní monitorování počítačových sítí.
+Pod ní, na nejnižší úrovni, se nachází úroveň jednoduchého monitoringu pomocí Simple Network Management Protokolu (zkr. \textit{SNMP}).
+Na nejvyšší úrovnik se naopak nachází tzv. paketová analýza.
+
+\subsection{Simple Network Management Protocol}
+
+Protokol \texttt{SNMP} slouží k potřebám správy sítí a sběru dat.
+Sbíraná data jsou následně podrobována vyhodnocování.
+Porotokol rozlišuje dvě strany: monitorovaný (hlídaný systém) a monitorovací (sběrna dat).
+Na monitorovaném systému je nasazen \texttt{agent} (modul komunikující s monitorovacím systémem), který reaguje na požadavky monitorovacího systému nebo mu odesílá informace o významných událostech (\textit{SNMP Trap}).
+
+Na této úrovni se typicky zkoumá počet přenesených dat a počet paketů, které k tomu byly využity.
+Na základě nasbíraných informací umožňuje tento protokol vytvořit jednoduchý přehled využití sítě ale i zařízení v ní (např. využití CPU, RAM a disku nebo informace o selhání zařízení).
+Tento přístup ovšem neumožňuje získat detailní přehled o síti.
+
+\subsection{Monitorování datových toků}
+
+Chceme-li získat detailní přehled o dění v síti, musíme přistoupit k monitorování datových toků.
+Tok je definován jako množina IP paketů procházejících skrz monitorovací službu v určitý interval.
+Měření probíhájí na základě IP toků, kde se analyzují pouze hlavičky paketů (obsah paketů není analyzován ani uchováván).
+
+Tato technika je implementována například otevřeným protokolem NetFlow od společnosti Cisco.
+
+\img{flow-monitoring.png}{Monitorování datových toků}{flow-monitoring}
+
+Obrázek \ref{fig:flow-monitoring} zobrazuje průběh zachytávání paketů.
+Výsledkem analýzy toku paketů je:
+
+\begin{itemize}
+    \item zdrojová a cílová IP adresa,
+    \item zdrojový a cílový port,
+    \item protokol,
+    \item počet přenesných bajtů a paketů,
+    \item délka toku.
+\end{itemize}
+
+Zdrojem dat mohou být směrovače a přepínače, koncová zařízení nebo např. firewally.
+Nasbíraná data se ukládají do tzv. kolektorů.
+Ty následně umožňují k výsledkům přistupovat v reálném čase nebo k záznamům v historii.
+
+Tato technika pomáhá k efektivnímu řešení problémů v síti a ke zvýšení bezpečnosti.
+Lze díky ní rychle odhalit vnitřní (např. \textit{malware}), ale i vnější (např. \textit{DDOS}) útoky.
+
+Kromě bezpečnostního přehledu sítě je možné monitorování využít k dohledu nad využíváním internetu.
+Pomocí toků lze například zjistit, jestli uživatelé v síti uměle nenavyšují zátěž přistupováním k obsahu, který v danný okamžit nesouvisí s jejich náplní práce.
+
+Dalším využitím může být sledování dodržování \textit{Service-level agreement} dostupnosti sítě od dodavatele konektivity.
+
+V neposlední řadě je možné odhalit také špatnou konfiguraci aplikací uvnitř sítě.
+Ze síťového provozu lze totiž odhalit nadměrné využití sítě některou z aplikací či její připojování na části sítě, ke kterým by neměla mít přístup.
+
+\subsection{Paketová analýza}
+
+Kromě analýzy samotných hlaviček paketů je možné zkoumat také jejich obsah.
+Tato technika se nazývá \textit{paketová analýza}.
+Odchytávání paketů se provádí pomocí \textit{síťových analyzátorů} -- to může být počítačový program, ale i specializovaný hardware.
+Analyzátor zachytává pakety v celé síti nebo její podsíti.
+
+\subsubsection*{Nevýhody paketové analýzy}
+Přesto, že paketová analýza může poskytnout detailnější informace o síťovém provozu, má oproti monitorování datových toků několik nevýhod.
+
+První nevýhodou je časová náročnost.
+Dekódovat spolu s hlavičkami i obsah paketů je časově i paměťově náročnější a tedy se neprovádí nepřetržitě.
+Analýza se typicky provádí pouze v konkrétní čas na konkrétním vzorku komunikace.
+
+Druhou nevýhodou může být riziko právních problémů.
+Komunikace může obsahovat osobní údaje, které bez souhlasu uživatele není možné zpracovávat a tedy je nelze zkoumat ani při síťové analýze.
