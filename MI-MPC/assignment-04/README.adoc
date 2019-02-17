@@ -1,0 +1,129 @@
+= Domácí úloha č. IV.
+Josef Doležal <dolezjo3@fit.cvut.cz>
+:imagesdir: assets
+:sourcedir: MapKeyModification
+:xrefstyle: short
+
+== Úvod
+
+Tato zpráva se zabývá porovnáním implementace změny klíče a sloučení dvou `std::map` ve standardech `C{plus}{plus}14` a `C{plus}{plus}17`.
+Obsahem zprávy je rozbor efektivity obou implementací.
+Ukázková implementace se nachází v souboru link:MapKeyModification/main.cpp[].
+Testovací program byl kompilován a testován v online překladači link:https://wandbox.org[Wandbox] ve verzi `gcc 9.0.0` se standardní knihovnou `libstdc++ (GNU)`.
+
+== Implementace
+
+V této sekci se zabývám porovnáním a rozborem implementací ve dvou zmíněných standardech.
+V implementaci je uvažován kontejner `std::map<int, X>`, tedy mapa s klíči typu `int` a hodnotami typu `X`.
+Struktura `X` může zastupovat libovolný objekt, tedy i takový jehož alokace může trvat netriviální čas a vytváření nepotřebných kopií je tak nežádoucí.
+Ukázková implementace uvažuje jako `X` strukturu s jednou členskou proměnnou typu `double`, u které sledujeme typy a počet volání konstruktorů.
+
+Kód implementace je rozdělen do dvou jmenných prostorů.
+Popisovaná implementace je dostupná link:https://wandbox.org/permlink/zSda447qkFiUedce[online na stránkách Wandbox].
+
+=== Standard C{plus}{plus}14
+
+Struktura `std::map` je implementována pomocí stromu.
+Klíče jsou neměnné -- po vložení páru klíč-hodnota není klíč možné upravit.
+Je-li potřeba změnit existující klíč, pak je nutné prvek odebrat a znovu vložit s novým klíčem.
+
+Tato posloupnost operací ale není optimální kvůli nadměrnému vytváření kopií prvků.
+Následující část popisuje alokaci objektů z ukázkové implementace.
+
+.main.cpp
+[source,c++]
+----
+std::map<int, X> m1 = {{1, 1.0}, {-1, 2.0}, {3, 3.0}}; // <1>
+std::map<int, X> m2 = {{4, 4.0}, {5, 5.0}};
+----
+
+<1> Pro vytvoření kontejneru je využit zkrácený zápis, během kterého dojde k volání konvertujícího konstruktoru (inicializace třídy `X` literálem `double`).
+Po inicializaci dochází k překopírování párů v rámci inicializace kontejneru a volání kopírujícího konstruktoru třídy `X`.
+Nejprve je tedy třikrát volán konvertující konstruktor třídy `X`, následně tříkrát kopírující.
+Obdobně funguje inicializace druhého kontejneru kde ale dochází k inicializaci pouze dvou uzlů.
+
+V další ukázce kódu je vidět úprava klíče metodou vyjmutí a vložení nového.
+
+.main.cpp
+[source,c++]
+----
+m1.erase(m1.find(-1)); <2>
+m1.emplace(2, 2.0); <1>
+----
+
+<1> Pomocí funkce `erase` je uzel z kontejneru odebrán.
+Tato funkce nemá návratovou hodnotu a proto zde nedochází k volání žádného konstruktoru třídy `X`.
+<2> Funkce `emplace` vytáří objekt in-place, nedochází tak nadbytečnému volání přesouvacího nebo konvertujícího konstruktoru.
+Zde je tedy volán pouze konvertující konstruktor třídy `X` pro převod literálu.
+
+Poslední část kódu znázorňuje sloučení dvou struktur `map` do jedné.
+
+.main.cpp
+[source,c++]
+----
+m1.insert(
+    std::make_move_iterator(m2.begin()),
+    std::make_move_iterator(m2.end())
+); // <1>
+----
+
+<1> V případě sloučení kontejnerů pomocí funkce `insert` za využití přesouvacích iterátorů jsou v původním kontejneru vytvořeny nové uzly, ale jejich hodnoty jsou přesunuty -- dochází k volání přesouvacího konstruktoru (přesouvány jsou dva prvky, konstruktor je volán pro oba).
+
+=== Standard C{plus}{plus}17
+
+Ve standardu C{plus}{plus}17 jsou nově přidány členské funkce `extract` pro vyjmutí uzlu a `merge` pro sjednocení `map` struktur.
+
+Funkce `extract` nám umožňuje z `map` vyjmout ukazatel (`node_handle`) na uzel s daným klíčem.
+Extrakcí uzlu dojde k invalidaci jeho iterátoru, reference a ukazatele na něj zůstávají validní.
+Nesmí ale být použity dokud `node_handle` spravuje ukazatel na hodnotu uzlu.
+Při použití této funkce nedochází ke kopírování ani přesouvání původní hodnoty (není volán žádný konstruktor).
+
+Nová funkce `merge` umožňující sloučení pracuje pouze s interními ukazately na uzly.
+Při sloučení jsou tyto ukazatele jen přesunuty a nedochází ke kopírování ani přesunu uzlů (opět se nevolá žádný konstruktor).
+Ukazatele na uzly zůstávají po sloučení platné.
+
+V náledující části práce rozebírá implementaci za použití nových funkcí.
+
+.main.cpp
+[source,c++]
+----
+std::map<int, X> m1 = {{1, 1.0}, {-1, 2.0}, {3, 3.0}}; // <1>
+std::map<int, X> m2 = {{4, 4.0}, {5, 5.0}};
+----
+
+<1> Alokace probíhá stejným způsobem jako při alokaci v C{plus}{plus}14, tedy pětkrát volání konvertujícího a kopírujícího konstruktoru.
+
+Další část znázorňuje úpravu klíče uzlu s použitím funkce `extract`.
+
+.main.cpp
+[source,c++]
+----
+auto handle = m1.extract(-1); // <1>
+handle.key() = 2;
+m1.insert(std::move(handle)); // <2>
+----
+
+<1> Pomocí funkce `extract` jsme z kontejneru dostali `node_handle` uzlu, který drží ukazatel na hodnotu uzlu, nedochází tedy k volání žádného konstruktoru hodnoty `X`.
+<2> Po úpravě klíče využíváme nově dostupné přetížení `insert`, které jako parametr dostává `node_handle`.
+Zde opět nedochází ke kopírování ani přesouvání hodnoty, při vložení se využívá interního ukazatele na hodnotu.
+Podle standardu C{plus}{plus} je toto jediná podporovaná možnost změny klíče bez využití dodatečné inicializace.
+
+V poslední části je ukázka sloučení dvou `map` struktur pomocí nové funkce `merge`.
+
+.main.cpp
+[source,c++]
+----
+m1.merge(m2); // <1>
+----
+
+<1> Jak již bylo řečeno v úvodu, sloučení probíhá přesunem interních ukazatelů na hodnoty a není tedy potřeba volat žádný dodatečný konstruktor.
+
+Při zvolení této implementace jsou konstruktory volány jen při inicializaci kontejneru, pro následné práce s ním k žádné dodatečné alokaci nedošlo.
+
+== Závěr
+
+Nové možnosti standardu C{plus}{plus}17 nám dávají větší kontrolu nad tím, jak pracovat s využitou pamětí při modifikaci kontejneru `std::map`.
+Díky novým funkcím `extract`, `merge` a přetížení `insert` můžeme dosáhnout vyšší efektivity, rozhraní je modernější a lépe čitelné.
+
+Při slučování kontejnerů je nová implementace efektivnější o `m` kroků (`m` je počet unikátních klíčů v kontejneru `m2` oproti `m1`), což s rostoucím počtem může hrát v efektivitě programu významnou roli.
+Novinky standardu C{plus}{plus}17 jsou tedy vítanou změnou.

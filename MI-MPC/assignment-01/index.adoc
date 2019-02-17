@@ -1,0 +1,148 @@
+= Šablona pro závěrečnou zprávu z domácí úlohy č. I.
+Josef Doležal <dolezjo3@fit.cvut.cz>
+:imagesdir: assets
+:xrefstyle: short
+
+== Úvod
+
+Tato zpráva se zabývá porovnáním časové složitosti potřebné k alokaci paměti objektu třídy `String` v jazyce C{plus}{plus}.
+Zpráva obsahuje porovnání implementace bez optimalizace (vždy dynamické alokování - `String`), s optimalizací pomocí alokování statického bufferu pro krátké řetězce (`sso_buf::String`) a optimalizace pomocí přetypování ukazatele (`sso_tp::String`). Všechny tyto implementace jsou navíc porovnány s implementací ze standardní knihovny C{plus}{plus} `std:string`.
+
+== Popis měření
+
+Měření bylo provedeno pomocí knihovny Google Benchmark, konkrétně v online nástroji http://quick-bench.com/[Quick C++ Benchmark].
+Kvůli využití optimalizační techniky SSO (_Small String Optimization_) je test rozdělen na dvě části:
+
+. test alokace pro krátké řetězce,
+. test alokace pro dlouhé řetězce (o délce více než 23 znaků).
+
+Pro obě tyto části je test proveden na kompilátorech clang-6.0 a gcc-8.2.
+Každý z testů pak navíc pro dvě úrovně optimalizace (`-O3` a `-O2`).
+
+Každý z testů má formát:
+
+[source,c++]
+----
+static void ShortSSOBuf(benchmark::State& state) {
+  for (auto _ : state) {
+    sso_buf::String s(sshort.c_str());
+    benchmark::DoNotOptimize(s);
+  }
+}
+----
+
+Měrění je prováděno pro každou instanci testu opakovaně, výsledný čas je tak časem průměrným.
+
+=== Měření alokace krátkých řetězců
+
+V této části se práce zabývá zkoumáním časové náročnosti alokace pro krátký řetězec `josef`, který optimalizované implementace mohou alokovat na zásobník.
+Dá se očekávat, že implementace s dynamickou alokací bude časově náročnější vzhledem režii spojené s touto alokací.
+Ilustrace <<short-clang>> zobrazuje test při využití kompilátoru clang-6.0.
+
+[#short-clang] 
+.Alokace krátkých řetězců - clang-6.0 
+image::short-clang.png[width="70%",align="center"]
+
+Podle očekávání je implementace s dynamickou alokací řádově pomalejší (oproti implementaci standardní knihovny více než pětkrát).
+Ostatní implementace mají díky technice _SSO_ přibližně stejný výsledek.
+
+Zajímavým pozorováním je porovnání času při různých úrovních optimalizace.
+Zde proti očekávání je program s optimalizací `-O3` nepatrně pomalejší pro některé implementace.
+
+[#short-gcc] 
+.Alokace krátkých řetězců - gcc-8.2
+image::short-gcc.png[width="70%",align="center"]
+
+Graf <<short-gcc>> ukazuje podobný trend výsledků jako <<short-clang>>.
+I zde je dynamická alokace výrazně časově náročnější než využití zásobníku.
+V porovnání úrovní optimalizace je možné pozorovat nepatrné zlepšení pro implementaci standardní knihovny, zbylé mají s vyšší úrovní časy nepatrně horší.
+
+Souhrnné informace o měření s odkazy na výsledky testů jsou obsaženy v tabulce <<short-table>>.
+
+[#short-table]
+.Měření (Krátké řetězce)
+|===
+| Kompilátor | Implementace | Optimalizace | Měření
+
+| clang-6.0
+| libc++
+| O2
+| http://quick-bench.com/-aMIbon79qAILOPqOYY7EgSyQ88
+
+| gcc-8.2
+| libstdc++
+| O2
+| http://quick-bench.com/7JvqJGDvSjUi0D4kD8eOx-8Nw-o
+
+| clang-6.0
+| libc++
+| O3
+| http://quick-bench.com/M3SXOjmwVz6rAc7Q5wGd5SjfJ3Q
+
+| gcc-8.2
+| libstdc++
+| O3
+| http://quick-bench.com/jGmIkaSK-CR6ze6uGrx4qem_mTM
+|===
+
+=== Měření alokace dlouhých řetězců
+
+Pro zkoumání časové náročnosti alokace dlouhých řetězců byl vybrán řetězec `Long string containing at least 23 chars`, který obsahuje více než 23 znaků a žádná z implementací tedy nevyužije optimalizaci.
+Zde lze očekávat, že implementace bez optimalizace bude konkurovat zbylým, vzhledem ke své jednoduchosti by dokonce mohla mít časovou složitost nejnižší.
+
+[#long-clang] 
+.Alokace dlouhých řetězců - clang-6.0
+image::long-clang.png[width="70%",align="center"]
+
+Graf <<long-clang>> potvrzuje prvotní hypotézu o snížení rozdílů mezi jednotlivými implementacemi.
+Za zmínku stojí také vyšší časová náročnost implementace ze standardní knihovny.
+Tu si lze vysvětlit tak, že tato implementace jako jedinná splňuje standard C{plus}{plus}, oproti zbylým například umožňuje délku textu zjistit s časovou složitostí `O(1)` (zbylé `O(n)` pro řetězce délky `n`).
+
+[#long-gcc] 
+.Alokace dlouhých řetězců - gcc-8.2
+image::long-gcc.png[width="70%",align="center"]
+
+Měření znázorněné v <<long-gcc>> potvrzuje správnost výsledků měření s kompilátorem clang.
+I zde se časová složitost tří implementovaných možností sjednotila.
+Časová náročnost standardní implementace opět skončila nejhůře a lze tak usuzovat, že režie nutná k dodržení nutných standardů je netriviální.
+Z grafu lze opět vidět rozdíl mezi optimalizacemi kompilátoru.
+V tomto případě dosahuje optimalizace `-O2` téměř dvakrát lepších výsledků.
+
+Dodatečné informace s odkazy na měření se nachází v tabulce <<long-table>>.
+
+[#long-table]
+.Měření (Dlouhé řetězce)
+|===
+| Kompilátor | Implementace | Optimalizace | Měření
+
+| clang-6.0
+| libc++
+| O2
+| http://quick-bench.com/BaQ3evx7DFaXw7LEzsFzC8FUxYY
+
+| gcc-8.2
+| libstdc++
+| O2
+| http://quick-bench.com/C66QZLLK7Z2mzsbWR4vN64T35dM
+
+| clang-6.0
+| libc++
+| O3
+| http://quick-bench.com/vYwW5aJ3pJ6m69M5UHXrV7TXV4M
+
+| gcc-8.2
+| libstdc++
+| O3
+| http://quick-bench.com/Lb61d7GWk9wcnUqBt6F-o_8z9Xw
+|===
+
+== Závěr
+
+Výsledky měření potvrzují původní hypotézu, tedy že pro krátké řetězce je implementace využívající dynamickou alokaci pomalejší.
+To potvrzuje známý fakt, že alokace paměti na zásobníku je efektivnější a má nižší časovou složitost.
+Dynamická alokace naopak umožňuje alokovat paměť za běhu programu tak, jak je v daný moment potřeba.
+
+Z toho vyplývá, že nelze obecně určit, zda se vždy vyplatí tyto optimalizace zavádět.
+Budeme-li vždy pracovat pouze s dlouhými řetězci, pak _SSO_ optimalizace nepřináší žádné výhody a naopak díky vyšší režii může být neefektivní.
+Dále je nutné podotknout, že měření se zabývalo pouze konstruováním oběktu, nikoliv práce s ním.
+Zde opět může jednoduchá implementace být efektivnější vzhledem k nižší režii při přístupu k samotným datům.

@@ -32,7 +32,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 ### Magisterské studium (2017-)
 * [Semestr 1](#msp-semestr-1-zs-201718) - MI-ADP, MI-MDW, FI-FIL, MI-PAA
 * [Semestr 2](#msp-semestr-2-ls-201718) - MI-AFP, MI-PDP, MI-SPI, MI-PSL
-* [Semestr 3](#msp-semestr-3-zs-201819) - MI-APH, MI-IBE
+* [Semestr 3](#msp-semestr-3-zs-201819) - MI-APH, MI-IBE, MI-MPC
 
 ### BSP Semestr 1 (ZS 2014/15)
 * [BI-CAO](BI-CAO/)
@@ -154,7 +154,12 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
   * Semestrální práce - Samostatný repozitář
 * MI-IBE
   * [Semestrální práce - Behaviorální analýza síťového provozu](MI-IBE)
-
+* MI-PCM
+  * [Domácí úloha 1 - Efektivita SSO](MI-MPC/assignment-01)
+  * [Domácí úloha 2 - Pointer to implementation (PIMPL)](MI-MPC/assignment-02)
+  * [Domácí úloha 3 - Variadické šablony](MI-MPC/assignment-03)
+  * [Domácí úloha 4 - std::map v C++17](MI-MPC/assignment-04)
+  * [Semestrální prezentace - Futures v C++20](MI-MPC/presentation)
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
