@@ -1,0 +1,40 @@
+\documentclass[czech]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[IL2]{fontenc}
+\usepackage[czech]{babel}
+\usepackage[a4paper,textheight=674pt]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{float}
+
+\newcommand{\img}[4]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#4\textwidth]{MI-REV/notes/assets/#1}
+        \caption{#2}
+        \label{fig:#3}
+    \end{figure}
+}
+
+\author{Josef Doležal}
+\date{\today}
+\title{MI-REV -- Výpisky z přednášek}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\input{MI-REV/notes/01-introduction}
+\input{MI-REV/notes/02-cfg}
+\input{MI-REV/notes/03-structs-classes}
+\input{MI-REV/notes/04-disassembling-obfuscation}
+\input{MI-REV/notes/05-compilers-recognition}
+\input{MI-REV/notes/06-debugging-antidebugging}
+\input{MI-REV/notes/07-malware}
+
+\end{document}

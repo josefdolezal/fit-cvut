@@ -1,0 +1,41 @@
+\section{Přednáška 3 -- Struktury a třídy}
+
+Struktury a třídy jsou v C++ ekvivalentní.
+Jediným rozdílem jsou přístupové modifikátory -- \texttt{struct} používá jako výchozí veřejné rozhraní, \texttt{class} používá privátní.
+
+Jednotlivé členské proměnné funkce jsou vždy uloženy za sebou s použitím zarovnání definovaným ABI.
+
+\subsection*{Alokace struktur}
+
+Alokovat můžeme např. pomocí \texttt{malloc}, pak jako návratovou hodnotu dostaneme a manuálně je následně potřeba k ukazateli doalokovat proměnné.
+
+Při konstrukci pomocí operátoru \texttt{new} je volání podobné, místo manuálního přiřazení proměnných se volá konstruktor (ukazatel na \texttt{this} je předán pomocí registru/parametru).
+
+\subsection*{Dědičnost}
+
+Při dědičnosti objektu je v paměti rozložen objekt tak, že nejdříve jsou vloženy nadtřídy až pak samotná třída.
+
+Obsahuje-li datový typ i virtuální metody, \textbf{musí} také obsahovat virtuální tabulku metod (VMT).
+Ukazatel \texttt{this} ukazuje na VMT (pokud existuje).
+Všechny metody jsou pak volány výhradně přes VMT.
+Uspořádání v paměti: VMT, data, VMT2, data2, \dots
+
+Třída má VMT i pokud je abstraktní (a obsahuje virtuální metody).
+VMT je přiřazována v konstruktoru.
+
+Díky VMT můžeme zjistit některé informace:
+
+\begin{itemize}
+    \item použít ukazatel na VMT ke zjištění, jestli je objekt nějakého typu,
+    \item nalézt vícenasobnou dědičnost,
+    \item pomocí VMT nalézt jaký kód patří k danému objektu.
+\end{itemize}
+
+\subsection*{Complete Object Locator}
+
+Nezdokumentovaná struktura nacházející se před VMT.
+Obsahuje (mimo jiné) \texttt{TypeDescriptor}, který má v sobě ukazatel na VMT, a \textit{mangled} název type -- lze použít k ověření dědičnosti.
+Dále obsahuje \texttt{ClassHierarchyDescriptor}, ta obsahuje počet \textit{baseclass} a pole \texttt{BaseClassArray}, kde každý prvek je \texttt{BaseClassDescriptor} (obsahuje podobné informace jako COL).
+
+Díky COL se dá zjistit jméno třídy a hierarchie tříd.
+Je ale nutné mít zapnutou podporu RTTI.

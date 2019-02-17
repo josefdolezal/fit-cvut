@@ -1,0 +1,48 @@
+= Semestrální práce č. 2
+Josef Doležal <dolezjo3@fit.cvut.cz>
+:imagesdir: assets
+:xrefstyle: short
+
+== Heslo 1
+
+Podle nápovědy je první heslo statické.
+Program jsem tedy otevřel v nástroji IDA kde jsem ve funkci `DialogFunc` vyhledal odchycení stisknutí tlačítka OK.
+Část kódu spuštěná tlačítkem načte text z textového pole, porovná ho voláním funkce `lstrcmpA` s referenčním řetězcem a pokud jsou stejné, zobrazí dialog s ohlášením úspěchu.
+Referenční řetězec je přímo uložen v datové části programu a má hodnotu `First day of July 2019`.
+
+Aby bylo možné heslo zadat do vstupního pole (ve výchozím stavu je nastaveno jako `WS_DISABLED`), použil jsem nástroj Resource Hacker a kód formuláře v něm upravil.
+Pro další analýzu ale používám patchovaný binární soubor kde je upravena podmínka kontroly textu tak, aby za úspěšné heslo bylo považované takové, které se neshoduje s referenčním (a nemusel jsem ho tak zadávat).
+
+Vstup textu jde povolit i pomocí v runtimu pomocí stisknutí kláves [F] + [I] + [T], které se kontrolují v samostatném vlákně.
+
+== Heslo 2
+
+Heslo 2 podle nápovědy vyžaduje rozbalení do paměti.
+Ihned po zadání správného hesla 1 program zobrazí dialog a následně se snaží načíst resource nazvaný LANG.
+Program jsem tedy opět otevřel v programu Resource Hacker, jedním z resourců (pojmenovaný LANG) byla skutečně binární data a z jejich ASCII struktury jsem odhadl, že jde o program s heslem dva.
+Pomocí Resource Hackeru jsem data vyexportoval jako nový spustitelný soubor (z dat se zdálo, že se jedná o kompletní program, včetně DOS/PE hlaviček).
+
+Před spuštěním jsem nejdříve pomocí CFF explorer vypl ASLR.
+Následně jsem ho otevřel v IDA.
+Protože je obfuskovaný, není funkce obstarávající dialog v seznamu funkcí, pomocí okna `Strings` jsem našel řetěze `Success`, u kterého jsem předpokládal, že bude použit z obsluhy stisknutého tlačítka při správně zadaném hesle.
+Z programu jsem odstranil obfuskace skoku doprostřed následující instrukce, CFG ale stále nešel sestavit, po odstranění obfuskace maskováním skoku za `call` už to ale šlo.
+
+V `DialogFunc` jsem identifikoval 4 funkce, které jsem zkoumal: první na vyčištění naalokované paměti, druhá připraví pomocí uložené hodnoty paměť, se kterou se bude XORovat vstup pro kontrolu.
+Zde jsem si pro každý znak zaznamenal s jakou hodnotou probíhá XOR.
+V další funkce pak XOR nad vstupem vykoná.
+
+Tyto dvě funkce blízce připomínají šifrovací algoritmus RC4.
+První funkce připraví stav pomocí statického klíče (nejprve vytvoří identickou permutaci, následně dochází k zamíchání pole klíčem) -- _key shceduling_.
+Funkce následně udržuje dva indexy `i` a `j` a prohazuje prvky na pozicí `stav[i]` a `stav[j]`.
+Druhá z funkcí je pak samotné šifrování -- tedy zašifrování vstupu pomocí vytvořeného stavu RC4.
+Při popisu jsem částečně vycházel z PDF [Crypto 101](https://www.crypto101.io/Crypto101.pdf).
+
+Následující kontroluje shodu s hodnotou definovanou v programu.
+Požadavek na délku hesla (počet načtených znaků ze vstupu) je 21.
+Kontrola probíhá pomocí `switch` kde je nutné vyhledat správný case (ten se hledá podle délky vstupu).
+Následně probíhá kontrola XOR hodnoty vstupu s referenční hodnotou po 4B.
+Protože víme s čím se XORoval vstup, použijeme nyní opačnou operaci -- XORujeme referenční hodnotu a tím získáme očekávaný vstup, to uděláme pro všech 21 znaků.
+
+Výsledné heslo je `VVp1938zjZMfcuVYdb8Z`.
+
+Po uhádnutí hesla program rozbalí další část do souboru `Stage3.exe`.

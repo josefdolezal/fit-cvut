@@ -1,0 +1,102 @@
+\section{Přednáška 1 -- Úvod do RE}
+
+Zabývá se procesem analýzy předmětného systému k vytvoření systému na vyšší úrovni abstrakce.
+Zkoumá softwarový produkt jak funguje:
+
+\begin{itemize}
+    \item za účelem zjištění použitých algoritmů, metod, souborvých formátů a protokolů,
+    \item za účelem nalezení zranitelnosti,
+    \item návrh konkurenčního software,
+    \item za účelem spolupráce (interakce) s programem,
+    \item za účelem rozhodnutí o škodlivosti.
+\end{itemize}
+
+Při kompilaci (zdrojový kód \(\rightarrow\) objektový kód $\rightarrow$ spustitelný kód) dochází ke ztrátě imformací (komentáře, oddělené soubory, oddělené knihovny, debug informace, \dots).
+Převést strojový kód zpět na zdrojový je nemožné, lze se ale přiblížit.
+
+Program můžeme reonstruovat dvěma způsoby:
+
+\begin{description}
+    \item[Disassemblování] Převod do assembleru cílového procesoru. Velké množství kódu, zpravidla nutnost převodu do vyššího jazyka. Může být komplikováno díky obfuskacím.
+    \item[Dekompilace] Převod do spustitelného kódu vyššího jazyka (C++, Ptyhon, \dots). Není zaručená správnost, proces komplikován packery, obfuskací. 
+\end{description}
+
+\subsection*{Analýza mrtvého kódu}
+
+Provádí se na neběžícím spustitelném kódu s cílem prostudovat chování programu.
+Prováděna pomocí disassembleru.
+Snaha kód co nejvíce zmenšit před manuální analýzou (extrahování informací -- třídy, řetězce, RTTI, výjimky, volání std API, \dots).
+
+\subsection*{Analýza živého kódu}
+
+Prováděna na běžícím kódu s cílem zdokumentovat ho.
+Typicky se provádí pomocí debuggeru.
+
+Pomocí debuggeru je možné nastavit breakpointy, watchpointy a sledovat hodnoty registrů.
+Program se ale může bránit pomocí zabijáckých vláken, detekce debuggeru nebo odmítnutí připojení.
+
+\subsection*{ABI}
+
+\textit{Application Binary Interface} (volací konvence) -- standard chování programu na cílové platformě aby byl kompatibilní s OS a binárním kódem jiných výrobců.
+Jedná se o standard předávání argumentů, zarovnání dat na zásobníku, používání registrů, zpracování výjimek, identifikace typů pomocí RTTI, \dots
+
+\subsection*{Name Mangling}
+
+Dekorování funkcí/operátorů/metod v jazycích, které podporují jejich přetěžování.
+Dekorace obsahuje jméno symbolu, jmenné prostory, \texttt{const}, 
+
+\subsection*{Prolog}
+
+Prvních několik instrukcí každé funkce, vytváří rámec, alokuje lokální proměnné, zajistí zarovnání zásobníku a zálohuje registry, které se nesmí změnit.
+Při vstupu do funkce je na zásobník uložena návratová adresa (ukazuje na ni ESP registr).
+Následuje prolog.
+
+Struktura zásobníku je při adresaci:
+\begin{description}
+    \item[EBP-1..] Odkazuje na lokální proměnné,
+    \item[EBP+0..EBP+3] Odkazuje na hodnotu EBP,
+    \item[EBP+4..EBP+7] Odkazuje na návratovou hodnotu,
+    \item[EBP+8..] Okazuje na argumenty funkce.    
+\end{description}
+
+\subsubsection*{Kanárek}
+
+Náhodně generované slovo (pro program nebo každou funkci zlvášť), které je při návratu z funkce kontrolováno proti změnám.
+Zamezuje se tak manipulaci se stackem pomocí nečekaného vstupu.
+Kontroluje se pomocí instrukce XOR: \texttt{xor [ebp-4], ebp}.
+Vkládá se pomocí \texttt{xor [security\_cookie], ebp; mov [ebp-4], [security\_cookie]}.
+
+\subsection*{Epilog}
+
+Poslední instrukce před příkazem \texttt{ret}.
+Ruší rámec zásobníku a kontrolují \uv{kanárka}.
+
+\subsection*{Strukturovaná obsluha výjimek}
+
+Pokud dojde k výjimce na systémové úrovni (dělení nulou, dereference \texttt{NULL}) je zavolán handler.
+Má strukturu:
+
+\begin{itemize}
+    \item registrace předchozí výjimky: \texttt{* prev},
+    \item ukazatel na handler (funkci): \texttt{handler}.
+\end{itemize}
+
+Na první výjimku odkazuje registr FS (FS:[0]).
+Pokud tento handler neumí výjimku obsloužit, přechází na další pomocí ukazatele \texttt{prev} dokud nějaký výjimku nezpracuje.
+Pokud na žádný nenarazí použije OS svůj, kterým program ukončí nebo připojí debugger.
+
+\img{seh-install.png}{Standardní instalace výjimek}{seh-install}{1}
+\img{seh-uninstall.png}{Standardní odstranění výjimek}{seh-uninstall}{1}
+
+Funkce zpracovávající výjimky bere argumenty:
+
+\begin{description}
+    \item[ExceptionRecord] informace o výjimce (např. stavový kód),
+    \item[EstablisherFrame] odkazuje na registraci výjimky v rámci kde nastala,
+    \item[ContextRecord] stav vlákna.
+\end{description}
+
+Po obsluze se řetězec prochází znovu a dochází k čištění zásobníku všech rámců, kde nebyla výjimka odchycena.
+
+Útočník může přepsat handler instalované obsluhy a vyvolat výjimku.
+Tím docílí spuštění svého kódu.

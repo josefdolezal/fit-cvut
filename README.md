@@ -17,6 +17,7 @@ K těmto předmětům jsem vytvořil výpisky z prezentací, případně další
 * [MI-SPI - Statistika pro informatiku](MI-SPI) - LS 2017/18
 * [MI-APH - Architektura počítačových her](MI-APH) - ZS 2018/19
 * [MI-PDB - Pokročilé databázové systémy](MI-PDB) - ZS 2018/19
+* [MI-REV - Reverzní inženýrství](MI-REV/notes) - ZS 2018/19
 
 Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.com/josefdolezal/fit-cvut/releases).
 
@@ -33,7 +34,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 ### Magisterské studium (2017-)
 * [Semestr 1](#msp-semestr-1-zs-201718) - MI-ADP, MI-MDW, FI-FIL, MI-PAA
 * [Semestr 2](#msp-semestr-2-ls-201718) - MI-AFP, MI-PDP, MI-SPI, MI-PSL
-* [Semestr 3](#msp-semestr-3-zs-201819) - MI-APH, MI-IBE, MI-MPC, MI-PDB
+* [Semestr 3](#msp-semestr-3-zs-201819) - MI-APH, MI-IBE, MI-MPC, MI-PDB, MI-REV
 
 ### BSP Semestr 1 (ZS 2014/15)
 * [BI-CAO](BI-CAO/)
@@ -163,6 +164,12 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
   * [Semestrální prezentace - Futures v C++20](MI-MPC/presentation)
 * MI-PDB
   * [Výpisky z prezentací](MI-PDB)
+* MI-REV
+  * [Domácí úloha 1 - Konfigurace programu](MI-REV/assignment-01)
+  * [Domácí úloha 2 - Dynamické nahrazení paměťových funkcí](MI-REV/assignment-02)
+  * [Domácí úloha 3 - Hierarchie tříd](MI-REV/assignment-03)
+  * [Semestrální práce 2 - Hesla](semester-project-02)
+  * [Výpisky z prezentací](MI-REV/notes)
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.

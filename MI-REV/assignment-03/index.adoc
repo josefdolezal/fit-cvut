@@ -1,0 +1,148 @@
+= Domácí úloha č. 3
+Josef Doležal <dolezjo3@fit.cvut.cz>
+:imagesdir: assets
+:xrefstyle: short
+
+== Komentář
+
+Při hledání konstruktorů jsem vycházel z `RTTI_TypeDescriptor` struktury, která obsahuje název třídy.
+Pomocí referencí jsem dohledal `Complete_object_locator` a následně i VMT.
+
+Konstruktory jsou ve všech případech inline spolu s voláním konstrukoru nadtřídy (opět pokaždé `CUnknown`).
+Jako adresu konstruktoru jsem označil adresu funkce, ve které probíhá inicializace proměnných a přiřazení obou VMT (vlastní a nadtřídy).
+
+Kromě těchto označených konstruktorů se pro každou třídu přidává VMT ještě v rámci jiných funkcí, tyto funkce jsou ale členské funkce těchto tříd a na první pohled mají jinou strukturu a spíše nepřipomínají konstruktory.
+Při porovnávání konstruktorů je navíc podezřelé, že každý inicializuje jiný počet členských proměnných.
+V rámci těchto funkcí navíc dochází k uvolňování paměti z čehož lze usuzovat, že toto volání není standardním konstruktorem ale spíše destruktorem.
+
+Pro třídy začínající prefixem `I` se mi nepodařilo dohledat `Complete_object_locator` a tím pádem ani VMT, z toho důvodu jsem označil jejich počet virtuálních metod jako nulový.
+
+== Tasklist
+
+* [x] Konstruktory, přiřazení VMT
+* [x] Počet virtuálních metod každé třídy
+* [x] Názvy tříd, přiřazení VMT třídám
+* [x] Hierarchie tříd
+* [ ] (_Bonus_) Počet životů je 1000
+
+== Řešení
+
+=== Rozložení tříd
+
+[cols="h,d,d,,d"]
+|===
+| | VMT |Complete Object Locator |Type Descriptor | Base Classes
+
+|CUnknown
+|`0x4147A4`
+|`0x414D9C`
+|`0x41724C`
+|`IUnknown`
+
+|CZizala
+|`0x414570`
+|`0x414BD8`
+|`0x417234`
+|`IZizala`, `CUnknown`, `IUnknown`
+
+|IZizala
+|N/A
+|N/A
+|`0x41724C`
+|`CUnknown`, `IUnknown`
+
+|CZizalaApp
+|`0x4145F8`
+|`0x414C68`
+|`0x417294`
+|`IZizalaApp`, `CUnknown`, `IUnknown`
+
+|IZizalaApp
+|N/A
+|N/A
+|`0x4172B0`
+|`CUnknown`, `IUnknown`
+
+|CZizaliWindow
+|`0x414678`
+|`0x414CF8`
+|`0x4172CC`
+|`IZizaliWindow`, `CUnknown`, `IUnknown`
+
+|IZizaliWindow
+|N/A
+|N/A
+|`0x4172E8`
+|`CUnknown`, `IUnknown`
+
+|CObrazovka
+|`0x4146A4`
+|`0x414D88`
+|`0x417304`
+|`IObrazovka`, `CUnknown`, `IUnknown`
+
+|IObrazovka
+|N/A
+|N/A
+|`0x417320`
+|`CUnknown`, `IUnknown`
+|===
+
+=== Virtuální metody
+
+|===
+|Třída | Počet virtuálních metod
+
+|CUnknown
+|4
+
+|CZizala
+|14
+
+|IZizala
+|0
+
+|CZizalaApp
+|17
+
+|IZizalaApp
+|0
+
+|CZizaliWindow
+|6
+
+|IZizaliWindow
+|0
+
+|CObrazovka
+|10
+
+|IObrazovka
+|0
+|===
+
+=== Konstruktory
+
+|===
+|Třída |Adresa konstruktoru |Přiřazení VMT
+
+|CZizala
+|`0x4010E0`
+|`0x401113`
+
+|CZizalaApp
+|`0x401A70`
+|`0x401A8A`
+
+|CZizaliWindow
+|`0x402220`
+|`0x402248`
+
+|CObrazovka
+|`0x40290E`
+|`0x402293`
+|===
+
+=== Hierarchie tříd
+
+image::class-hierarchy.png[Hierarchie tříd]

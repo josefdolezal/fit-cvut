@@ -1,4 +1,4 @@
-build: clean bisi2 bitex biemp fiksa miadp mispi fifil miaph miibe mipdb
+build: clean bisi2 bitex biemp fiksa miadp mispi fifil miaph miibe mipdb mirev
 
 bisi2:
 	latexmk -pdf BI-SI2/notes/bi-si2
@@ -29,6 +29,9 @@ miibe:
 
 mipdb:
 	latexmk -pdf MI-PDB/mi-pdb
+
+mirev:
+	latexmk -pdf MI-REV/notes/mi-rev
 
 clean:
 	latexmk -c

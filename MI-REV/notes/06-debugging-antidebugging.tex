@@ -1,0 +1,79 @@
+\section{Debugging a antidebugging}
+
+Debugger je nástroj pro hledání chyb za běhu aplikace -- dovoluje zkoumat na úrovni strojového kódu nebo disassembly.
+Umožňuje spustit aplikaci, krokovat v ní, nastavit proměnné, vyhodnocovat jména symbolů, zpětný debug (návra zpět v kódu) a vzdálené ladění.
+Rozlišujeme několik typů:
+
+\begin{description}
+    \item[V uživatelském režimu] ladění běžných aplikací,
+    \item[Jádrový] umožňuje ladění jádra a ovladačů,
+    \item[Zdrojového kódu] integrovaný do IDE, umožňuje debug na úrovni zdrojového kódu (řádky),
+    \item[Nízkoúrovňový] na úrovni assembleru.
+\end{description}
+
+Debugger si buď vytvoří debugovaný proces (debugee) nebo se připojí k existujícímu.
+Zpracovává události v ladící smyčce.
+
+\subsection*{Připojení debuggeru}
+
+\begin{description}
+    \item[Neinvazivní] Nepřipojí se k aplikaci, jen přečte stav z pozastavených vláken -- pouze částečná kontrola,
+    \item[Invazivní] aplikace má připojený právě jeden -- jsou mu posílány debugovací události (create process, create thread, load ddl, exit, \dots).
+\end{description}
+
+\subsection*{Trasování (Trace)}
+
+Umožňuje sledovat tok řízení programu -- buď na úrovni funkcí nebo instrukcí.
+Spomaluje vlákna, protože debugger musí po každé instrukci aktualizovat log.
+Existují API na čtení a zápis do paměti procesu, stejně tak je možné pomocí kontextu zkoumat aktuální registry (a zapisovat do nich).
+
+\subsection*{Softwarové Breakpointy}
+
+Přerušení/výjimky vyvolané softwarem informujícím jádro OS o nutné změně toku programu.
+Obsluha se bereze z registru \texttt{FS:[0]} -- hledání vhodného handleru.
+
+Instalace probíhá pomocí přepsání prvního byte na zvolené adrese.
+Při obsluze snížíme EIP o 1 a vrátíme původní byte.
+
+Lze ho lehce detekovat, ale má neomezeně breakpointů, může měnit pamět a detekovat spuštění instrukce.
+
+\subsection*{Hardwarové breakpointy}
+
+Na architektuře x86 jich existuje 6.
+Např. na sdělení aplikaci debugovací situace (DR6), debug control (DR7 - obsahuje příznay přeručsení), DR0-DR3 s adresou HW breakpointu.
+
+Je podporován většinou debuggerů, nelze ho tak jednoduše detekovat (nemění obsah paměti).
+Může použít omezené množství breakpointů.
+
+
+\subsection*{Debugování jádra}
+
+Není jednoduché jako lokální -- potřeba řídit z jiného stroje, aby bylo možné jádro pozastavit.
+Veškerá paměť se stále mění -- kernel stále běží, nejsou dostupné breakpointy ani práce se zásobníkem/registry.
+
+\subsection*{Antidebugging}
+
+Obrana proti debugovaní.
+Aplikace detekuje připojení debuggeru a snaží se mu uniknout (nebo ho ukončit).
+
+Lze použít standardní API pro detekci přítomnosti debuggeru -- debugger ale může i tuto hodnotu ovlivnit.
+
+Při připojení je navíc v interní struktuře \texttt{ProcesHeap}, pole \texttt{0x10} od začátku je \texttt{ForceFlags} -- při vytvoření haldy debuggerem je nenulové -- lze spustit s vypnutou haldou.
+
+Globální příznak \texttt{NTGlobalFlag} -- má nastavené bity ale nelze se na to spolehnout.
+Bránit se dá přepsáním.
+
+Proces může sledovat další spuštěné procesy -- pokud je spuštěný debugger může na to reagovat.
+
+Detekce se dá dělat pomocí časování -- měří se čas volání funkcí -- při spuštěném debuggeru je delší.
+
+Je možné navíc donutit debugujícího uživatele vypnout upozornění na výjimky a následně v jejich obsluze schovat důležitý kód.
+
+\subsection*{Únik z debuggeru}
+
+\begin{itemize}
+    \item proces se připojí sám k sobě jako debugger,
+    \item injektáž kódu do jiného procesu,
+    \item schování kódu do handleru výjimky (do řetězce pak lze vložit stovky falešných handlerů),
+    \item spuštění kódu v \texttt{initterm} před vlastní metodou main.
+\end{itemize}

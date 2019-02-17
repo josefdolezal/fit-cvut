@@ -1,0 +1,20 @@
+\section{Přednáška 5 -- Rozpoznání kompilátoru}
+
+Rozpoznání kompilátoru umožňuje zmenšit množství analyzovaného kódu -- známé výstupy kompilátoru mohou být vynechány.
+Rozpoznáním jsme schopni určit rozložení dat a kódu uvnitř binárního souboru.
+
+Kompilátory od MS lze poznat pomocí linkovaných DDL a speciálního dekorování (začínají znakem \texttt{?}).
+
+Z kódu lze typicky vynechat např. vstupní bod programu (je silně závislý na kompilátoru, nepřináší mnoho informací).
+Stejně tak není nutné analyzovat knihovní kód -- je možné využít dokumentaci (?).
+
+\subsection*{Signatury knihoven}
+
+Knihovny se rozpoznávají pomocí signatur.
+Signatury se vytváří na základě zdrojového kódu.
+Signaturu každé funkce vytvoříme např. pomocí prvních \texttt{X} bytů strojového kódu funkce.
+
+\subsection*{Rozpoznání linkovaných knihoven}
+
+Dynamicky linkované knihovny je možné rozpoznat pomocí programů, které prochází importní tabulku.
+Pro staticky linkované knihovny je možné hledat informace (o verzích, copyrightu, chybových hlášení, \dots) v uložených řetězcích.

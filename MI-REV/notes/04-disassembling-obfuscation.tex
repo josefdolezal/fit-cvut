@@ -1,0 +1,102 @@
+\section{Přednáška 4 -- Disassembling a obfuskace}
+
+Disassembling je proces překladu binárního kódu do člověkem čitelného assembly cílového procesoru.
+Provádí se pomocí disassembleru a jeho výsledek se používá pro statickou i dynamickou analýzu.
+Obsahuje ale velké množství kódu a postrádá spoustu informací, navíc míchá data a kód.
+
+\subsection*{Lineární průchod}
+
+Disassemblování lineárně byte po bytu od začátku sekce \texttt{.text} až do konce.
+Jakmile je jedna instrukce disassemblována, pokračuje se na další.
+Rychlý a jednoduchý způsob.
+
+Disassembler je ale jednoduché zmást nejednoznačným tokem kódu nebo mícháním dat a kódu.
+Sám o sobě je tato metoda nedostatečná.
+
+\subsubsection*{Rekurzivní průchod}
+
+Oproti linárnímu sleduje tok kódu.
+Průchod začíná na vstupu programu, navštívené adresy jsou pak označeny.
+
+Při analýze instrukce skoku se zapamatuje návratová hodnota a rekurzivně disassembluje kód na adrese skoku.
+Po vynoření z rekurze pokračuje dál.
+
+Předpokládá, že z každé instrukce je možné určit všechny následné (neplatí např. pro switch).
+Nenavštívené adresy jsou pak pokládany za data.
+
+\subsection*{Rozšířený lineární průchod}
+
+Oproti linárnímu průchodu dokáže rozeznat data v sekci \texttt{.text}.
+Pomocí relokačních údajů najde začátek skokových tabulek a označí je jako data (kromě prvních dvou záznamů, ty mohou být na x86 součástí instrukce).
+Následně na každou nedosažitelnou adresu z \texttt{.text} spustí linární průchod (zastaví se u první navštívené instrukce).
+Pokud navíc poslední instrukce přetekla do označené instrukce, je označena jako data.
+
+\subsection*{Hybridní průchod}
+
+Využívá spojení lineárního rozšířeného a rekurzivního průchodu.
+Lineární je použitý na prvotní analýzu, rekurzivní na ověření každé nalezené funkce.
+Z každé instrukce každé funkce pouští rekurzivní průchod, pokud nějaká instrukce nalezená rekurzivním nebyla dříve nalezena linárním, dojde k chybě.
+
+\subsection*{Obfuskace}
+
+Motivací obfuskace je utajení kódu a ztížení jeho porozumění.
+Používá se pro zabránění RI schémat sériových čísel, prolomení ochrany proti kopírování, zjištění DRM\dots
+
+Cílem je zmást disassembler, debugger, decompiler i reverzního inženýra.
+Obfuskace činí transformační cíl (objekte, který má být obfuskován -- zdrojový kód, ale i binárka).
+
+\subsection*{Obfuskační metriky}
+
+U obfuskace zkoumáme transformační metriky -- potence, odolnost a cena.
+Potence $T$ jak moc transformace $P$ na $P'$ zmate čtenáře: $T = E(P')/E(P) - 1$.
+Jako $E(P)$ označujeme složitost nějaké metriky (délka, cyklomatická složitost, vnoření, datový tok, \dots).
+
+Dále měříme odolnost -- složitost odstranění transformace automatickým deobfuskátorem.
+Zde měříme čas jeho vytvoření a čas běhu.
+
+\subsection*{Obfuskace rozložení}
+
+Zaměřuje se na lexikální strukturu aplikace -- formátování, jména proměnných (tříd, funkcí), rozložení tříd a struktur.
+Má nulovou cenu a střední až vysokou potenci.
+Transformace je jednosměrná.
+
+\subsection*{Transformace řízení}
+
+Rozlišujeme tři základní:
+
+\begin{description}
+    \item[Transformace agregace] rozdělení výpočtů, které k sobě patří a spojení těch co nepatří,
+    \item[Transformace pořadí] náhodné pořadí výpočtů,
+    \item[Transformace výpočtu] přidání mrtvého nebo zbytečného kódu, modifikace algoritmů. 
+\end{description}
+
+\subsection*{Neprůhledné predikáty a proměnné}
+
+Proměnné a predikáty, jejichž hodnota je známá obfuskujícímu v době obfuskace, ale pro deobfuskátora není snadná odhadnout.
+Skládá se z konstruktu \texttt{if} na proměnnou, u které vždy víme jak výsledek dopadne.
+Do druhé větve tak můžeme vložit kód, který není spustitelný ale zmate deobfuskátor (např. instrukci \texttt{\_emit E9}, která je přeložena jako \texttt{jmp} a očekává operand) -- detekoatelné rekurzivním průchodem.
+Lze snadno odstranit (buď člověkem nebo automaticky -- nízká potence), ale je levná.
+
+\subsection*{Transformace výpočtu}
+
+\begin{description}
+    \item[Vkládání mrtvého kódu] Vkládání kódu, který má zmást čtenáře (duplicitní výpočty, nesouvisející kód, nedosažitelný kód, \dots),
+    \item[Rozšíření podmínek cyklů] rozšíření ukončovacích podmínek/zahrnutí neprůhledného predikátu,
+    \item[Reducibilní CFG na ireducibilní] používání konstruktů, které nejsou reprezentovatelné na vyšší úrovni (např. \texttt{goto}) -- potence závisí na jazyku, cena je ale nízká,
+    \item[Odstranění knihovních volání] např. implementace vlastního STL atd.,
+    \item[Tabulková interpretace] podobné jako miniaturní virtuální stroj -- pomocí smyčky se posílají příkazy do switch/goto která vykonává v každém cyklu kus operace -- vysoká odolnost i potence, ale drahá,
+    \item[Redundantní argumenty] přidání argumentů funkcím ale i mat. operacím (s neprůhlednými argumenty) -- střední potence, slabá odolnost ale levná,
+    \item[Paralelizace kódu] buď datově nezávislá (každé vlákno jiný kód) nebo závislá (vlákna se navzájem blokují) -- vysoká potence, silná odolnost ale drahá,
+    \item[Inlining] nahrazení volání funkce jejím tělem -- střední potence, odolnost jednosměná a cena levná,
+    \item[Outlining] opak inliningu -- potentní a odolný (ve spojení s inliningem),
+    \item[Interleaving] Spojení více funkcí do jedné spolu s novým parametrem (implementace je vybrána parametrem) -- drahá, slabá odolnost,
+    \item[Klonování] větvení kódu pomocí výběru metod -- virtuální metody -- podtřídy vznikají každá jinou obfuskací ale každá dělá to samé.
+\end{description}
+
+\subsection*{Transformace smyček}
+
+\begin{description}
+    \item[Loop Blocking] Rozdělení těla smyčky do několika částí aby se vešly do cache,
+    \item[Loop Unrolling] optimalizace -- rozbaluje smyčku kopírováním pod sebe,
+    \item[Loop Fission] Rozdělení smyček na víc samostatných se stejným iteračním mechanismem -- mohou pak běžet paralelně.
+\end{description}

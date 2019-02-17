@@ -1,0 +1,65 @@
+\section{Přednáška 2 -- CFG}
+
+Znázorně tok kódu pomocí grafu.
+Graf dělíme do (základní) bloků -- maximální posloupnosti po sobě jdoucích instrukcí, do které lze vstoupit jedině první a opustit jedině poslední instrukcí.
+
+\subsection*{Podmínka -- If}
+
+\img{cfg-if.png}{Podmínka if}{cfg-if}{0.6}
+
+\subsection*{Podmínka -- If-then-else}
+
+\img{cfg-if-else.png}{Podmínka if-then-else}{cfg-if-else}{0.8}
+
+\subsection*{Cyklus -- While}
+
+\img{cfg-while.png}{Cyklus while}{cfg-while}{0.8}
+
+\subsection*{Cyklus -- For}
+
+\img{cfg-for.png}{Cyklus for}{cfg-for}{0.7}
+
+Pokud vynecháme přikaz inkrementování, dostaneme podobnou strukturu jako u \texttt{while}.
+Při dekompilaci není jednoznačně možné určit jaký typ smyčky byl použit.
+
+\subsection*{Switch}
+
+\img{cfg-switch-1.png}{Switch pomocí sub/dec}{cfg-switch-1}{0.8}
+\img{cfg-switch-2.png}{Switch pomocí cmp}{cfg-switch-2}{0.8}
+\img{cfg-switch-3.png}{Switch pomocí skokové tabulky}{cfg-switch-3}{0.8}
+
+\subsection*{Vstupní bod}
+
+Vstupní bod není metoda \texttt{main}, ale jiná -- inicializační -- funkce.
+Její RVA je uvedena v poli \texttt{AddressOfEntryPoint}.
+Poskytuje jí runtime knihovna, může se jmenovat např. \texttt{mainCRTStartup} (závisí např. na použití Unicodu).
+
+Volá funkce \texttt{initterm\_e} (volající inicializaci zařízenou kompilátorem) a \texttt{initterm} (připravující argumenty pro main, volání konstruktorů a globálních proměnných).
+Následuje volání main funkce programu.
+
+Pro volání funkci na konci programu (např. destrukce objektů) můžeme zaregistrovat handler metodou \texttt{atexit}, která při ukončení programu (funkcí \texttt{exit}) postupně tyto funkce volá.
+
+\subsection*{Kódování ukazatelů}
+
+Ukazatele na zásobníku by mohly být útočníkem přepsány ke spuštění jiného kódu.
+Lze tomu zabránit pomocí API funkcí \texttt{EncodePointer} a \texttt{DecodePointer}.
+
+\subsection*{Hot Patching}
+
+Při zapnutné podpoře Hot Patching mají před sebou funkce 5 volných \texttt{nop} instrukcí.
+Funkce navíc začínají \uv{prázdnou} instrukcí \texttt{mov edi, edi}.
+To dává dohromady 7B, které je možné využít ke krátkému skoku na žátek \texttt{nop} sekce a následně využít klasický skok na novou funkci.
+To bez potřeby restartu.
+
+\subsection*{Nepřímé skoky}
+
+Umožňují za běhu nahradit libovolnou za běhu.
+Nahrazenou funkci můžeme samostatně zkompilovat a \uv{injektovat} do běžící funkce.
+
+\subsection*{Import Address Table}
+
+Umístěna v sekci \texttt{.rdata} (je tedy pouze pro čtení).
+Obsahuje nalinkované moduly a jejich jména symbolů jsou v importním adresáři (\texttt{ImportDirectory}).
+Všechna volání externího API prochází jediným bodem programu -- záznamem v IAT.
+
+IAT je standardně v sekci pouze pro čtení -- pro modifikace (není standardní chování) je potřeba blok paměti \uv{odemknout}.

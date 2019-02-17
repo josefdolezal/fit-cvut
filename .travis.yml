@@ -23,6 +23,7 @@ deploy:
     - mi-aph.pdf
     - mi-ibe.pdf
     - mi-pdb.pdf
+    - mi-rev.pdf
   skip_cleanup: true
   on:
     repo: josefdolezal/fit-cvut
