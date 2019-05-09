@@ -35,6 +35,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 * [Semestr 1](#msp-semestr-1-zs-201718) - MI-ADP, MI-MDW, FI-FIL, MI-PAA
 * [Semestr 2](#msp-semestr-2-ls-201718) - MI-AFP, MI-PDP, MI-SPI, MI-PSL
 * [Semestr 3](#msp-semestr-3-zs-201819) - MI-APH, MI-IBE, MI-MPC, MI-PDB, MI-REV
+* [Semestr 4](#msp-semestr-4-ls-201819) - MI-DIP ¯\\_(ツ)_/¯
 
 ### BSP Semestr 1 (ZS 2014/15)
 * [BI-CAO](BI-CAO/)
@@ -170,6 +171,12 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
   * [Domácí úloha 3](MI-REV/assignment-03) - Hierarchie tříd
   * [Semestrální práce 2](semester-project-02) - Hesla
   * [Výpisky z prezentací](MI-REV/notes)
+
+### MSP Semestr 4 (LS 2018/19)
+* [MI-DIP - Samostatný repozitář](https://github.com/josefdolezal/fit-mi-dip) - Data Management Plans Migration for the DS Wizard Tool
+  * Rešeršní práce
+  * [Implementační část práce - frontend](https://github.com/ds-wizard/dsw-client)
+  * [Implementační část práce - server](https://github.com/ds-wizard/dsw-server)
 
 ## Poznámka
 Uvedené zdrojové kódy nebo jejich části slouží pro inspiraci a jako demonstrace možného řešení problému.
