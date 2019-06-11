@@ -31,7 +31,7 @@ Zkompilované `LaTeX`ové dokumenty jsou v záložce [Releases](https://github.c
 * [Semestr 5](#bsp-semestr-5-zs-201617) - BI-SI2, BI-AG1, BI-PRR, BI-BIG
 * [Semestr 6](#bsp-semestr-6-ls-201617) - BI-BAP, BI-TEX, BI-AG2, BI-EMP, FI-KSA
 
-### Magisterské studium (2017-)
+### Magisterské studium (2017-2019)
 * [Semestr 1](#msp-semestr-1-zs-201718) - MI-ADP, MI-MDW, FI-FIL, MI-PAA
 * [Semestr 2](#msp-semestr-2-ls-201718) - MI-AFP, MI-PDP, MI-SPI, MI-PSL
 * [Semestr 3](#msp-semestr-3-zs-201819) - MI-APH, MI-IBE, MI-MPC, MI-PDB, MI-REV
